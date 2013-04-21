@@ -52,7 +52,7 @@
         $session->set('temp_user_id', $login_output['temp_user_id']); /* for use with activate_account.php only! */
 
         $redirect_url = ($login_output['redirect_url'] == 'sell_item') ? 'sell_item.php' : $login_output['redirect_url'];
-        $redirect_url = (eregi('account_activate', $redirect_url)) ? 'members_area.php' : $redirect_url;
+        $redirect_url = (stristr($redirect_url, 'account_activate')) ? 'members_area.php' : $redirect_url;
 
         header_redirect($db->add_special_chars($redirect_url));
       }

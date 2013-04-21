@@ -21,7 +21,7 @@
 ## we will add lightbox to the variable below to be applied automatically to all skins
   $page_meta_tags = $meta_tags_details['meta_tags'];
 
-  if (eregi('auction_details.php', $_SERVER['PHP_SELF'])) {
+  if (stristr($_SERVER['PHP_SELF'], 'auction_details.php')) {
     $page_meta_tags .= '<script type="text/javascript" src="lightbox/js/prototype.js"></script> 
 		<script type="text/javascript" src="lightbox/js/scriptaculous.js?load=effects,builder"></script> 
 		<script type="text/javascript" src="lightbox/js/lightbox.js"></script> 
@@ -129,7 +129,7 @@
     $template->set('menu_box_content', $menu_box_content);
   }
 
-  if ($setts['enable_header_counter'] && eregi('index.php', $_SERVER['PHP_SELF'])) {
+  if ($setts['enable_header_counter'] && stristr($_SERVER['PHP_SELF'], 'index.php')) {
     $template->set('header_site_status', header5(MSG_SITE_STATUS));
 
     $template->set('nb_site_users', $db->count_rows('users', "WHERE active='1'"));

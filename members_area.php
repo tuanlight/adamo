@@ -152,7 +152,7 @@
 
       $eoa_fee->set_fees($session->value('user_id'));
 
-      if (eregi('b', $eoa_fee->fee['endauction_fee_applies'])) {
+      if (stristr($eoa_fee->fee['endauction_fee_applies'], 'b')) {
         $unpaid_fees = $db->count_rows('winners', "WHERE buyer_id='" . $session->value('user_id') . "' AND active!=1 AND payment_status!='confirmed'");
 
         if ($unpaid_fees) {
@@ -161,7 +161,7 @@
             ' [ <a href="' . $page_link . '">' . MSG_WON_ITEMS_PAGE . '</a> ] ' . MSG_UNPAID_EOAFEES_B . '.</p>';
         }
       }
-      else if (eregi('s', $eoa_fee->fee['endauction_fee_applies'])) {
+      else if (stristr($eoa_fee->fee['endauction_fee_applies'], 's')) {
         $unpaid_fees = $db->count_rows('winners', "WHERE seller_id='" . $session->value('user_id') . "' AND active!=1 AND payment_status!='confirmed'");
 
         if ($unpaid_fees) {
@@ -835,7 +835,7 @@
 
               $sale_fee->set_fees($item_details['buyer_id'], $item_details['category_id']); ## MyPHPAuction 2009 by default the seller will pay
 
-              if (eregi('b', $sale_fee->fee['endauction_fee_applies'])) {
+              if (stristr($sale_fee->fee['endauction_fee_applies'], 'b')) {
                 $content_options = '&#8226; <a href="fee_payment.php?do=sale_fee_payment&winner_id=' . $item_details['winner_id'] . '">' . MSG_PAY_ENDAUCTION_FEE . '</a>';
               }
               else {
@@ -1914,7 +1914,7 @@
 
               $sale_fee->set_fees($item_details['seller_id'], $item_details['category_id']); ## MyPHPAuction 2009 by default the seller will pay
 
-              if (eregi('s', $sale_fee->fee['endauction_fee_applies'])) {
+              if (stristr($sale_fee->fee['endauction_fee_applies'], 's')) {
                 $content_options = '&#8226; <a href="fee_payment.php?do=sale_fee_payment&winner_id=' . $item_details['winner_id'] . '">' . MSG_PAY_ENDAUCTION_FEE . '</a>';
               }
               else {

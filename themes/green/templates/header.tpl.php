@@ -222,7 +222,7 @@
                                                   ?>  "> <!--!!!!!!!!!!!!!without menu-->
                                               <table border="0" cellspacing="0" cellpadding="0">
                                                 <tr align="center">
-                                                  <?php if (eregi("index.php", $_SERVER['PHP_SELF'])) { ?>
+                                                  <?php if (stristr($_SERVER['PHP_SELF'], "index.php")) { ?>
                                                       <td nowrap class="mainmenu">&nbsp;<a href="<?php echo $index_link; ?>"><?php echo MSG_BTN_HOME; ?></a>&nbsp;</td>
                                                     <?php }
                                                     else {
@@ -231,7 +231,7 @@
                                                       <?php
                                                     }
                                                     if (!$setts['enable_private_site'] || $is_seller) {
-                                                      if (eregi("sell_item.php", $_SERVER['PHP_SELF'])) {
+                                                      if (stristr($_SERVER['PHP_SELF'], "sell_item.php")) {
                                                         ?>
                                                         <td nowrap class="mainmenu"style="display:none">&nbsp;<a href="<?php echo $place_ad_link; ?>"><?php echo $place_ad_btn_msg; ?></a>&nbsp;</td>
                                                       <?php }
@@ -241,14 +241,14 @@
                                                         <?php
                                                       }
                                                     }
-                                                    if (eregi("members_area.php", $_SERVER['PHP_SELF']) || eregi("register.php", $_SERVER['PHP_SELF'])) {
+                                                    if (stristr($_SERVER['PHP_SELF'], "members_area.php") || stristr($_SERVER['PHP_SELF'], "register.php")) {
                                                       ?>
                                                       <td nowrap class="mainmenu">&nbsp;<a href="<?php echo $register_link; ?>"><?php echo $register_btn_msg; ?></a>&nbsp;</td>
                                                     <?php }
                                                     else {
                                                       ?>
                                                       <td nowrap class="mainmenu" style="display:none">&nbsp;<a href="<?php echo $register_link; ?>"><?php echo $register_btn_msg; ?></a>&nbsp;</td>
-                                                    <?php } if (eregi("login.php", $_SERVER['PHP_SELF'])) { ?>
+                                                    <?php } if (stristr($_SERVER['PHP_SELF'], "login.php")) { ?>
                                                       <td nowrap class="mainmenu"style="display:none">&nbsp;<a href="<?php echo $login_link; ?>"><?php echo $login_btn_msg; ?></a>&nbsp;</td>
                                                     <?php }
                                                     else {
@@ -256,7 +256,7 @@
                                                       <td nowrap class="mainmenu"style="display:none">&nbsp;<a href="<?php echo $login_link; ?>"><?php echo $login_btn_msg; ?></a>&nbsp;</td>
                                                     <?php
                                                     } if ($setts['enable_stores']) {
-                                                      if (eregi("stores.php", $_SERVER['PHP_SELF'])) {
+                                                      if (stristr($_SERVER['PHP_SELF'], "stores.php")) {
                                                         ?>
                                                         <td nowrap class="mainmenu">&nbsp;<a href="<?php echo process_link('stores'); ?>"><?php echo MSG_BTN_STORES; ?></a>&nbsp;</td>
     <?php }
@@ -267,7 +267,7 @@
     }
   }
   if ($setts['enable_wanted_ads']) {
-    if (eregi("wanted_ads.php", $_SERVER['PHP_SELF'])) {
+    if (stristr($_SERVER['PHP_SELF'], "wanted_ads.php")) {
       ?>
                                                         <td nowrap class="mainmenu">&nbsp;<a href="<?php echo process_link('wanted_ads'); ?>"><?php echo MSG_BTN_WANTED_ADS; ?></a>&nbsp;</td>
                                                 <?php }
@@ -286,7 +286,7 @@
                                                       <td nowrap class="mainmenu" style="display:none">&nbsp;<a href="<?php echo process_link('content_pages', array('page' => 'help')); ?>"><?php echo MSG_BTN_HELP; ?></a>&nbsp;</td>
   <?php
   }
-  if (eregi("site_fees.php", $_SERVER['PHP_SELF'])) {
+  if (stristr($_SERVER['PHP_SELF'], "site_fees.php")) {
     ?>
                                                       <td nowrap class="mainmenu">&nbsp;<a href="<?php echo process_link('site_fees'); ?>"><?php echo MSG_BTN_SITE_FEES; ?></a>&nbsp;</td>
   <?php }

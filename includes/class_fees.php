@@ -709,7 +709,7 @@
         if ($winner_details['auction_id'] > 0) {
           $this->set_fees($winner_details['seller_id'], $winner_details['category_id']);
 
-          $payer_id = (eregi('b', $this->fee['endauction_fee_applies'])) ? $winner_details['buyer_id'] : $winner_details['seller_id'];
+          $payer_id = (stristr($this->fee['endauction_fee_applies'], 'b')) ? $winner_details['buyer_id'] : $winner_details['seller_id'];
 
           $invoice_name = GMSG_ENDAUCTION_FEE . ' - ' . MSG_AUCTION_ID . ': ' . $winner_details['auction_id'];
 
@@ -1326,7 +1326,7 @@
 
       $this->set_fees($item_details['owner_id'], $item_details['category_id']); ## by default the seller will pay
 
-      if (eregi('b', $this->fee['endauction_fee_applies'])) {
+      if (stristr($this->fee['endauction_fee_applies'], 'b')) {
         $payer_id = $winning_bid_details['buyer_id'];
         $this->set_fees($winning_bid_details['buyer_id']); ## if buyer will pay, reset fees
       }
