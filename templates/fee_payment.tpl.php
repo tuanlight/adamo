@@ -1,17 +1,15 @@
-﻿<?php
+<?php
 #################################################################
 ## MyPHPAuction 2009															##
 ##-------------------------------------------------------------##
-## Copyright ©2009 MyPHPAuction. All rights reserved.	##
+## Copyright �2009 MyPHPAuction. All rights reserved.	##
 ##-------------------------------------------------------------##
 #################################################################
 
-  if (!defined('INCLUDED')) {
-    die("Access Denied");
-  }
+if ( !defined('INCLUDED') ) { die("Access Denied"); }
 ?>
-<?php echo $members_area_header; ?>
+<?php echo $members_area_header;?>
 <br>
-<?php echo $fee_payment_header; ?>
+<?php echo $fee_payment_header;?>
 <br>
-<?php echo $payment_table_display; ?>
+<?php echo $payment_table_display;?>
