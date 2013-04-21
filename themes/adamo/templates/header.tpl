@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
@@ -32,25 +32,25 @@
                 <script type='text/javascript' src="{$theme_path}js/main.js"></script>
                 <script type="text/javascript" src="themes/<?php echo $setts['default_theme']; ?>/js/countdownpro.js" defer="defer"></script>
                 <script type="text/javascript">
-                var currenttime = '$current_time_display';
-                var serverdate = new Date(currenttime);
+                    var currenttime = '$current_time_display';
+                    var serverdate = new Date(currenttime);
 
-                function padlength(what) {
-                  var output = (what.toString().length == 1) ? "0" + what : what;
-                  return output;
-                }
+                    function padlength(what) {
+                        var output = (what.toString().length == 1) ? "0" + what : what;
+                        return output;
+                    }
 
-                function displaytime() {
-                  serverdate.setSeconds(serverdate.getSeconds() + 1)
-                  var timestring = padlength(serverdate.getHours()) + ":" + padlength(serverdate.getMinutes()) + ":" + padlength(serverdate.getSeconds());
-                  document.getElementById("servertime").innerHTML = timestring;
-                }
+                    function displaytime() {
+                        serverdate.setSeconds(serverdate.getSeconds() + 1)
+                        var timestring = padlength(serverdate.getHours()) + ":" + padlength(serverdate.getMinutes()) + ":" + padlength(serverdate.getSeconds());
+                        document.getElementById("servertime").innerHTML = timestring;
+                    }
 
-                window.onload = function() {
-                  setInterval("displaytime()", 1000);
-                }
+                    window.onload = function() {
+                        setInterval("displaytime()", 1000);
+                    }
 
-              </script>
+                </script>
             {/block}
         </head>
         <body>

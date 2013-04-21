@@ -37,8 +37,7 @@
 
       $template->set('msg_changes_saved', '<p align="center">' . $retract_output['display'] . '</p>');
     }
-    if (!$start)
-      $start = 0;
+
     $limit = 20;
 
     $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'a.auction_id';
@@ -66,17 +65,17 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $bid_history_content .= '<tr class="' . $background . '"> ' .
-          '	<td> ' . $bid_details['auction_id'] . '</td>' .
-          '	<td> ' . $bid_details['name'] . '</td>' .
-          '	<td align="center">' . $fees->display_amount($bid_details['bid_amount'], $bid_details['currency']) . '</td>' .
-          '	<td align="center">' . show_date($bid_details['bid_date']) . '</td>' .
-          '	<td align="center" class="contentfont">' . $bid_details['quantity'] . '</td> ' .
-          '	<td align="center" class="contentfont">' . $item->item_status($bid_details['active']) . '</td> ' .
-          '	<td align="center" class="contentfont">' . field_display($bid_details['bid_out'], GMSG_ACTIVE, GMSG_INACTIVE) . '</td> ';
+        '	<td> ' . $bid_details['auction_id'] . '</td>' .
+        '	<td> ' . $bid_details['name'] . '</td>' .
+        '	<td align="center">' . $fees->display_amount($bid_details['bid_amount'], $bid_details['currency']) . '</td>' .
+        '	<td align="center">' . show_date($bid_details['bid_date']) . '</td>' .
+        '	<td align="center" class="contentfont">' . $bid_details['quantity'] . '</td> ' .
+        '	<td align="center" class="contentfont">' . $item->item_status($bid_details['active']) . '</td> ' .
+        '	<td align="center" class="contentfont">' . field_display($bid_details['bid_out'], GMSG_ACTIVE, GMSG_INACTIVE) . '</td> ';
 
       if ($bid_details['closed'] == 0 && $bid_details['deleted'] == 0) {
         $bid_history_content .= '<td align="center" class="contentfont"> ' .
-            '	[ <a href="list_user_bids.php?option=retract_bid&bidder_id=' . $bid_details['bidder_id'] . '&auction_id=' . $bid_details['auction_id'] . $additional_vars . $order_link . $limit_link . '">' . MSG_RETRACT_BID . '</a> ]</td>';
+          '	[ <a href="list_user_bids.php?option=retract_bid&bidder_id=' . $bid_details['bidder_id'] . '&auction_id=' . $bid_details['auction_id'] . $additional_vars . $order_link . $limit_link . '">' . MSG_RETRACT_BID . '</a> ]</td>';
       }
       else {
         $bid_history_content .= '<td align=center>' . MSG_REMOVAL_IMPOSSIBLE . '</td>';

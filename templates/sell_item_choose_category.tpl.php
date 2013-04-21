@@ -261,11 +261,12 @@
 </SCRIPT>
 
 <?php echo $choose_category_expl_message; ?>
-<table width="100%" border="0" cellspacing="2" cellpadding="3" align="center" class="border">
+<table width="100%" border="0" cellspacing="2" cellpadding="3" align="center">
   <tr>
     <td class="c4" colspan="2"><b>
         <?php echo $choose_category_title; ?>
-      </b></td>
+      </b>
+    </td>
   </tr>
   <?php if ($current_step == 'addl_category') { ?>  
       <tr class="contentfont">
@@ -280,63 +281,81 @@
   <tr class="contentfont">
     <td width="100%" class="c2" colspan="2"><table cellspacing="5" cellpadding="2" border="0" width="100%">
         <tr valign="top" bgcolor="#ffffff">
-          <td align="middle" width="50%"><table id="table_0" cellspacing="5" border="0" width="100%">
+          <td align="middle" width="33%">
+            <table id="table_0" cellspacing="5" border="0" width="100%">
               <tr>
                 <td><?php echo $main_categories_select; ?></td>
               </tr>
-            </table></td>
-          <td align=middle width="50%"><table id=table_1 cellspacing=5 border=0 width=100%>
+            </table>
+          </td>
+          <td align=middle width="33%">
+            <table id=table_1 cellspacing=5 border=0 width=100%>
               <tr>
-                <td><select class="contentfont" id="selector_1" onchange="populate(1)" size="10" name="selector_1" style="width: 100%; ">
+                <td><select class="contentfont" id="selector_1" onchange="populate(1)" size="20" name="selector_1" style="width: 100%; ">
                     <option value=""></option>
-                  </select></td>
+                  </select>
+                </td>
               </tr>
-            </table></td>
+            </table>
+          </td>
+          <td align=middle width="33%">
+            <table id=table_2 cellspacing=5 border=0 width=100%>
+              <tr>
+                <td><select class="contentfont" id="selector_2" onchange="populate(2)" size="20" name="selector_2" style="width: 100%; ">
+                    <option value=""></option>
+                  </select>
+                </td>
+              </tr>
+            </table>
+          </td>
+
         </tr>
-        <tr valign=top bgcolor=#ffffff>
-          <td align=middle><table id=table_2 cellspacing=5 border=0 width=100%>
-              <tr>
-                <td><select class="contentfont" id="selector_2" onchange="populate(2)" size="7" name="selector_2" style="width: 100%; ">
-                    <option value=""></option>
-                  </select></td>
+        <!--
+              <tr valign=top bgcolor=#ffffff>
+                 <td align=middle><table id=table_2 cellspacing=5 border=0 width=100%>
+                       <tr>
+                          <td><select class="contentfont" id="selector_2" onchange="populate(2)" size="7" name="selector_2" style="width: 100%; ">
+                                <option value=""></option>
+                             </select></td>
+                       </tr>
+                    </table></td>
+                 <td align=middle><table id=table_3 cellspacing=5 border=0 width=100%>
+                       <tr>
+                          <td><select class="contentfont" id="selector_3"
+                          onchange="populate(3)" size="7" name="selector_3" style="width: 100%; ">
+                                <option value=""></option>
+                             </select></td>
+                       </tr>
+                    </table></td>
               </tr>
-            </table></td>
-          <td align=middle><table id=table_3 cellspacing=5 border=0 width=100%>
-              <tr>
-                <td><select class="contentfont" id="selector_3"
-                            onchange="populate(3)" size="7" name="selector_3" style="width: 100%; ">
-                    <option value=""></option>
-                  </select></td>
-              </tr>
-            </table></td>
-        </tr>
-        <tr valign=top bgcolor=#ffffff>
-          <td align=middle><table id=table_4 cellspacing=5 border=0 width=100%>
-              <tr>
-                <td><select class="contentfont" id="selector_4" onchange="populate(4)" size="7" name="selector_4" style="width: 100%; ">
-                    <option value=""></option>
-                  </select></td>
-              </tr>
-            </table></td>
-          <td align=middle><table id=table_5 cellspacing=5 border=0 width=100%>
-              <tr>
-                <td><select class="contentfont" id="selector_5"
-                            onchange="populate(5)" size="7" name="selector_5" style="width: 100%; ">
-                    <option value=""></option>
-                  </select></td>
-              </tr>
-            </table></td>
-        </tr>
-      </table></td>
+              <tr valign=top bgcolor=#ffffff>
+                 <td align=middle><table id=table_4 cellspacing=5 border=0 width=100%>
+                       <tr>
+                          <td><select class="contentfont" id="selector_4" onchange="populate(4)" size="7" name="selector_4" style="width: 100%; ">
+                                <option value=""></option>
+                             </select></td>
+                       </tr>
+                    </table></td>
+                 <td align=middle><table id=table_5 cellspacing=5 border=0 width=100%>
+                       <tr>
+                          <td><select class="contentfont" id="selector_5"
+                          onchange="populate(5)" size="7" name="selector_5" style="width: 100%; ">
+                                <option value=""></option>
+                             </select></td>
+                       </tr>
+                    </table></td>
+        -->
   </tr>
-  <?php echo $previously_selected_cats_list; ?>
-  <tr class="contentfont">
-  <input id="<?php echo $category_id_type; ?>" type="hidden" name="<?php echo $category_id_type; ?>">
-  <td class="c1" align="right"><table id="table_submit" cellspacing="2" border="0">
-      <tr>
-        <td><input id="form_next_step" type=submit value="<?php echo GMSG_NEXT_STEP; ?>" name="form_next_step"></td>
-      </tr>
-    </table></td>
+</table></td>
+</tr>
+<?php echo $previously_selected_cats_list; ?>
+<tr class="contentfont">
+<input id="<?php echo $category_id_type; ?>" type="hidden" name="<?php echo $category_id_type; ?>">
+<td class="c1" align="right"><table id="table_submit" cellspacing="2" border="0">
+    <tr>
+      <td><input id="form_next_step" type=submit value="<?php echo GMSG_NEXT_STEP; ?>" name="form_next_step"></td>
+    </tr>
+  </table></td>
 </tr>
 </table>
 <SCRIPT language=javascript>

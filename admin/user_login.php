@@ -39,8 +39,8 @@
       }
       else {
         $msg_changes_saved = '<table border="0" cellpadding="3" cellspacing="3" align="center" class="border"> ' .
-            '	<tr align="center" class="c1 contentfont"><td>' . AMSG_SPOOFER_LOGIN_SUCCESS_A . ' [ <b>' . $post_details['username'] . '</b> ]<br><br> ' .
-            '		<a href="../index.php" target="_blank">' . AMSG_CLICK_TO_PROCEED . '</a></td></tr></table><br>';
+          '	<tr align="center" class="c1 contentfont"><td>' . AMSG_SPOOFER_LOGIN_SUCCESS_A . ' [ <b>' . $post_details['username'] . '</b> ]<br><br> ' .
+          '		<a href="../index.php" target="_blank">' . AMSG_CLICK_TO_PROCEED . '</a></td></tr></table><br>';
 
         $session->set('membersarea', $login_output['active']);
         $session->set('username', $login_output['username']);

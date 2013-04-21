@@ -166,7 +166,7 @@
       <tr>
         <td class="c3" colspan="2"><strong>
             <?php echo GMSG_ENDAUCTION_FEE; ?>
-            - <?php echo (stristr($fee_row['endauction_fee_applies'], 's')) ? MSG_PAID_BY_SELLER : MSG_PAID_BY_BUYER; ?></strong> </td>
+            - <?php echo (eregi('s', $fee_row['endauction_fee_applies'])) ? MSG_PAID_BY_SELLER : MSG_PAID_BY_BUYER; ?></strong> </td>
       </tr>
       <tr class="c5">
         <td colspan="2"><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>

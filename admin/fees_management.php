@@ -112,16 +112,16 @@
           $background = ($counter++ % 2) ? 'c1' : 'c2';
 
           $fees_tiers_content .= '<input type="hidden" name="tier_id[]" value="' . $tier_details['tier_id'] . '"> ' .
-              '<tr class="' . $background . '"> ' .
-              '	<td><input name="fee_from[]" type="text" id="fee_from[]" value="' . $tier_details['fee_from'] . '" size="9"></td> ' .
-              '	<td><input name="fee_to[]" type="text" id="fee_to[]" value="' . $tier_details['fee_to'] . '" size="9"></td> ' .
-              '	<td><input name="fee_amount[]" type="text" id="fee_amount[]" value="' . $tier_details['fee_amount'] . '" size="9"></td> ' .
-              '	<td><select name="calc_type[]" id="calc_type[]"> ' .
-              '			<option value="flat" selected>' . GMSG_FLAT . '</option> ' .
-              '			<option value="percent" ' . (($tier_details['calc_type'] == 'percent') ? 'selected' : '') . '>' . GMSG_PERCENT . '</option> ' .
-              '		</select></td> ' .
-              '	<td align="center"><input type="checkbox" name="delete[]" value="' . $tier_details['tier_id'] . '"></td> ' .
-              '</tr>';
+            '<tr class="' . $background . '"> ' .
+            '	<td><input name="fee_from[]" type="text" id="fee_from[]" value="' . $tier_details['fee_from'] . '" size="9"></td> ' .
+            '	<td><input name="fee_to[]" type="text" id="fee_to[]" value="' . $tier_details['fee_to'] . '" size="9"></td> ' .
+            '	<td><input name="fee_amount[]" type="text" id="fee_amount[]" value="' . $tier_details['fee_amount'] . '" size="9"></td> ' .
+            '	<td><select name="calc_type[]" id="calc_type[]"> ' .
+            '			<option value="flat" selected>' . GMSG_FLAT . '</option> ' .
+            '			<option value="percent" ' . (($tier_details['calc_type'] == 'percent') ? 'selected' : '') . '>' . GMSG_PERCENT . '</option> ' .
+            '		</select></td> ' .
+            '	<td align="center"><input type="checkbox" name="delete[]" value="' . $tier_details['tier_id'] . '"></td> ' .
+            '</tr>';
         }
 
         $template->set('fees_tiers_content', $fees_tiers_content);

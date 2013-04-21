@@ -133,11 +133,11 @@
       }
 
       $default_box_types_content .= '<input type="hidden" name="type_id[]" value="' . $default_types_details['type_id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td>' . $default_types_details['box_type'] . '</td> ' .
-          '	<td><input name="maxfields[]" type="text" value="' . $default_types_details['maxfields'] . '" size="12" ' . $maxfields_readonly . '></td> ' .
-          '	<td>' . $maxfields_readonly_msg . '</td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td>' . $default_types_details['box_type'] . '</td> ' .
+        '	<td><input name="maxfields[]" type="text" value="' . $default_types_details['maxfields'] . '" size="12" ' . $maxfields_readonly . '></td> ' .
+        '	<td>' . $maxfields_readonly_msg . '</td> ' .
+        '</tr> ';
     }
 
     $template->set('default_box_types_content', $default_box_types_content);
@@ -151,15 +151,15 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $special_box_types_content .= '<input type="hidden" name="type_id[]" value="' . $default_types_details['type_id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td>' . $special_types_details['box_name'] . '</td> ' .
-          '	<td>' . $special_types_details['table_name_raw'] . '</td> ' .
-          '	<td>' . $special_types_details['box_type'] . '</td> ' .
-          '	<td>' . $special_types_details['box_value_code'] . '</td> ' .
-          '	<td align="center"> ' .
-          '		[ <a href="custom_fields_types.php?do=edit_field_type&type_id=' . $special_types_details['type_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
-          '		[ <a href="custom_fields_types.php?do=delete_field_type&type_id=' . $special_types_details['type_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td>' . $special_types_details['box_name'] . '</td> ' .
+        '	<td>' . $special_types_details['table_name_raw'] . '</td> ' .
+        '	<td>' . $special_types_details['box_type'] . '</td> ' .
+        '	<td>' . $special_types_details['box_value_code'] . '</td> ' .
+        '	<td align="center"> ' .
+        '		[ <a href="custom_fields_types.php?do=edit_field_type&type_id=' . $special_types_details['type_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
+        '		[ <a href="custom_fields_types.php?do=delete_field_type&type_id=' . $special_types_details['type_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+        '</tr> ';
     }
 
     $template->set('special_box_types_content', $special_box_types_content);

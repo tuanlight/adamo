@@ -11,8 +11,8 @@
   }
 ?>
 <!-- these two javascript calls need to be present everywhere where the calendar function is required -->
-<SCRIPT type="text/javascript" SRC="<?php echo BASE_PATH ?>/includes/calendar.js"></SCRIPT>
-<SCRIPT type="text/javascript">document.write(getCalendarStyles());</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="includes/calendar.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">document.write(getCalendarStyles());</SCRIPT>
 <SCRIPT LANGUAGE="JavaScript">
   function submit_form(form_name, file_type) {
     form_name.box_submit.value = "1";
@@ -33,8 +33,8 @@
     <td colspan="3"><?php echo MSG_ITEM_SETTINGS; ?></td>
   </tr>
   <tr class="c5">
-    <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="150" height="1"></td>
-    <td colspan="2"><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+    <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="150" height="1"></td>
+    <td colspan="2"><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
   </tr>
   <tr class="c1">
     <td width="150" align="right"><?php echo MSG_AUCTION_TYPE; ?></td>
@@ -262,8 +262,8 @@
         <td colspan="3"><?php echo MSG_AUTO_RELIST; ?></td>
       </tr>
       <tr class="c5">
-        <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="150" height="1"></td>
-        <td colspan="2"><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+        <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="150" height="1"></td>
+        <td colspan="2"><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
       </tr>
       <tr class="c1">
         <td width="150" align="right"><?php echo MSG_ENABLE_AUTO_RELIST; ?> </td>
@@ -294,8 +294,8 @@
     <td colspan="3"><?php echo MSG_LOCATION; ?></td>
   </tr>
   <tr class="c5">
-    <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="150" height="1"></td>
-    <td colspan="2"><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+    <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="150" height="1"></td>
+    <td colspan="2"><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
   </tr>
   <tr class="c1">
     <td width="150" align="right"><?php echo MSG_COUNTRY; ?> </td>
@@ -311,8 +311,8 @@
   </tr>
   <?php if ($auction_edit != 1) { ?>
       <tr class="c5">
-        <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
-        <td colspan="2"><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+        <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
+        <td colspan="2"><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
       </tr>
       <tr>
         <td></td>

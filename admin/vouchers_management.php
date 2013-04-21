@@ -70,30 +70,30 @@
     while ($voucher_details = $db->fetch_array($sql_select_vouchers)) {
       if ($voucher_details['voucher_type'] == 'signup') {
         $signup_vouchers_content .= '<tr class="c1"> ' .
-            '	<td>' . $voucher_details['voucher_name'] . '</td> ' .
-            '	<td>' . $voucher_details['voucher_code'] . '</td> ' .
-            '	<td>' . AMSG_START_DATE . ': <b>' . show_date($voucher_details['reg_date']) . '</b><br>' .
-            '		' . GMSG_EXPIRES_ON . ': <b>' . show_date($voucher_details['exp_date']) . '</b><br>' .
-            '		' . AMSG_USES_LEFT . ': <b>' . (($voucher_details['nb_uses']) ? $voucher_details['uses_left'] : GMSG_NA) . '</b>' .
-            '	</td> ' .
-            '	<td align="center"> ' .
-            '		[ <a href="vouchers_management.php?do=edit_voucher&voucher_id=' . $voucher_details['voucher_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
-            '		[ <a href="vouchers_management.php?do=delete_voucher&voucher_id=' . $voucher_details['voucher_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-            '</tr> ';
+          '	<td>' . $voucher_details['voucher_name'] . '</td> ' .
+          '	<td>' . $voucher_details['voucher_code'] . '</td> ' .
+          '	<td>' . AMSG_START_DATE . ': <b>' . show_date($voucher_details['reg_date']) . '</b><br>' .
+          '		' . GMSG_EXPIRES_ON . ': <b>' . show_date($voucher_details['exp_date']) . '</b><br>' .
+          '		' . AMSG_USES_LEFT . ': <b>' . (($voucher_details['nb_uses']) ? $voucher_details['uses_left'] : GMSG_NA) . '</b>' .
+          '	</td> ' .
+          '	<td align="center"> ' .
+          '		[ <a href="vouchers_management.php?do=edit_voucher&voucher_id=' . $voucher_details['voucher_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
+          '		[ <a href="vouchers_management.php?do=delete_voucher&voucher_id=' . $voucher_details['voucher_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+          '</tr> ';
       }
       else if ($voucher_details['voucher_type'] == 'setup') {
         $setup_vouchers_content .= '<tr class="c1"> ' .
-            '	<td>' . $voucher_details['voucher_name'] . '</td> ' .
-            '	<td>' . $voucher_details['voucher_code'] . '</td> ' .
-            '	<td>' . AMSG_START_DATE . ': <b>' . show_date($voucher_details['reg_date']) . '</b><br>' .
-            '		' . GMSG_EXPIRES_ON . ': <b>' . show_date($voucher_details['exp_date']) . '</b><br>' .
-            '		' . AMSG_USES_LEFT . ': <b>' . (($voucher_details['nb_uses']) ? $voucher_details['uses_left'] : GMSG_NA) . '</b><br>' .
-            '		' . AMSG_ASSIGNED_FEES . ': <b>' . $voucher_details['assigned_fees'] . '</b>' .
-            '	</td> ' .
-            '	<td align="center"> ' .
-            '		[ <a href="vouchers_management.php?do=edit_voucher&voucher_id=' . $voucher_details['voucher_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
-            '		[ <a href="vouchers_management.php?do=delete_voucher&voucher_id=' . $voucher_details['voucher_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-            '</tr> ';
+          '	<td>' . $voucher_details['voucher_name'] . '</td> ' .
+          '	<td>' . $voucher_details['voucher_code'] . '</td> ' .
+          '	<td>' . AMSG_START_DATE . ': <b>' . show_date($voucher_details['reg_date']) . '</b><br>' .
+          '		' . GMSG_EXPIRES_ON . ': <b>' . show_date($voucher_details['exp_date']) . '</b><br>' .
+          '		' . AMSG_USES_LEFT . ': <b>' . (($voucher_details['nb_uses']) ? $voucher_details['uses_left'] : GMSG_NA) . '</b><br>' .
+          '		' . AMSG_ASSIGNED_FEES . ': <b>' . $voucher_details['assigned_fees'] . '</b>' .
+          '	</td> ' .
+          '	<td align="center"> ' .
+          '		[ <a href="vouchers_management.php?do=edit_voucher&voucher_id=' . $voucher_details['voucher_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
+          '		[ <a href="vouchers_management.php?do=delete_voucher&voucher_id=' . $voucher_details['voucher_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+          '</tr> ';
       }
     }
 

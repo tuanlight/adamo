@@ -27,7 +27,7 @@
     }
 
     function value($variable) {
-      return @$_SESSION[SESSION_PREFIX . $variable];
+      return $_SESSION[SESSION_PREFIX . $variable];
     }
 
     function is_set($variable) {

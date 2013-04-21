@@ -10,9 +10,9 @@
     die("Access Denied");
   }
 ?>
-<SCRIPT type="text/javascript" SRC="<?php echo BASE_PATH ?>/includes/calendar.js"></SCRIPT>
-<SCRIPT type="text/javascript">document.write(getCalendarStyles());</SCRIPT>
-<SCRIPT type="text/javascript">
+<SCRIPT LANGUAGE="JavaScript" SRC="<?php echo (IN_ADMIN == 1) ? '../' : ''; ?>includes/calendar.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">document.write(getCalendarStyles());</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">
   function submit_form(form_name, file_type) {
     form_name.box_submit.value = "1";
     form_name.file_upload_type.value = file_type;
@@ -74,8 +74,8 @@
           <td colspan="3"><?php echo MSG_LIST_IN; ?></td>
         </tr>
         <tr class="c5">
-          <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="150" height="1"></td>
-          <td colspan="2"><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+          <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="150" height="1"></td>
+          <td colspan="2"><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
         </tr>
         <?php if (!$setts['enable_store_only_mode']) { ?>
           <tr class="c1">
@@ -92,8 +92,7 @@
         <tr>
           <?php if (!$setts['enable_store_only_mode']) { ?>
             <td width="150" align="right"></td>
-          <?php
-          }
+          <?php }
           else {
             ?>
             <td width="150" align="right"><?php echo MSG_LIST_IN; ?></td>
@@ -104,7 +103,7 @@
       </table>
       <br>
     <?php } ?>
-<?php  echo $edit_auction_content; ?>
+<?php echo $edit_auction_content; ?>
   <br />
   <table width="100%" border="0" cellpadding="3" cellspacing="2" class="border">
     <tr>

@@ -66,35 +66,35 @@
       }
 
       $compared_items_content .= '<td width="' . $width . '" align="center" valign="top" class="catfeatmaincell"> ' .
-          '<table width="100%" border="0" cellspacing="2" cellpadding="5" class="catfeattable"> ' .
-          '	<tr class="smallfont" height="110"> ' .
-          '		<td align="center" class="catfeatpic"><a href="' . $auction_link . '"><img src="' . (((!empty($main_image)) ? 'thumbnail.php?pic=' . $main_image . '&w=100&sq=Y' : 'themes/' . $setts['default_theme'] . '/img/system/noimg.gif')) . '" border="0" alt="' . $item_details['name'] . '"></a></td> ' .
-          '	</tr> ' .
-          '	<tr> ' .
-          '		<td class="catfeatc3"><b><a href="' . $auction_link . '">' . $item_details['name'] . '</a></b></td> ' .
-          '	</tr> ' .
-          '	<tr> ' .
-          '		<td class="catfeatc1"><b>' . GMSG_SELLER . ':</b> ' . $item_details['username'] . ' ' . user_pics($item_details['owner_id']) . ' </td> ' .
-          '	</tr> ' .
-          '	<tr> ' .
-          '		<td class="catfeatc1"><b>' . GMSG_START_TIME . ':</b> ' . show_date($item_details['start_time']) . ' <br> ' .
-          '			<b>' . GMSG_END_TIME . ':</b> ' . show_date($item_details['end_time']) . ' </td> ' .
-          '	</tr> ' .
-          '	<tr> ' .
-          '		<td class="catfeatc1"><b>' . MSG_START_BID . ':</b> ' . $fees->display_amount($item_details['start_price'], $item_details['currency']) . ' <br> ' .
-          '			<b>' . MSG_CURRENT_BID . ':</b> ' . $fees->display_amount($item_details['max_bid'], $item_details['currency']) . ' <br> ' .
-          '			<b>' . MSG_NR_BIDS . ':</b> ' . $item_details['nb_bids'] . '</td> ' .
-          '	</tr> ' .
-          '	<tr> ' .
-          '		<td class="catfeatc1"><b>' . GMSG_BUYOUT . ':</b> ' . (($item_details['buyout_price'] <= 0) ? GMSG_NO : GMSG_YES . ', <b>' . GMSG_PRICE . ': ' . $fees->display_amount($item_details['buyout_price'], $item_details['currency']) . '</b>') . ' </td> ' .
-          '	</tr> ' .
-          '	<tr> ' .
-          '		<td class="catfeatc1"><b>' . MSG_PAYMENT_METHODS . ':</b> <br>' . $pm_methods . ' </td> ' .
-          '	</tr> ' .
-          '	<tr> ' .
-          '		<td class="catfeatc1" align="center"><input type="checkbox" name="auction_id[]" value="' . $item_details['auction_id'] . '" checked></td> ' .
-          '	</tr> ' .
-          '</table></td> ';
+        '<table width="100%" border="0" cellspacing="2" cellpadding="5" class="catfeattable"> ' .
+        '	<tr class="smallfont" height="110"> ' .
+        '		<td align="center" class="catfeatpic"><a href="' . $auction_link . '"><img src="' . (((!empty($main_image)) ? 'thumbnail.php?pic=' . $main_image . '&w=100&sq=Y' : 'themes/' . $setts['default_theme'] . '/img/system/noimg.gif')) . '" border="0" alt="' . $item_details['name'] . '"></a></td> ' .
+        '	</tr> ' .
+        '	<tr> ' .
+        '		<td class="catfeatc3"><b><a href="' . $auction_link . '">' . $item_details['name'] . '</a></b></td> ' .
+        '	</tr> ' .
+        '	<tr> ' .
+        '		<td class="catfeatc1"><b>' . GMSG_SELLER . ':</b> ' . $item_details['username'] . ' ' . user_pics($item_details['owner_id']) . ' </td> ' .
+        '	</tr> ' .
+        '	<tr> ' .
+        '		<td class="catfeatc1"><b>' . GMSG_START_TIME . ':</b> ' . show_date($item_details['start_time']) . ' <br> ' .
+        '			<b>' . GMSG_END_TIME . ':</b> ' . show_date($item_details['end_time']) . ' </td> ' .
+        '	</tr> ' .
+        '	<tr> ' .
+        '		<td class="catfeatc1"><b>' . MSG_START_BID . ':</b> ' . $fees->display_amount($item_details['start_price'], $item_details['currency']) . ' <br> ' .
+        '			<b>' . MSG_CURRENT_BID . ':</b> ' . $fees->display_amount($item_details['max_bid'], $item_details['currency']) . ' <br> ' .
+        '			<b>' . MSG_NR_BIDS . ':</b> ' . $item_details['nb_bids'] . '</td> ' .
+        '	</tr> ' .
+        '	<tr> ' .
+        '		<td class="catfeatc1"><b>' . GMSG_BUYOUT . ':</b> ' . (($item_details['buyout_price'] <= 0) ? GMSG_NO : GMSG_YES . ', <b>' . GMSG_PRICE . ': ' . $fees->display_amount($item_details['buyout_price'], $item_details['currency']) . '</b>') . ' </td> ' .
+        '	</tr> ' .
+        '	<tr> ' .
+        '		<td class="catfeatc1"><b>' . MSG_PAYMENT_METHODS . ':</b> <br>' . $pm_methods . ' </td> ' .
+        '	</tr> ' .
+        '	<tr> ' .
+        '		<td class="catfeatc1" align="center"><input type="checkbox" name="auction_id[]" value="' . $item_details['auction_id'] . '" checked></td> ' .
+        '	</tr> ' .
+        '</table></td> ';
     }
 
     $template->set('compared_items_content', $compared_items_content);

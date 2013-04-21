@@ -68,25 +68,25 @@
       $assigned_fees = explode(',', $variables_array['assigned_fees']);
 
       $display_output = '<input name="all_fees" type="checkbox" value="all" ' .
-          ((in_array('all', $assigned_fees)) ? 'checked' : '') . '> ' . AMSG_ALL_FEES . '<br><br> ' .
-          '<input name="assigned_fees[]" type="checkbox" value="setup" ' .
-          ((in_array('setup', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_SETUP_FEE . '<br> ' .
-          '<input name="assigned_fees[]" type="checkbox" value="hpfeat_fee" ' .
-          ((in_array('hpfeat_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_HPFEAT_FEE . '<br> ' .
-          '<input name="assigned_fees[]" type="checkbox" value="catfeat_fee" ' .
-          ((in_array('catfeat_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_CATFEAT_FEE . '<br> ' .
-          '<input name="assigned_fees[]" type="checkbox" value="bolditem_fee" ' .
-          ((in_array('bolditem_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_BOLD_FEE . '<br> ' .
-          '<input name="assigned_fees[]" type="checkbox" value="hlitem_fee" ' .
-          ((in_array('hlitem_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_HL_FEE . '<br> ' .
-          '<input name="assigned_fees[]" type="checkbox" value="rp_fee" ' .
-          ((in_array('rp_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_RESPR_FEE . '<br> ' .
-          '<input name="assigned_fees[]" type="checkbox" value="buyout_fee" ' .
-          ((in_array('buyout_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_BUYOUT_FEE . '<br> ' .
-          '<input name="assigned_fees[]" type="checkbox" value="picture_fee" ' .
-          ((in_array('picture_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_IMG_UPL_FEE . '<br> ' .
-          '<input name="assigned_fees[]" type="checkbox" value="second_cat_fee" ' .
-          ((in_array('second_cat_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_ADDLCAT_FEE;
+        ((in_array('all', $assigned_fees)) ? 'checked' : '') . '> ' . AMSG_ALL_FEES . '<br><br> ' .
+        '<input name="assigned_fees[]" type="checkbox" value="setup" ' .
+        ((in_array('setup', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_SETUP_FEE . '<br> ' .
+        '<input name="assigned_fees[]" type="checkbox" value="hpfeat_fee" ' .
+        ((in_array('hpfeat_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_HPFEAT_FEE . '<br> ' .
+        '<input name="assigned_fees[]" type="checkbox" value="catfeat_fee" ' .
+        ((in_array('catfeat_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_CATFEAT_FEE . '<br> ' .
+        '<input name="assigned_fees[]" type="checkbox" value="bolditem_fee" ' .
+        ((in_array('bolditem_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_BOLD_FEE . '<br> ' .
+        '<input name="assigned_fees[]" type="checkbox" value="hlitem_fee" ' .
+        ((in_array('hlitem_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_HL_FEE . '<br> ' .
+        '<input name="assigned_fees[]" type="checkbox" value="rp_fee" ' .
+        ((in_array('rp_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_RESPR_FEE . '<br> ' .
+        '<input name="assigned_fees[]" type="checkbox" value="buyout_fee" ' .
+        ((in_array('buyout_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_BUYOUT_FEE . '<br> ' .
+        '<input name="assigned_fees[]" type="checkbox" value="picture_fee" ' .
+        ((in_array('picture_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_IMG_UPL_FEE . '<br> ' .
+        '<input name="assigned_fees[]" type="checkbox" value="second_cat_fee" ' .
+        ((in_array('second_cat_fee', $assigned_fees)) ? 'checked' : '') . '> ' . GMSG_ADDLCAT_FEE;
 
       return $display_output;
     }

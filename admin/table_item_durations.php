@@ -55,12 +55,12 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $item_durations_page_content .= '<input type="hidden" name="duration_id[]" value="' . $duration_details['id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td></td> ' .
-          '	<td><input name="days[]" type="text" value="' . $duration_details['days'] . '" size="8"></td> ' .
-          '	<td><input name="description[]" type="text" value="' . $duration_details['description'] . '" size="50"></td> ' .
-          '	<td align="center"><input type="checkbox" name="delete[]" value="' . $duration_details['id'] . '"></td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td></td> ' .
+        '	<td><input name="days[]" type="text" value="' . $duration_details['days'] . '" size="8"></td> ' .
+        '	<td><input name="description[]" type="text" value="' . $duration_details['description'] . '" size="50"></td> ' .
+        '	<td align="center"><input type="checkbox" name="delete[]" value="' . $duration_details['id'] . '"></td> ' .
+        '</tr> ';
     }
 
     $template->set('header_section', AMSG_TABLES_MANAGEMENT);

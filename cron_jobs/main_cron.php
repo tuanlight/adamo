@@ -5,13 +5,12 @@
 ## Copyright ©2009 MyPHPAuction. All rights reserved.	##
 ##-------------------------------------------------------------##
 #################################################################
-  if (!isset($_SESSION))
-    session_start();
 
-  if (!defined('IN_SITE'))
-    define('IN_SITE', 1);
+  session_start();
 
-  if (!$manual_cron || @IN_ADMIN == 1) {
+  define('IN_SITE', 1);
+
+  if (!$manual_cron || IN_ADMIN == 1) {
     include_once ('../includes/global.php');
     $parent_dir = '../';
   }

@@ -30,8 +30,7 @@
       $db->query("DELETE FROM " . DB_PREFIX . "messaging WHERE topic_id='" . intval($_REQUEST['topic_id']) . "'");
       $template->set('msg_changes_saved', '<p align="center">' . AMSG_TOPIC_DELETED . '</p>');
     }
-    if (!$start)
-      $start = 0;
+
     $limit = 20;
 
     $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'm.topic_id';
@@ -64,13 +63,13 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $messaging_content .= '<tr class="' . $background . '"> ' .
-          '	<td>' . $topic_details['topic_id'] . '</td> ' .
-          '	<td>' . $msg->message_subject($topic_details) . '</td>' .
-          '	<td align="center">' . $db->count_rows('messaging', "WHERE topic_id='" . $topic_details['topic_id'] . "'") . '</td>' .
-          '	<td align="center" class="contentfont"> ' .
-          '		[ <a href="list_messaging.php?do=delete&topic_id=' . $topic_details['topic_id'] . $additional_vars . $order_link . $limit_link . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]<br> ' .
-          '		[ <a href="' . $msg->msg_board_link($topic_details) . '" target="_blank">' . AMSG_VIEW_TOPIC . '</a> ]</td> ' .
-          '</tr> ';
+        '	<td>' . $topic_details['topic_id'] . '</td> ' .
+        '	<td>' . $msg->message_subject($topic_details) . '</td>' .
+        '	<td align="center">' . $db->count_rows('messaging', "WHERE topic_id='" . $topic_details['topic_id'] . "'") . '</td>' .
+        '	<td align="center" class="contentfont"> ' .
+        '		[ <a href="list_messaging.php?do=delete&topic_id=' . $topic_details['topic_id'] . $additional_vars . $order_link . $limit_link . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]<br> ' .
+        '		[ <a href="' . $msg->msg_board_link($topic_details) . '" target="_blank">' . AMSG_VIEW_TOPIC . '</a> ]</td> ' .
+        '</tr> ';
     }
 
     $template->set('messaging_content', $messaging_content);

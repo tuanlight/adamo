@@ -54,11 +54,11 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $blocked_domains_page_content .= '<input type="hidden" name="id[]" value="' . $blocked_domains['id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td></td> ' .
-          '	<td><input name="domain[]" type="text" value="' . $blocked_domains['domain'] . '" size="50"></td> ' .
-          '	<td align="center"><input type="checkbox" name="delete[]" value="' . $blocked_domains['id'] . '"></td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td></td> ' .
+        '	<td><input name="domain[]" type="text" value="' . $blocked_domains['domain'] . '" size="50"></td> ' .
+        '	<td align="center"><input type="checkbox" name="delete[]" value="' . $blocked_domains['id'] . '"></td> ' .
+        '</tr> ';
     }
 
     $template->set('header_section', AMSG_TOOLS);

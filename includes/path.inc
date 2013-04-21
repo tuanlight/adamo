@@ -414,9 +414,9 @@
       $select->condition($field, $value);
     }
     return $select
-            ->fields('url_alias')
-            ->execute()
-            ->fetchAssoc();
+        ->fields('url_alias')
+        ->execute()
+        ->fetchAssoc();
   }
 
   /**

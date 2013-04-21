@@ -208,14 +208,14 @@
           $colspan = ($this->field_colspan == 1) ? 2 : $this->field_colspan + 1;
 
           $display_output .= '<tr> ' .
-              '	<td colspan="' . $colspan . '" class="c3">' . $section_name . '</td> ' .
-              '</tr>';
+            '	<td colspan="' . $colspan . '" class="c3">' . $section_name . '</td> ' .
+            '</tr>';
         }
 
         $display_output .= '<tr class="c5"> ' .
-            '	<td><img src="themes/' . DEFAULT_THEME . '/img/pixel.gif" width="150" height="1"></td> ' .
-            '	<td colspan="' . $this->field_colspan . '" width="100%"><img src="themes/' . DEFAULT_THEME . '/img/pixel.gif" width="1" height="1"></td> ' .
-            '</tr> ';
+          '	<td><img src="themes/' . DEFAULT_THEME . '/img/pixel.gif" width="150" height="1"></td> ' .
+          '	<td colspan="' . $this->field_colspan . '" width="100%"><img src="themes/' . DEFAULT_THEME . '/img/pixel.gif" width="1" height="1"></td> ' .
+          '</tr> ';
 
         $display_output .= $fields_details;
 
@@ -246,15 +246,15 @@
 
         if (!empty($box_details)) {
           $display_output .= '<tr class="' . $background . '"> ' .
-              '	<td width="150" align="right"> ' . $field_details['field_name'] . '</td>' .
-              '	<td colspan="' . $this->field_colspan . '">' . $box_details . '</td>' .
-              '</tr>';
+            '	<td width="150" align="right"> ' . $field_details['field_name'] . '</td>' .
+            '	<td colspan="' . $this->field_colspan . '">' . $box_details . '</td>' .
+            '</tr>';
 
           if (!empty($field_details['field_description']) && !$this->show_only && !$this->box_search) {
             $display_output .= '<tr class="reguser"> ' .
-                '	<td>&nbsp;</td> ' .
-                '	<td colspan="' . $this->field_colspan . '"> ' . $field_details['field_description'] . ' </td> ' .
-                '</tr>';
+              '	<td>&nbsp;</td> ' .
+              '	<td colspan="' . $this->field_colspan . '"> ' . $field_details['field_description'] . ' </td> ' .
+              '</tr>';
           }
         }
       }
@@ -342,7 +342,7 @@
 
     function insert_page_data($user_id, $page_handle, $value_array) {
       foreach ($value_array as $key => $value) {
-        if (stristr($key, 'custom_box_')) {
+        if (eregi('custom_box_', $key)) {
           $custom_box_id = intval(str_replace('custom_box_', '', $key));
           $custom_box_id = intval(str_replace('[]', '', $custom_box_id));
 
@@ -361,7 +361,7 @@
 
     function update_page_data($user_id, $page_handle, $value_array) {
       foreach ($value_array as $key => $value) {
-        if (stristr($key, 'custom_box_')) {
+        if (eregi('custom_box_', $key)) {
           $custom_box_id = intval(str_replace('custom_box_', '', $key));
           $custom_box_id = intval(str_replace('[]', '', $custom_box_id));
 
@@ -405,7 +405,7 @@
       (string) $display_output = null;
 
       foreach ($this->vars as $key => $value) {
-        if (stristr($key, 'custom_box_')) {
+        if (eregi('custom_box_', $key)) {
           $display_output .= '<input type="hidden" name="' . $key . '" value="' . $this->rem_special_chars($value) . '" /> ';
         }
       }

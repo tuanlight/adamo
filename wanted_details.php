@@ -160,45 +160,45 @@
         (string) $public_questions_content = null;
         while ($msg_details = $db->fetch_array($public_messages)) {
           $public_questions_content .= '<tr class="c2"> ' .
-              '	<td><table width="100%"> ' .
-              '			<tr> ' .
-              '				<td><img src="themes/' . $setts['default_theme'] . '/img/system/q.gif" /></td> ' .
-              '				<td width="100%" align="right"><strong>' . MSG_QUESTION . '</strong></td> ' .
-              '			</tr> ' .
-              '		</table></td> ' .
-              '	<td>' . $msg_details['question_content'] . '</td>' .
-              '</tr> ' .
-              '<tr class="c1"> ' .
-              '	<td><table width="100%"> ' .
-              '			<tr> ' .
-              '				<td><img src="themes/' . $setts['default_theme'] . '/img/system/a.gif" /></td> ' .
-              '				<td width="100%" align="right"><strong>' . MSG_ANSWER . '</strong></td> ' .
-              '			</tr> ' .
-              '		</table></td> ' .
-              '	<td>' . ((!empty($msg_details['answer_content'])) ? $msg_details['answer_content'] : '-') . '</td> ' .
-              '</tr>';
+            '	<td><table width="100%"> ' .
+            '			<tr> ' .
+            '				<td><img src="themes/' . $setts['default_theme'] . '/img/system/q.gif" /></td> ' .
+            '				<td width="100%" align="right"><strong>' . MSG_QUESTION . '</strong></td> ' .
+            '			</tr> ' .
+            '		</table></td> ' .
+            '	<td>' . $msg_details['question_content'] . '</td>' .
+            '</tr> ' .
+            '<tr class="c1"> ' .
+            '	<td><table width="100%"> ' .
+            '			<tr> ' .
+            '				<td><img src="themes/' . $setts['default_theme'] . '/img/system/a.gif" /></td> ' .
+            '				<td width="100%" align="right"><strong>' . MSG_ANSWER . '</strong></td> ' .
+            '			</tr> ' .
+            '		</table></td> ' .
+            '	<td>' . ((!empty($msg_details['answer_content'])) ? $msg_details['answer_content'] : '-') . '</td> ' .
+            '</tr>';
 
           if ($session->value('adminarea') == 'Active') {
             $public_questions_content .= '<tr> ' .
-                '	<td></td> ' .
-                '	<td class="c1 contentfont"> ' .
-                '		[ <a href="wanted_details.php?do=delete_topic&topic_id=' . $msg_details['topic_id'] . '&wanted_ad_id=' . $item_details['wanted_ad_id'] . '" onclick="return confirm(\'' . MSG_DELETE_CONFIRM . '\');">' . MSG_DELETE_TOPIC . '</a> ]</td> ' .
-                '</tr>';
+              '	<td></td> ' .
+              '	<td class="c1 contentfont"> ' .
+              '		[ <a href="wanted_details.php?do=delete_topic&topic_id=' . $msg_details['topic_id'] . '&wanted_ad_id=' . $item_details['wanted_ad_id'] . '" onclick="return confirm(\'' . MSG_DELETE_CONFIRM . '\');">' . MSG_DELETE_TOPIC . '</a> ]</td> ' .
+              '</tr>';
           }
           else if ($session->value('user_id') == $item_details['owner_id']) {
             $public_questions_content .= '<tr> ' .
-                '	<td></td> ' .
-                '	<form method="get"> ' .
-                '	<td class="c1"> ' .
-                '		<input type="button" value="' . MSG_SUBMIT_EDIT_ANSWER . '" onClick="openPopup(\'popup_edit_public_question.php?wanted_ad_id=' . $item_details['wanted_ad_id'] . '&question_id=' . $msg_details['question_id'] . '\')"></td> ' .
-                '	</form> ' .
-                '</tr>';
+              '	<td></td> ' .
+              '	<form method="get"> ' .
+              '	<td class="c1"> ' .
+              '		<input type="button" value="' . MSG_SUBMIT_EDIT_ANSWER . '" onClick="openPopup(\'popup_edit_public_question.php?wanted_ad_id=' . $item_details['wanted_ad_id'] . '&question_id=' . $msg_details['question_id'] . '\')"></td> ' .
+              '	</form> ' .
+              '</tr>';
           }
 
           $public_questions_content .= '<tr class="c4"> ' .
-              '	<td></td> ' .
-              '	<td></td> ' .
-              '</tr>';
+            '	<td></td> ' .
+            '	<td></td> ' .
+            '</tr>';
         }
 
         $template->set('public_questions_content', $public_questions_content);
@@ -221,13 +221,13 @@
           $auction_image = (!empty($item_details['media_url'])) ? $item_details['media_url'] : 'themes/' . $setts['default_theme'] . '/img/system/noimg.gif';
 
           $active_offers_content .= '<tr class="contentfont ' . $background . '"> ' .
-              '	<td align="center"><a href="' . $auction_link . '"><img src="thumbnail.php?pic=' . $auction_image . '&w=50&sq=Y&b=Y" border="0" alt="' . $item_details['name'] . '"></a></td> ' .
-              '	<td><a href="' . $auction_link . '">' . $item_details['name'] . '</a> ' . item_pics($item_details) . '</td> ' .
-              '	<td align="center">' . $fees->display_amount($item_details['start_price'], $item_details['currency']) . '</td> ' .
-              '	<td align="center">' . $fees->display_amount($item_details['max_bid'], $item_details['currency']) . '</td> ' .
-              '	<td align="center">' . $item_details['nb_bids'] . '</td> ' .
-              '	<td align="center">' . time_left($item_details['end_time']) . '</td> ' .
-              '</tr> ';
+            '	<td align="center"><a href="' . $auction_link . '"><img src="thumbnail.php?pic=' . $auction_image . '&w=50&sq=Y&b=Y" border="0" alt="' . $item_details['name'] . '"></a></td> ' .
+            '	<td><a href="' . $auction_link . '">' . $item_details['name'] . '</a> ' . item_pics($item_details) . '</td> ' .
+            '	<td align="center">' . $fees->display_amount($item_details['start_price'], $item_details['currency']) . '</td> ' .
+            '	<td align="center">' . $fees->display_amount($item_details['max_bid'], $item_details['currency']) . '</td> ' .
+            '	<td align="center">' . $item_details['nb_bids'] . '</td> ' .
+            '	<td align="center">' . time_left($item_details['end_time']) . '</td> ' .
+            '</tr> ';
         }
       }
       $template->set('active_offers_content', $active_offers_content);

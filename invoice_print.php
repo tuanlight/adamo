@@ -108,15 +108,15 @@
 
 
             $invoice_content .= '<tr class="c1"> ' .
-                '	<td align="center">' . $invoice_details['quantity_offered'] . '</td> ' .
-                '	<td>[ ' . MSG_ID . ': ' . $invoice_details['auction_id'] . ' ] ' . $invoice_details['name'] . '</td> ' .
-                '	<td align="center">' . $fees->display_amount($product_no_tax, $invoice_details['currency']) . '</td> ' .
-                '	<td align="center">' . $fees->display_amount($product_postage, $invoice_details['currency']) . '</td> ' .
-                '	<td align="center">' . $fees->display_amount($product_insurance, $invoice_details['currency']) . '</td> ' .
-                '	<td align="center">' . $tax_details['tax_rate'] . '</td> ' .
-                '	<td align="center">' . $fees->display_amount($product_tax, $invoice_details['currency']) . '</td> ' .
-                '	<td align="center">' . $fees->display_amount($product_total, $invoice_details['currency']) . '</td> ' .
-                '</tr> ';
+              '	<td align="center">' . $invoice_details['quantity_offered'] . '</td> ' .
+              '	<td>[ ' . MSG_ID . ': ' . $invoice_details['auction_id'] . ' ] ' . $invoice_details['name'] . '</td> ' .
+              '	<td align="center">' . $fees->display_amount($product_no_tax, $invoice_details['currency']) . '</td> ' .
+              '	<td align="center">' . $fees->display_amount($product_postage, $invoice_details['currency']) . '</td> ' .
+              '	<td align="center">' . $fees->display_amount($product_insurance, $invoice_details['currency']) . '</td> ' .
+              '	<td align="center">' . $tax_details['tax_rate'] . '</td> ' .
+              '	<td align="center">' . $fees->display_amount($product_tax, $invoice_details['currency']) . '</td> ' .
+              '	<td align="center">' . $fees->display_amount($product_total, $invoice_details['currency']) . '</td> ' .
+              '</tr> ';
           }
 
           if ($display_invoice) {
@@ -212,13 +212,13 @@
             $fee_tax = $fee_total - $fee_no_tax;
           }## MyPHPAuction 2009 now create the invoice content
           $invoice_content = '<tr class="c1"> ' .
-              '	<td align="center">1</td> ' .
-              '	<td>' . $invoice_details['name'] . '</td> ' .
-              '	<td align="center">' . $fees->display_amount($fee_no_tax, $setts['currency']) . '</td> ' .
-              '	<td align="center">' . $tax_details['tax_rate'] . '</td> ' .
-              '	<td align="center">' . $fees->display_amount($fee_tax, $setts['currency']) . '</td> ' .
-              '	<td align="center">' . $fees->display_amount($fee_total, $setts['currency']) . '</td> ' .
-              '</tr> ';
+            '	<td align="center">1</td> ' .
+            '	<td>' . $invoice_details['name'] . '</td> ' .
+            '	<td align="center">' . $fees->display_amount($fee_no_tax, $setts['currency']) . '</td> ' .
+            '	<td align="center">' . $tax_details['tax_rate'] . '</td> ' .
+            '	<td align="center">' . $fees->display_amount($fee_tax, $setts['currency']) . '</td> ' .
+            '	<td align="center">' . $fees->display_amount($fee_total, $setts['currency']) . '</td> ' .
+            '</tr> ';
 
           $template->set('invoice_content', $invoice_content);
           $template->set('total_no_tax', $fees->display_amount($fee_no_tax, $setts['currency']));
@@ -291,13 +291,13 @@
               $total_no_tax += $fee_no_tax;
             }## MyPHPAuction 2009 now create the invoice content
             $invoice_content .= '<tr class="c1"> ' .
-                '	<td align="center">1</td> ' .
-                '	<td>' . $invoice_details['name'] . '</td> ' .
-                '	<td align="center">' . $fees->display_amount($fee_no_tax, $setts['currency']) . '</td> ' .
-                '	<td align="center">' . $tax_details['tax_rate'] . '</td> ' .
-                '	<td align="center">' . $fees->display_amount($fee_tax, $setts['currency']) . '</td> ' .
-                '	<td align="center">' . $fees->display_amount($fee_total, $setts['currency']) . '</td> ' .
-                '</tr> ';
+              '	<td align="center">1</td> ' .
+              '	<td>' . $invoice_details['name'] . '</td> ' .
+              '	<td align="center">' . $fees->display_amount($fee_no_tax, $setts['currency']) . '</td> ' .
+              '	<td align="center">' . $tax_details['tax_rate'] . '</td> ' .
+              '	<td align="center">' . $fees->display_amount($fee_tax, $setts['currency']) . '</td> ' .
+              '	<td align="center">' . $fees->display_amount($fee_total, $setts['currency']) . '</td> ' .
+              '</tr> ';
           }
 
           $template->set('invoice_date', show_date($invoice_date, false));

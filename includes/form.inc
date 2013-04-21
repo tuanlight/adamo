@@ -1758,7 +1758,7 @@
     // Special handling if we're on the top level form element.
     if (isset($element['#type']) && $element['#type'] == 'form') {
       if (!empty($element['#https']) && variable_get('https', FALSE) &&
-          !url_is_external($element['#action'])) {
+        !url_is_external($element['#action'])) {
         global $base_root;
 
         // Not an external URL so ensure that it is secure.
@@ -2977,18 +2977,18 @@
    */
   function map_month($month) {
     $months = &drupal_static(__FUNCTION__, array(
-          1 => 'Jan',
-          2 => 'Feb',
-          3 => 'Mar',
-          4 => 'Apr',
-          5 => 'May',
-          6 => 'Jun',
-          7 => 'Jul',
-          8 => 'Aug',
-          9 => 'Sep',
-          10 => 'Oct',
-          11 => 'Nov',
-          12 => 'Dec',
+        1 => 'Jan',
+        2 => 'Feb',
+        3 => 'Mar',
+        4 => 'Apr',
+        5 => 'May',
+        6 => 'Jun',
+        7 => 'Jul',
+        8 => 'Aug',
+        9 => 'Sep',
+        10 => 'Oct',
+        11 => 'Nov',
+        12 => 'Dec',
     ));
     return t($months[$month]);
   }
@@ -4519,13 +4519,13 @@
 
         // Store the batch.
         db_insert('batch')
-            ->fields(array(
-              'bid' => $batch['id'],
-              'timestamp' => REQUEST_TIME,
-              'token' => drupal_get_token($batch['id']),
-              'batch' => serialize($batch),
-            ))
-            ->execute();
+          ->fields(array(
+            'bid' => $batch['id'],
+            'timestamp' => REQUEST_TIME,
+            'token' => drupal_get_token($batch['id']),
+            'batch' => serialize($batch),
+          ))
+          ->execute();
 
         // Set the batch number in the session to guarantee that it will stay alive.
         $_SESSION['batches'][$batch['id']] = TRUE;

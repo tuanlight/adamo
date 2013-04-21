@@ -246,120 +246,120 @@
         switch ($pg_details['name']) {
           case 'PayPal':
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td>' . GMSG_PAYPAL_EMAIL . '</td> ' .
-                '	<td><input name="pg_paypal_email" type="text" value="' . $user_details['pg_paypal_email'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td>' . GMSG_PAYPAL_EMAIL . '</td> ' .
+              '	<td><input name="pg_paypal_email" type="text" value="' . $user_details['pg_paypal_email'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr> ' .
-                '	<td></td> ' .
-                '	<td class="' . $background . '">' . GMSG_PAYPAL_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_paypal.php</b></td> ' .
-                '</tr> ';
+              '	<td></td> ' .
+              '	<td class="' . $background . '">' . GMSG_PAYPAL_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_paypal.php</b></td> ' .
+              '</tr> ';
             break;
           case 'Worldpay':
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td>' . GMSG_WORLDPAY_ID . '</td> ' .
-                '	<td><input name="pg_worldpay_id" type="text" value="' . $user_details['pg_worldpay_id'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td>' . GMSG_WORLDPAY_ID . '</td> ' .
+              '	<td><input name="pg_worldpay_id" type="text" value="' . $user_details['pg_worldpay_id'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr> ' .
-                '	<td></td> ' .
-                '	<td class="' . $background . '">' . GMSG_WORLDPAY_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_worldpay.php</b></td> ' .
-                '</tr> ';
+              '	<td></td> ' .
+              '	<td class="' . $background . '">' . GMSG_WORLDPAY_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_worldpay.php</b></td> ' .
+              '</tr> ';
             break;
           case '2Checkout':
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td>' . GMSG_CHECKOUT_ID . '</td> ' .
-                '	<td><input name="pg_checkout_id" type="text" value="' . $user_details['pg_checkout_id'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td>' . GMSG_CHECKOUT_ID . '</td> ' .
+              '	<td><input name="pg_checkout_id" type="text" value="' . $user_details['pg_checkout_id'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr> ' .
-                '	<td></td> ' .
-                '	<td class="' . $background . '">' . GMSG_CHECKOUT_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_checkout.php</b></td> ' .
-                '</tr> ';
+              '	<td></td> ' .
+              '	<td class="' . $background . '">' . GMSG_CHECKOUT_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_checkout.php</b></td> ' .
+              '</tr> ';
             break;
           case 'Nochex':
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td>' . GMSG_NOCHEX_EMAIL . '</td> ' .
-                '	<td><input name="pg_nochex_email" type="text" value="' . $user_details['pg_nochex_email'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td>' . GMSG_NOCHEX_EMAIL . '</td> ' .
+              '	<td><input name="pg_nochex_email" type="text" value="' . $user_details['pg_nochex_email'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr> ' .
-                '	<td></td> ' .
-                '	<td class="' . $background . '">' . GMSG_NOCHEX_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_nochex.php</b></td> ' .
-                '</tr> ';
+              '	<td></td> ' .
+              '	<td class="' . $background . '">' . GMSG_NOCHEX_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_nochex.php</b></td> ' .
+              '</tr> ';
             break;
           case 'Ikobo':
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td>' . GMSG_IKOBO_USERNAME . '</td> ' .
-                '	<td><input name="pg_ikobo_username" type="text" value="' . $user_details['pg_ikobo_username'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td>' . GMSG_IKOBO_USERNAME . '</td> ' .
+              '	<td><input name="pg_ikobo_username" type="text" value="' . $user_details['pg_ikobo_username'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td>' . GMSG_IKOBO_PASSWORD . '</td> ' .
-                '	<td><input name="pg_ikobo_password" type="text" value="' . $user_details['pg_ikobo_password'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td>' . GMSG_IKOBO_PASSWORD . '</td> ' .
+              '	<td><input name="pg_ikobo_password" type="text" value="' . $user_details['pg_ikobo_password'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr> ' .
-                '	<td></td> ' .
-                '	<td class="' . $background . '">' . GMSG_IKOBO_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_ikobo.php</b></td> ' .
-                '</tr> ';
+              '	<td></td> ' .
+              '	<td class="' . $background . '">' . GMSG_IKOBO_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_ikobo.php</b></td> ' .
+              '</tr> ';
             break;
           case 'Protx':
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td>' . GMSG_PROTX_USERNAME . '</td> ' .
-                '	<td><input name="pg_protx_username" type="text" value="' . $user_details['pg_protx_username'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td>' . GMSG_PROTX_USERNAME . '</td> ' .
+              '	<td><input name="pg_protx_username" type="text" value="' . $user_details['pg_protx_username'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td>' . GMSG_PROTX_PASSWORD . '</td> ' .
-                '	<td><input name="pg_protx_password" type="text" value="' . $user_details['pg_protx_password'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td>' . GMSG_PROTX_PASSWORD . '</td> ' .
+              '	<td><input name="pg_protx_password" type="text" value="' . $user_details['pg_protx_password'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr> ' .
-                '	<td></td> ' .
-                '	<td class="' . $background . '">' . GMSG_PROTX_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_protx.php</b></td> ' .
-                '</tr> ';
+              '	<td></td> ' .
+              '	<td class="' . $background . '">' . GMSG_PROTX_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_protx.php</b></td> ' .
+              '</tr> ';
             break;
           case 'Authorize.net':
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td>' . GMSG_AUTHNET_USERNAME . '</td> ' .
-                '	<td><input name="pg_authnet_username" type="text" value="' . $user_details['pg_authnet_username'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td>' . GMSG_AUTHNET_USERNAME . '</td> ' .
+              '	<td><input name="pg_authnet_username" type="text" value="' . $user_details['pg_authnet_username'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td>' . GMSG_AUTHNET_PASSWORD . '</td> ' .
-                '	<td><input name="pg_authnet_password" type="text" value="' . $user_details['pg_authnet_password'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td>' . GMSG_AUTHNET_PASSWORD . '</td> ' .
+              '	<td><input name="pg_authnet_password" type="text" value="' . $user_details['pg_authnet_password'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr> ' .
-                '	<td></td> ' .
-                '	<td class="' . $background . '">' . GMSG_AUTHNET_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_authnet.php</b></td> ' .
-                '</tr> ';
+              '	<td></td> ' .
+              '	<td class="' . $background . '">' . GMSG_AUTHNET_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_authnet.php</b></td> ' .
+              '</tr> ';
             break;
           case 'Moneybookers':
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td width="250">' . GMSG_MB_EMAIL . '</td> ' .
-                '	<td><input name="pg_mb_email" type="text" value="' . $user_details['pg_mb_email'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td width="250">' . GMSG_MB_EMAIL . '</td> ' .
+              '	<td><input name="pg_mb_email" type="text" value="' . $user_details['pg_mb_email'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr> ' .
-                '	<td></td> ' .
-                '	<td class="' . $background . '">' . GMSG_MB_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_moneybookers.php</b></td> ' .
-                '</tr> ';
+              '	<td></td> ' .
+              '	<td class="' . $background . '">' . GMSG_MB_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_moneybookers.php</b></td> ' .
+              '</tr> ';
             break;
           case 'Paymate':
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td width="250">' . GMSG_PAYMATE_MERCHANT_ID . '</td> ' .
-                '	<td><input name="pg_paymate_merchant_id" type="text" value="' . $user_details['pg_paymate_merchant_id'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td width="250">' . GMSG_PAYMATE_MERCHANT_ID . '</td> ' .
+              '	<td><input name="pg_paymate_merchant_id" type="text" value="' . $user_details['pg_paymate_merchant_id'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr> ' .
-                '	<td></td> ' .
-                '	<td class="' . $background . '">' . GMSG_PAYMATE_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_paymate.php</b></td> ' .
-                '</tr> ';
+              '	<td></td> ' .
+              '	<td class="' . $background . '">' . GMSG_PAYMATE_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_paymate.php</b></td> ' .
+              '</tr> ';
             break;
           case 'Google Checkout':
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td width="250">' . GMSG_GC_MERCHANT_ID . '</td> ' .
-                '	<td><input name="pg_gc_merchant_id" type="text" value="' . $user_details['pg_gc_merchant_id'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td width="250">' . GMSG_GC_MERCHANT_ID . '</td> ' .
+              '	<td><input name="pg_gc_merchant_id" type="text" value="' . $user_details['pg_gc_merchant_id'] . '" size="50"></td> ' .
+              '</tr> ';
             $display_output .= '<tr class="' . $background . '"> ' .
-                '	<td width="250">' . GMSG_GC_MERCHANT_KEY . '</td> ' .
-                '	<td><input name="pg_gc_merchant_key" type="text" value="' . $user_details['pg_gc_merchant_key'] . '" size="50"></td> ' .
-                '</tr> ';
+              '	<td width="250">' . GMSG_GC_MERCHANT_KEY . '</td> ' .
+              '	<td><input name="pg_gc_merchant_key" type="text" value="' . $user_details['pg_gc_merchant_key'] . '" size="50"></td> ' .
+              '</tr> ';
             if ($user_details['user_id'] > 0) {
               $display_output .= '<tr> ' .
-                  '	<td></td> ' .
-                  '	<td class="' . $background . '">' . GMSG_GC_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_gc.php?user_id=' . $user_details['user_id'] . '</b></td> ' .
-                  '</tr> ';
+                '	<td></td> ' .
+                '	<td class="' . $background . '">' . GMSG_GC_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_gc.php?user_id=' . $user_details['user_id'] . '</b></td> ' .
+                '</tr> ';
             }
             break;
         }
@@ -390,14 +390,14 @@
         $dob_expl = MSG_DATE_OF_BIRTH_EXPL;
 
         $birthdate_box .= '<select name="dob_month" id="dob_month" class="contentfont"> ' .
-            '<option> </option> ';
+          '<option> </option> ';
         foreach ($months_array as $key => $value) {
           $birthdate_box .= '<option value="' . $key . '" ' . (($key == $variables_array['dob_month']) ? 'selected' : '') . '>' . $value . '</option> ';
         }
         $birthdate_box .= '</select> ';
 
         $birthdate_box .= '<select name="dob_day" id="dob_day" class="contentfont"> ' .
-            '<option> </option> ';
+          '<option> </option> ';
         foreach ($days_array as $value) {
           $birthdate_box .= '<option value="' . $value . '" ' . (($value == $variables_array['dob_day']) ? 'selected' : '') . '>' . $value . '</option> ';
         }
@@ -407,20 +407,20 @@
       }
 
       $display_output = '<br /> ' .
-          '<table width="100%" border="0" cellpadding="3" cellspacing="2" class="border"> ' .
-          '	<tr class="c5"> ' .
-          '		<td><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
-          '		<td><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
-          '	</tr> ' .
-          '	<tr class="c1"> ' .
-          '		<td width="150" align="right" class="contentfont">' . $dob_text . '</td> ' .
-          '		<td class="contentfont">' . $birthdate_box . '</td> ' .
-          '	</tr> ' .
-          '	<tr class="reguser"> ' .
-          '		<td>&nbsp;</td> ' .
-          '		<td>' . $dob_expl . '</td> ' .
-          '	</tr> ' .
-          '</table> ';
+        '<table width="100%" border="0" cellpadding="3" cellspacing="2" class="border"> ' .
+        '	<tr class="c5"> ' .
+        '		<td><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
+        '		<td><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
+        '	</tr> ' .
+        '	<tr class="c1"> ' .
+        '		<td width="150" align="right" class="contentfont">' . $dob_text . '</td> ' .
+        '		<td class="contentfont">' . $birthdate_box . '</td> ' .
+        '	</tr> ' .
+        '	<tr class="reguser"> ' .
+        '		<td>&nbsp;</td> ' .
+        '		<td>' . $dob_expl . '</td> ' .
+        '	</tr> ' .
+        '</table> ';
 
       return $display_output;
     }
@@ -437,8 +437,8 @@
       $state = ($user_details['state_name']) ? $user_details['state_name'] : $user_details['state'];
       // state_name and country_name are presumed to be taken from the countries table from the initial query.
       $display_output = $user_details['address'] . '<br>' .
-          $user_details['zip_code'] . ', ' . $user_details['city'] . '<br>' .
-          $state . ', ' . $user_details['country_name'];
+        $user_details['zip_code'] . ', ' . $user_details['city'] . '<br>' .
+        $state . ', ' . $user_details['country_name'];
 
       return $display_output;
     }

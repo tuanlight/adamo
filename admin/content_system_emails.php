@@ -47,9 +47,9 @@
 
     if ($_REQUEST['file_path']) {
       $email_files_list .= '<tr class="c1"> ' .
-          '	<td width="150" align="right">' . AMSG_SELECTED_FILE . '</td> ' .
-          '	<td>' . $file_name . ' [ <a href="content_system_emails.php?language=' . $selected_lang . '">' . GMSG_CHANGE . '</a> ]</td> ' .
-          '</tr>';
+        '	<td width="150" align="right">' . AMSG_SELECTED_FILE . '</td> ' .
+        '	<td>' . $file_name . ' [ <a href="content_system_emails.php?language=' . $selected_lang . '">' . GMSG_CHANGE . '</a> ]</td> ' .
+        '</tr>';
 
       $fp = fopen($file_name, "r");
 
@@ -70,8 +70,8 @@
           $file = substr($file, 0, -4);
 
           $email_files_list .= '<tr class="' . $background . '"> ' .
-              '	<td> <img src="images/a.gif" align="absmiddle"> <a href="content_system_emails.php?language=' . $selected_lang . '&file_path=' . $file . '.php">' . $file . '</a></td> ' .
-              '</tr>';
+            '	<td> <img src="images/a.gif" align="absmiddle"> <a href="content_system_emails.php?language=' . $selected_lang . '&file_path=' . $file . '.php">' . $file . '</a></td> ' .
+            '</tr>';
         }
       }
       closedir($files_list);

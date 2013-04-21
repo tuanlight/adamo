@@ -37,25 +37,25 @@
       $payment_description = (!$payment_description) ? GMSG_SERVICE_ACTIVATION_FEE : $payment_description;
 
       $display_output = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr>' .
-          '	<td width="160" class="paytable1"><img src="img/paypal_logo.gif"></td> ' .
-          '		<form action="' . $post_url . '" method="post" id="form_paypal"> ' .
-          '	<td class="paytable2" width="100%">' . GMSG_PAYPAL_DESCRIPTION . '</td> ' .
-          '	<td class="paytable3"> ' .
-          '		<input type="hidden" name="cmd" value="_xclick"> ' .
-          '		<input type="hidden" name="bn" value="wa_dw_2.0.4"> ' .
-          '		<input type="hidden" name="business" value="' . $paypal_email . '"> ' .
-          '		<input type="hidden" name="receiver_email" value="' . $paypal_email . '"> ' .
-          '		<input type="hidden" name="amount" value="' . $payment_amount . '"> ' .
-          '		<input type="hidden" name="currency_code" value="' . $currency . '"> ' .
-          '		<input type="hidden" name="return" value="' . $this->return_url . '"> ' .
-          '		<input type="hidden" name="cancel_return" value="' . $this->failure_url . '"> ' .
-          '		<input type="hidden" name="item_name" value="' . $payment_description . '"> ' .
-          '		<input type="hidden" name="undefined_quantity" value="0"> ' .
-          '		<input type="hidden" name="no_shipping" value="1"> ' .
-          '		<input type="hidden" name="no_note" value="1"> ' .
-          '		<input type="hidden" name="custom" value="' . $transaction_id . '"> ' .
-          '		<input type="hidden" name="notify_url" value="' . $this->process_url . '"> ';
+        '<tr>' .
+        '	<td width="160" class="paytable1"><img src="img/paypal_logo.gif"></td> ' .
+        '		<form action="' . $post_url . '" method="post" id="form_paypal"> ' .
+        '	<td class="paytable2" width="100%">' . GMSG_PAYPAL_DESCRIPTION . '</td> ' .
+        '	<td class="paytable3"> ' .
+        '		<input type="hidden" name="cmd" value="_xclick"> ' .
+        '		<input type="hidden" name="bn" value="wa_dw_2.0.4"> ' .
+        '		<input type="hidden" name="business" value="' . $paypal_email . '"> ' .
+        '		<input type="hidden" name="receiver_email" value="' . $paypal_email . '"> ' .
+        '		<input type="hidden" name="amount" value="' . $payment_amount . '"> ' .
+        '		<input type="hidden" name="currency_code" value="' . $currency . '"> ' .
+        '		<input type="hidden" name="return" value="' . $this->return_url . '"> ' .
+        '		<input type="hidden" name="cancel_return" value="' . $this->failure_url . '"> ' .
+        '		<input type="hidden" name="item_name" value="' . $payment_description . '"> ' .
+        '		<input type="hidden" name="undefined_quantity" value="0"> ' .
+        '		<input type="hidden" name="no_shipping" value="1"> ' .
+        '		<input type="hidden" name="no_note" value="1"> ' .
+        '		<input type="hidden" name="custom" value="' . $transaction_id . '"> ' .
+        '		<input type="hidden" name="notify_url" value="' . $this->process_url . '"> ';
 
       $this->paypal_user_id = session::value('user_id');
 
@@ -65,24 +65,24 @@
 
         if ($user_details['paypal_address_override']) {
           $display_output .= '<input type="hidden" name="address_override" value="' . $user_details['paypal_address_override'] . '"> ' .
-              '<input type="hidden" name="first_name" value="' . $user_details['paypal_first_name'] . '"> ' .
-              '<input type="hidden" name="last_name" value="' . $user_details['paypal_last_name'] . '"> ' .
-              '<input type="hidden" name="address1" value="' . $user_details['paypal_address1'] . '"> ' .
-              '<input type="hidden" name="address2" value="' . $user_details['paypal_address2'] . '"> ' .
-              '<input type="hidden" name="city" value="' . $user_details['paypal_city'] . '"> ' .
-              '<input type="hidden" name="state" value="' . $user_details['paypal_state'] . '"> ' .
-              '<input type="hidden" name="zip" value="' . $user_details['paypal_zip'] . '"> ' .
-              '<input type="hidden" name="country" value="' . $user_details['paypal_country'] . '"> ' .
-              '<input type="hidden" name="email" value="' . $user_details['email'] . '"> ' .
-              '<input type="hidden" name="night_phone_a" value="' . $user_details['paypal_night_phone_a'] . '"> ' .
-              '<input type="hidden" name="night_phone_b" value="' . $user_details['paypal_night_phone_b'] . '"> ' .
-              '<input type="hidden" name="night_phone_c" value="' . $user_details['paypal_night_phone_c'] . '"> ';
+            '<input type="hidden" name="first_name" value="' . $user_details['paypal_first_name'] . '"> ' .
+            '<input type="hidden" name="last_name" value="' . $user_details['paypal_last_name'] . '"> ' .
+            '<input type="hidden" name="address1" value="' . $user_details['paypal_address1'] . '"> ' .
+            '<input type="hidden" name="address2" value="' . $user_details['paypal_address2'] . '"> ' .
+            '<input type="hidden" name="city" value="' . $user_details['paypal_city'] . '"> ' .
+            '<input type="hidden" name="state" value="' . $user_details['paypal_state'] . '"> ' .
+            '<input type="hidden" name="zip" value="' . $user_details['paypal_zip'] . '"> ' .
+            '<input type="hidden" name="country" value="' . $user_details['paypal_country'] . '"> ' .
+            '<input type="hidden" name="email" value="' . $user_details['email'] . '"> ' .
+            '<input type="hidden" name="night_phone_a" value="' . $user_details['paypal_night_phone_a'] . '"> ' .
+            '<input type="hidden" name="night_phone_b" value="' . $user_details['paypal_night_phone_b'] . '"> ' .
+            '<input type="hidden" name="night_phone_c" value="' . $user_details['paypal_night_phone_c'] . '"> ';
         }
       }
 
       $display_output .= '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form> ' .
-          '</tr></table>';
+        '	</td></form> ' .
+        '</tr></table>';
 
       return $display_output;
     }
@@ -95,24 +95,24 @@
       $mb_trans_id = md5(uniqid(rand()));
       ### this will be the new payment form design
       $display_output = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr>' .
-          '	<td width="160" class="paytable1"><img src="img/mb_logo.gif"></td> ' .
-          '		<form action="' . $post_url . '" method="post" id="form_mb"> ' .
-          '	<td class="paytable2" width="100%">' . GMSG_MB_DESCRIPTION . '</td> ' .
-          '	<td class="paytable3"> ' .
-          '		<input type="hidden" name="pay_to_email" value="' . $mb_email . '"> 	' .
-          //'		<input type="hidden" name="transaction_id" value="' . $mb_trans_id . '"> '.
-          '		<input type="hidden" name="return_url" value="' . $this->return_url . '"> ' .
-          '		<input type="hidden" name="cancel_url" value="' . $this->failure_url . '">	' .
-          '		<input type="hidden" name="status_url" value="' . $this->process_url . '">	' .
-          '		<input type="hidden" name="language" value="EN"> ' .
-          '		<input type="hidden" name="merchant_fields" value="trans_id"> ' .
-          '		<input type="hidden" name="amount" value="' . $payment_amount . '"> ' .
-          '		<input type="hidden" name="currency" value="' . $currency . '"> ' .
-          '		<input type="hidden" name="trans_id" value="' . $transaction_id . '"> ' .
-          '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form>' .
-          '</tr></table>';
+        '<tr>' .
+        '	<td width="160" class="paytable1"><img src="img/mb_logo.gif"></td> ' .
+        '		<form action="' . $post_url . '" method="post" id="form_mb"> ' .
+        '	<td class="paytable2" width="100%">' . GMSG_MB_DESCRIPTION . '</td> ' .
+        '	<td class="paytable3"> ' .
+        '		<input type="hidden" name="pay_to_email" value="' . $mb_email . '"> 	' .
+        //'		<input type="hidden" name="transaction_id" value="' . $mb_trans_id . '"> '.
+        '		<input type="hidden" name="return_url" value="' . $this->return_url . '"> ' .
+        '		<input type="hidden" name="cancel_url" value="' . $this->failure_url . '">	' .
+        '		<input type="hidden" name="status_url" value="' . $this->process_url . '">	' .
+        '		<input type="hidden" name="language" value="EN"> ' .
+        '		<input type="hidden" name="merchant_fields" value="trans_id"> ' .
+        '		<input type="hidden" name="amount" value="' . $payment_amount . '"> ' .
+        '		<input type="hidden" name="currency" value="' . $currency . '"> ' .
+        '		<input type="hidden" name="trans_id" value="' . $transaction_id . '"> ' .
+        '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
+        '	</td></form>' .
+        '</tr></table>';
 
       return $display_output;
     }
@@ -125,20 +125,20 @@
       $transaction_code = md5(uniqid(mt_rand(), true));
 
       $display_output = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr>' .
-          '	<td width="160" class="paytable1"><img src="img/nochex_logo.gif"></td> ' .
-          '		<form action="' . $post_url . '" method="post" id="form_nochex"> ' .
-          '	<td class="paytable2" width="100%">' . GMSG_NOCHEX_DESCRIPTION . '</td> ' .
-          '	<td class="paytable3"> ' .
-          '		<input type="hidden" name="returnurl" value="' . $this->return_url . '"> ' .
-          '		<input type="hidden" name="cancelurl" value="' . $this->failure_url . '"> ' .
-          '		<input type="hidden" name="email" value="' . $nochex_email . '"> ' .
-          '		<input type="hidden" name="amount" value="' . $payment_amount . '"> ' .
-          '		<input type="hidden" name="responderurl" value="' . $this->process_url . '"> ' .
-          '		<input type="hidden" name="ordernumber" value="' . $transaction_id . 'TBL' . $transaction_code . '"> ' .
-          '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form> ' .
-          '</tr></table> ';
+        '<tr>' .
+        '	<td width="160" class="paytable1"><img src="img/nochex_logo.gif"></td> ' .
+        '		<form action="' . $post_url . '" method="post" id="form_nochex"> ' .
+        '	<td class="paytable2" width="100%">' . GMSG_NOCHEX_DESCRIPTION . '</td> ' .
+        '	<td class="paytable3"> ' .
+        '		<input type="hidden" name="returnurl" value="' . $this->return_url . '"> ' .
+        '		<input type="hidden" name="cancelurl" value="' . $this->failure_url . '"> ' .
+        '		<input type="hidden" name="email" value="' . $nochex_email . '"> ' .
+        '		<input type="hidden" name="amount" value="' . $payment_amount . '"> ' .
+        '		<input type="hidden" name="responderurl" value="' . $this->process_url . '"> ' .
+        '		<input type="hidden" name="ordernumber" value="' . $transaction_id . 'TBL' . $transaction_code . '"> ' .
+        '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
+        '	</td></form> ' .
+        '</tr></table> ';
 
       return $display_output;
     }
@@ -155,24 +155,24 @@
       $co_link_v2 = 'https://www2.2checkout.com/2co/buyer/purchase';
 
       $display_output = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr> ' .
-          '	<td width="160" class="paytable1"><img src="img/checkout_logo.gif"></td> ' .
-          '		<form action="' . $post_url . '" method="get" id="form_checkout"> ' .
-          '	<td class="paytable2" width="100%">' . GMSG_CHECKOUT_DESCRIPTION . '</td>' .
-          '	<td class="paytable3"> ' .
-          '		<input type="hidden" name="sid" value="' . $checkout_id . '">	' .
-          '		<input type="hidden" name="total" value="' . $payment_amount . '"> ' .
-          '		<input type="hidden" name="cart_order_id" value="' . $transaction_id . '"> ' .
-          '		<input type="hidden" name="c_prod" value="CO_' . $transaction_id . '"> ' .
-          '		<input type="hidden" name="id_type" value="1"> ' .
-          '		<input type="hidden" name="sh_cost" value="0"> ' .
-          '		<input type="hidden" name="c_name" value="' . GMSG_SERVICE_ACTIVATION_FEE . '"> ' .
-          '		<input type="hidden" name="c_description" value="' . GMSG_SERVICE_ACTIVATION_FEE . '"> ' .
-          '		<input type="hidden" name="c_price" value="' . $payment_amount . '"> ' .
-          '		<input type="hidden" name="c_tangible" value="N"> ' .
-          '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form> ' .
-          '</tr></table>';
+        '<tr> ' .
+        '	<td width="160" class="paytable1"><img src="img/checkout_logo.gif"></td> ' .
+        '		<form action="' . $post_url . '" method="get" id="form_checkout"> ' .
+        '	<td class="paytable2" width="100%">' . GMSG_CHECKOUT_DESCRIPTION . '</td>' .
+        '	<td class="paytable3"> ' .
+        '		<input type="hidden" name="sid" value="' . $checkout_id . '">	' .
+        '		<input type="hidden" name="total" value="' . $payment_amount . '"> ' .
+        '		<input type="hidden" name="cart_order_id" value="' . $transaction_id . '"> ' .
+        '		<input type="hidden" name="c_prod" value="CO_' . $transaction_id . '"> ' .
+        '		<input type="hidden" name="id_type" value="1"> ' .
+        '		<input type="hidden" name="sh_cost" value="0"> ' .
+        '		<input type="hidden" name="c_name" value="' . GMSG_SERVICE_ACTIVATION_FEE . '"> ' .
+        '		<input type="hidden" name="c_description" value="' . GMSG_SERVICE_ACTIVATION_FEE . '"> ' .
+        '		<input type="hidden" name="c_price" value="' . $payment_amount . '"> ' .
+        '		<input type="hidden" name="c_tangible" value="N"> ' .
+        '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
+        '	</td></form> ' .
+        '</tr></table>';
 
       return $display_output;
     }
@@ -182,20 +182,20 @@
       (string) $display_output = null;
 
       $display_output = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr> ' .
-          '	<td width="160" class="paytable1"><img src="img/worldpay_logo.gif"></td> ' .
-          '		<form action="' . $post_url . '" method=POST id="form_worldpay"> ' .
-          '	<td class="paytable2" width="100%">' . GMSG_WORLDPAY_DESCRIPTION . '</td>' .
-          '	<td class="paytable3"> ' .
-          '		<input type=hidden name="instId" value="' . $worldpay_id . '">	' .
-          '		<input type=hidden name="cartId" value="' . $transaction_id . '"> ' .
-          '		<input type=hidden name="amount" value="' . $payment_amount . '"> ' .
-          '		<input type=hidden name="currency" value="' . $currency . '"> ' .
-          '		<input type=hidden name="desc" value="' . GMSG_SERVICE_ACTIVATION_FEE . '"> ' .
-          '		<input type=hidden name=MC_callback value="' . $this->process_url . '"> ' .
-          '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form> ' .
-          '</tr></table>';
+        '<tr> ' .
+        '	<td width="160" class="paytable1"><img src="img/worldpay_logo.gif"></td> ' .
+        '		<form action="' . $post_url . '" method=POST id="form_worldpay"> ' .
+        '	<td class="paytable2" width="100%">' . GMSG_WORLDPAY_DESCRIPTION . '</td>' .
+        '	<td class="paytable3"> ' .
+        '		<input type=hidden name="instId" value="' . $worldpay_id . '">	' .
+        '		<input type=hidden name="cartId" value="' . $transaction_id . '"> ' .
+        '		<input type=hidden name="amount" value="' . $payment_amount . '"> ' .
+        '		<input type=hidden name="currency" value="' . $currency . '"> ' .
+        '		<input type=hidden name="desc" value="' . GMSG_SERVICE_ACTIVATION_FEE . '"> ' .
+        '		<input type=hidden name=MC_callback value="' . $this->process_url . '"> ' .
+        '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
+        '	</td></form> ' .
+        '</tr></table>';
 
       return $display_output;
     }
@@ -208,19 +208,19 @@
       $transaction_id = $transaction_id . 'TBL' . md5(rand());
 
       $display_output = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr>' .
-          '	<td width="160" class="paytable1"><img src="img/ikobo_logo.gif"></td>' .
-          '		<form method="post" action="' . $post_url . '" id="form_ikobo"> ' .
-          '	<td class="paytable2" width="100%">' . GMSG_IKOBO_DESCRIPTION . '</td> ' .
-          '	<td class="paytable3"> ' .
-          '		<input type="hidden" name="cmd" value="cart"> ' .
-          '		<input type="hidden" name="item_id" value="' . $transaction_id . '"> ' .
-          '		<input type="hidden" name="item" value="' . GMSG_SERVICE_ACTIVATION_FEE . '"> ' .
-          '		<input type="hidden" name="price" value="' . $payment_amount . '"> ' .
-          '		<input type="hidden" name="poid" value="' . $ikobo_member_id . '"> ' .
-          '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form> ' .
-          '</tr></table>';
+        '<tr>' .
+        '	<td width="160" class="paytable1"><img src="img/ikobo_logo.gif"></td>' .
+        '		<form method="post" action="' . $post_url . '" id="form_ikobo"> ' .
+        '	<td class="paytable2" width="100%">' . GMSG_IKOBO_DESCRIPTION . '</td> ' .
+        '	<td class="paytable3"> ' .
+        '		<input type="hidden" name="cmd" value="cart"> ' .
+        '		<input type="hidden" name="item_id" value="' . $transaction_id . '"> ' .
+        '		<input type="hidden" name="item" value="' . GMSG_SERVICE_ACTIVATION_FEE . '"> ' .
+        '		<input type="hidden" name="price" value="' . $payment_amount . '"> ' .
+        '		<input type="hidden" name="poid" value="' . $ikobo_member_id . '"> ' .
+        '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
+        '	</td></form> ' .
+        '</tr></table>';
 
       return $display_output;
     }
@@ -234,13 +234,13 @@
 			user_id='" . $this->user_id . "'"); ## user_id is provided from the payment functions
       ## the user details we will get later.
       $string = 'VendorTxCode=' . $transaction_id . 'TBL' . $transaction_code . '&' .
-          'Amount=' . $payment_amount . '&' .
-          'Currency=' . $currency . '&' .
-          'Description=' . GMSG_SERVICE_ACTIVATION_FEE . '&' .
-          'CustomerEmail=' . $user_details['email'] . '&' .
-          'SuccessURL=' . $this->process_url . '&' .
-          'FailureURL=' . $this->failure_url . '&' .
-          'BillingAddress=' . $user_details['address'] . '&';
+        'Amount=' . $payment_amount . '&' .
+        'Currency=' . $currency . '&' .
+        'Description=' . GMSG_SERVICE_ACTIVATION_FEE . '&' .
+        'CustomerEmail=' . $user_details['email'] . '&' .
+        'SuccessURL=' . $this->process_url . '&' .
+        'FailureURL=' . $this->failure_url . '&' .
+        'BillingAddress=' . $user_details['address'] . '&';
       $string .= 'BillingPostCode=' . $user_details['zip_code'] . '';
 
       $key_values = array();
@@ -261,19 +261,19 @@
       $secret_string = base64_encode($secret_string);
 
       $display_output = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr>' .
-          '	<td width="160" class="paytable1"><img src="img/protx_logo.gif"></td>' .
-          '		<form method="post" action="' . $post_url . '" id="form_protx"> ' .
-          '	<td class="paytable2" width="100%">' . GMSG_PROTX_DESCRIPTION . '</td>' .
-          '	<td class="paytable3"> ' .
-          '		<input type="hidden" name="cmd" value="cart"> ' .
-          '		 <input type="hidden" name="VPSProtocol" value="2.22">			' .
-          '		 <input type="hidden" name="TxType" value="PAYMENT">				' .
-          '		 <input type="hidden" name="Vendor" value="' . $protx_username . '">' .
-          '		 <input type="hidden" name="Crypt" value="' . $secret_string . '">	' .
-          '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form> ' .
-          '</tr></table>';
+        '<tr>' .
+        '	<td width="160" class="paytable1"><img src="img/protx_logo.gif"></td>' .
+        '		<form method="post" action="' . $post_url . '" id="form_protx"> ' .
+        '	<td class="paytable2" width="100%">' . GMSG_PROTX_DESCRIPTION . '</td>' .
+        '	<td class="paytable3"> ' .
+        '		<input type="hidden" name="cmd" value="cart"> ' .
+        '		 <input type="hidden" name="VPSProtocol" value="2.22">			' .
+        '		 <input type="hidden" name="TxType" value="PAYMENT">				' .
+        '		 <input type="hidden" name="Vendor" value="' . $protx_username . '">' .
+        '		 <input type="hidden" name="Crypt" value="' . $secret_string . '">	' .
+        '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
+        '	</td></form> ' .
+        '</tr></table>';
 
       return $display_output;
     }
@@ -282,16 +282,16 @@
       (string) $display_output = null;
 
       $display_output .= '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr> ' .
-          '	<td width="160" class="paytable1"><img src="img/phpprosim_logo.gif"></td> ' .
-          '		<form action="pp_testmode.php" method="post">	' .
-          '	<td class="paytable2" width="100%">' . GMSG_TESTMODE_DESCRIPTION . '</td> ' .
-          '	<td class="paytable3"> ' .
-          '		<input type="hidden" name="amount" value="' . $payment_amount . '"> ' .
-          '		<input type="hidden" name="custom" value="' . $transaction_id . '"> ' .
-          '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form> ' .
-          '</tr></table>';
+        '<tr> ' .
+        '	<td width="160" class="paytable1"><img src="img/phpprosim_logo.gif"></td> ' .
+        '		<form action="pp_testmode.php" method="post">	' .
+        '	<td class="paytable2" width="100%">' . GMSG_TESTMODE_DESCRIPTION . '</td> ' .
+        '	<td class="paytable3"> ' .
+        '		<input type="hidden" name="amount" value="' . $payment_amount . '"> ' .
+        '		<input type="hidden" name="custom" value="' . $transaction_id . '"> ' .
+        '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
+        '	</td></form> ' .
+        '</tr></table>';
 
       return $display_output;
     }
@@ -333,8 +333,8 @@
       $fingerprint = $this->hmac($x_tran_key, $loginid . "^" . $sequence . "^" . $tstamp . "^" . $amount . "^" . $currency);
 
       $output = '<input type="hidden" name="x_fp_sequence" value="' . $sequence . '"> ' .
-          '<input type="hidden" name="x_fp_timestamp" value="' . $tstamp . '"> ' .
-          '<input type="hidden" name="x_fp_hash" value="' . $fingerprint . '">';
+        '<input type="hidden" name="x_fp_timestamp" value="' . $tstamp . '"> ' .
+        '<input type="hidden" name="x_fp_hash" value="' . $fingerprint . '">';
 
       return $output;
     }
@@ -364,8 +364,8 @@
       ## $TESTMODE = 1;
 
       $display_output = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr>' .
-          '	<td width="160" class="paytable1"><img src="img/authorize_logo.gif"></td>';
+        '<tr>' .
+        '	<td width="160" class="paytable1"><img src="img/authorize_logo.gif"></td>';
 
       if ($TESTMODE) {
         $display_output .= '<form action="https://test.authorize.net/gateway/transact.dll" method="POST">';
@@ -380,25 +380,25 @@
       $ret = $this->InsertFP($authnet_username, $authnet_password, $payment_amount, $sequence);
 
       $display_output .= '	</td>' .
-          '	<td class="paytable3"> ' .
-          '		<input type="hidden" name="x_description" value="' . $payment_description . '">' .
-          '		<input type="hidden" name="x_login" value="' . $authnet_username . '">' .
-          '		<input type="hidden" name="x_amount" value="' . $payment_amount . '">' .
-          '		<input type="hidden" name="x_currency" value="' . $this->setts['currency'] . '">' .
-          '		<input type="hidden" name="x_method" value="CC">' .
-          '		<input type="hidden" name="x_type" value="AUTH_CAPTURE">' .
-          '		<input type="hidden" name="x_show_form" value="PAYMENT_FORM">' .
-          '		<input type="hidden" name="x_relay_response" value="TRUE">' .
-          $ret .
-          '		<input type="hidden" name="myphpauction_id" value="' . $transaction_id . '">';
+        '	<td class="paytable3"> ' .
+        '		<input type="hidden" name="x_description" value="' . $payment_description . '">' .
+        '		<input type="hidden" name="x_login" value="' . $authnet_username . '">' .
+        '		<input type="hidden" name="x_amount" value="' . $payment_amount . '">' .
+        '		<input type="hidden" name="x_currency" value="' . $this->setts['currency'] . '">' .
+        '		<input type="hidden" name="x_method" value="CC">' .
+        '		<input type="hidden" name="x_type" value="AUTH_CAPTURE">' .
+        '		<input type="hidden" name="x_show_form" value="PAYMENT_FORM">' .
+        '		<input type="hidden" name="x_relay_response" value="TRUE">' .
+        $ret .
+        '		<input type="hidden" name="myphpauction_id" value="' . $transaction_id . '">';
 
       if ($TESTMODE) {
         $display_output .= '<input type="hidden" name="x_test_request" value="TRUE">';
       }
 
       $display_output .= '<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form> ' .
-          '</tr></table>';
+        '	</td></form> ' .
+        '</tr></table>';
 
       return $display_output;
     }
@@ -412,21 +412,21 @@
       $payment_description = (!$payment_description) ? GMSG_SERVICE_ACTIVATION_FEE : $payment_description;
 
       $display_output = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr>' .
-          '	<td width="160" class="paytable1"><img src="img/paymate_logo.gif"></td> ' .
-          '		<form action="' . $post_url . '" method="post" id="form_paymate"> ' .
-          '	<td class="paytable2" width="100%">' . GMSG_PAYMATE_DESCRIPTION . '</td> ' .
-          '	<td class="paytable3"> ' .
-          '		<input type="hidden" name="mid" value="' . $paymate_merchant_id . '"> ' .
-          '		<input type="hidden" name="amt" value="' . $payment_amount . '"> ' .
-          '		<input type="hidden" name="amt_editable" value="N"> ' .
-          '		<input type="hidden" name="currency" value="' . $currency . '"> ' .
-          '		<input type="hidden" name="return" value="' . $this->process_url . '"> ' .
-          '		<input type="hidden" name="ref" value="' . $transaction_id . '"> ' .
-          '		<input type="hidden" name="popup" value="false"> ' .
-          '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form> ' .
-          '</tr></table>';
+        '<tr>' .
+        '	<td width="160" class="paytable1"><img src="img/paymate_logo.gif"></td> ' .
+        '		<form action="' . $post_url . '" method="post" id="form_paymate"> ' .
+        '	<td class="paytable2" width="100%">' . GMSG_PAYMATE_DESCRIPTION . '</td> ' .
+        '	<td class="paytable3"> ' .
+        '		<input type="hidden" name="mid" value="' . $paymate_merchant_id . '"> ' .
+        '		<input type="hidden" name="amt" value="' . $payment_amount . '"> ' .
+        '		<input type="hidden" name="amt_editable" value="N"> ' .
+        '		<input type="hidden" name="currency" value="' . $currency . '"> ' .
+        '		<input type="hidden" name="return" value="' . $this->process_url . '"> ' .
+        '		<input type="hidden" name="ref" value="' . $transaction_id . '"> ' .
+        '		<input type="hidden" name="popup" value="false"> ' .
+        '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
+        '	</td></form> ' .
+        '</tr></table>';
 
       return $display_output;
     }
@@ -442,21 +442,21 @@
       $transaction_id .= 'TBL' . $this->user_id . 'TBL' . $this->seller_id;
 
       $display_output = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="paymenttable"> ' .
-          '<tr>' .
-          '	<td width="160" class="paytable1"><img src="img/google_checkout_logo.gif"></td> ' .
-          '		<form action="' . $post_url . '" method="post" id="form_gc" accept-charset="utf-8"> ' .
-          '	<td class="paytable2" width="100%">' . GMSG_GC_DESCRIPTION . '</td> ' .
-          '	<td class="paytable3"> ' .
-          '		<input type="hidden" name="item_name_1" value="' . $payment_description . '"> ' .
-          '		<input type="hidden" name="item_description_1" value="' . $payment_description . ' - ' . $this->setts['sitename'] . '"> ' .
-          '		<input type="hidden" name="item_price_1" value="' . $payment_amount . '"> ' .
-          '		<input type="hidden" name="item_currency_1" value="' . $currency . '"> ' .
-          '		<input type="hidden" name="item_quantity_1" value="1"> ' .
-          '		<input type="hidden" name="item_merchant_id_1" value="' . $transaction_id . '"> ' .
-          '		<input type="hidden" name="_charset_"> ' .
-          '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
-          '	</td></form> ' .
-          '</tr></table>';
+        '<tr>' .
+        '	<td width="160" class="paytable1"><img src="img/google_checkout_logo.gif"></td> ' .
+        '		<form action="' . $post_url . '" method="post" id="form_gc" accept-charset="utf-8"> ' .
+        '	<td class="paytable2" width="100%">' . GMSG_GC_DESCRIPTION . '</td> ' .
+        '	<td class="paytable3"> ' .
+        '		<input type="hidden" name="item_name_1" value="' . $payment_description . '"> ' .
+        '		<input type="hidden" name="item_description_1" value="' . $payment_description . ' - ' . $this->setts['sitename'] . '"> ' .
+        '		<input type="hidden" name="item_price_1" value="' . $payment_amount . '"> ' .
+        '		<input type="hidden" name="item_currency_1" value="' . $currency . '"> ' .
+        '		<input type="hidden" name="item_quantity_1" value="1"> ' .
+        '		<input type="hidden" name="item_merchant_id_1" value="' . $transaction_id . '"> ' .
+        '		<input type="hidden" name="_charset_"> ' .
+        '		<input name="submit" type="image" src="themes/' . $this->setts['default_theme'] . '/img/system/but_pay.gif" border="0"> ' .
+        '	</td></form> ' .
+        '</tr></table>';
 
       return $display_output;
     }
@@ -470,8 +470,8 @@
         $message = MSG_CLICK_ONE_PG_TO_ACTIVATE_YOUR_ACCOUNT;
 
       $display_output = '<table width=100% cellpadding=3 cellspacing=3 class="errormessage"> ' .
-          '<tr> ' .
-          '	<td align=center>' . MSG_SUPPORTED_GATEWAYS . '<br>';
+        '<tr> ' .
+        '	<td align=center>' . MSG_SUPPORTED_GATEWAYS . '<br>';
 
       $dp_query = ($direct_payment) ? ' WHERE dp_enabled = 1 ' : ' WHERE checked = 1';
 
@@ -482,7 +482,7 @@
       }
 
       $display_output .= '<br>' . $message . '<br><br><b> ' .
-          MSG_PAY_A_FEE_OF . ' ' . $this->display_amount($payment_amount) . '</b>';
+        MSG_PAY_A_FEE_OF . ' ' . $this->display_amount($payment_amount) . '</b>';
 
       if ($tax_message) {
         $display_output .= '<br>' . $tax_message;
@@ -551,7 +551,7 @@
 
       $sql_select_gateways = $this->query($gateways_query);
 
-      $payment_description = substr(str_replace("&#039;", '', $payment_description), 0, 120);
+      $payment_description = substr(ereg_replace("&#039;", '', $payment_description), 0, 120);
       while ($gateway_details = $this->fetch_array($sql_select_gateways)) {
         if ($gateway_details['name'] == 'PayPal' && (!$user_id || $pg_details['pg_paypal_email'])) {
           $paypal_email = ($user_id) ? $pg_details['pg_paypal_email'] : $this->setts['pg_paypal_email'];
@@ -709,7 +709,7 @@
         if ($winner_details['auction_id'] > 0) {
           $this->set_fees($winner_details['seller_id'], $winner_details['category_id']);
 
-          $payer_id = (stristr($this->fee['endauction_fee_applies'], 'b')) ? $winner_details['buyer_id'] : $winner_details['seller_id'];
+          $payer_id = (eregi('b', $this->fee['endauction_fee_applies'])) ? $winner_details['buyer_id'] : $winner_details['seller_id'];
 
           $invoice_name = GMSG_ENDAUCTION_FEE . ' - ' . MSG_AUCTION_ID . ': ' . $winner_details['auction_id'];
 
@@ -1092,12 +1092,12 @@
       $output = array('display' => null, 'amount' => 0);
 
       $output['display'] = '<tr class="c4"> ' .
-          '	<td colspan="3">' . GMSG_AUCTION_FEES . '</td> ' .
-          '</tr> ' .
-          '<tr class="c5"> ' .
-          '	<td><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="150" height="1"></td> ' .
-          '	<td colspan="2"><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="1" height="1"></td> ' .
-          '</tr> ';
+        '	<td colspan="3">' . GMSG_AUCTION_FEES . '</td> ' .
+        '</tr> ' .
+        '<tr class="c5"> ' .
+        '	<td><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="150" height="1"></td> ' .
+        '	<td colspan="2"><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="1" height="1"></td> ' .
+        '</tr> ';
 
       $fees_no_tier = $this->fees_no_tier_array($item_details);
 
@@ -1125,9 +1125,9 @@
             }
 
             $output['display'] .= '<tr class="c1"> ' .
-                '	<td align="right">' . GMSG_SETUP_FEE . '</td> ' .
-                '	<td nowrap colspan="2">' . $fee_display . $value['display'] . '</td> ' .
-                '</tr> ';
+              '	<td align="right">' . GMSG_SETUP_FEE . '</td> ' .
+              '	<td nowrap colspan="2">' . $fee_display . $value['display'] . '</td> ' .
+              '</tr> ';
 
             ## now add the row on the invoices table
             if ($user_payment_mode == 2 && $add_invoices) {
@@ -1157,9 +1157,9 @@
 
           if ($fee_details['amount']) { ## only do this if there is a fee
             $output['display'] .= '<tr class="c1"> ' .
-                '	<td align="right">' . $value[0] . '</td> ' .
-                '	<td nowrap colspan="2">' . $fee_details['display'] . '</td> ' .
-                '</tr> ';
+              '	<td align="right">' . $value[0] . '</td> ' .
+              '	<td nowrap colspan="2">' . $fee_details['display'] . '</td> ' .
+              '</tr> ';
 
 
             ## now add the row on the invoices table
@@ -1179,9 +1179,9 @@
       }
 
       $output['display'] .= '<tr class="c3"> ' .
-          '	<td align="right">' . GMSG_TOTAL . '</td> ' .
-          '	<td nowrap colspan="2">' . $this->display_amount($output['amount'], $this->setts['currency']) . '</td> ' .
-          '</tr> ';
+        '	<td align="right">' . GMSG_TOTAL . '</td> ' .
+        '	<td nowrap colspan="2">' . $this->display_amount($output['amount'], $this->setts['currency']) . '</td> ' .
+        '</tr> ';
 
       return $output;
     }
@@ -1255,9 +1255,9 @@
         if ($user_payment_mode == 1) { // live payment
           if ($item_relist && !$charge_relist) { ## if the auction is relisted, dont display the payment dialogue but only a message instead
             $output['display'] = '<table class="errormessage" align="center"><tr><td align="center"> ' .
-                '<p class="contentfont" align="center">' . MSG_YOUR_AUCTION . ' #' . $item_details['auction_id'] . ' ' . MSG_HAS_BEEN_LISTED . '</p>' .
-                '<p class="contentfont" align="center">' . MSG_YOU_WILL_NEED_TO_PAY . ' ' . $this->display_amount($output['amount'], $this->setts['currency'], 0) .
-                ' ' . MSG_TO_ACTIVATE_THE_AUCTION . '</p></td></tr></table>';
+              '<p class="contentfont" align="center">' . MSG_YOUR_AUCTION . ' #' . $item_details['auction_id'] . ' ' . MSG_HAS_BEEN_LISTED . '</p>' .
+              '<p class="contentfont" align="center">' . MSG_YOU_WILL_NEED_TO_PAY . ' ' . $this->display_amount($output['amount'], $this->setts['currency'], 0) .
+              ' ' . MSG_TO_ACTIVATE_THE_AUCTION . '</p></td></tr></table>';
           }
           else {
             $output['display'] = $this->payment_message($output['amount'], 0, MSG_TO_ACTIVATE_YOUR_AUCT);
@@ -1284,9 +1284,9 @@
 					active=1, payment_status='confirmed' WHERE auction_id='" . $item_details['auction_id'] . "'");
 
           $output['display'] = '<table class="errormessage" align="center"><tr><td align="center"> ' .
-              '<p class="contentfont" align="center">' . MSG_YOUR_AUCTION . ' #' . $item_details['auction_id'] . ' ' . MSG_HAS_BEEN_ACTIVATED . '</p>' .
-              '<p class="contentfont" align="center">' . MSG_THE_AMOUNT_OF . ' ' . $this->display_amount($output['amount'], $this->setts['currency'], 0) .
-              ' ' . MSG_HAS_BEEN_ADDED_TO_YOUR_BALANCE . '</p>';
+            '<p class="contentfont" align="center">' . MSG_YOUR_AUCTION . ' #' . $item_details['auction_id'] . ' ' . MSG_HAS_BEEN_ACTIVATED . '</p>' .
+            '<p class="contentfont" align="center">' . MSG_THE_AMOUNT_OF . ' ' . $this->display_amount($output['amount'], $this->setts['currency'], 0) .
+            ' ' . MSG_HAS_BEEN_ADDED_TO_YOUR_BALANCE . '</p>';
 
           if ($output['tax_details']) {
             $output['display'] .= '<p class="contentfont" align="center">' . $output['tax_details'] . '</p>';
@@ -1313,8 +1313,8 @@
 				active=1, payment_status='confirmed' WHERE auction_id='" . $item_details['auction_id'] . "'");
 
         $output['display'] = '<table class="errormessage" align="center"><tr><td align="center"> ' .
-            '<p class=contentfont align=center>' . MSG_YOUR_AUCTION . ' #' . $item_details['auction_id'] . ' ' . (($this->edit_auction_id) ? MSG_HAS_BEEN_UPDATED : MSG_HAS_BEEN_ACTIVATED) . '</p>' .
-            '</td></tr></table>';
+          '<p class=contentfont align=center>' . MSG_YOUR_AUCTION . ' #' . $item_details['auction_id'] . ' ' . (($this->edit_auction_id) ? MSG_HAS_BEEN_UPDATED : MSG_HAS_BEEN_ACTIVATED) . '</p>' .
+          '</td></tr></table>';
       }
 
       return $output;
@@ -1326,7 +1326,7 @@
 
       $this->set_fees($item_details['owner_id'], $item_details['category_id']); ## by default the seller will pay
 
-      if (stristr($this->fee['endauction_fee_applies'], 'b')) {
+      if (eregi('b', $this->fee['endauction_fee_applies'])) {
         $payer_id = $winning_bid_details['buyer_id'];
         $this->set_fees($winning_bid_details['buyer_id']); ## if buyer will pay, reset fees
       }
@@ -1376,9 +1376,9 @@
 					balance='" . $account_balance . "' WHERE user_id='" . $user_details['user_id'] . "'");
 
           $output['display'] = '<table class="errormessage" align="center"><tr><td align="center"> ' .
-              '<p class="contentfont" align="center">' . MSG_THE_SALE . ' #' . $winning_bid_details['winner_id'] . ' ' . MSG_HAS_BEEN_ACTIVATED . '</p>' .
-              '<p class="contentfont" align="center">' . MSG_THE_AMOUNT_OF . ' ' . $this->display_amount($output['amount'], $this->setts['currency'], 0) .
-              ' ' . MSG_HAS_BEEN_ADDED_TO_YOUR_BALANCE . '</p>';
+            '<p class="contentfont" align="center">' . MSG_THE_SALE . ' #' . $winning_bid_details['winner_id'] . ' ' . MSG_HAS_BEEN_ACTIVATED . '</p>' .
+            '<p class="contentfont" align="center">' . MSG_THE_AMOUNT_OF . ' ' . $this->display_amount($output['amount'], $this->setts['currency'], 0) .
+            ' ' . MSG_HAS_BEEN_ADDED_TO_YOUR_BALANCE . '</p>';
 
           $output['display'] .= '</td></tr></table>';
         }
@@ -1389,8 +1389,8 @@
 				active=1, payment_status='confirmed' WHERE winner_id='" . $winning_bid_details['winner_id'] . "'");
 
         $output['display'] = '<table class="errormessage" align="center"><tr><td align="center"> ' .
-            '<p class=contentfont align=center>' . MSG_THE_SALE . ' #' . $item_details['auction_id'] . ' ' . MSG_HAS_BEEN_ACTIVATED . '</p>' .
-            '</td></tr></table>';
+          '<p class=contentfont align=center>' . MSG_THE_SALE . ' #' . $item_details['auction_id'] . ' ' . MSG_HAS_BEEN_ACTIVATED . '</p>' .
+          '</td></tr></table>';
       }
 
       return $output;
@@ -1485,9 +1485,9 @@
 					balance='" . $account_balance . "' WHERE user_id='" . $user_details['user_id'] . "'");
 
           $output['display'] = '<table class="errormessage" align="center"><tr><td align="center"> ' .
-              '<p class="contentfont" align="center">' . MSG_YOUR_WANTED_AD . ' #' . $item_details['wanted_ad_id'] . ' ' . MSG_HAS_BEEN_ACTIVATED . '</p>' .
-              '<p class="contentfont" align="center">' . MSG_THE_AMOUNT_OF . ' ' . $this->display_amount($output['amount'], $this->setts['currency'], 0) .
-              ' ' . MSG_HAS_BEEN_ADDED_TO_YOUR_BALANCE . '</p>';
+            '<p class="contentfont" align="center">' . MSG_YOUR_WANTED_AD . ' #' . $item_details['wanted_ad_id'] . ' ' . MSG_HAS_BEEN_ACTIVATED . '</p>' .
+            '<p class="contentfont" align="center">' . MSG_THE_AMOUNT_OF . ' ' . $this->display_amount($output['amount'], $this->setts['currency'], 0) .
+            ' ' . MSG_HAS_BEEN_ADDED_TO_YOUR_BALANCE . '</p>';
 
           if ($output['tax_details']) {
             $output['display'] .= '<p class="contentfont" align="center">' . $output['tax_details'] . '</p>';
@@ -1510,8 +1510,8 @@
 				active=1, payment_status='confirmed' WHERE wanted_ad_id='" . $item_details['wanted_ad_id'] . "'");
 
         $output['display'] = '<table class="errormessage" align="center"><tr><td align="center"> ' .
-            '<p class=contentfont align=center>' . MSG_YOUR_WANTED_AD . ' #' . $item_details['wanted_ad_id'] . ' ' . (($this->edit_auction_id) ? MSG_HAS_BEEN_UPDATED : MSG_HAS_BEEN_ACTIVATED) . '</p>' .
-            '</td></tr></table>';
+          '<p class=contentfont align=center>' . MSG_YOUR_WANTED_AD . ' #' . $item_details['wanted_ad_id'] . ' ' . (($this->edit_auction_id) ? MSG_HAS_BEEN_UPDATED : MSG_HAS_BEEN_ACTIVATED) . '</p>' .
+          '</td></tr></table>';
       }
 
       return $output;
@@ -1556,8 +1556,8 @@
 				shop_active=1 WHERE user_id='" . $user_id . "'");
 
         $output['display'] = '<table class="errormessage" align="center"><tr><td align="center"> ' .
-            '<p class=contentfont align=center>' . MSG_STORE_ACTIVATED . '</p>' .
-            '</td></tr></table>';
+          '<p class=contentfont align=center>' . MSG_STORE_ACTIVATED . '</p>' .
+          '</td></tr></table>';
       }
 
       return $output;
@@ -1592,8 +1592,8 @@
 				seller_verified=1 WHERE user_id='" . $user_id . "'");
 
         $output['display'] = '<table class="errormessage" align="center"><tr><td align="center"> ' .
-            '<p class=contentfont align=center>' . MSG_SELLER_VERIFIED . '</p>' .
-            '</td></tr></table>';
+          '<p class=contentfont align=center>' . MSG_SELLER_VERIFIED . '</p>' .
+          '</td></tr></table>';
       }
 
       return $output;

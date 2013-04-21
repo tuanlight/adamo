@@ -174,9 +174,9 @@
    */
   function drupal_set_installed_schema_version($module, $version) {
     db_update('system')
-        ->fields(array('schema_version' => $version))
-        ->condition('name', $module)
-        ->execute();
+      ->fields(array('schema_version' => $version))
+      ->condition('name', $module)
+      ->execute();
 
     // Reset the static cache of module schema versions.
     drupal_get_installed_schema_version(NULL, TRUE);
@@ -723,17 +723,17 @@
     $system_versions = drupal_get_schema_versions('system');
     $system_version = $system_versions ? max($system_versions) : SCHEMA_INSTALLED;
     db_insert('system')
-        ->fields(array('filename', 'name', 'type', 'owner', 'status', 'schema_version', 'bootstrap'))
-        ->values(array(
-          'filename' => $system_path . '/system.module',
-          'name' => 'system',
-          'type' => 'module',
-          'owner' => '',
-          'status' => 1,
-          'schema_version' => $system_version,
-          'bootstrap' => 0,
-        ))
-        ->execute();
+      ->fields(array('filename', 'name', 'type', 'owner', 'status', 'schema_version', 'bootstrap'))
+      ->values(array(
+        'filename' => $system_path . '/system.module',
+        'name' => 'system',
+        'type' => 'module',
+        'owner' => '',
+        'status' => 1,
+        'schema_version' => $system_version,
+        'bootstrap' => 0,
+      ))
+      ->execute();
     system_rebuild_module_data();
   }
 
@@ -1277,7 +1277,7 @@
       );
       $info = drupal_parse_info_file("profiles/$profile/$profile.info") + $defaults;
       $info['dependencies'] = array_unique(array_merge(
-              drupal_required_modules(), $info['dependencies'], ($locale != 'en' && !empty($locale) ? array('locale') : array()))
+          drupal_required_modules(), $info['dependencies'], ($locale != 'en' && !empty($locale) ? array('locale') : array()))
       );
 
       // drupal_required_modules() includes the current profile as a dependency.

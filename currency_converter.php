@@ -38,12 +38,12 @@
     $converter_result = $_REQUEST['amount'] * $currency_to_value / $currency_from_value;
 
     $converter_result_box = '<tr> ' .
-        '	<td colspan="3" style="font-size=16px; font-weight: bold;" align="center">' . $fees->display_amount($_REQUEST['amount'], $_REQUEST['currency_from']) . ' = ' .
-        '		' . $fees->display_amount($converter_result, $_REQUEST['currency_to']) . '</td> ' .
-        '</tr> ' .
-        '<tr> ' .
-        '	<td colspan="3" class="c4"></td> ' .
-        '</tr> ';
+      '	<td colspan="3" style="font-size=16px; font-weight: bold;" align="center">' . $fees->display_amount($_REQUEST['amount'], $_REQUEST['currency_from']) . ' = ' .
+      '		' . $fees->display_amount($converter_result, $_REQUEST['currency_to']) . '</td> ' .
+      '</tr> ' .
+      '<tr> ' .
+      '	<td colspan="3" class="c4"></td> ' .
+      '</tr> ';
 
     $template->set('converter_result_box', $converter_result_box);
   }

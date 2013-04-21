@@ -48,8 +48,8 @@
 
     if (in_array($_REQUEST['page'], $content_pages_array)) {
       $message_content .= '<div class="topic_id"> ' .
-          '<a href="' . process_link('content_pages', array('page' => $_REQUEST['page'], 'topic_id' => $content_page['topic_id'])) . '">' . $content_page['topic_name'] . '</a> ' .
-          '</div>';
+        '<a href="' . process_link('content_pages', array('page' => $_REQUEST['page'], 'topic_id' => $content_page['topic_id'])) . '">' . $content_page['topic_name'] . '</a> ' .
+        '</div>';
     }
 
     $message_content .= '<div class="topic_content"> ' . $db->add_special_chars($content_page['topic_content']) . '</div>';

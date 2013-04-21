@@ -17,13 +17,13 @@
     form_name.submit();
   }
 </SCRIPT>
-<table id="sell_item_details" width="100%" border="0" cellpadding="3" cellspacing="2" class="border">
+<table width="100%" border="0" cellpadding="3" cellspacing="2">
   <tr class="c4">
-    <td colspan="2"><?php echo MSG_ITEM_DETAILS; ?></td>
+    <td colspan="2" class="cat_explain_message"><?php echo MSG_ITEM_DETAILS; ?></td>
   </tr>
   <tr class="c5">
-    <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
-    <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+    <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
+    <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
   </tr>
   <tr class="c1">
     <td width="150" align="right"><?php echo MSG_CHOOSE_LISTING_TYPE; ?></td>
@@ -61,8 +61,8 @@
     <td colspan="2"><?php echo MSG_MAIN_CATEGORY; ?></td>
   </tr>
   <tr class="c5">
-    <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
-    <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+    <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
+    <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
   </tr>
   <tr class="c1">
     <td width="150" align="right"></td>
@@ -83,8 +83,8 @@
         <td colspan="2"><?php echo MSG_ADDL_CATEGORY; ?></td>
       </tr>
       <tr class="c5">
-        <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
-        <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+        <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
+        <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
       </tr>
       <tr class="c1">
         <td width="150" align="right"></td>
@@ -98,8 +98,8 @@
   <?php echo $setup_voucher_box; ?>
   <?php if ($auction_edit != 1) { ?>
       <tr class="c5">
-        <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
-        <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+        <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
+        <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
       </tr>
       <tr>
         <td></td>

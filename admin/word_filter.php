@@ -54,11 +54,11 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $word_filter_page_content .= '<input type="hidden" name="id[]" value="' . $word_details['id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td></td> ' .
-          '	<td><input name="word[]" type="text" value="' . $word_details['word'] . '" size="50"></td> ' .
-          '	<td align="center"><input type="checkbox" name="delete[]" value="' . $word_details['id'] . '"></td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td></td> ' .
+        '	<td><input name="word[]" type="text" value="' . $word_details['word'] . '" size="50"></td> ' .
+        '	<td align="center"><input type="checkbox" name="delete[]" value="' . $word_details['id'] . '"></td> ' .
+        '</tr> ';
     }
 
     $template->set('header_section', AMSG_TOOLS);

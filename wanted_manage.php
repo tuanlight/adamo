@@ -40,7 +40,7 @@
     $item->layout = &$layout;
 
     $sell_item_header = '<table width="100%" border="0" cellpadding="3" cellspacing="2" class="border"> ' .
-        '<tr><td class="c3"><b>' . (($_REQUEST['do'] == 'edit') ? MSG_EDIT_WANTED_AD : MSG_SUBMIT_WANTED_AD) . '</b></td></tr></table>';
+      '<tr><td class="c3"><b>' . (($_REQUEST['do'] == 'edit') ? MSG_EDIT_WANTED_AD : MSG_SUBMIT_WANTED_AD) . '</b></td></tr></table>';
 
     /**
      * We create a temporary row in the items table for every ad that is made. If the ad is placed, this temporary row
@@ -200,11 +200,11 @@
       ## BEGIN pages upload
       ## 1.- details section
       $item_description_editor = "<script> \n" .
-          " 	var oEdit1 = new InnovaEditor(\"oEdit1\"); \n" .
-          " 	oEdit1.width=\"100%\";//You can also use %, for example: oEdit1.width=\"100%\" \n" .
-          "	oEdit1.height=300; \n" .
-          "	oEdit1.REPLACE(\"description_main\");//Specify the id of the textarea here \n" .
-          "</script>";
+        " 	var oEdit1 = new InnovaEditor(\"oEdit1\"); \n" .
+        " 	oEdit1.width=\"100%\";//You can also use %, for example: oEdit1.width=\"100%\" \n" .
+        "	oEdit1.height=300; \n" .
+        "	oEdit1.REPLACE(\"description_main\");//Specify the id of the textarea here \n" .
+        "</script>";
 
       $template->set('item_description_editor', $item_description_editor);
 

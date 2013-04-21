@@ -426,7 +426,7 @@
       $existing = db_query("SELECT status FROM {system} WHERE type = :type AND name = :name", array(
         ':type' => 'module',
         ':name' => $module))
-          ->fetchObject();
+        ->fetchObject();
       if ($existing->status == 0) {
         // Load the module's code.
         drupal_load('module', $module);
@@ -437,10 +437,10 @@
         // hook_schema() in particular, can be called while it is being
         // installed.
         db_update('system')
-            ->fields(array('status' => 1))
-            ->condition('type', 'module')
-            ->condition('name', $module)
-            ->execute();
+          ->fields(array('status' => 1))
+          ->condition('type', 'module')
+          ->condition('name', $module)
+          ->execute();
         // Refresh the module list to include it.
         system_list_reset();
         module_list(TRUE);
@@ -552,10 +552,10 @@
         module_load_install($module);
         module_invoke($module, 'disable');
         db_update('system')
-            ->fields(array('status' => 0))
-            ->condition('type', 'module')
-            ->condition('name', $module)
-            ->execute();
+          ->fields(array('status' => 0))
+          ->condition('type', 'module')
+          ->condition('name', $module)
+          ->execute();
         $invoke_modules[] = $module;
         watchdog('system', '%module module disabled.', array('%module' => $module), WATCHDOG_INFO);
       }

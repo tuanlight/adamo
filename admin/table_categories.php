@@ -135,13 +135,13 @@
       $order_value = ($category_details['order_id'] > 0 && $category_details['order_id'] < 1000) ? $category_details['order_id'] : '';
 
       $categories_page_content .= '<tr class="' . $background . '"> ' .
-          '	<td class="' . $background_border . '"><a href="table_categories.php?parent_id=' . $category_details['category_id'] . '"> ' .
-          '		<img src="images/catplus.gif" alt="' . AMSG_VIEW_SUBCATEGORIES . '" width="20" height="20" border="0"></a></td> ' .
-          '	<td><input name="name[]" type="text" id="name[]" value="' . $category_details['name'] . '" style="width:65%"> ';
+        '	<td class="' . $background_border . '"><a href="table_categories.php?parent_id=' . $category_details['category_id'] . '"> ' .
+        '		<img src="images/catplus.gif" alt="' . AMSG_VIEW_SUBCATEGORIES . '" width="20" height="20" border="0"></a></td> ' .
+        '	<td><input name="name[]" type="text" id="name[]" value="' . $category_details['name'] . '" style="width:65%"> ';
 
       if ($category_details['user_id'] > 0) {
         $categories_page_content .= ' &nbsp; <strong>' . AMSG_OWNER_ID . ':</strong> ' .
-            '[ <a href="list_site_users.php?do=user_details&user_id=' . $category_details['user_id'] . '"> ' . $category_details['user_id'] . '</a> ]';
+          '[ <a href="list_site_users.php?do=user_details&user_id=' . $category_details['user_id'] . '"> ' . $category_details['user_id'] . '</a> ]';
       }
 
       $categories_page_content .= '<input type="hidden" name="category_id[]" value="' . $category_details['category_id'] . '"> ';
@@ -151,46 +151,46 @@
       }
 
       $categories_page_content .= '</td> ' .
-          '<td align="center"> ' .
-          '	<input name="order_id[]" type="text" id="order_id[]" value="' . $order_value . '" size="8"></td> ';
+        '<td align="center"> ' .
+        '	<input name="order_id[]" type="text" id="order_id[]" value="' . $order_value . '" size="8"></td> ';
 
       if ($category_details['parent_id'] == 0) {
         $categories_page_content .= '<td align="center">' .
-            (($category_details['user_id'] == 0) ? list_skins('admin', true, $category_details['custom_skin'], true, true) : '') . '</td>' .
-            '<td align="center">' .
-            (($category_details['user_id'] == 0) ? '<input name="minimum_age[]" type="text" id="minimum_age[]" size="8" value="' . $category_details['minimum_age'] . '">' : '') . '</td>' .
-            '	<td align="center">' .
-            (($category_details['user_id'] == 0) ? '<input name="custom_fees[]" type="checkbox" id="custom_fees[]" value="' . $category_details['category_id'] . '" ' .
-                (($category_details['custom_fees']) ? 'checked' : '') . '>' : '' ) . '</td>';
+          (($category_details['user_id'] == 0) ? list_skins('admin', true, $category_details['custom_skin'], true, true) : '') . '</td>' .
+          '<td align="center">' .
+          (($category_details['user_id'] == 0) ? '<input name="minimum_age[]" type="text" id="minimum_age[]" size="8" value="' . $category_details['minimum_age'] . '">' : '') . '</td>' .
+          '	<td align="center">' .
+          (($category_details['user_id'] == 0) ? '<input name="custom_fees[]" type="checkbox" id="custom_fees[]" value="' . $category_details['category_id'] . '" ' .
+            (($category_details['custom_fees']) ? 'checked' : '') . '>' : '' ) . '</td>';
       }
 
       $categories_page_content .= '<td align="center"> ' .
-          '		<input name="hidden[]" type="checkbox" id="hidden[]" value="' . $category_details['category_id'] . '" ' . (($category_details['hidden'] == 1) ? 'checked' : '') . '></td> ' .
-          '	<td align="center"><input name="delete[]" type="checkbox" id="delete[]" value="' . $category_details['category_id'] . '"></td> ' .
-          '</tr> ';
+        '		<input name="hidden[]" type="checkbox" id="hidden[]" value="' . $category_details['category_id'] . '" ' . (($category_details['hidden'] == 1) ? 'checked' : '') . '></td> ' .
+        '	<td align="center"><input name="delete[]" type="checkbox" id="delete[]" value="' . $category_details['category_id'] . '"></td> ' .
+        '</tr> ';
     }
 
     (int) $add_cats_counter = 5;
 
     $add_category_content = '<tr class="c1"> ' .
-        '	<td>&nbsp;</td> ' .
-        '	<td> ';
+      '	<td>&nbsp;</td> ' .
+      '	<td> ';
 
     for ($i = 0; $i < $add_cats_counter; $i++) {
       $add_category_content .= '<input name="add_name[]" type="text" id="add_name[]"><br> ';
     }
 
     $add_category_content .='</td>' .
-        '	<td align="center">&nbsp;</td> ';
+      '	<td align="center">&nbsp;</td> ';
 
     if ($parent_id == 0) {
       $add_category_content .= '<td align="center">&nbsp;</td> ' .
-          '<td align="center">&nbsp;</td> ';
+        '<td align="center">&nbsp;</td> ';
     }
 
     $add_category_content .= '<td align="center">&nbsp;</td> ' .
-        '	<td align="center">&nbsp;</td> ' .
-        '</tr> ';
+      '	<td align="center">&nbsp;</td> ' .
+      '</tr> ';
 
     $template->set('categories_page_content', $categories_page_content);
     $template->set('add_category_content', $add_category_content);

@@ -102,8 +102,8 @@
             $background = ($counter++ % 2) ? 'c2_shop' : 'c3_shop';
 
             $shop_subcategories_content .= '<tr class="' . $background . '"> ' .
-                '	<td width="100%">&nbsp;&raquo;&nbsp;<a href="shop.php?parent_id=' . $cat_details['category_id'] . '&user_id=' . $user_id . '">' . $category_lang[$cat_details['category_id']] . '</a></td> ' .
-                '</tr> ';
+              '	<td width="100%">&nbsp;&raquo;&nbsp;<a href="shop.php?parent_id=' . $cat_details['category_id'] . '&user_id=' . $user_id . '">' . $category_lang[$cat_details['category_id']] . '</a></td> ' .
+              '</tr> ';
           }
 
           $template->set('shop_subcategories_content', $shop_subcategories_content);
@@ -135,12 +135,12 @@
               $background = ($counter++ % 2) ? 'c2_shop' : 'c3_shop';
 
               $shop_ending_auctions_content .= '<tr height="15" class="' . $background . '"> ' .
-                  '	<td width="11"><img src="themes/' . $setts['default_theme'] . '/img/arr_it.gif" width="11" height="11" hspace="4"></td> ' .
-                  '	<td width="100%" class="contentfont_shop"><a href="' . process_link('auction_details', array('name' => $item_details['name'], 'auction_id' => $item_details['auction_id'])) . '">' . title_resize($item_details['name']) . '</a><br> ' .
-                  '		<div class="smallfont_shop"><b>' . MSG_TIME_LEFT . '</b>: ' . time_left($item_details['end_time']) . '</div> ' .
-                  '		<div class="smallfont_shop"><b>' . MSG_CURRENTLY . '</b>: ' . $fees->display_amount((($item_details['max_bid'] > 0) ? $item_details['max_bid'] : $item_details['start_price']), $item_details['currency']) . '</div></td> ' .
-                  '	<td nowrap>' . item_pics($item_details) . '</td> ' .
-                  '</tr> ';
+                '	<td width="11"><img src="themes/' . $setts['default_theme'] . '/img/arr_it.gif" width="11" height="11" hspace="4"></td> ' .
+                '	<td width="100%" class="contentfont_shop"><a href="' . process_link('auction_details', array('name' => $item_details['name'], 'auction_id' => $item_details['auction_id'])) . '">' . title_resize($item_details['name']) . '</a><br> ' .
+                '		<div class="smallfont_shop"><b>' . MSG_TIME_LEFT . '</b>: ' . time_left($item_details['end_time']) . '</div> ' .
+                '		<div class="smallfont_shop"><b>' . MSG_CURRENTLY . '</b>: ' . $fees->display_amount((($item_details['max_bid'] > 0) ? $item_details['max_bid'] : $item_details['start_price']), $item_details['currency']) . '</div></td> ' .
+                '	<td nowrap>' . item_pics($item_details) . '</td> ' .
+                '</tr> ';
             }
 
             $template->set('shop_ending_auctions_content', $shop_ending_auctions_content);
@@ -159,12 +159,12 @@
               $background = ($counter++ % 2) ? 'c2_shop' : 'c3_shop';
 
               $shop_recent_auctions_content .= '<tr height="15" class="' . $background . '"> ' .
-                  '	<td width="11"><img src="themes/' . $setts['default_theme'] . '/img/arr_it.gif" width="11" height="11" hspace="4"></td> ' .
-                  '	<td width="100%" class="contentfont_shop"><a href="' . process_link('auction_details', array('name' => $item_details['name'], 'auction_id' => $item_details['auction_id'])) . '">' . title_resize($item_details['name']) . '</a><br> ' .
-                  '		<div class="smallfont_shop"><b>' . MSG_TIME_LEFT . '</b>: ' . time_left($item_details['end_time']) . '</div> ' .
-                  '		<div class="smallfont_shop"><b>' . MSG_CURRENTLY . '</b>: ' . $fees->display_amount((($item_details['max_bid'] > 0) ? $item_details['max_bid'] : $item_details['start_price']), $item_details['currency']) . '</div></td> ' .
-                  '	<td nowrap>' . item_pics($item_details) . '</td> ' .
-                  '</tr> ';
+                '	<td width="11"><img src="themes/' . $setts['default_theme'] . '/img/arr_it.gif" width="11" height="11" hspace="4"></td> ' .
+                '	<td width="100%" class="contentfont_shop"><a href="' . process_link('auction_details', array('name' => $item_details['name'], 'auction_id' => $item_details['auction_id'])) . '">' . title_resize($item_details['name']) . '</a><br> ' .
+                '		<div class="smallfont_shop"><b>' . MSG_TIME_LEFT . '</b>: ' . time_left($item_details['end_time']) . '</div> ' .
+                '		<div class="smallfont_shop"><b>' . MSG_CURRENTLY . '</b>: ' . $fees->display_amount((($item_details['max_bid'] > 0) ? $item_details['max_bid'] : $item_details['start_price']), $item_details['currency']) . '</div></td> ' .
+                '	<td nowrap>' . item_pics($item_details) . '</td> ' .
+                '</tr> ';
             }
 
             $template->set('shop_recent_auctions_content', $shop_recent_auctions_content);

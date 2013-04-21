@@ -84,14 +84,14 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $stores_subscriptions_content .= '<input type="hidden" name="tier_id[]" value="' . $tier_details['tier_id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td><input name="store_name[]" type="text" id="store_name[]" value="' . $tier_details['store_name'] . '" size="40"></td> ' .
-          '	<td align="center"><input name="store_nb_items[]" type="text" id="store_nb_items[]" value="' . $tier_details['store_nb_items'] . '" size="9"></td> ' .
-          '	<td align="center"><input name="fee_amount[]" type="text" id="fee_amount[]" value="' . $tier_details['fee_amount'] . '" size="9"></td> ' .
-          '	<td align="center"><input name="store_recurring[]" type="text" id="store_recurring[]" value="' . $tier_details['store_recurring'] . '" size="9"></td> ' .
-          '	<td align="center"><input type="checkbox" name="store_featured[' . $tier_details['tier_id'] . ']" value="' . $tier_details['tier_id'] . '" ' . (($tier_details['store_featured']) ? 'checked' : '') . '></td> ' .
-          '	<td align="center"><input type="checkbox" name="delete[]" value="' . $tier_details['tier_id'] . '"></td> ' .
-          '</tr>';
+        '<tr class="' . $background . '"> ' .
+        '	<td><input name="store_name[]" type="text" id="store_name[]" value="' . $tier_details['store_name'] . '" size="40"></td> ' .
+        '	<td align="center"><input name="store_nb_items[]" type="text" id="store_nb_items[]" value="' . $tier_details['store_nb_items'] . '" size="9"></td> ' .
+        '	<td align="center"><input name="fee_amount[]" type="text" id="fee_amount[]" value="' . $tier_details['fee_amount'] . '" size="9"></td> ' .
+        '	<td align="center"><input name="store_recurring[]" type="text" id="store_recurring[]" value="' . $tier_details['store_recurring'] . '" size="9"></td> ' .
+        '	<td align="center"><input type="checkbox" name="store_featured[' . $tier_details['tier_id'] . ']" value="' . $tier_details['tier_id'] . '" ' . (($tier_details['store_featured']) ? 'checked' : '') . '></td> ' .
+        '	<td align="center"><input type="checkbox" name="delete[]" value="' . $tier_details['tier_id'] . '"></td> ' .
+        '</tr>';
     }
 
     $template->set('stores_subscriptions_content', $stores_subscriptions_content);

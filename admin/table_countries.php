@@ -65,19 +65,19 @@
       $order_value = ($country_details['country_order'] > 0 && $country_details['country_order'] < 1000) ? $country_details['country_order'] : '';
 
       $countries_page_content .= '<input type="hidden" name="country_id[]" value="' . $country_details['id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td> ';
 
       if (!$_REQUEST['parent_id']) {
         $countries_page_content .= '<a href="table_countries.php?parent_id=' . $country_details['id'] . '"> ' .
-            '		<img src="images/catplus.gif" alt="' . AMSG_EDIT_STATES . '" width="20" height="20" border="0"></a>';
+          '		<img src="images/catplus.gif" alt="' . AMSG_EDIT_STATES . '" width="20" height="20" border="0"></a>';
       }
 
       $countries_page_content .= '</td> ' .
-          '	<td><input name="name[]" type="text" value="' . $country_details['name'] . '" size="60"></td> ' .
-          '	<td align="center"><input name="country_order[]" type="text" value="' . $order_value . '" size="8"></td> ' .
-          '	<td align="center"><input type="checkbox" name="delete[]" value="' . $country_details['id'] . '"></td> ' .
-          '</tr> ';
+        '	<td><input name="name[]" type="text" value="' . $country_details['name'] . '" size="60"></td> ' .
+        '	<td align="center"><input name="country_order[]" type="text" value="' . $order_value . '" size="8"></td> ' .
+        '	<td align="center"><input type="checkbox" name="delete[]" value="' . $country_details['id'] . '"></td> ' .
+        '</tr> ';
     }
 
     if ($parent_id) {
@@ -86,7 +86,7 @@
       $country_name = $db->get_sql_field("SELECT name FROM " . DB_PREFIX . "countries WHERE id=" . $parent_id, "name");
 
       $state_header_message = '<tr class="c2"><td style="padding: 3px;">' . AMSG_EDIT_STATES_FOR . ' ' . $country_name .
-          ' [ <a href="table_countries.php">' . GMSG_BACK . '</a> ]</td></tr>';
+        ' [ <a href="table_countries.php">' . GMSG_BACK . '</a> ]</td></tr>';
 
       $template->set('state_header_message', $state_header_message);
     }

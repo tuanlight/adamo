@@ -16,8 +16,7 @@
   include_once ('includes/functions_item.php');
 
   $template->set('header_browse_auctions', $header_browse_auctions);
-  if (!$start)
-      $start = 0;
+
   $limit = 20;
 
   $order_link = '&order_field=' . $order_field . '&order_type=' . $order_type;
@@ -75,14 +74,14 @@
       $auction_image = (!empty($media_url)) ? $media_url : 'themes/' . $setts['default_theme'] . '/img/system/noimg.gif';
 
       $browse_auctions_content .= '<tr class="contentfont ' . $background . '"> ' .
-          '	<td align="center"><input type="checkbox" name="auction_id[]" value="' . $item_details['auction_id'] . '"></td> ' .
-          '	<td align="center"><a href="' . $auction_link . '"><img src="thumbnail.php?pic=' . $auction_image . '&w=50&sq=Y&b=Y" border="0" alt="' . $item_details['name'] . '"></a></td> ' .
-          '	<td><a href="' . $auction_link . '">' . $item_details['name'] . '</a> ' . item_pics($item_details) . '</td> ' .
-          '	<td align="center">' . $fees->display_amount($item_details['start_price'], $item_details['currency']) . '</td> ' .
-          '	<td align="center">' . $fees->display_amount($item_details['max_bid'], $item_details['currency']) . '</td> ' .
-          '	<td align="center">' . $item_details['nb_bids'] . '</td> ' .
-          '	<td align="center">' . time_left($item_details['end_time']) . '</td> ' .
-          '</tr> ';
+        '	<td align="center"><input type="checkbox" name="auction_id[]" value="' . $item_details['auction_id'] . '"></td> ' .
+        '	<td align="center"><a href="' . $auction_link . '"><img src="thumbnail.php?pic=' . $auction_image . '&w=50&sq=Y&b=Y" border="0" alt="' . $item_details['name'] . '"></a></td> ' .
+        '	<td><a href="' . $auction_link . '">' . $item_details['name'] . '</a> ' . item_pics($item_details) . '</td> ' .
+        '	<td align="center">' . $fees->display_amount($item_details['start_price'], $item_details['currency']) . '</td> ' .
+        '	<td align="center">' . $fees->display_amount($item_details['max_bid'], $item_details['currency']) . '</td> ' .
+        '	<td align="center">' . $item_details['nb_bids'] . '</td> ' .
+        '	<td align="center">' . time_left($item_details['end_time']) . '</td> ' .
+        '</tr> ';
     }
   }
   else {

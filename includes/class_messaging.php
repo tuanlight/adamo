@@ -153,23 +153,23 @@
       switch ($message_details['message_handle']) {
         case 1:
           $display_output = MSG_PUBLIC_QUESTION . '<br>' .
-              MSG_AUCTION_ID . ': ' . $message_details['auction_id'] . ' - ' . $message_details['name'];
+            MSG_AUCTION_ID . ': ' . $message_details['auction_id'] . ' - ' . $message_details['name'];
           break;
         case 2:
           $display_output = MSG_PRIVATE_QUESTION . '<br>' .
-              MSG_AUCTION_ID . ': ' . $message_details['auction_id'] . ' - ' . $message_details['name'];
+            MSG_AUCTION_ID . ': ' . $message_details['auction_id'] . ' - ' . $message_details['name'];
           break;
         case 3:
           $display_output = MSG_SUCCESSFUL_SALE . '<br>' .
-              MSG_AUCTION_ID . ': ' . $message_details['auction_id'] . ' - ' . $message_details['name'];
+            MSG_AUCTION_ID . ': ' . $message_details['auction_id'] . ' - ' . $message_details['name'];
           break;
         case 4:
           $display_output = MSG_PUBLIC_QUESTION . ' - ' . GMSG_WANTED_AD . '<br>' .
-              MSG_WANTED_AD_ID . ': ' . $message_details['wanted_ad_id'] . ' - ' . $message_details['wanted_name'];
+            MSG_WANTED_AD_ID . ': ' . $message_details['wanted_ad_id'] . ' - ' . $message_details['wanted_name'];
           break;
         case 5:
           $display_output = MSG_PRIVATE_QUESTION . ' - ' . GMSG_WANTED_AD . '<br>' .
-              MSG_WANTED_AD_ID . ': ' . $message_details['wanted_ad_id'] . ' - ' . $message_details['wanted_name'];
+            MSG_WANTED_AD_ID . ': ' . $message_details['wanted_ad_id'] . ' - ' . $message_details['wanted_name'];
           break;
         default:
           $display_output = $message_details['message_title'];

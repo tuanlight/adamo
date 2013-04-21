@@ -76,14 +76,14 @@
 
         if ($winner_details['seller_id'] == $session->value('user_id')) {
           $contact_details = '<tr class="c4"> ' .
-              '	<td colspan="2">' . MSG_BUYER_CONTACT_DETAILS . '</td> ' .
-              '</tr>';
+            '	<td colspan="2">' . MSG_BUYER_CONTACT_DETAILS . '</td> ' .
+            '</tr>';
           $user_id = $winner_details['buyer_id'];
         }
         else if ($winner_details['buyer_id'] == $session->value('user_id')) {
           $contact_details = '<tr class="c4"> ' .
-              '	<td colspan="2">' . MSG_SELLER_CONTACT_DETAILS . '</td> ' .
-              '</tr>';
+            '	<td colspan="2">' . MSG_SELLER_CONTACT_DETAILS . '</td> ' .
+            '</tr>';
           $user_id = $winner_details['seller_id'];
         }
 
@@ -105,23 +105,23 @@
           $user = new user();
 
           $contact_details .= '<tr class="c1"> ' .
-              '	<td align="right"><b>' . MSG_FULL_NAME . '</b></td> ' .
-              '	<td>' . $user_details['name'] . '</td> ' .
-              '</tr> ' .
-              '<tr class="c1"> ' .
-              '	<td align="right"><b>' . MSG_FULL_ADDRESS . '</b></td> ' .
-              '	<td>' . $user->full_address($user_details) . '</td> ' .
-              '</tr> ';
+            '	<td align="right"><b>' . MSG_FULL_NAME . '</b></td> ' .
+            '	<td>' . $user_details['name'] . '</td> ' .
+            '</tr> ' .
+            '<tr class="c1"> ' .
+            '	<td align="right"><b>' . MSG_FULL_ADDRESS . '</b></td> ' .
+            '	<td>' . $user->full_address($user_details) . '</td> ' .
+            '</tr> ';
           if ($setts['enable_display_phone']) {
             $contact_details .= '<tr class="c1"> ' .
-                '	<td align="right"><b>' . MSG_PHONE . '</b></td> ' .
-                '	<td>' . $user_details['phone'] . '</td> ' .
-                '</tr> ';
+              '	<td align="right"><b>' . MSG_PHONE . '</b></td> ' .
+              '	<td>' . $user_details['phone'] . '</td> ' .
+              '</tr> ';
           }
           $contact_details .= '<tr class="c1"> ' .
-              '	<td align="right"><b>' . MSG_EMAIL_ADDRESS . '</b></td> ' .
-              '	<td>' . $user_details['email'] . '</td> ' .
-              '</tr> ';
+            '	<td align="right"><b>' . MSG_EMAIL_ADDRESS . '</b></td> ' .
+            '	<td>' . $user_details['email'] . '</td> ' .
+            '</tr> ';
         }
       }
     }
@@ -169,13 +169,13 @@
       $additional_vars = '&topic_id=' . $topic_id . '&winner_id=' . intval($_REQUEST['winner_id']);
 
       $message_board_content .= '<tr class="' . $background . '"> ' .
-          '	<td align="center" rowspan="2">' . (($message_details['admin_message']) ? GMSG_SITE_ADMIN : $message_details['sender_username']) . '</td> ' .
-          '	<td class="contentfont">' . show_date($message_details['reg_date']) . ' &nbsp; ' .
-          (($session->value('adminarea') == 'Active') ? '[ <a href="message_board.php?do=delete&message_id=' . $message_details['message_id'] . $additional_vars . '" onclick="return confirm(\'' . MSG_DELETE_CONFIRM . '\');">' . MSG_DELETE_MESSAGE . '</a> ]' : '') . '</td> ' .
-          '</tr> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td>' . $message_details['message_content'] . '</td> ' .
-          '</tr> ';
+        '	<td align="center" rowspan="2">' . (($message_details['admin_message']) ? GMSG_SITE_ADMIN : $message_details['sender_username']) . '</td> ' .
+        '	<td class="contentfont">' . show_date($message_details['reg_date']) . ' &nbsp; ' .
+        (($session->value('adminarea') == 'Active') ? '[ <a href="message_board.php?do=delete&message_id=' . $message_details['message_id'] . $additional_vars . '" onclick="return confirm(\'' . MSG_DELETE_CONFIRM . '\');">' . MSG_DELETE_MESSAGE . '</a> ]' : '') . '</td> ' .
+        '</tr> ' .
+        '<tr class="' . $background . '"> ' .
+        '	<td>' . $message_details['message_content'] . '</td> ' .
+        '</tr> ';
     }
 
     if ($can_display) {

@@ -15,7 +15,7 @@
     <title>
       <?php echo $setts['sitename']; ?>
       Admin Area</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <link href="style.css" rel="stylesheet" type="text/css">
   </head>
   <body leftmargin="0" topmargin="0" bgcolor="#f6f8fa">

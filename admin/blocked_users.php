@@ -62,15 +62,15 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $blocked_users_content .= '<tr class="' . $background . '"> ' .
-          '	<input type="hidden" name="block_id[]" value="' . $block_details['block_id'] . '"> ' .
-          '	<td> <b>' . AMSG_BLOCKER . '</b>: ' . $block_details['owner_username'] . '<br> ' .
-          '		<b>' . AMSG_BLOCKED_USER . '</b>: ' . $block_details['user_username'] . '</td> ' .
-          '	<td align="center"> ' .
-          '		<input type="checkbox" name="show_reason[]" value="1" ' . (($block_details['show_reason'] == 1) ? 'checked' : '') . '></td>' .
-          '	<td><textarea name="block_reason[]" style="width: 100%; height: 50" id="block_reason">' . $block_details['block_reason'] . '</textarea></td>' .
-          '	<td align="center" class="contentfont"> ' .
-          '		[ <a href="blocked_users.php?do=delete&block_id=' . $block_details['block_id'] . $additional_vars . $order_link . $limit_link . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-          '</tr> ';
+        '	<input type="hidden" name="block_id[]" value="' . $block_details['block_id'] . '"> ' .
+        '	<td> <b>' . AMSG_BLOCKER . '</b>: ' . $block_details['owner_username'] . '<br> ' .
+        '		<b>' . AMSG_BLOCKED_USER . '</b>: ' . $block_details['user_username'] . '</td> ' .
+        '	<td align="center"> ' .
+        '		<input type="checkbox" name="show_reason[]" value="1" ' . (($block_details['show_reason'] == 1) ? 'checked' : '') . '></td>' .
+        '	<td><textarea name="block_reason[]" style="width: 100%; height: 50" id="block_reason">' . $block_details['block_reason'] . '</textarea></td>' .
+        '	<td align="center" class="contentfont"> ' .
+        '		[ <a href="blocked_users.php?do=delete&block_id=' . $block_details['block_id'] . $additional_vars . $order_link . $limit_link . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+        '</tr> ';
     }
 
     $template->set('blocked_users_content', $blocked_users_content);

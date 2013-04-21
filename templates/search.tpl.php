@@ -141,8 +141,7 @@
           <td width="150" align="right"><?php echo MSG_ZIP_CODE; ?> </td>
           <td colspan="2"><input type="text" name="zip_code" value="<?php echo $item_details['zip_code']; ?>" size="25" /></td>
         </tr>
-      <?php
-      }
+      <?php }
       else if ($option == 'seller_search') {
         ?>
         <tr class="c1">
@@ -177,8 +176,7 @@
               </option>
             </select></td>
         </tr>
-      <?php
-      }
+      <?php }
       else if ($option == 'buyer_search') {
         ?>
         <tr class="c1">
@@ -213,16 +211,14 @@
               </option>
             </select></td>
         </tr>
-      <?php
-      }
-      else if ($option == 'store_search') {
-        ?>
+  <?php }
+  else if ($option == 'store_search') {
+    ?>
         <tr class="c1">
           <td align="right"><?php echo MSG_STORE_NAME; ?></td>
           <td colspan="2"><input name="shop_name" type="text" id="shop_name" size="50" value="<?php echo $item_details['shop_name']; ?>"></td>
         </tr>
-  <?php
-  }
+  <?php }
   else if ($option == 'category_search') {
     ?>
         <input type="hidden" name="advanced_search" value="<?php echo $advanced_search; ?>" >

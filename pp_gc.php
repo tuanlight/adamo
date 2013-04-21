@@ -57,7 +57,7 @@
 
 // Retrieve the XML sent in the HTTP POST request to the ResponseHandler
   $xml_response = isset($HTTP_RAW_POST_DATA) ?
-      $HTTP_RAW_POST_DATA : file_get_contents("php://input");
+    $HTTP_RAW_POST_DATA : file_get_contents("php://input");
   if (get_magic_quotes_gpc()) {
     $xml_response = stripslashes($xml_response);
   }
@@ -137,9 +137,9 @@
               }
 
               if (isset($data[$root]['calculate']['merchant-code-strings']
-                      ['merchant-code-string'])) {
+                  ['merchant-code-string'])) {
                 $codes = get_arr_result($data[$root]['calculate']['merchant-code-strings']
-                    ['merchant-code-string']);
+                  ['merchant-code-string']);
                 foreach ($codes as $curr_code) {
                   //Update this data as required to set whether the coupon is valid, the code and the amount
                   $coupons = new GoogleCoupons("true", $curr_code['code'], 5, "test2");
@@ -157,7 +157,7 @@
               $merchant_result->SetTaxDetails($amount);
             }
             $codes = get_arr_result($data[$root]['calculate']['merchant-code-strings']
-                ['merchant-code-string']);
+              ['merchant-code-string']);
             foreach ($codes as $curr_code) {
               //Update this data as required to set whether the coupon is valid, the code and the amount
               $coupons = new GoogleCoupons("true", $curr_code['code'], 5, "test2");

@@ -88,4 +88,6 @@
   <?php echo $sell_item_page_content; ?>
   <?php if ($current_step != 'finish') { ?>
     </form>
+    <pre>
+      <?php var_dump(get_included_files()); ?></pre>
   <?php } ?>

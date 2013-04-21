@@ -118,7 +118,7 @@
       );
 
       foreach ($tax_user_types as $value) {
-        $box_checked = stristr($row_tax['tax_user_types'], $value[0]) ? 'checked' : '';
+        $box_checked = eregi($value[0], $row_tax['tax_user_types']) ? 'checked' : '';
 
         $tax_settings_allowed_users_box_array[] = '<input type="checkbox" name="tax_user_types[]" value="' . $value[0] . '" ' . $box_checked . '> ' . $value[1];
       }
@@ -196,16 +196,16 @@
       $seller_countries = (!$seller_countries) ? GMSG_NA : $seller_countries;
 
       $tax_settings_content .= '<input type="hidden" name="tax_id[]" value="' . $tax_details['tax_id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td>' . $tax_details['tax_name'] . '</td> ' .
-          '	<td>' . $tax_details['amount'] . '%</td> ' .
-          '	<td>' . $seller_countries . '</td> ' .
-          '	<td>' . $tax->display_countries($tax_details['countries_id']) . '</td> ' .
-          '	<td align="center"><input type="radio" name="site_tax" value="' . $tax_details['tax_id'] . '" ' . (($tax_details['site_tax']) ? 'checked' : '') . '></td> ' .
-          '	<td align="center"> ' .
-          '		[ <a href="tax_settings.php?do=edit_tax&tax_id=' . $tax_details['tax_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
-          '		[ <a href="tax_settings.php?do=delete_tax&tax_id=' . $tax_details['tax_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td>' . $tax_details['tax_name'] . '</td> ' .
+        '	<td>' . $tax_details['amount'] . '%</td> ' .
+        '	<td>' . $seller_countries . '</td> ' .
+        '	<td>' . $tax->display_countries($tax_details['countries_id']) . '</td> ' .
+        '	<td align="center"><input type="radio" name="site_tax" value="' . $tax_details['tax_id'] . '" ' . (($tax_details['site_tax']) ? 'checked' : '') . '></td> ' .
+        '	<td align="center"> ' .
+        '		[ <a href="tax_settings.php?do=edit_tax&tax_id=' . $tax_details['tax_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
+        '		[ <a href="tax_settings.php?do=delete_tax&tax_id=' . $tax_details['tax_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+        '</tr> ';
     }
 
     $template->set('tax_settings_content', $tax_settings_content);

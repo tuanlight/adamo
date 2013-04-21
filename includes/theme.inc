@@ -1503,10 +1503,10 @@
 
     foreach ($theme_list as $key) {
       db_update('system')
-          ->fields(array('status' => 1))
-          ->condition('type', 'theme')
-          ->condition('name', $key)
-          ->execute();
+        ->fields(array('status' => 1))
+        ->condition('type', 'theme')
+        ->condition('name', $key)
+        ->execute();
     }
 
     list_themes(TRUE);
@@ -1536,10 +1536,10 @@
 
     foreach ($theme_list as $key) {
       db_update('system')
-          ->fields(array('status' => 0))
-          ->condition('type', 'theme')
-          ->condition('name', $key)
-          ->execute();
+        ->fields(array('status' => 0))
+        ->condition('type', 'theme')
+        ->condition('name', $key)
+        ->execute();
     }
 
     list_themes(TRUE);

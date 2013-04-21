@@ -53,8 +53,8 @@
       }
 
       $subcategories_content .= '<td class="c1"><img src="themes/' . $setts['default_theme'] . '/img/arrow.gif"></td>' .
-          '<td class="c2" width="33%"><a href="' . process_link('wanted_ads', array('category' => $category_lang[$wanted_cats[$i]['category_id']], 'parent_id' => $wanted_cats[$i]['category_id'])) . '">' . $category_lang[$wanted_cats[$i]['category_id']] . '</a> ' .
-          (($setts['enable_cat_counters']) ? (($wanted_cats[$i]['wanted_counter']) ? '(<strong>' . $wanted_cats[$i]['wanted_counter'] . '</strong>)' : '(' . $wanted_cats[$i]['wanted_counter'] . ')') : '') . '</td>';
+        '<td class="c2" width="33%"><a href="' . process_link('wanted_ads', array('category' => $category_lang[$wanted_cats[$i]['category_id']], 'parent_id' => $wanted_cats[$i]['category_id'])) . '">' . $category_lang[$wanted_cats[$i]['category_id']] . '</a> ' .
+        (($setts['enable_cat_counters']) ? (($wanted_cats[$i]['wanted_counter']) ? '(<strong>' . $wanted_cats[$i]['wanted_counter'] . '</strong>)' : '(' . $wanted_cats[$i]['wanted_counter'] . ')') : '') . '</td>';
     }
 
     $template->set('subcategories_content', $subcategories_content);
@@ -102,8 +102,7 @@
     $order_type = ($_REQUEST['order_type']) ? $_REQUEST['order_type'] : 'ASC';
 
     $additional_vars = '&parent_id=' . $parent_id . '&keywords_search=' . $keywords_search;
-    if (!$start)
-      $start = 0;
+
     $limit = 20;
 
     $order_link = '&order_field=' . $order_field . '&order_type=' . $order_type;
@@ -134,11 +133,11 @@
         $wanted_ad_image = (!empty($item_details['media_url'])) ? $item_details['media_url'] : 'themes/' . $setts['default_theme'] . '/img/system/noimg.gif';
 
         $browse_wanted_ads_content .= '<tr class="contentfont ' . $background . '"> ' .
-            '	<td align="center"><a href="' . $wanted_ad_link . '"><img src="thumbnail.php?pic=' . $wanted_ad_image . '&w=50&sq=Y&b=Y" border="0" alt="' . $item_details['name'] . '"></a></td> ' .
-            '	<td><a href="' . $wanted_ad_link . '">' . $item_details['name'] . '</a></td> ' .
-            '	<td align="center">' . $item_details['nb_bids'] . '</td> ' .
-            '	<td align="center">' . time_left($item_details['end_time']) . '</td> ' .
-            '</tr> ';
+          '	<td align="center"><a href="' . $wanted_ad_link . '"><img src="thumbnail.php?pic=' . $wanted_ad_image . '&w=50&sq=Y&b=Y" border="0" alt="' . $item_details['name'] . '"></a></td> ' .
+          '	<td><a href="' . $wanted_ad_link . '">' . $item_details['name'] . '</a></td> ' .
+          '	<td align="center">' . $item_details['nb_bids'] . '</td> ' .
+          '	<td align="center">' . time_left($item_details['end_time']) . '</td> ' .
+          '</tr> ';
       }
     }
     else {

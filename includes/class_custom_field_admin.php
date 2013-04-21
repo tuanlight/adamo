@@ -144,17 +144,17 @@
       (string) $display_output = NULL;
 
       $display_output = '<tr><td class="c4"> ' .
-          '<table cellpadding="0" cellspacing="2" border="0" class="contentfont"> ' .
-          '<tr><td width="100%" class="c4"><strong>' . $section_name . '</strong></td> ';
+        '<table cellpadding="0" cellspacing="2" border="0" class="contentfont"> ' .
+        '<tr><td width="100%" class="c4"><strong>' . $section_name . '</strong></td> ';
 
       if ($section_id) {
         $display_output .= '<td nowrap class="c4"><strong>' . AMSG_ORDER_ID . '</strong>: ' .
-            '<input type="hidden" name="section_id[]" value="' . $section_id . '" size="6">' .
-            '<input type="text" name="section_order_id[]" value="' . $order_id . '" size="6"></td>' .
-            '<td nowrap class="c4">&nbsp;&nbsp;[ <a href="custom_fields.php?page=' . $page_handle . '&do=edit_section&section_id=' . $section_id . '"' .
-            '>' . AMSG_EDIT . '</a> ]</td> ' .
-            '<td nowrap class="c4"> [ <a href="custom_fields.php?page=' . $page_handle . '&do=delete_section&section_id=' . $section_id . '"' .
-            ' onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ';
+          '<input type="hidden" name="section_id[]" value="' . $section_id . '" size="6">' .
+          '<input type="text" name="section_order_id[]" value="' . $order_id . '" size="6"></td>' .
+          '<td nowrap class="c4">&nbsp;&nbsp;[ <a href="custom_fields.php?page=' . $page_handle . '&do=edit_section&section_id=' . $section_id . '"' .
+          '>' . AMSG_EDIT . '</a> ]</td> ' .
+          '<td nowrap class="c4"> [ <a href="custom_fields.php?page=' . $page_handle . '&do=delete_section&section_id=' . $section_id . '"' .
+          ' onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ';
       }
       else {
         $display_output .= '<td nowrap class="c4">[ <a href="custom_fields.php?page=' . $page_handle . '&do=add_section">' . AMSG_ADD_SECTION . '</a> ]</td> ';
@@ -172,8 +172,8 @@
 
       ## the add field message first
       $display_output = '<tr><td> ' .
-          '[ <b><a href="custom_fields.php?page=' . $page_handle . '&do=add_field&section_id=' . $section_id . '">' . AMSG_ADD_FIELD . '</a></b> ] ' .
-          '</td></tr> ';
+        '[ <b><a href="custom_fields.php?page=' . $page_handle . '&do=add_field&section_id=' . $section_id . '">' . AMSG_ADD_FIELD . '</a></b> ] ' .
+        '</td></tr> ';
 
       ## get all fields corresponding to the section id requested.
       $sql_select_fields = $this->query("SELECT field_id, field_name, field_order, active, category_id, field_description FROM
@@ -184,22 +184,22 @@
         $background = ($field_details['active']) ? (($counter++ % 2) ? 'c1' : 'c2') : 'grey';
 
         $display_output .= '<tr><td class="border"> ' .
-            '<table cellpadding="0" cellspacing="2" border="0" class="contentfont c3" width="100%">' .
-            '<tr><td class="c3" width="100%">&nbsp;<b>' . $field_details['field_name'] . '</b> ( ' . $field_details['field_description'] . ' ) </td>' .
-            '<td class="c3" align="right"><strong>' . AMSG_ACTIVE . '</strong>:</td>' .
-            '<td class="c3"><input type="checkbox" name="field_active[' . $field_details['field_id'] . ']" value="1" ' . (($field_details['active']) ? 'checked' : '') . ' /></td>' .
-            '<td class="c3" nowrap><strong>' . AMSG_ORDER_ID . '</strong>:</td> ' .
-            '<td><input type="hidden" name="field_id[]" value="' . $field_details['field_id'] . '" size="6">' .
-            '<input type="text" name="field_order_id[]" value="' . $field_details['field_order'] . '" size="6"></td>' .
-            '<td align="center" nowrap>[ <a href="custom_fields.php?page=' . $page_handle . '&do=edit_field&section_id=' . $section_id .
-            '&field_id=' . $field_details['field_id'] . '">' . AMSG_EDIT . '</a> ]</td> ' .
-            '<td align="center" nowrap>[ <a href="custom_fields.php?page=' . $page_handle . '&do=delete_field&field_id=' . $field_details['field_id'] .
-            '"' .
-            ' onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]&nbsp;</td></tr></table> ' .
-            '<div style="padding: 5px;">[ <b><a href="custom_fields.php?page=' . $page_handle . '&do=add_box&field_id=' . $field_details['field_id'] . '">' . AMSG_ADD_BOX . '</a></b> ]</div>' .
-            '<table cellpadding="2" cellspacing="2" border="0" class="contentfont border" width="100%"> ' .
-            '<tr>' .
-            '<td>' . $this->admin_display_boxes($field_details['field_id'], $page_handle) . '</td>';
+          '<table cellpadding="0" cellspacing="2" border="0" class="contentfont c3" width="100%">' .
+          '<tr><td class="c3" width="100%">&nbsp;<b>' . $field_details['field_name'] . '</b> ( ' . $field_details['field_description'] . ' ) </td>' .
+          '<td class="c3" align="right"><strong>' . AMSG_ACTIVE . '</strong>:</td>' .
+          '<td class="c3"><input type="checkbox" name="field_active[' . $field_details['field_id'] . ']" value="1" ' . (($field_details['active']) ? 'checked' : '') . ' /></td>' .
+          '<td class="c3" nowrap><strong>' . AMSG_ORDER_ID . '</strong>:</td> ' .
+          '<td><input type="hidden" name="field_id[]" value="' . $field_details['field_id'] . '" size="6">' .
+          '<input type="text" name="field_order_id[]" value="' . $field_details['field_order'] . '" size="6"></td>' .
+          '<td align="center" nowrap>[ <a href="custom_fields.php?page=' . $page_handle . '&do=edit_field&section_id=' . $section_id .
+          '&field_id=' . $field_details['field_id'] . '">' . AMSG_EDIT . '</a> ]</td> ' .
+          '<td align="center" nowrap>[ <a href="custom_fields.php?page=' . $page_handle . '&do=delete_field&field_id=' . $field_details['field_id'] .
+          '"' .
+          ' onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]&nbsp;</td></tr></table> ' .
+          '<div style="padding: 5px;">[ <b><a href="custom_fields.php?page=' . $page_handle . '&do=add_box&field_id=' . $field_details['field_id'] . '">' . AMSG_ADD_BOX . '</a></b> ]</div>' .
+          '<table cellpadding="2" cellspacing="2" border="0" class="contentfont border" width="100%"> ' .
+          '<tr>' .
+          '<td>' . $this->admin_display_boxes($field_details['field_id'], $page_handle) . '</td>';
 
         $display_output .= '</tr></table></td></tr> ';
       }
@@ -221,9 +221,9 @@
         $display_box = $this->display_box($box_details['box_id'], $box_details['box_name'], $box_details['box_type'], $box_details['box_value']);
 
         $display_output .= '<tr valign="top" class="c2"><td>' . $display_box . (($box_details['box_searchable']) ? '<b>*</b>' : '') .
-            '</td><td nowrap>[ <a href="custom_fields.php?page=' . $page_handle . '&do=edit_box&field_id=' . $field_id .
-            '&box_id=' . $box_details['box_id'] . '">' . AMSG_EDIT . '</a> ] [ <a href="custom_fields.php?page=' . $page_handle . '&do=delete_box&box_id=' . $box_details['box_id'] . '"' .
-            ' onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td></tr>';
+          '</td><td nowrap>[ <a href="custom_fields.php?page=' . $page_handle . '&do=edit_box&field_id=' . $field_id .
+          '&box_id=' . $box_details['box_id'] . '">' . AMSG_EDIT . '</a> ] [ <a href="custom_fields.php?page=' . $page_handle . '&do=delete_box&box_id=' . $box_details['box_id'] . '"' .
+          ' onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td></tr>';
       }
 
       ## get all boxes corresponding to the field id requested. (special types)
@@ -235,9 +235,9 @@
         $display_box = $this->display_special_box($special_box_details['box_id'], $special_box_details['box_name'], $special_box_details['box_type_special'], $special_box_details['box_value']);
 
         $display_output .= '<tr class="c2" valign="top"><td>' . $display_box .
-            '</td><td nowrap>[ <a href="custom_fields.php?page=' . $page_handle . '&do=edit_box&field_id=' . $field_id .
-            '&box_id=' . $special_box_details['box_id'] . '">' . AMSG_EDIT . '</a> ] [ <a href="custom_fields.php?page=' . $page_handle . '&do=delete_box&box_id=' . $special_box_details['box_id'] . '"' .
-            ' onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td></tr>';
+          '</td><td nowrap>[ <a href="custom_fields.php?page=' . $page_handle . '&do=edit_box&field_id=' . $field_id .
+          '&box_id=' . $special_box_details['box_id'] . '">' . AMSG_EDIT . '</a> ] [ <a href="custom_fields.php?page=' . $page_handle . '&do=delete_box&box_id=' . $special_box_details['box_id'] . '"' .
+          ' onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td></tr>';
       }
 
       $display_output .='</table>';
@@ -249,7 +249,7 @@
       (string) $display_output = NULL;
 
       $display_output = '<select name="section_id"> ' .
-          '<option value="0" selected>' . AMSG_NO_SECTION . '</option> ';
+        '<option value="0" selected>' . AMSG_NO_SECTION . '</option> ';
 
       $sql_select_sections = $this->query("SELECT section_id, section_name FROM
 			" . DB_PREFIX . "custom_fields_sections WHERE
@@ -286,7 +286,7 @@
       (string) $display_output = NULL;
 
       $display_output = '<select name="box_type" onChange="submit_form(form_custom_box);"> ' .
-          $additional_query = ($special_field) ? 'WHERE maxfields>1' : '';
+        $additional_query = ($special_field) ? 'WHERE maxfields>1' : '';
 
       $sql_select_box_types = $this->query("SELECT type_id, box_type, maxfields FROM
 			" . DB_PREFIX . "custom_fields_types " . $additional_query);

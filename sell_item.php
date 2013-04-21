@@ -388,8 +388,8 @@
         $display_message = str_replace("'", "`", $display_message);
 
         $categories_initialize_msg .= "x(" . $subcat_details['parent_id'] . ", " .
-            $counter_b . ", '" . $display_message . " " . $subcat_details['is_subcat'] . "', '" .
-            $subcat_details['category_id'] . "'); \n";
+          $counter_b . ", '" . $display_message . " " . $subcat_details['is_subcat'] . "', '" .
+          $subcat_details['category_id'] . "'); \n";
       }
       $template->set('categories_initialize_msg', $categories_initialize_msg);
 
@@ -412,7 +412,7 @@
 			" . DB_PREFIX . "categories WHERE parent_id=0
 			" . $categories_subquery . " ORDER BY order_id ASC");
 
-      $main_categories_select = '<select class="contentfont" id="selector_0" onchange="populate(0)" size="10" name="selector_0" style="width: 100%; "> ';
+      $main_categories_select = '<select class="contentfont" id="selector_0" onchange="populate(0)" size="20" name="selector_0" style="width: 100%; "> ';
 
       while ($cat_details = $db->fetch_array($sql_select_main_categories)) {
         $main_categories_select .= '<option value="' . $cat_details['category_id'] . '">' . $category_lang[$cat_details['category_id']] . ' ' . $cat_details['is_subcat'] . '</option>';
@@ -687,11 +687,11 @@
       $template->set('current_step', 'details');
 
       $item_description_editor = "<script> \n" .
-          " 	var oEdit1 = new InnovaEditor(\"oEdit1\"); \n" .
-          " 	oEdit1.width=\"100%\";//You can also use %, for example: oEdit1.width=\"100%\" \n" .
-          "	oEdit1.height=300; \n" .
-          "	oEdit1.REPLACE(\"description_main\");//Specify the id of the textarea here \n" .
-          "</script>";
+        " 	var oEdit1 = new InnovaEditor(\"oEdit1\"); \n" .
+        " 	oEdit1.width=\"100%\";//You can also use %, for example: oEdit1.width=\"100%\" \n" .
+        "	oEdit1.height=300; \n" .
+        "	oEdit1.REPLACE(\"description_main\");//Specify the id of the textarea here \n" .
+        "</script>";
 
       $template->set('item_description_editor', $item_description_editor);
 
@@ -712,10 +712,10 @@
 
       $template->set('category_id_type', 'category_id');
 
-      $choose_category_expl_message = '<table width="100%" border="0" cellspacing="2" cellpadding="3" align="center" class="border"> ' .
-          '<tr> ' .
-          '	<td class="contentfont">' . MSG_SUBMIT_ITEM_MAIN_CAT . '</td> ' .
-          '</tr></table><br>';
+      $choose_category_expl_message = '<table width="100%" border="0" cellspacing="2" cellpadding="3" align="center"> ' .
+        '<tr> ' .
+        '	<td class="contentfont cat_explain_message">' . MSG_SUBMIT_ITEM_MAIN_CAT . '</td> ' .
+        '</tr></table><br>';
       $template->set('choose_category_expl_message', $choose_category_expl_message);
 
       $sell_item_page_content = $template->process('sell_item_choose_category.tpl.php');
@@ -730,8 +730,8 @@
 
       $template->set('category_id_type', 'addl_category_id');
 
-      $choose_category_expl_message = '<table width="100%" border="0" cellspacing="2" cellpadding="3" align="center" class="border"> ' .
-          '<tr><td class="contentfont">' . MSG_SUBMIT_ITEM_ADDL_CAT_A . '</td></tr> ';
+      $choose_category_expl_message = '<table width="100%" border="0" cellspacing="2" cellpadding="3" align="center"> ' .
+        '<tr><td class="contentfont cat_explain_message">' . MSG_SUBMIT_ITEM_ADDL_CAT_A . '</td></tr> ';
 
       $category_fee = $setup_fee->display_fee('second_cat_fee', $user_details, $item_details['category_id'], $item_details['list_in'], $voucher_details);
 
@@ -776,4 +776,7 @@
 
     echo $template_output;
   }
+  echo "<pre>";
+  var_dump(get_included_files());
+  echo "</pre>";
 ?>

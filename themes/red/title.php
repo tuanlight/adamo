@@ -8,110 +8,47 @@
 
   function header1($head_title) {
     global $setts;
-    return "
-	<table width='100%' border='0' cellspacing='0' cellpadding='0' height='32' >
-        <tr>
-			<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchLft.gif'><div style='width:10px;'></div></td>
-        	<td width='100%' background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchBg.gif' valign='top' class='cathead' style='padding-top:6px; text-align:left; color:#5D5D5D; font-size:16px;'>$head_title</td>
-        	<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchRgt.gif'><div style='width:10px;'></div></td>
-        </tr>
-    </table>";
+    return "<span class='title-header'><h1 class='cathead'>$head_title</h1></span>";
   }
 
   function header2($head_title) {
     global $setts;
-    return "
-	<table width='100%' border='0' cellspacing='0' cellpadding='0' height='32' >
-        <tr>
-			<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchLft.gif'><div style='width:10px;'></div></td>
-        	<td width='100%' background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchBg.gif' valign='top' class='cathead' style='padding-top:6px; text-align:left; color:#5D5D5D; font-size:16px;'>$head_title</td>
-        	<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchRgt.gif'><div style='width:10px;'></div></td>
-        </tr>
-    </table>";
+    return "<span class='title-header'><h1 class='cathead'>$head_title</h1></span>";
   }
 
   function header3($head_title) {
     global $setts;
-    return "
-	<table width='100%' border='0' cellspacing='0' cellpadding='0' height='32' >
-        <tr>
-			<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchLft.gif'><div style='width:10px;'></div></td>
-        	<td width='100%' background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchBg.gif' valign='top' class='cathead' style='padding-top:6px; text-align:left; color:#5D5D5D; font-size:16px;'>$head_title</td>
-        	<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchRgt.gif'><div style='width:10px;'></div></td>
-        </tr>
-    </table>";
+    return "<span class='title-header'><h1 class='cathead'>$head_title</h1></span>";
   }
 
   function header4($head_title) {
     global $setts;
-    return "
-	<table width='100%' border='0' cellspacing='0' cellpadding='0' height='32' >
-        <tr>
-			<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchLft.gif'><div style='width:10px;'></div></td>
-        	<td width='100%' background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchBg.gif' valign='top' class='cathead' style='padding-top:6px; text-align:left; color:#5D5D5D; font-size:16px;'>$head_title</td>
-        	<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchRgt.gif'><div style='width:10px;'></div></td>
-        </tr>
-    </table>";
+    return "<span class='title-header'><h1 class='cathead'>$head_title</h1></span>";
   }
 
   function header5($head_title) {
     global $setts;
-    return "
-	<table width='100%' border='0' cellspacing='0' cellpadding='0' height='32' >
-        <tr>
-			<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchLft.gif'><div style='width:10px;'></div></td>
-        	<td width='100%' background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchBg.gif' valign='top' class='cathead' style='padding-top:6px; text-align:left; color:#5D5D5D; font-size:16px;'>$head_title</td>
-        	<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchRgt.gif'><div style='width:10px;'></div></td>
-        </tr>
-    </table>";
+    return "<span class='title-header'><h1 class='cathead'>$head_title</h1></span>";
   }
 
   function header6($head_title) {
     global $setts;
-    return "
-	<table width='100%' border='0' cellspacing='0' cellpadding='0' height='32' >
-        <tr>
-			<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchLft.gif'><div style='width:10px;'></div></td>
-        	<td width='100%' background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchBg.gif' valign='top' class='cathead' style='padding-top:6px; text-align:left; color:#5D5D5D; font-size:16px;'>$head_title</td>
-        	<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchRgt.gif'><div style='width:10px;'></div></td>
-        </tr>
-    </table>";
+    return "<span class='title-header'><h1 class='cathead'>$head_title</h1></span>";
   }
 
   function header7($head_title) {
     global $setts;
-    return "
-	<table width='100%' border='0' cellspacing='0' cellpadding='0' height='32' >
-        <tr>
-			<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchLft.gif'><div style='width:10px;'></div></td>
-        	<td width='100%' background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchBg.gif' valign='top' class='cathead' style='padding-top:6px; text-align:left; color:#5D5D5D; font-size:16px;'>$head_title</td>
-        	<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchRgt.gif'><div style='width:10px;'></div></td>
-        </tr>
-    </table>";
+    return "<span class='title-header'><h1 class='cathead'>$head_title</h1></span>";
   }
 
   function headercat($head_title) {
     global $setts;
-    return "
-	<table width='100%' border='0' cellspacing='0' cellpadding='0' height='32' >
-        <tr>
-			<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchLft.gif'><div style='width:10px;'></div></td>
-        	<td width='100%' background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchBg.gif' valign='top' class='cathead' style='padding-top:6px; text-align:left; color:#5D5D5D; font-size:16px;'>$head_title</td>
-        	<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchRgt.gif'><div style='width:10px;'></div></td>
-        </tr>
-    </table>";
+    return "<span class='title-header'><h1 class='cathead'>$head_title</h1></span>";
   }
 
   function headerdetails($head_title) {
     global $setts;
-    return "
-	<table width='100%' border='0' cellspacing='0' cellpadding='0' height='32' >
-        <tr>
-			<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchLft.gif'><div style='width:10px;'></div></td>
-        	<td width='100%' background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchBg.gif' valign='top' class='cathead' style='padding-top:6px; text-align:left; color:#5D5D5D; font-size:16px;'>$head_title</td>
-        	<td background='themes/" . $setts['default_theme'] . "/images/imgHdrSearchRgt.gif'><div style='width:10px;'></div></td>
-        </tr>
-    </table>";
+    return "<span class='title-header'><h1 class='cathead'>$head_title</h1></span>";
   }
 
   $template->set('imgarrow', $imgarrow);

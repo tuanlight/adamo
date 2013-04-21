@@ -80,16 +80,16 @@
           $background = ($counter++ % 2) ? 'c1' : 'c2';
 
           $ip_address_history_content .= '<tr class="' . $background . '"> ' .
-              '	<td align="center">' . $iphistory_details['ip'] . '</td> ' .
-              '	<td align="center">' . show_date($iphistory_details['time1']) . '</td> ' .
-              '	<td align="center">' . show_date($iphistory_details['time2']) . '</td> ' .
-              '</tr> ';
+            '	<td align="center">' . $iphistory_details['ip'] . '</td> ' .
+            '	<td align="center">' . show_date($iphistory_details['time1']) . '</td> ' .
+            '	<td align="center">' . show_date($iphistory_details['time2']) . '</td> ' .
+            '</tr> ';
         }
       }
       else {
         $ip_address_history_content .= '<tr class="' . $background . '"> ' .
-            '	<td align="center" colspan="3">' . AMSG_USER_HASNT_LOGGED_IPS . '</td> ' .
-            '</tr> ';
+          '	<td align="center" colspan="3">' . AMSG_USER_HASNT_LOGGED_IPS . '</td> ' .
+          '</tr> ';
       }
 
       $template->set('ip_address_history_content', $ip_address_history_content);
@@ -133,7 +133,7 @@
         $template->set('do', $_REQUEST['do']);
 
         $header_registration_message = '<table width="100%" border="0" cellpadding="3" cellspacing="3" class="border"> ' .
-            '<tr><td class="c3"><b>' . AMSG_ADD_SITE_USER . '</b></td></tr></table>';
+          '<tr><td class="c3"><b>' . AMSG_ADD_SITE_USER . '</b></td></tr></table>';
 
         $template->set('header_registration_message', $header_registration_message);
 
@@ -215,7 +215,7 @@
         $template->set('do', $_REQUEST['do']);
 
         $header_registration_message = '<table width="100%" border="0" cellpadding="3" cellspacing="3" class="border"> ' .
-            '<tr><td class="c3"><b>' . AMSG_EDIT_SITE_USER . '</b></td></tr></table>';
+          '<tr><td class="c3"><b>' . AMSG_EDIT_SITE_USER . '</b></td></tr></table>';
 
         $template->set('header_registration_message', $header_registration_message);
 
@@ -352,9 +352,7 @@
     }
 
     $template->set('management_box', $management_box);
-    
-    if (!$start)
-      $start = 0;
+
     $limit = 20;
 
     $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'u.reg_date';
@@ -441,23 +439,23 @@
       $is_seller = $user->can_sell($user_details['is_seller']);
 
       $site_users_content .= '<tr class="' . $background . '"> ' .
-          '	<td valign="top">' . $user_details['username'] . user_pics($user_details['user_id']) . '<br>' .
-          '		[ <a href="list_site_users.php?do=user_details&user_id=' . $user_details['user_id'] . $additional_vars . $order_link . $limit_link . $show_link . '">' . AMSG_USER_DETAILS . '</a> ]<br>' .
-          '		[ <a href="list_user_bids.php?user_id=' . $user_details['user_id'] . '">' . AMSG_VIEW_BIDS . '</a> ]<br>' .
-          '		[ <a href="email_user.php?user_id=' . $user_details['user_id'] . '">' . AMSG_EMAIL_USER . '</a> ]';
+        '	<td valign="top">' . $user_details['username'] . user_pics($user_details['user_id']) . '<br>' .
+        '		[ <a href="list_site_users.php?do=user_details&user_id=' . $user_details['user_id'] . $additional_vars . $order_link . $limit_link . $show_link . '">' . AMSG_USER_DETAILS . '</a> ]<br>' .
+        '		[ <a href="list_user_bids.php?user_id=' . $user_details['user_id'] . '">' . AMSG_VIEW_BIDS . '</a> ]<br>' .
+        '		[ <a href="email_user.php?user_id=' . $user_details['user_id'] . '">' . AMSG_EMAIL_USER . '</a> ]';
 
       if ($is_seller) {
         $site_users_content .= '<br>[ <a href="list_auctions.php?status=open&owner_id=' . $user_details['user_id'] . '">' . AMSG_VIEW_OPEN_AUCTIONS . '</a> ]';
       }
 
       $site_users_content .= '</td> ' .
-          '	<td valign="top">' . AMSG_NAME . ': ' . $user_details['name'] . '<br>' .
-          '		' . AMSG_COUNTRY . ': ' . $user_country . '<br>' .
-          '		' . AMSG_EMAIL_ADDR . ': ' . $user_details['email'] . '<br>' .
-          '		' . AMSG_REG_DATE . ': ' . show_date($user_details['reg_date']) .
-          (($setts['enable_pref_sellers'] && $user_details['preferred_seller_exp_date'] > 0) ? '<br><br>' . GMSG_PREFERRED_SELLER_EXP_DATE . ':<br> ' . show_date($user_details['preferred_seller_exp_date']) : '') .
-          '	</td> ' .
-          '	<td valign="top">' . GMSG_ACCOUNT_STATUS . ': <b>' . $user->account_status($user_details['active'], $user_details['approved']) . '</b>';
+        '	<td valign="top">' . AMSG_NAME . ': ' . $user_details['name'] . '<br>' .
+        '		' . AMSG_COUNTRY . ': ' . $user_country . '<br>' .
+        '		' . AMSG_EMAIL_ADDR . ': ' . $user_details['email'] . '<br>' .
+        '		' . AMSG_REG_DATE . ': ' . show_date($user_details['reg_date']) .
+        (($setts['enable_pref_sellers'] && $user_details['preferred_seller_exp_date'] > 0) ? '<br><br>' . GMSG_PREFERRED_SELLER_EXP_DATE . ':<br> ' . show_date($user_details['preferred_seller_exp_date']) : '') .
+        '	</td> ' .
+        '	<td valign="top">' . GMSG_ACCOUNT_STATUS . ': <b>' . $user->account_status($user_details['active'], $user_details['approved']) . '</b>';
 
       // get user payment mode.
       $user_payment_mode_display = $user->payment_mode_desc($user_details['payment_mode']);
@@ -479,7 +477,7 @@
 
       if ($user_payment_mode == 2) {
         $site_users_content .= '<br>' . GMSG_BALANCE . ': <b>' . $user->show_balance($user_details['balance'], $setts['currency']) . '</b><br>' .
-            '[ <a href="accounting.php?user_id=' . $user_details['user_id'] . '">' . AMSG_VIEW_ACCOUNT_HISTORY . '</a> ]';
+          '[ <a href="accounting.php?user_id=' . $user_details['user_id'] . '">' . AMSG_VIEW_ACCOUNT_HISTORY . '</a> ]';
 
         if ($user_details['balance'] > 0) {
           $site_users_content .= '<br>[ <a href="list_site_users.php?do=payment_reminder&user_id=' . $user_details['user_id'] . $additional_vars . $order_link . $limit_link . $show_link . '">' . AMSG_SEND_PAYMENT_REMINDER . '</a> ]';
@@ -521,10 +519,10 @@
         $tax_exempt_disable_link = GMSG_YES . ' [ <a href="list_site_users.php?do=tax_exempt&user_id=' . $user_details['user_id'] . $additional_vars . $order_link . $limit_link . $show_link . '&value=0">' . GMSG_DISABLE . '</a> ]';
 
         $site_users_content .= '<td valign="top">' . AMSG_REGISTERED_AS . ': <b>' . field_display($user_details['tax_account_type'], GMSG_INDIVIDUAL, GMSG_BUSINESS) . '</b><br>' .
-            AMSG_APPLIED_FOR_TAX_EXEMPT . ': <b>' . field_display($user_details['tax_apply_exempt'], GMSG_NO, GMSG_YES) . '</b><br>' .
-            AMSG_COMPANY_NAME . ': ' . field_display($user_details['tax_company_name']) . '<br>' .
-            AMSG_TAX_REG_NUMBER . ': <b>' . field_display($user_details['tax_reg_number']) . '</b><br>' .
-            AMSG_TAX_EXEMPTED . ': <b>' . field_display($user_details['tax_exempted'], $tax_exempt_enable_link, $tax_exempt_disable_link) . '</b></td> ';
+          AMSG_APPLIED_FOR_TAX_EXEMPT . ': <b>' . field_display($user_details['tax_apply_exempt'], GMSG_NO, GMSG_YES) . '</b><br>' .
+          AMSG_COMPANY_NAME . ': ' . field_display($user_details['tax_company_name']) . '<br>' .
+          AMSG_TAX_REG_NUMBER . ': <b>' . field_display($user_details['tax_reg_number']) . '</b><br>' .
+          AMSG_TAX_EXEMPTED . ': <b>' . field_display($user_details['tax_exempted'], $tax_exempt_enable_link, $tax_exempt_disable_link) . '</b></td> ';
       }
 
       (string) $site_user_options = null;
@@ -541,10 +539,10 @@
         $site_user_options .= '[ <a href="list_site_users.php?do=activate_user&user_id=' . $user_details['user_id'] . $additional_vars . $order_link . $limit_link . $show_link . '&value=1">' . AMSG_APPROVE . '</a> ]';
       }
       $site_user_options .= '<br>[ <a href="list_site_users.php?do=edit_user&user_id=' . $user_details['user_id'] . $additional_vars . $order_link . $limit_link . $show_link . '">' . AMSG_EDIT . '</a> ] ' .
-          '[ <a href="list_site_users.php?do=delete_user&user_id=' . $user_details['user_id'] . $additional_vars . $order_link . $limit_link . $show_link . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]';
+        '[ <a href="list_site_users.php?do=delete_user&user_id=' . $user_details['user_id'] . $additional_vars . $order_link . $limit_link . $show_link . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]';
 
       $site_users_content .= '<td align="center">' . $site_user_options . '	</td>' .
-          '</tr> ';
+        '</tr> ';
     }
 
     $template->set('site_users_content', $site_users_content);

@@ -54,9 +54,9 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $subcategories_content .= '<tr class="' . $background . '"> ' .
-          '	<td width="100%">&nbsp;&raquo;&nbsp;<a href="categories.php?parent_id=' . $cat_details['category_id'] . '">' . $category_lang[$cat_details['category_id']] . '</a> ' .
-          (($setts['enable_cat_counters']) ? (($cat_details['items_counter']) ? '(<strong>' . $cat_details['items_counter'] . '</strong>)' : '') : '') . '</td> ' .
-          '</tr> ';
+        '	<td width="100%">&nbsp;&raquo;&nbsp;<a href="categories.php?parent_id=' . $cat_details['category_id'] . '">' . $category_lang[$cat_details['category_id']] . '</a> ' .
+        (($setts['enable_cat_counters']) ? (($cat_details['items_counter']) ? '(<strong>' . $cat_details['items_counter'] . '</strong>)' : '') : '') . '</td> ' .
+        '</tr> ';
     }
 
     $template->set('subcategories_content', $subcategories_content);
@@ -140,7 +140,7 @@
     $template->set('item_details', $item_details);
 
     $cats_src_drop_down = '<select name="parent_id" id="parent_id" class="contentfont"> ' .
-        (array) $src_categories = null;
+      (array) $src_categories = null;
 
     $src_categories[] = array('category_id' => $parent_id, 'name' => $category_lang[$parent_id]);
 
@@ -177,12 +177,12 @@
       $category_link = process_link('categories', array('category' => $value['name'], 'parent_id' => $value['category_id']));
 
       $cats_src_drop_down .= '<option value="' . $value['category_id'] . '" ' . (($value['category_id'] == $parent_id) ? 'selected' : '') . '>' .
-          $value['name'] . '</option> ';
+        $value['name'] . '</option> ';
     }
     $cats_src_drop_down .= '</select>';
 
     $cats_src_adv_search_link = ($advanced_search) ? '<a href="categories.php?parent_id=' . $parent_id . '&keywords_cat_search=' . $item_details['keywords_cat_search'] . '&advanced_search=0">' . MSG_BASIC_SEARCH . '</a>' :
-        '<a href="categories.php?parent_id=' . $parent_id . '&keywords_cat_search=' . $item_details['keywords_cat_search'] . '&advanced_search=1">' . MSG_ADVANCED_SEARCH . '</a>';
+      '<a href="categories.php?parent_id=' . $parent_id . '&keywords_cat_search=' . $item_details['keywords_cat_search'] . '&advanced_search=1">' . MSG_ADVANCED_SEARCH . '</a>';
 
     $template->set('cats_src_adv_search_link', '[ ' . $cats_src_adv_search_link . ' ]');
     $template->set('cats_src_drop_down', $cats_src_drop_down);
@@ -223,8 +223,8 @@
           $background = ($counter++ % 2) ? 'c1' : 'c2';
 
           $shop_stores_content .= '<tr class="' . $background . '"> ' .
-              '	<td width="100%">&nbsp;&raquo;&nbsp;<a href="shop.php?user_id=' . $store_details['user_id'] . '&parent_id=' . $parent_id . '">' . $store_details['shop_name'] . '</a></td> ' .
-              '</tr> ';
+            '	<td width="100%">&nbsp;&raquo;&nbsp;<a href="shop.php?user_id=' . $store_details['user_id'] . '&parent_id=' . $parent_id . '">' . $store_details['shop_name'] . '</a></td> ' .
+            '</tr> ';
         }
 
         $template->set('shop_stores_content', $shop_stores_content);
@@ -245,8 +245,8 @@
     $order_type = (in_array($_REQUEST['order_type'], $order_types)) ? $_REQUEST['order_type'] : 'ASC';
 
     $additional_vars = '&parent_id=' . $parent_id . '&keywords_cat_search=' . $_REQUEST['keywords_cat_search'] .
-        '&buyout_price=' . $_REQUEST['buyout_price'] . '&reserve_price=' . $_REQUEST['reserve_price'] .
-        '&quantity=' . $_REQUEST['quantity'] . '&enable_swap=' . $_REQUEST['enable_swap'];
+      '&buyout_price=' . $_REQUEST['buyout_price'] . '&reserve_price=' . $_REQUEST['reserve_price'] .
+      '&quantity=' . $_REQUEST['quantity'] . '&enable_swap=' . $_REQUEST['enable_swap'];
 
     $template->set('categories_header', $categories_header);
     $template->set('categories_footer', $categories_footer);

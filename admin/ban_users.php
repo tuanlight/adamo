@@ -76,12 +76,12 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $bans_management_content .= '<tr class="' . $background . '"> ' .
-          '	<td>' . $ban_details['banned_address'] . '</td> ' .
-          '	<td align="center">' . (($ban_details['address_type'] == 1) ? AMSG_IP_BAN : AMSG_EMAIL_BAN) . '</td> ' .
-          '	<td align="center"> ' .
-          '		[ <a href="ban_users.php?do=edit_ban&banned_id=' . $ban_details['banned_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
-          '		[ <a href="ban_users.php?do=delete_ban&banned_id=' . $ban_details['banned_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-          '</tr> ';
+        '	<td>' . $ban_details['banned_address'] . '</td> ' .
+        '	<td align="center">' . (($ban_details['address_type'] == 1) ? AMSG_IP_BAN : AMSG_EMAIL_BAN) . '</td> ' .
+        '	<td align="center"> ' .
+        '		[ <a href="ban_users.php?do=edit_ban&banned_id=' . $ban_details['banned_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
+        '		[ <a href="ban_users.php?do=delete_ban&banned_id=' . $ban_details['banned_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+        '</tr> ';
     }
 
     $template->set('bans_management_content', $bans_management_content);

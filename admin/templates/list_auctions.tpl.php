@@ -38,7 +38,7 @@
     }
   }
 
-  --></script>
+  -- ></script>
 
 <div class="mainhead"><img src="images/auction.gif" align="absmiddle">
   <?php echo $header_section; ?>
@@ -111,8 +111,7 @@
                     <?php echo GMSG_ALL; ?></font></a> | 
                   <a href="javascript:void(0);" onclick="checkAll(document.select_auctions['approve[]'], <?php echo $nb_auctions; ?>, false);"> <font color="#EEEE00">
                     <?php echo GMSG_NONE; ?></font></a> ] </td>
-              <?php
-              }
+              <?php }
               else {
                 ?>
                 <td align="center"><?php echo GMSG_STATUS; ?>

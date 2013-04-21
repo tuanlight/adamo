@@ -1,4 +1,4 @@
-// script.aculo.us effects.js v1.8.1, Thu Jan 03 22:07:12 -0500 2008
+﻿// script.aculo.us effects.js v1.8.1, Thu Jan 03 22:07:12 -0500 2008
 
 // Copyright (c) 2005-2007 Thomas Fuchs (http://script.aculo.us, http://mir.aculo.us)
 // Contributors:
@@ -11,7 +11,7 @@
 
 // converts rgb() and #xxx to #xxxxxx format,  
 // returns self (or first argument) if not convertable  
-String.prototype.parseColor = function() {
+        String.prototype.parseColor = function() {
     var color = '#';
     if (this.slice(0, 4) == 'rgb(') {
         var cols = this.slice(4, this.length - 1).split(',');

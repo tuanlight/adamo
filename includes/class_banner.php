@@ -47,11 +47,11 @@
 
       if ($advert_row['advert_type'] == 1) {
         $display_output .= GMSG_CLICKS . ': <b>' . $advert_row['clicks'] . '</b><br>' .
-            GMSG_CLICKS_PURCHASED . ': <b>' . (($advert_row['clicks_purchased']) ? $advert_row['clicks_purchased'] : GMSG_NA) . '</b><br>';
+          GMSG_CLICKS_PURCHASED . ': <b>' . (($advert_row['clicks_purchased']) ? $advert_row['clicks_purchased'] : GMSG_NA) . '</b><br>';
       }
 
       $display_output .= GMSG_VIEWS . ': <b>' . $advert_row['views'] . '</b><br>' .
-          GMSG_VIEWS_PURCHASED . ': <b>' . (($advert_row['views_purchased']) ? $advert_row['views_purchased'] : GMSG_NA) . '</b>';
+        GMSG_VIEWS_PURCHASED . ': <b>' . (($advert_row['views_purchased']) ? $advert_row['views_purchased'] : GMSG_NA) . '</b>';
 
       return $display_output;
     }
@@ -67,7 +67,7 @@
 
       if ($advert_row['advert_type'] == 1) { // custom advert
         $display_output = '<table cellpadding="1" cellspacing="0"><tr><td align="center"><a href="banner_click.php?advert_id=' . $advert_row['advert_id'] . '" target="_blank">' .
-            '<img src="' . $relative_path . $this->add_special_chars($advert_row['advert_img_path']) . '" border="0" alt="' . $advert_row['advert_alt_text'] . '"></td></tr>';
+          '<img src="' . $relative_path . $this->add_special_chars($advert_row['advert_img_path']) . '" border="0" alt="' . $advert_row['advert_alt_text'] . '"></td></tr>';
 
         $display_output .= ($advert_row['advert_text_under']) ? '<tr><td align="center">' . $advert_row['advert_text_under'] . '</td></tr>' : '';
 
@@ -94,13 +94,13 @@
 
       if ($this->setts['is_ssl']) {
         foreach ($ssl_url_array as $value) {
-          if (stristr($base_url, $value)) {
+          if (eregi($value, $base_url)) {
             $advert_query .= " AND advert_type=1";
           }
         }
       }
 
-      if (stristr($base_url, 'categories.php')) {
+      if (eregi('categories.php', $base_url)) {
         $category_id = $this->main_category($parent_id);
         $advert_query_cats = " AND (LOCATE('," . $category_id . ",', CONCAT(',',advert_categories,','))>0 OR advert_categories='0')";
 
@@ -113,7 +113,7 @@
           $advert_query .= " AND advert_categories='0'";
         }
       }
-      else if (stristr($base_url, 'auction_details.php')) {
+      else if (eregi('auction_details.php', $base_url)) {
         $item_details = $this->get_sql_row("SELECT category_id, addl_category_id FROM " . DB_PREFIX . "auctions WHERE
 				auction_id='" . $auction_id . "'");
 

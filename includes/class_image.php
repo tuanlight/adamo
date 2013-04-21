@@ -141,13 +141,9 @@
     function set_cache_filename($filename, $width, $square, $border) {
       (string) $filename_output = null;
 
-//        $filename_output = eregi_replace("\/", "", $filename);
-//        $filename_output = eregi_replace("\.", "", $filename_output);
-//        $filename_output = eregi_replace("\:", "", $filename_output);
-
-      $filename_output = preg_replace("/\//i", "", $filename);
-      $filename_output = preg_replace("/\./i", "", $filename_output);
-      $filename_output = preg_replace("/\:/i", "", $filename_output);
+      $filename_output = eregi_replace("\/", "", $filename);
+      $filename_output = eregi_replace("\.", "", $filename_output);
+      $filename_output = eregi_replace("\:", "", $filename_output);
 
       return $this->cache_dir . 'cache_' . $width . '_' . $square . '_' . $border . '_' . $filename_output . '.img';
     }

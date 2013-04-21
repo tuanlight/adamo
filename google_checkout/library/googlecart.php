@@ -474,7 +474,7 @@
       foreach ($this->shipping_arr as $ship) {
         //Pickup shipping handled in else part
         if ($ship->type == "flat-rate-shipping" ||
-            $ship->type == "merchant-calculated-shipping"
+          $ship->type == "merchant-calculated-shipping"
 //  If shipping-company calc support addr-filtering and shipping restrictions as a subatag of shipping-company-calculated-shipping
 //           ||$ship->type == "shipping-company-calculated-shipping" 
         ) {
@@ -923,7 +923,7 @@
       ini_set('include_path', ini_get('include_path') . PATH_SEPARATOR . '.');
       require_once('library/googlerequest.php');
       $GRequest = new GoogleRequest($this->merchant_id, $this->merchant_key, $this->server_url == "https://checkout.google.com/" ?
-              "Production" : "sandbox", $this->currency);
+          "Production" : "sandbox", $this->currency);
       $GRequest->SetProxy($proxy);
       $GRequest->SetCertificatePath($certPath);
 
@@ -986,12 +986,12 @@
       $data = "<div style=\"width: " . $width . "px\">";
       if ($this->variant == "text") {
         $data .= "<div align=center><form method=\"POST\" action=\"" .
-            $url . "\"" . ($this->googleAnalytics_id ?
-                " onsubmit=\"setUrchinInputCode();\"" : "") . ">
+          $url . "\"" . ($this->googleAnalytics_id ?
+            " onsubmit=\"setUrchinInputCode();\"" : "") . ">
                 <input type=\"image\" name=\"Checkout\" alt=\"Checkout\" 
                 src=\"" . $this->server_url . "buttons/checkout.gif?merchant_id=" .
-            $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" .
-            $style . "&variant=" . $this->variant . "&loc=" . $loc . "\" 
+          $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" .
+          $style . "&variant=" . $this->variant . "&loc=" . $loc . "\" 
                 height=\"" . $height . "\" width=\"" . $width . "\" />";
 
         if ($this->googleAnalytics_id) {
@@ -1001,23 +1001,23 @@
         if ($this->googleAnalytics_id) {
           $data .= "<!-- Start Google analytics -->
             <script src=\"https://ssl.google-analytics.com/urchin.js\" type=\"" .
-              "text/javascript\">
+            "text/javascript\">
             </script>
             <script type=\"text/javascript\">
             _uacct = \"" . $this->googleAnalytics_id . "\";
             urchinTracker();
             </script>
             <script src=\"https://checkout.google.com/files/digital/urchin_po" .
-              "st.js\" type=\"text/javascript\"></script>  
+            "st.js\" type=\"text/javascript\"></script>  
             <!-- End Google analytics -->";
         }
       }
       else {
         $data .= "<div><img alt=\"Checkout\" src=\"" .
-            "" . $this->server_url . "buttons/checkout.gif?merchant_id=" .
-            "" . $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" . $style .
-            "&variant=" . $this->variant . "&loc=" . $loc . "\" height=\"" . $height . "\"" .
-            " width=\"" . $width . "\" /></div>";
+          "" . $this->server_url . "buttons/checkout.gif?merchant_id=" .
+          "" . $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" . $style .
+          "&variant=" . $this->variant . "&loc=" . $loc . "\" height=\"" . $height . "\"" .
+          " width=\"" . $width . "\" /></div>";
       }
       $data .= "</div>";
       return $data;
@@ -1078,16 +1078,16 @@
       $data = "<div style=\"width: " . $width . "px\">";
       if ($this->variant == "text") {
         $data .= "<div align=center><form method=\"POST\" action=\"" .
-            $this->checkout_url . "\"" . ($this->googleAnalytics_id ?
-                " onsubmit=\"setUrchinInputCode();\"" : "") . ">
+          $this->checkout_url . "\"" . ($this->googleAnalytics_id ?
+            " onsubmit=\"setUrchinInputCode();\"" : "") . ">
                 <input type=\"hidden\" name=\"cart\" value=\"" .
-            base64_encode($this->GetXML()) . "\">
+          base64_encode($this->GetXML()) . "\">
                 <input type=\"hidden\" name=\"signature\" value=\"" .
-            base64_encode($this->CalcHmacSha1($this->GetXML())) . "\"> 
+          base64_encode($this->CalcHmacSha1($this->GetXML())) . "\"> 
                 <input type=\"image\" name=\"Checkout\" alt=\"Checkout\" 
                 src=\"" . $this->server_url . "buttons/checkout.gif?merchant_id=" .
-            $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" .
-            $style . "&variant=" . $this->variant . "&loc=" . $loc . "\" 
+          $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" .
+          $style . "&variant=" . $this->variant . "&loc=" . $loc . "\" 
                 height=\"" . $height . "\" width=\"" . $width . "\" />";
 
         if ($this->googleAnalytics_id) {
@@ -1097,31 +1097,31 @@
         if ($this->googleAnalytics_id) {
           $data .= "<!-- Start Google analytics -->
             <script src=\"https://ssl.google-analytics.com/urchin.js\" type=\"" .
-              "text/javascript\">
+            "text/javascript\">
             </script>
             <script type=\"text/javascript\">
             _uacct = \"" . $this->googleAnalytics_id . "\";
             urchinTracker();
             </script>
             <script src=\"https://checkout.google.com/files/digital/urchin_po" .
-              "st.js\" type=\"text/javascript\"></script>  
+            "st.js\" type=\"text/javascript\"></script>  
             <!-- End Google analytics -->";
         }
       }
       else {
         $data .= "<div><img alt=\"Checkout\" src=\"" .
-            "" . $this->server_url . "buttons/checkout.gif?merchant_id=" .
-            "" . $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" . $style .
-            "&variant=" . $this->variant . "&loc=" . $loc . "\" height=\"" . $height . "\"" .
-            " width=\"" . $width . "\" /></div>";
+          "" . $this->server_url . "buttons/checkout.gif?merchant_id=" .
+          "" . $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" . $style .
+          "&variant=" . $this->variant . "&loc=" . $loc . "\" height=\"" . $height . "\"" .
+          " width=\"" . $width . "\" /></div>";
       }
       if ($showtext) {
         $data .="<div align=\"center\"><a href=\"javascript:void(window.ope" .
-            "n('http://checkout.google.com/seller/what_is_google_checkout.html'" .
-            ",'whatischeckout','scrollbars=0,resizable=1,directories=0,height=2" .
-            "50,width=400'));\" onmouseover=\"return window.status = 'What is G" .
-            "oogle Checkout?'\" onmouseout=\"return window.status = ''\"><font " .
-            "size=\"-2\">What is Google Checkout?</font></a></div>";
+          "n('http://checkout.google.com/seller/what_is_google_checkout.html'" .
+          ",'whatischeckout','scrollbars=0,resizable=1,directories=0,height=2" .
+          "50,width=400'));\" onmouseover=\"return window.status = 'What is G" .
+          "oogle Checkout?'\" onmouseout=\"return window.status = ''\"><font " .
+          "size=\"-2\">What is Google Checkout?</font></a></div>";
       }
       $data .= "</div>";
       return $data;
@@ -1160,15 +1160,15 @@
       $data = "<div style=\"width: " . $width . "px\">";
       if ($this->variant == "text") {
         $data .= "<div align=center><form method=\"POST\" action=\"" .
-            $this->checkout_url . "\"" . ($this->googleAnalytics_id ?
-                " onsubmit=\"setUrchinInputCode();\"" : "") . ">
+          $this->checkout_url . "\"" . ($this->googleAnalytics_id ?
+            " onsubmit=\"setUrchinInputCode();\"" : "") . ">
                 <input type=\"hidden\" name=\"buyButtonCart\" value=\"" .
-            base64_encode($this->GetXML()) . "//separator//" .
-            base64_encode($this->CalcHmacSha1($this->GetXML())) . "\">
+          base64_encode($this->GetXML()) . "//separator//" .
+          base64_encode($this->CalcHmacSha1($this->GetXML())) . "\">
                 <input type=\"image\" name=\"Checkout\" alt=\"BuyNow\" 
                 src=\"" . $this->server_url . "buttons/buy.gif?merchant_id=" .
-            $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" .
-            $style . "&variant=" . $this->variant . "&loc=" . $loc . "\" 
+          $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" .
+          $style . "&variant=" . $this->variant . "&loc=" . $loc . "\" 
                 height=\"" . $height . "\" width=\"" . $width . "\" />";
 
         if ($this->googleAnalytics_id) {
@@ -1178,32 +1178,32 @@
         if ($this->googleAnalytics_id) {
           $data .= "<!-- Start Google analytics -->
             <script src=\"https://ssl.google-analytics.com/urchin.js\" type=\"" .
-              "text/javascript\">
+            "text/javascript\">
             </script>
             <script type=\"text/javascript\">
             _uacct = \"" . $this->googleAnalytics_id . "\";
             urchinTracker();
             </script>
             <script src=\"https://checkout.google.com/files/digital/urchin_po" .
-              "st.js\" type=\"text/javascript\"></script>  
+            "st.js\" type=\"text/javascript\"></script>  
             <!-- End Google analytics -->";
         }
 //        ask for link to BuyNow disable button
       }
       else {
         $data .= "<div><img alt=\"Checkout\" src=\"" .
-            "" . $this->server_url . "buttons/buy.gif?merchant_id=" .
-            "" . $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" . $style .
-            "&variant=" . $this->variant . "&loc=" . $loc . "\" height=\"" . $height . "\"" .
-            " width=\"" . $width . "\" /></div>";
+          "" . $this->server_url . "buttons/buy.gif?merchant_id=" .
+          "" . $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" . $style .
+          "&variant=" . $this->variant . "&loc=" . $loc . "\" height=\"" . $height . "\"" .
+          " width=\"" . $width . "\" /></div>";
       }
       if ($showtext) {
         $data .="<div align=\"center\"><a href=\"javascript:void(window.ope" .
-            "n('http://checkout.google.com/seller/what_is_google_checkout.html'" .
-            ",'whatischeckout','scrollbars=0,resizable=1,directories=0,height=2" .
-            "50,width=400'));\" onmouseover=\"return window.status = 'What is G" .
-            "oogle Checkout?'\" onmouseout=\"return window.status = ''\"><font " .
-            "size=\"-2\">What is Google Checkout?</font></a></div>";
+          "n('http://checkout.google.com/seller/what_is_google_checkout.html'" .
+          ",'whatischeckout','scrollbars=0,resizable=1,directories=0,height=2" .
+          "50,width=400'));\" onmouseover=\"return window.status = 'What is G" .
+          "oogle Checkout?'\" onmouseout=\"return window.status = ''\"><font " .
+          "size=\"-2\">What is Google Checkout?</font></a></div>";
       }
       $data .= "</div>";
       return $data;
@@ -1264,8 +1264,8 @@
       $data = "<div style=\"width: " . $width . "px\">";
       if ($this->variant == "text") {
         $data .= "<div align=\"center\"><form method=\"POST\" action=\"" .
-            $this->checkoutForm_url . "\"" . ($this->googleAnalytics_id ?
-                " onsubmit=\"setUrchinInputCode();\"" : "") . ">";
+          $this->checkoutForm_url . "\"" . ($this->googleAnalytics_id ?
+            " onsubmit=\"setUrchinInputCode();\"" : "") . ">";
 
         $request = $this->GetXML();
         require_once('xml-processing/gc_xmlparser.php');
@@ -1274,9 +1274,9 @@
         $XMLdata = $xml_parser->GetData();
         $this->xml2html($XMLdata[$root], '', $data);
         $data .= "<input type=\"image\" name=\"Checkout\" alt=\"Checkout\" " .
-            "src=\"" . $this->server_url . "buttons/checkout.gif?merchant_id=" .
-            $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" .
-            $style . "&variant=" . $this->variant . "&loc=" . $loc . "\" 
+          "src=\"" . $this->server_url . "buttons/checkout.gif?merchant_id=" .
+          $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" .
+          $style . "&variant=" . $this->variant . "&loc=" . $loc . "\" 
                 height=\"" . $height . "\" width=\"" . $width . "\" />";
 
         if ($this->googleAnalytics_id) {
@@ -1286,31 +1286,31 @@
         if ($this->googleAnalytics_id) {
           $data .= "<!-- Start Google analytics -->
             <script src=\"https://ssl.google-analytics.com/urchin.js\" type=\"" .
-              "text/javascript\">
+            "text/javascript\">
             </script>
             <script type=\"text/javascript\">
             _uacct = \"" . $this->googleAnalytics_id . "\";
             urchinTracker();
             </script>
             <script src=\"https://checkout.google.com/files/digital/urchin_po" .
-              "st.js\" type=\"text/javascript\"></script>  
+            "st.js\" type=\"text/javascript\"></script>  
             <!-- End Google analytics -->";
         }
       }
       else {
         $data .= "<div align=\"center\"><img alt=\"Checkout\" src=\"" .
-            "" . $this->server_url . "buttons/checkout.gif?merchant_id=" .
-            "" . $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" . $style .
-            "&variant=" . $this->variant . "&loc=" . $loc . "\" height=\"" . $height . "\"" .
-            " width=\"" . $width . "\" /></div>";
+          "" . $this->server_url . "buttons/checkout.gif?merchant_id=" .
+          "" . $this->merchant_id . "&w=" . $width . "&h=" . $height . "&style=" . $style .
+          "&variant=" . $this->variant . "&loc=" . $loc . "\" height=\"" . $height . "\"" .
+          " width=\"" . $width . "\" /></div>";
       }
       if ($showtext) {
         $data .= "<div align=\"center\"><a href=\"javascript:void(window.ope" .
-            "n('http://checkout.google.com/seller/what_is_google_checkout.html'" .
-            ",'whatischeckout','scrollbars=0,resizable=1,directories=0,height=2" .
-            "50,width=400'));\" onmouseover=\"return window.status = 'What is G" .
-            "oogle Checkout?'\" onmouseout=\"return window.status = ''\"><font " .
-            "size=\"-2\">What is Google Checkout?</font></a></div>";
+          "n('http://checkout.google.com/seller/what_is_google_checkout.html'" .
+          ",'whatischeckout','scrollbars=0,resizable=1,directories=0,height=2" .
+          "50,width=400'));\" onmouseover=\"return window.status = 'What is G" .
+          "oogle Checkout?'\" onmouseout=\"return window.status = ''\"><font " .
+          "size=\"-2\">What is Google Checkout?</font></a></div>";
       }
       $data .= "</div>";
 
@@ -1347,7 +1347,7 @@
             $new_path = $path . "." . $tag_name;
           }
           $rta .= '<input type="hidden" name="' .
-              $new_path . '" value="' . $tag . '"/>' . "\n";
+            $new_path . '" value="' . $tag . '"/>' . "\n";
         }
       }
     }
@@ -1381,31 +1381,31 @@
       switch ($type) {
         case 2:
           return '<link rel="stylesheet" href="https://checkout.google.com/' .
-              'seller/accept/s.css" type="text/css" media="screen" /><scrip' .
-              't type="text/javascript" src="https://checkout.google.com/se' .
-              'ller/accept/j.js"></script><script type="text/javascript">sh' .
-              'owMark(1);</script><noscript><img src="https://checkout.goog' .
-              'le.com/seller/accept/images/st.gif" width="92" height="88" a' .
-              'lt="Google Checkout Acceptance Mark" /></noscript>';
+            'seller/accept/s.css" type="text/css" media="screen" /><scrip' .
+            't type="text/javascript" src="https://checkout.google.com/se' .
+            'ller/accept/j.js"></script><script type="text/javascript">sh' .
+            'owMark(1);</script><noscript><img src="https://checkout.goog' .
+            'le.com/seller/accept/images/st.gif" width="92" height="88" a' .
+            'lt="Google Checkout Acceptance Mark" /></noscript>';
           break;
         case 3:
           return '<link rel="stylesheet" href="https://checkout.google.com/' .
-              'seller/accept/s.css" type="text/css" media="screen" /><scrip' .
-              't type="text/javascript" src="https://checkout.google.com/se' .
-              'ller/accept/j.js"></script><script type="text/javascript">sh' .
-              'owMark(2);</script><noscript><img src="https://checkout.goog' .
-              'le.com/seller/accept/images/ht.gif" width="182" height="44" ' .
-              'alt="Google Checkout Acceptance Mark" /></noscript>';
+            'seller/accept/s.css" type="text/css" media="screen" /><scrip' .
+            't type="text/javascript" src="https://checkout.google.com/se' .
+            'ller/accept/j.js"></script><script type="text/javascript">sh' .
+            'owMark(2);</script><noscript><img src="https://checkout.goog' .
+            'le.com/seller/accept/images/ht.gif" width="182" height="44" ' .
+            'alt="Google Checkout Acceptance Mark" /></noscript>';
           break;
         case 1:
         default:
           return '<link rel="stylesheet" href="https://checkout.google.com/' .
-              'seller/accept/s.css" type="text/css" media="screen" /><scrip' .
-              't type="text/javascript" src="https://checkout.google.com/se' .
-              'ller/accept/j.js"></script><script type="text/javascript">sh' .
-              'owMark(3);</script><noscript><img src="https://checkout.goog' .
-              'le.com/seller/accept/images/sc.gif" width="72" height="73" a' .
-              'lt="Google Checkout Acceptance Mark" /></noscript>';
+            'seller/accept/s.css" type="text/css" media="screen" /><scrip' .
+            't type="text/javascript" src="https://checkout.google.com/se' .
+            'ller/accept/j.js"></script><script type="text/javascript">sh' .
+            'owMark(3);</script><noscript><img src="https://checkout.goog' .
+            'le.com/seller/accept/images/sc.gif" width="72" height="73" a' .
+            'lt="Google Checkout Acceptance Mark" /></noscript>';
           break;
       }
     }
@@ -1430,13 +1430,13 @@
       $ipad = str_repeat(chr(0x36), $blocksize);
       $opad = str_repeat(chr(0x5c), $blocksize);
       $hmac = pack(
-          'H*', $hashfunc(
-              ($key ^ $opad) . pack(
-                  'H*', $hashfunc(
-                      ($key ^ $ipad) . $data
-                  )
-              )
+        'H*', $hashfunc(
+          ($key ^ $opad) . pack(
+            'H*', $hashfunc(
+              ($key ^ $ipad) . $data
+            )
           )
+        )
       );
       return $hmac;
     }

@@ -54,13 +54,13 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $bid_increments_page_content .= '<input type="hidden" name="increment_id[]" value="' . $increment_details['id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td></td> ' .
-          '	<td><input name="value_from[]" type="text" value="' . $increment_details['value_from'] . '" size="12"></td> ' .
-          '	<td><input name="value_to[]" type="text" value="' . $increment_details['value_to'] . '" size="12"></td> ' .
-          '	<td><input name="increment[]" type="text" value="' . $increment_details['increment'] . '" size="12"></td> ' .
-          '	<td align="center"><input type="checkbox" name="delete[]" value="' . $increment_details['id'] . '"></td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td></td> ' .
+        '	<td><input name="value_from[]" type="text" value="' . $increment_details['value_from'] . '" size="12"></td> ' .
+        '	<td><input name="value_to[]" type="text" value="' . $increment_details['value_to'] . '" size="12"></td> ' .
+        '	<td><input name="increment[]" type="text" value="' . $increment_details['increment'] . '" size="12"></td> ' .
+        '	<td align="center"><input type="checkbox" name="delete[]" value="' . $increment_details['id'] . '"></td> ' .
+        '</tr> ';
     }
 
     $template->set('header_section', AMSG_TABLES_MANAGEMENT);

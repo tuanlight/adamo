@@ -84,119 +84,119 @@
       switch ($pg_details['name']) {
         case 'PayPal':
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_PAYPAL_EMAIL . '</td> ' .
-              '	<td><input name="pg_paypal_email" type="text" value="' . $gen_setts['pg_paypal_email'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_PAYPAL_EMAIL . '</td> ' .
+            '	<td><input name="pg_paypal_email" type="text" value="' . $gen_setts['pg_paypal_email'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr> ' .
-              '	<td></td> ' .
-              '	<td class="' . $background . '">' . GMSG_PAYPAL_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_paypal.php</b></td> ' .
-              '</tr> ';
+            '	<td></td> ' .
+            '	<td class="' . $background . '">' . GMSG_PAYPAL_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_paypal.php</b></td> ' .
+            '</tr> ';
           break;
         case 'Worldpay':
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_WORLDPAY_ID . '</td> ' .
-              '	<td><input name="pg_worldpay_id" type="text" value="' . $gen_setts['pg_worldpay_id'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_WORLDPAY_ID . '</td> ' .
+            '	<td><input name="pg_worldpay_id" type="text" value="' . $gen_setts['pg_worldpay_id'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr> ' .
-              '	<td></td> ' .
-              '	<td class="' . $background . '">' . GMSG_WORLDPAY_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_worldpay.php</b></td> ' .
-              '</tr> ';
+            '	<td></td> ' .
+            '	<td class="' . $background . '">' . GMSG_WORLDPAY_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_worldpay.php</b></td> ' .
+            '</tr> ';
           break;
         case '2Checkout':
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_CHECKOUT_ID . '</td> ' .
-              '	<td><input name="pg_checkout_id" type="text" value="' . $gen_setts['pg_checkout_id'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_CHECKOUT_ID . '</td> ' .
+            '	<td><input name="pg_checkout_id" type="text" value="' . $gen_setts['pg_checkout_id'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr> ' .
-              '	<td></td> ' .
-              '	<td class="' . $background . '">' . GMSG_CHECKOUT_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_checkout.php</b></td> ' .
-              '</tr> ';
+            '	<td></td> ' .
+            '	<td class="' . $background . '">' . GMSG_CHECKOUT_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_checkout.php</b></td> ' .
+            '</tr> ';
           break;
         case 'Nochex':
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_NOCHEX_EMAIL . '</td> ' .
-              '	<td><input name="pg_nochex_email" type="text" value="' . $gen_setts['pg_nochex_email'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_NOCHEX_EMAIL . '</td> ' .
+            '	<td><input name="pg_nochex_email" type="text" value="' . $gen_setts['pg_nochex_email'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr> ' .
-              '	<td></td> ' .
-              '	<td class="' . $background . '">' . GMSG_NOCHEX_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_nochex.php</b></td> ' .
-              '</tr> ';
+            '	<td></td> ' .
+            '	<td class="' . $background . '">' . GMSG_NOCHEX_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_nochex.php</b></td> ' .
+            '</tr> ';
           break;
         case 'Ikobo':
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_IKOBO_USERNAME . '</td> ' .
-              '	<td><input name="pg_ikobo_username" type="text" value="' . $gen_setts['pg_ikobo_username'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_IKOBO_USERNAME . '</td> ' .
+            '	<td><input name="pg_ikobo_username" type="text" value="' . $gen_setts['pg_ikobo_username'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_IKOBO_PASSWORD . '</td> ' .
-              '	<td><input name="pg_ikobo_password" type="text" value="' . $gen_setts['pg_ikobo_password'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_IKOBO_PASSWORD . '</td> ' .
+            '	<td><input name="pg_ikobo_password" type="text" value="' . $gen_setts['pg_ikobo_password'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr> ' .
-              '	<td></td> ' .
-              '	<td class="' . $background . '">' . GMSG_IKOBO_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_ikobo.php</b></td> ' .
-              '</tr> ';
+            '	<td></td> ' .
+            '	<td class="' . $background . '">' . GMSG_IKOBO_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_ikobo.php</b></td> ' .
+            '</tr> ';
           break;
         case 'Protx':
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_PROTX_USERNAME . '</td> ' .
-              '	<td><input name="pg_protx_username" type="text" value="' . $gen_setts['pg_protx_username'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_PROTX_USERNAME . '</td> ' .
+            '	<td><input name="pg_protx_username" type="text" value="' . $gen_setts['pg_protx_username'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_PROTX_PASSWORD . '</td> ' .
-              '	<td><input name="pg_protx_password" type="text" value="' . $gen_setts['pg_protx_password'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_PROTX_PASSWORD . '</td> ' .
+            '	<td><input name="pg_protx_password" type="text" value="' . $gen_setts['pg_protx_password'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr> ' .
-              '	<td></td> ' .
-              '	<td class="' . $background . '">' . GMSG_PROTX_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_protx.php</b></td> ' .
-              '</tr> ';
+            '	<td></td> ' .
+            '	<td class="' . $background . '">' . GMSG_PROTX_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_protx.php</b></td> ' .
+            '</tr> ';
           break;
         case 'Authorize.net':
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_AUTHNET_USERNAME . '</td> ' .
-              '	<td><input name="pg_authnet_username" type="text" value="' . $gen_setts['pg_authnet_username'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_AUTHNET_USERNAME . '</td> ' .
+            '	<td><input name="pg_authnet_username" type="text" value="' . $gen_setts['pg_authnet_username'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_AUTHNET_PASSWORD . '</td> ' .
-              '	<td><input name="pg_authnet_password" type="text" value="' . $gen_setts['pg_authnet_password'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_AUTHNET_PASSWORD . '</td> ' .
+            '	<td><input name="pg_authnet_password" type="text" value="' . $gen_setts['pg_authnet_password'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr> ' .
-              '	<td></td> ' .
-              '	<td class="' . $background . '">' . GMSG_AUTHNET_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_authnet.php</b></td> ' .
-              '</tr> ';
+            '	<td></td> ' .
+            '	<td class="' . $background . '">' . GMSG_AUTHNET_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_authnet.php</b></td> ' .
+            '</tr> ';
           break;
         case 'Moneybookers':
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_MB_EMAIL . '</td> ' .
-              '	<td><input name="pg_mb_email" type="text" value="' . $gen_setts['pg_mb_email'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_MB_EMAIL . '</td> ' .
+            '	<td><input name="pg_mb_email" type="text" value="' . $gen_setts['pg_mb_email'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr> ' .
-              '	<td></td> ' .
-              '	<td class="' . $background . '">' . GMSG_MB_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_moneybookers.php</b></td> ' .
-              '</tr> ';
+            '	<td></td> ' .
+            '	<td class="' . $background . '">' . GMSG_MB_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_moneybookers.php</b></td> ' .
+            '</tr> ';
           break;
         case 'Paymate':
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_PAYMATE_MERCHANT_ID . '</td> ' .
-              '	<td><input name="pg_paymate_merchant_id" type="text" value="' . $gen_setts['pg_paymate_merchant_id'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_PAYMATE_MERCHANT_ID . '</td> ' .
+            '	<td><input name="pg_paymate_merchant_id" type="text" value="' . $gen_setts['pg_paymate_merchant_id'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr> ' .
-              '	<td></td> ' .
-              '	<td class="' . $background . '">' . GMSG_PAYMATE_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_paymate.php</b></td> ' .
-              '</tr> ';
+            '	<td></td> ' .
+            '	<td class="' . $background . '">' . GMSG_PAYMATE_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_paymate.php</b></td> ' .
+            '</tr> ';
           break;
         case 'Google Checkout':
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_GC_MERCHANT_ID . '</td> ' .
-              '	<td><input name="pg_gc_merchant_id" type="text" value="' . $gen_setts['pg_gc_merchant_id'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_GC_MERCHANT_ID . '</td> ' .
+            '	<td><input name="pg_gc_merchant_id" type="text" value="' . $gen_setts['pg_gc_merchant_id'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr class="' . $background . '"> ' .
-              '	<td width="250">' . GMSG_GC_MERCHANT_KEY . '</td> ' .
-              '	<td><input name="pg_gc_merchant_key" type="text" value="' . $gen_setts['pg_gc_merchant_key'] . '" size="50"></td> ' .
-              '</tr> ';
+            '	<td width="250">' . GMSG_GC_MERCHANT_KEY . '</td> ' .
+            '	<td><input name="pg_gc_merchant_key" type="text" value="' . $gen_setts['pg_gc_merchant_key'] . '" size="50"></td> ' .
+            '</tr> ';
           $pg_settings_rows .= '<tr> ' .
-              '	<td></td> ' .
-              '	<td class="' . $background . '">' . GMSG_GC_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_gc.php</b></td> ' .
-              '</tr> ';
+            '	<td></td> ' .
+            '	<td class="' . $background . '">' . GMSG_GC_CALLBACK . ':<br><br><b>' . SITE_PATH . 'pp_gc.php</b></td> ' .
+            '</tr> ';
           break;
       }
       $template->set('pg_settings_rows', $pg_settings_rows);

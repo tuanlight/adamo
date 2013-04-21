@@ -71,7 +71,7 @@
         '%file' => $caller['file'],
         '%line' => $caller['line'],
         'severity_level' => $severity_level,
-          ), $error_level == E_RECOVERABLE_ERROR);
+        ), $error_level == E_RECOVERABLE_ERROR);
     }
   }
 
@@ -152,7 +152,7 @@
     $updating = (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'update');
     $all_errors_displayed = ($error_level == ERROR_REPORTING_DISPLAY_ALL);
     $error_needs_display = ($error_level == ERROR_REPORTING_DISPLAY_SOME &&
-        isset($error) && $error['%type'] != 'Notice' && $error['%type'] != 'Strict warning');
+      isset($error) && $error['%type'] != 'Notice' && $error['%type'] != 'Strict warning');
 
     return ($updating || $all_errors_displayed || $error_needs_display);
   }

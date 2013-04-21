@@ -140,13 +140,13 @@
       $logo_url = (($payment_option['logo_url']) ? $payment_option['logo_url'] : 'images/noimg.gif');
 
       $payment_options_content .= '<input type="hidden" name="option_id[]" value="' . $payment_option['id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td>' . $payment_option['name'] . '</td> ' .
-          '	<td align="center"><img src="../thumbnail.php?pic=' . $logo_url . '&w=80&sq=Y&b=Y" border="0" alt="' . $payment_option['name'] . '"></td> ' .
-          '	<td align="center"> ' .
-          '		[ <a href="table_payment_options.php?do=edit_option&option_id=' . $payment_option['id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
-          '		[ <a href="table_payment_options.php?do=delete_option&option_id=' . $payment_option['id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td>' . $payment_option['name'] . '</td> ' .
+        '	<td align="center"><img src="../thumbnail.php?pic=' . $logo_url . '&w=80&sq=Y&b=Y" border="0" alt="' . $payment_option['name'] . '"></td> ' .
+        '	<td align="center"> ' .
+        '		[ <a href="table_payment_options.php?do=edit_option&option_id=' . $payment_option['id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
+        '		[ <a href="table_payment_options.php?do=delete_option&option_id=' . $payment_option['id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+        '</tr> ';
     }
 
     $template->set('payment_options_content', $payment_options_content);

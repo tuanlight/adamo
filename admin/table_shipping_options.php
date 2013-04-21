@@ -54,11 +54,11 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $shipping_options_page_content .= '<input type="hidden" name="shipping_id[]" value="' . $shipping_options_details['id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td></td> ' .
-          '	<td><input name="name[]" type="text" value="' . $shipping_options_details['name'] . '" size="50"></td> ' .
-          '	<td align="center"><input type="checkbox" name="delete[]" value="' . $shipping_options_details['id'] . '"></td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td></td> ' .
+        '	<td><input name="name[]" type="text" value="' . $shipping_options_details['name'] . '" size="50"></td> ' .
+        '	<td align="center"><input type="checkbox" name="delete[]" value="' . $shipping_options_details['id'] . '"></td> ' .
+        '</tr> ';
     }
 
     $template->set('header_section', AMSG_TABLES_MANAGEMENT);

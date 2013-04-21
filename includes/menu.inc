@@ -1271,13 +1271,13 @@
               // their children to the list as well.
               do {
                 $result = db_select('menu_links', NULL, array('fetch' => PDO::FETCH_ASSOC))
-                    ->fields('menu_links', array('mlid'))
-                    ->condition('menu_name', $menu_name)
-                    ->condition('expanded', 1)
-                    ->condition('has_children', 1)
-                    ->condition('plid', $parents, 'IN')
-                    ->condition('mlid', $parents, 'NOT IN')
-                    ->execute();
+                  ->fields('menu_links', array('mlid'))
+                  ->condition('menu_name', $menu_name)
+                  ->condition('expanded', 1)
+                  ->condition('has_children', 1)
+                  ->condition('plid', $parents, 'IN')
+                  ->condition('mlid', $parents, 'NOT IN')
+                  ->execute();
                 $num_rows = FALSE;
                 foreach ($result as $item) {
                   $parents[$item['mlid']] = $item['mlid'];
@@ -1762,10 +1762,10 @@
 
     if (empty($names)) {
       $names = db_select('menu_links')
-              ->distinct()
-              ->fields('menu_links', array('menu_name'))
-              ->orderBy('menu_name')
-              ->execute()->fetchCol();
+          ->distinct()
+          ->fields('menu_links', array('menu_name'))
+          ->orderBy('menu_name')
+          ->execute()->fetchCol();
     }
     return $names;
   }
@@ -1911,12 +1911,12 @@
 
       // Get all tabs (also known as local tasks) and the root page.
       $result = db_select('menu_router', NULL, array('fetch' => PDO::FETCH_ASSOC))
-          ->fields('menu_router')
-          ->condition('tab_root', $router_item['tab_root'])
-          ->condition('context', MENU_CONTEXT_INLINE, '<>')
-          ->orderBy('weight')
-          ->orderBy('title')
-          ->execute();
+        ->fields('menu_router')
+        ->condition('tab_root', $router_item['tab_root'])
+        ->condition('context', MENU_CONTEXT_INLINE, '<>')
+        ->orderBy('weight')
+        ->orderBy('title')
+        ->execute();
       $map = $router_item['original_map'];
       $children = array();
       $tasks = array();
@@ -2161,14 +2161,14 @@
       // Get all contextual links that are direct children of the router item and
       // not of the tab type 'view'.
       $data[$root_path] = db_select('menu_router', 'm')
-          ->fields('m')
-          ->condition('tab_parent', $router_item['tab_root'])
-          ->condition('context', MENU_CONTEXT_NONE, '<>')
-          ->condition('context', MENU_CONTEXT_PAGE, '<>')
-          ->orderBy('weight')
-          ->orderBy('title')
-          ->execute()
-          ->fetchAllAssoc('path', PDO::FETCH_ASSOC);
+        ->fields('m')
+        ->condition('tab_parent', $router_item['tab_root'])
+        ->condition('context', MENU_CONTEXT_NONE, '<>')
+        ->condition('context', MENU_CONTEXT_PAGE, '<>')
+        ->orderBy('weight')
+        ->orderBy('title')
+        ->execute()
+        ->fetchAllAssoc('path', PDO::FETCH_ASSOC);
     }
     $parent_length = drupal_strlen($root_path) + 1;
     $map = $router_item['original_map'];
@@ -2812,10 +2812,10 @@
 
       foreach ($menu_links as $key => $item) {
         $existing_item = db_select('menu_links')
-                ->fields('menu_links')
-                ->condition('link_path', $item['path'])
-                ->condition('module', 'system')
-                ->execute()->fetchAssoc();
+            ->fields('menu_links')
+            ->condition('link_path', $item['path'])
+            ->condition('module', 'system')
+            ->execute()->fetchAssoc();
         if ($existing_item) {
           $item['mlid'] = $existing_item['mlid'];
           // A change in hook_menu may move the link to a different menu
@@ -2845,21 +2845,21 @@
     $paths = array_keys($menu);
     // Updated and customized items whose router paths are gone need new ones.
     $result = db_select('menu_links', NULL, array('fetch' => PDO::FETCH_ASSOC))
-        ->fields('menu_links', array(
-          'link_path',
-          'mlid',
-          'router_path',
-          'updated',
-        ))
-        ->condition(db_or()
-            ->condition('updated', 1)
-            ->condition(db_and()
-                ->condition('router_path', $paths, 'NOT IN')
-                ->condition('external', 0)
-                ->condition('customized', 1)
-            )
+      ->fields('menu_links', array(
+        'link_path',
+        'mlid',
+        'router_path',
+        'updated',
+      ))
+      ->condition(db_or()
+        ->condition('updated', 1)
+        ->condition(db_and()
+          ->condition('router_path', $paths, 'NOT IN')
+          ->condition('external', 0)
+          ->condition('customized', 1)
         )
-        ->execute();
+      )
+      ->execute();
     foreach ($result as $item) {
       $router_path = _menu_find_router_path($item['link_path']);
       if (!empty($router_path) && ($router_path != $item['router_path'] || $item['updated'])) {
@@ -2867,23 +2867,23 @@
         // item, so we clear the updated flag.
         $updated = $item['updated'] && $router_path != $item['link_path'];
         db_update('menu_links')
-            ->fields(array(
-              'router_path' => $router_path,
-              'updated' => (int) $updated,
-            ))
-            ->condition('mlid', $item['mlid'])
-            ->execute();
+          ->fields(array(
+            'router_path' => $router_path,
+            'updated' => (int) $updated,
+          ))
+          ->condition('mlid', $item['mlid'])
+          ->execute();
       }
     }
     // Find any item whose router path does not exist any more.
     $result = db_select('menu_links')
-        ->fields('menu_links')
-        ->condition('router_path', $paths, 'NOT IN')
-        ->condition('external', 0)
-        ->condition('updated', 0)
-        ->condition('customized', 0)
-        ->orderBy('depth', 'DESC')
-        ->execute();
+      ->fields('menu_links')
+      ->condition('router_path', $paths, 'NOT IN')
+      ->condition('external', 0)
+      ->condition('updated', 0)
+      ->condition('customized', 0)
+      ->orderBy('depth', 'DESC')
+      ->execute();
     // Remove all such items. Starting from those with the greatest depth will
     // minimize the amount of re-parenting done by menu_link_delete().
     foreach ($result as $item) {
@@ -2930,13 +2930,13 @@
    */
   function menu_load_links($menu_name) {
     $links = db_select('menu_links', 'ml', array('fetch' => PDO::FETCH_ASSOC))
-        ->fields('ml')
-        ->condition('ml.menu_name', $menu_name)
-        // Order by weight so as to be helpful for menus that are only one level
-        // deep.
-        ->orderBy('weight')
-        ->execute()
-        ->fetchAll();
+      ->fields('ml')
+      ->condition('ml.menu_name', $menu_name)
+      // Order by weight so as to be helpful for menus that are only one level
+      // deep.
+      ->orderBy('weight')
+      ->execute()
+      ->fetchAll();
 
     foreach ($links as &$link) {
       $link['options'] = unserialize($link['options']);
@@ -3093,22 +3093,22 @@
 
     if (!$existing_item) {
       $item['mlid'] = db_insert('menu_links')
-          ->fields(array(
-            'menu_name' => $item['menu_name'],
-            'plid' => $item['plid'],
-            'link_path' => $item['link_path'],
-            'hidden' => $item['hidden'],
-            'external' => $item['external'],
-            'has_children' => $item['has_children'],
-            'expanded' => $item['expanded'],
-            'weight' => $item['weight'],
-            'module' => $item['module'],
-            'link_title' => $item['link_title'],
-            'options' => serialize($item['options']),
-            'customized' => $item['customized'],
-            'updated' => $item['updated'],
-          ))
-          ->execute();
+        ->fields(array(
+          'menu_name' => $item['menu_name'],
+          'plid' => $item['plid'],
+          'link_path' => $item['link_path'],
+          'hidden' => $item['hidden'],
+          'external' => $item['external'],
+          'has_children' => $item['has_children'],
+          'expanded' => $item['expanded'],
+          'weight' => $item['weight'],
+          'module' => $item['module'],
+          'link_title' => $item['link_title'],
+          'options' => serialize($item['options']),
+          'customized' => $item['customized'],
+          'updated' => $item['updated'],
+        ))
+        ->execute();
     }
 
     // Directly fill parents for top-level links.
@@ -3156,33 +3156,33 @@
     // The intersect removes the extra keys, allowing a meaningful comparison.
     if (!$existing_item || (array_intersect_key($item, $existing_item) != $existing_item)) {
       db_update('menu_links')
-          ->fields(array(
-            'menu_name' => $item['menu_name'],
-            'plid' => $item['plid'],
-            'link_path' => $item['link_path'],
-            'router_path' => $item['router_path'],
-            'hidden' => $item['hidden'],
-            'external' => $item['external'],
-            'has_children' => $item['has_children'],
-            'expanded' => $item['expanded'],
-            'weight' => $item['weight'],
-            'depth' => $item['depth'],
-            'p1' => $item['p1'],
-            'p2' => $item['p2'],
-            'p3' => $item['p3'],
-            'p4' => $item['p4'],
-            'p5' => $item['p5'],
-            'p6' => $item['p6'],
-            'p7' => $item['p7'],
-            'p8' => $item['p8'],
-            'p9' => $item['p9'],
-            'module' => $item['module'],
-            'link_title' => $item['link_title'],
-            'options' => serialize($item['options']),
-            'customized' => $item['customized'],
-          ))
-          ->condition('mlid', $item['mlid'])
-          ->execute();
+        ->fields(array(
+          'menu_name' => $item['menu_name'],
+          'plid' => $item['plid'],
+          'link_path' => $item['link_path'],
+          'router_path' => $item['router_path'],
+          'hidden' => $item['hidden'],
+          'external' => $item['external'],
+          'has_children' => $item['has_children'],
+          'expanded' => $item['expanded'],
+          'weight' => $item['weight'],
+          'depth' => $item['depth'],
+          'p1' => $item['p1'],
+          'p2' => $item['p2'],
+          'p3' => $item['p3'],
+          'p4' => $item['p4'],
+          'p5' => $item['p5'],
+          'p6' => $item['p6'],
+          'p7' => $item['p7'],
+          'p8' => $item['p8'],
+          'p9' => $item['p9'],
+          'module' => $item['module'],
+          'link_title' => $item['link_title'],
+          'options' => serialize($item['options']),
+          'customized' => $item['customized'],
+        ))
+        ->condition('mlid', $item['mlid'])
+        ->execute();
       // Check the has_children status of the parent.
       _menu_update_parental_status($item);
       menu_cache_clear($menu_name);
@@ -3332,11 +3332,11 @@
     if (empty($menu)) {
       // Not during a menu rebuild, so look up in the database.
       $router_path = (string) db_select('menu_router')
-              ->fields('menu_router', array('path'))
-              ->condition('path', $ancestors, 'IN')
-              ->orderBy('fit', 'DESC')
-              ->range(0, 1)
-              ->execute()->fetchField();
+          ->fields('menu_router', array('path'))
+          ->condition('path', $ancestors, 'IN')
+          ->orderBy('fit', 'DESC')
+          ->range(0, 1)
+          ->execute()->fetchField();
     }
     elseif (!isset($menu[$router_path])) {
       // Add an empty router path as a fallback.
@@ -3492,9 +3492,9 @@
       }
       $parent_has_children = ((bool) $query->execute()->fetchField()) ? 1 : 0;
       db_update('menu_links')
-          ->fields(array('has_children' => $parent_has_children))
-          ->condition('mlid', $item['plid'])
-          ->execute();
+        ->fields(array('has_children' => $parent_has_children))
+        ->condition('mlid', $item['plid'])
+        ->execute();
     }
   }
 
@@ -3752,7 +3752,7 @@
 
     // Prepare insert object.
     $insert = db_insert('menu_router')
-        ->fields(array(
+      ->fields(array(
       'path',
       'load_functions',
       'to_arg_functions',

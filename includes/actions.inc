@@ -285,14 +285,14 @@
         else {
           // This is a new singleton that we don't have an aid for; assign one.
           db_insert('actions')
-              ->fields(array(
-                'aid' => $callback,
-                'type' => $array['type'],
-                'callback' => $callback,
-                'parameters' => '',
-                'label' => $array['label'],
-              ))
-              ->execute();
+            ->fields(array(
+              'aid' => $callback,
+              'type' => $array['type'],
+              'callback' => $callback,
+              'parameters' => '',
+              'label' => $array['label'],
+            ))
+            ->execute();
           watchdog('actions', "Action '%action' added.", array('%action' => $array['label']));
         }
       }
@@ -346,14 +346,14 @@
     }
 
     db_merge('actions')
-        ->key(array('aid' => $aid))
-        ->fields(array(
-          'callback' => $function,
-          'type' => $type,
-          'parameters' => serialize($params),
-          'label' => $label,
-        ))
-        ->execute();
+      ->key(array('aid' => $aid))
+      ->fields(array(
+        'callback' => $function,
+        'type' => $type,
+        'parameters' => serialize($params),
+        'label' => $label,
+      ))
+      ->execute();
 
     watchdog('actions', 'Action %action saved.', array('%action' => $label));
     return $aid;
@@ -380,8 +380,8 @@
    */
   function actions_delete($aid) {
     db_delete('actions')
-        ->condition('aid', $aid)
-        ->execute();
+      ->condition('aid', $aid)
+      ->execute();
     module_invoke_all('actions_delete', $aid);
   }
 

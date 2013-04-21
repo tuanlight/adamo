@@ -569,16 +569,16 @@
     }
 
     db_insert('languages')
-        ->fields(array(
-          'language' => $langcode,
-          'name' => $name,
-          'native' => $native,
-          'direction' => $direction,
-          'domain' => $domain,
-          'prefix' => $prefix,
-          'enabled' => $enabled,
-        ))
-        ->execute();
+      ->fields(array(
+        'language' => $langcode,
+        'name' => $name,
+        'native' => $native,
+        'direction' => $direction,
+        'domain' => $domain,
+        'prefix' => $prefix,
+        'enabled' => $enabled,
+      ))
+      ->execute();
 
     // Only set it as default if enabled.
     if ($enabled && $default) {
@@ -1004,12 +1004,12 @@
             if (isset($header["Plural-Forms"]) && $p = _locale_import_parse_plural_forms($header["Plural-Forms"], $file->uri)) {
               list($nplurals, $plural) = $p;
               db_update('languages')
-                  ->fields(array(
-                    'plurals' => $nplurals,
-                    'formula' => $plural,
-                  ))
-                  ->condition('language', $lang)
-                  ->execute();
+                ->fields(array(
+                  'plurals' => $nplurals,
+                  'formula' => $plural,
+                ))
+                ->condition('language', $lang)
+                ->execute();
             }
           }
           $header_done = TRUE;
@@ -1086,39 +1086,39 @@
       elseif ($lid) {
         // We have this source string saved already.
         db_update('locales_source')
-            ->fields(array(
-              'location' => $location,
-            ))
-            ->condition('lid', $lid)
-            ->execute();
+          ->fields(array(
+            'location' => $location,
+          ))
+          ->condition('lid', $lid)
+          ->execute();
 
         $exists = db_query("SELECT COUNT(lid) FROM {locales_target} WHERE lid = :lid AND language = :language", array(':lid' => $lid, ':language' => $langcode))->fetchField();
 
         if (!$exists) {
           // No translation in this language.
           db_insert('locales_target')
-              ->fields(array(
-                'lid' => $lid,
-                'language' => $langcode,
-                'translation' => $translation,
-                'plid' => $plid,
-                'plural' => $plural,
-              ))
-              ->execute();
+            ->fields(array(
+              'lid' => $lid,
+              'language' => $langcode,
+              'translation' => $translation,
+              'plid' => $plid,
+              'plural' => $plural,
+            ))
+            ->execute();
 
           $report['additions']++;
         }
         elseif ($mode == LOCALE_IMPORT_OVERWRITE) {
           // Translation exists, only overwrite if instructed.
           db_update('locales_target')
-              ->fields(array(
-                'translation' => $translation,
-                'plid' => $plid,
-                'plural' => $plural,
-              ))
-              ->condition('language', $langcode)
-              ->condition('lid', $lid)
-              ->execute();
+            ->fields(array(
+              'translation' => $translation,
+              'plid' => $plid,
+              'plural' => $plural,
+            ))
+            ->condition('language', $langcode)
+            ->condition('lid', $lid)
+            ->execute();
 
           $report['updates']++;
         }
@@ -1126,23 +1126,23 @@
       else {
         // No such source string in the database yet.
         $lid = db_insert('locales_source')
-            ->fields(array(
-              'location' => $location,
-              'source' => $source,
-              'context' => (string) $context,
-              'textgroup' => $textgroup,
-            ))
-            ->execute();
+          ->fields(array(
+            'location' => $location,
+            'source' => $source,
+            'context' => (string) $context,
+            'textgroup' => $textgroup,
+          ))
+          ->execute();
 
         db_insert('locales_target')
-            ->fields(array(
-              'lid' => $lid,
-              'language' => $langcode,
-              'translation' => $translation,
-              'plid' => $plid,
-              'plural' => $plural
-            ))
-            ->execute();
+          ->fields(array(
+            'lid' => $lid,
+            'language' => $langcode,
+            'translation' => $translation,
+            'plid' => $plid,
+            'plural' => $plural
+          ))
+          ->execute();
 
         $report['additions']++;
       }
@@ -1150,11 +1150,11 @@
     elseif ($mode == LOCALE_IMPORT_OVERWRITE) {
       // Empty translation, remove existing if instructed.
       db_delete('locales_target')
-          ->condition('language', $langcode)
-          ->condition('lid', $lid)
-          ->condition('plid', $plid)
-          ->condition('plural', $plural)
-          ->execute();
+        ->condition('language', $langcode)
+        ->condition('lid', $lid)
+        ->condition('plid', $plid)
+        ->condition('plural', $plural)
+        ->execute();
 
       $report['deletes']++;
     }
@@ -1568,23 +1568,23 @@
 
           // Save the new locations string to the database.
           db_update('locales_source')
-              ->fields(array(
-                'location' => $locations,
-              ))
-              ->condition('lid', $source->lid)
-              ->execute();
+            ->fields(array(
+              'location' => $locations,
+            ))
+            ->condition('lid', $source->lid)
+            ->execute();
         }
       }
       else {
         // We don't have the source string yet, thus we insert it into the database.
         db_insert('locales_source')
-            ->fields(array(
-              'location' => $filepath,
-              'source' => $string,
-              'context' => $context,
-              'textgroup' => 'default',
-            ))
-            ->execute();
+          ->fields(array(
+            'location' => $filepath,
+            'source' => $string,
+            'context' => $context,
+            'textgroup' => 'default',
+          ))
+          ->execute();
       }
     }
   }
@@ -1877,15 +1877,15 @@
         break;
       case 'untranslated':
         $sql_query->condition(db_and()
-                ->condition('s.source', '%' . db_like($query['string']) . '%', 'LIKE')
-                ->isNull('t.translation')
+            ->condition('s.source', '%' . db_like($query['string']) . '%', 'LIKE')
+            ->isNull('t.translation')
         );
         $sql_query->orderBy('s.source');
         break;
       case 'all' :
       default:
         $condition = db_or()
-            ->condition('s.source', '%' . db_like($query['string']) . '%', 'LIKE');
+          ->condition('s.source', '%' . db_like($query['string']) . '%', 'LIKE');
         if ($query['language'] != 'en') {
           // Only search in translations if the language is not forced to English.
           $condition->condition('t.translation', '%' . db_like($query['string']) . '%', 'LIKE');
@@ -2079,11 +2079,11 @@
     // code.
     if ($status && $changed_hash) {
       db_update('languages')
-          ->fields(array(
-            'javascript' => $language->javascript,
-          ))
-          ->condition('language', $language->language)
-          ->execute();
+        ->fields(array(
+          'javascript' => $language->javascript,
+        ))
+        ->condition('language', $language->language)
+        ->execute();
 
       // Update the default language variable if the default language has been altered.
       // This is necessary to keep the variable consistent with the database

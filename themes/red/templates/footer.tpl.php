@@ -3,16 +3,12 @@
     die("Access Denied");
   }
 ?>
-</td>
-</tr>
-</table>
-
-
-
-
-
-
-
+<?php if (substr(strrchr($_SERVER['PHP_SELF'], '/'), 1) != "index.php") { ?>
+    </td>
+    </tr>
+    </table>
+    </div>
+  <?php } ?>
 <div><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="5"></div>
 <div><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="5"></div>
 <div align="center">

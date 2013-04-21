@@ -15,11 +15,11 @@
 ## BEGIN pages upload
 ## 1.- details section
   $item_description_editor = "<script> \n" .
-      " 	var oEdit1 = new InnovaEditor(\"oEdit1\"); \n" .
-      " 	oEdit1.width=\"100%\";//You can also use %, for example: oEdit1.width=\"100%\" \n" .
-      "	oEdit1.height=300; \n" .
-      "	oEdit1.REPLACE(\"description_main\");//Specify the id of the textarea here \n" .
-      "</script>";
+    " 	var oEdit1 = new InnovaEditor(\"oEdit1\"); \n" .
+    " 	oEdit1.width=\"100%\";//You can also use %, for example: oEdit1.width=\"100%\" \n" .
+    "	oEdit1.height=300; \n" .
+    "	oEdit1.REPLACE(\"description_main\");//Specify the id of the textarea here \n" .
+    "</script>";
 
   $template->set('item_description_editor', $item_description_editor);
 

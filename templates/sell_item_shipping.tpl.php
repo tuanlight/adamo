@@ -16,8 +16,8 @@
     <td colspan="3"><?php echo MSG_SHIPPING_DETAILS; ?></td>
   </tr>
   <tr class="c5">
-    <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="150" height="1"></td>
-    <td colspan="2"><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+    <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="150" height="1"></td>
+    <td colspan="2"><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
   </tr>
   <tr class="c1">
     <td width="150" align="right"><?php echo MSG_SHIPPING_CONDITIONS; ?></td>
@@ -78,8 +78,8 @@
     <td colspan="3"><?php echo MSG_DIRECT_PAYMENT; ?></td>
   </tr>
   <tr class="c5">
-    <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="150" height="1"></td>
-    <td colspan="2"><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+    <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="150" height="1"></td>
+    <td colspan="2"><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
   </tr>
   <tr class="c1">
     <td width="150" align="right"><?php echo MSG_DIRECT_PAYMENT_METHODS; ?></td>
@@ -93,8 +93,8 @@
     <td colspan="3"><?php echo MSG_OFFLINE_PAYMENT; ?></td>
   </tr>
   <tr class="c5">
-    <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="150" height="1"></td>
-    <td colspan="2"><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+    <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="150" height="1"></td>
+    <td colspan="2"><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
   </tr>
   <tr class="c1">
     <td width="150" align="right"></td>
@@ -106,8 +106,8 @@
   </tr>
   <?php if ($auction_edit != 1) { ?>
       <tr class="c5">
-        <td><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
-        <td colspan="2"><img src="<?php echo THEME_PATH. $setts['default_theme']; ?>/images/pixel.gif" width="1" height="1"></td>
+        <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
+        <td colspan="2"><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1"></td>
       </tr>
       <tr>
         <td></td>

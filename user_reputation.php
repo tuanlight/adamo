@@ -22,8 +22,7 @@
 
   $user_id = intval($_REQUEST['user_id']);
   $rep_view = (in_array($_REQUEST['view'], array('all', 'positive', 'neutral', 'negative', 'from_buyers', 'from_sellers', 'left'))) ? $_REQUEST['view'] : 'all';
-  if (!$start)
-      $start = 0;
+
   $limit = 20;
 
   $additional_vars = '&view=' . $rep_view . '&user_id=' . $user_id . '&auction_id=' . $auction_id;
@@ -101,17 +100,17 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $rep_details_content .= '<tr class="' . $background . '"> ' .
-          '	<td colspan="4">' . $reputation->rep_rate($rep_details['reputation_rate']) . ' | ' .
-          '		<strong>' . GMSG_DATE . '</strong>: ' . show_date($rep_details['reg_date']) . ' | ' .
-          '		<strong>' . MSG_TYPE . '</strong>: ' . $rep_details['reputation_type'] . ' | ' .
-          '		<strong>' . (($rep_view == 'left') ? GMSG_TO : GMSG_FROM) . '</strong>: ' .
-          '			' . $rep_username . user_pics($rep_user_id) . '</a> | ' .
-          '		<strong>' . MSG_AUCTION_ID . '</strong>: ' .
-          '			<a href="' . process_link('auction_details', array('auction_id' => $rep_details['auction_id'])) . '">' . $rep_details['auction_id'] . '</a> | ' .
-          '		[ <strong><a href="javascript://" onclick="popUp(\'reputation_details.php?reputation_id=' . $rep_details['reputation_id'] . '\');">' . MSG_DETAILS . '</a></strong> ]<br>' .
-          '		' . $rep_details['reputation_content'];
+        '	<td colspan="4">' . $reputation->rep_rate($rep_details['reputation_rate']) . ' | ' .
+        '		<strong>' . GMSG_DATE . '</strong>: ' . show_date($rep_details['reg_date']) . ' | ' .
+        '		<strong>' . MSG_TYPE . '</strong>: ' . $rep_details['reputation_type'] . ' | ' .
+        '		<strong>' . (($rep_view == 'left') ? GMSG_TO : GMSG_FROM) . '</strong>: ' .
+        '			' . $rep_username . user_pics($rep_user_id) . '</a> | ' .
+        '		<strong>' . MSG_AUCTION_ID . '</strong>: ' .
+        '			<a href="' . process_link('auction_details', array('auction_id' => $rep_details['auction_id'])) . '">' . $rep_details['auction_id'] . '</a> | ' .
+        '		[ <strong><a href="javascript://" onclick="popUp(\'reputation_details.php?reputation_id=' . $rep_details['reputation_id'] . '\');">' . MSG_DETAILS . '</a></strong> ]<br>' .
+        '		' . $rep_details['reputation_content'];
       '	</td> ' .
-          '</tr>';
+        '</tr>';
     }
 
     $template->set('rep_details_content', $rep_details_content);

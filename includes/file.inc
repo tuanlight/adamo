@@ -606,10 +606,10 @@
    */
   function file_usage_list(stdClass $file) {
     $result = db_select('file_usage', 'f')
-        ->fields('f', array('module', 'type', 'id', 'count'))
-        ->condition('fid', $file->fid)
-        ->condition('count', 0, '>')
-        ->execute();
+      ->fields('f', array('module', 'type', 'id', 'count'))
+      ->condition('fid', $file->fid)
+      ->condition('count', 0, '>')
+      ->execute();
     $references = array();
     foreach ($result as $usage) {
       $references[$usage->module][$usage->type][$usage->id] = $usage->count;
@@ -646,15 +646,15 @@
    */
   function file_usage_add(stdClass $file, $module, $type, $id, $count = 1) {
     db_merge('file_usage')
-        ->key(array(
-          'fid' => $file->fid,
-          'module' => $module,
-          'type' => $type,
-          'id' => $id,
-        ))
-        ->fields(array('count' => $count))
-        ->expression('count', 'count + :count', array(':count' => $count))
-        ->execute();
+      ->key(array(
+        'fid' => $file->fid,
+        'module' => $module,
+        'type' => $type,
+        'id' => $id,
+      ))
+      ->fields(array('count' => $count))
+      ->expression('count', 'count + :count', array(':count' => $count))
+      ->execute();
   }
 
   /**
@@ -685,12 +685,12 @@
   function file_usage_delete(stdClass $file, $module, $type = NULL, $id = NULL, $count = 1) {
     // Delete rows that have a exact or less value to prevent empty rows.
     $query = db_delete('file_usage')
-        ->condition('module', $module)
-        ->condition('fid', $file->fid);
+      ->condition('module', $module)
+      ->condition('fid', $file->fid);
     if ($type && $id) {
       $query
-          ->condition('type', $type)
-          ->condition('id', $id);
+        ->condition('type', $type)
+        ->condition('id', $id);
     }
     if ($count) {
       $query->condition('count', $count, '<=');
@@ -700,12 +700,12 @@
     // If the row has more than the specified count decrement it by that number.
     if (!$result && $count > 0) {
       $query = db_update('file_usage')
-          ->condition('module', $module)
-          ->condition('fid', $file->fid);
+        ->condition('module', $module)
+        ->condition('fid', $file->fid);
       if ($type && $id) {
         $query
-            ->condition('type', $type)
-            ->condition('id', $id);
+          ->condition('type', $type)
+          ->condition('id', $id);
       }
       $query->expression('count', 'count - :count', array(':count' => $count));
       $query->execute();

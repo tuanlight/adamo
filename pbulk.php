@@ -122,7 +122,7 @@
     $movieName = "";
 
     if ($moviefile != "" AND $setts['media_max_size'] > 0) {
-      if (!stristr($moviefile, "http://")) {
+      if (!eregi("http://", $moviefile)) {
         if ($_FILES['userfile2']['name'][0] != "") {
           dump("Movupl - $moviefile");
           $tempNumber = md5(uniqid(rand(2, 999999999)));
@@ -159,7 +159,7 @@
     $c = 0;
     $cc = 0;
     for ($i = 0; $i < 5; $i++) {
-      if ($pictures[$i] != "" && !stristr($pictures[$i], "http://")) {
+      if ($pictures[$i] != "" && !eregi("http://", $pictures[$i])) {
         if ($_FILES['userfile']['name'][$cc] != "") {
           dump("$i - upl");
           $tempNumber = md5(uniqid(rand(2, 999999999)));
@@ -183,7 +183,7 @@
         }
         $cc++;
       }
-      else if (stristr($pictures[$i], "http://")) {
+      else if (eregi("http://", $pictures[$i])) {
         //dump("$i - http");
         $return[$i] = $pictures[$i];
       }
@@ -341,7 +341,7 @@
       $pictures = explode("|", $row['pictures']);
       $mymovie = $row['movie'];
       if ($mymovie != "") {
-        if (!stristr($mymovie, "http://"))
+        if (!eregi("http://", $mymovie))
           $mymovie = "uplimg/$mymovie";
       }
       else
@@ -371,7 +371,7 @@
       ////////////////  ADD IMAGES TO MEDIA TABLE   //////////////////////
       for ($ii = 0; $ii < 5; $ii++) {
         if ($pictures[$ii]) {
-          if (stristr($pictures[$ii], "http://")) {
+          if (eregi("http://", $pictures[$ii])) {
             $addpic = $pictures[$ii];
           }
           else {
@@ -383,7 +383,7 @@
 
       ////////////////  ADD MOVIE TO MEDIA TABLE   //////////////////////
       if ($mymovie != "") {
-        if (stristr($mymovei, "http://"))
+        if (eregi("http://", $mymovei))
           $addmov = $mymovie;
         else
           $addmov = $mymovie;

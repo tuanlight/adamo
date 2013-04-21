@@ -121,14 +121,14 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $admin_users_content .= '<tr class="' . $background . '"> ' .
-          '	<td>' . $user_details['username'] . '</td> ' .
-          '	<td align="center">' . show_date($user_details['date_created']) . '</td> ' .
-          '	<td align="center">' . show_date($user_details['date_lastlogin']) . '</td> ' .
-          '	<td align="center">' . $user_details['level'] . '</td> ' .
-          '	<td align="center"> ' .
-          '		[ <a href="list_admin_users.php?do=edit_user&id=' . $user_details['id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
-          '		[ <a href="list_admin_users.php?do=delete_user&id=' . $user_details['id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-          '</tr> ';
+        '	<td>' . $user_details['username'] . '</td> ' .
+        '	<td align="center">' . show_date($user_details['date_created']) . '</td> ' .
+        '	<td align="center">' . show_date($user_details['date_lastlogin']) . '</td> ' .
+        '	<td align="center">' . $user_details['level'] . '</td> ' .
+        '	<td align="center"> ' .
+        '		[ <a href="list_admin_users.php?do=edit_user&id=' . $user_details['id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
+        '		[ <a href="list_admin_users.php?do=delete_user&id=' . $user_details['id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+        '</tr> ';
     }
 
     $template->set('admin_users_content', $admin_users_content);

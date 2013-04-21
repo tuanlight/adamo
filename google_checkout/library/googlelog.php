@@ -41,7 +41,7 @@
         if (!$this->errorLogFile = @fopen($errorLogFile, "a")) {
           header('HTTP/1.0 500 Internal Server Error');
           $log = "Cannot open " . $errorLogFile . " file.\n" .
-              "Logs are not writable, set them to 777";
+            "Logs are not writable, set them to 777";
           error_log($log, 0);
           if ($die) {
             die($log);
@@ -55,7 +55,7 @@
           fclose($this->errorLogFile);
           header('HTTP/1.0 500 Internal Server Error');
           $log = "Cannot open " . $messageLogFile . " file.\n" .
-              "Logs are not writable, set them to 777";
+            "Logs are not writable, set them to 777";
           error_log($log, 0);
           if ($die) {
             die($log);

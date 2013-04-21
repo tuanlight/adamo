@@ -102,18 +102,18 @@
         $background = ($counter++ % 2) ? 'c1' : 'c2';
 
         $content_pages_content .= '<input type="hidden" name="page_id[]" value="' . $topic_details['page_id'] . '">' .
-            '<tr class="' . $background . '"> ' .
-            '	<td>' . $topic_details['topic_name'] . '</td> ';
+          '<tr class="' . $background . '"> ' .
+          '	<td>' . $topic_details['topic_name'] . '</td> ';
 
         if (in_array($page_handle, $custom_section_pages_ordering)) {
           $content_pages_content .= '	<td align="center"><input name="topic_order[]" type="text" value="' . $topic_details['topic_order'] . '" size="8"></td> ';
         }
 
         $content_pages_content .= '	<td align="center">' . show_date($topic_details['reg_date']) . '</td> ' .
-            '	<td align="center"> ' .
-            '		[ <a href="content_section.php?do=edit_topic&page_id=' . $topic_details['page_id'] . '&page=' . $page_handle . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
-            '		[ <a href="content_section.php?do=delete_topic&page_id=' . $topic_details['page_id'] . '&page=' . $page_handle . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-            '</tr> ';
+          '	<td align="center"> ' .
+          '		[ <a href="content_section.php?do=edit_topic&page_id=' . $topic_details['page_id'] . '&page=' . $page_handle . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
+          '		[ <a href="content_section.php?do=delete_topic&page_id=' . $topic_details['page_id'] . '&page=' . $page_handle . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+          '</tr> ';
       }
 
       $template->set('content_pages_content', $content_pages_content);

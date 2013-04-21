@@ -27,7 +27,7 @@
     $batch = db_query("SELECT batch FROM {batch} WHERE bid = :bid AND token = :token", array(
       ':bid' => $id,
       ':token' => drupal_get_token($id),
-        ))->fetchField();
+      ))->fetchField();
     if ($batch) {
       return unserialize($batch);
     }
@@ -468,8 +468,8 @@
     // Clean up the batch table and unset the static $batch variable.
     if ($batch['progressive']) {
       db_delete('batch')
-          ->condition('bid', $batch['id'])
-          ->execute();
+        ->condition('bid', $batch['id'])
+        ->execute();
       foreach ($batch['sets'] as $batch_set) {
         if ($queue = _batch_queue($batch_set)) {
           $queue->deleteQueue();
@@ -529,9 +529,9 @@
   function _batch_shutdown() {
     if ($batch = batch_get()) {
       db_update('batch')
-          ->fields(array('batch' => serialize($batch)))
-          ->condition('bid', $batch['id'])
-          ->execute();
+        ->fields(array('batch' => serialize($batch)))
+        ->condition('bid', $batch['id'])
+        ->execute();
     }
   }
 

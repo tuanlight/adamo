@@ -21,7 +21,7 @@
 ## we will add lightbox to the variable below to be applied automatically to all skins
   $page_meta_tags = $meta_tags_details['meta_tags'];
 
-  if (stristr($_SERVER['PHP_SELF'], 'auction_details.php')) {
+  if (eregi('auction_details.php', $_SERVER['PHP_SELF'])) {
     $page_meta_tags .= '<script type="text/javascript" src="lightbox/js/prototype.js"></script> 
 		<script type="text/javascript" src="lightbox/js/scriptaculous.js?load=effects,builder"></script> 
 		<script type="text/javascript" src="lightbox/js/lightbox.js"></script> 
@@ -50,7 +50,7 @@
   reset($categories_array);
 
   $categories_browse_box = '<select name="parent_id" id="parent_id" class="contentfont" onChange="javascript:cat_browse_form.submit()"> ' .
-      '<option value="" selected>' . MSG_CHOOSE_CATEGORY . '</option>';
+    '<option value="" selected>' . MSG_CHOOSE_CATEGORY . '</option>';
 
   $sql_select_cats_header = $db->query("SELECT category_id, items_counter, hover_title FROM
 	" . DB_PREFIX . "categories WHERE parent_id=0 AND hidden=0 AND user_id=0 ORDER BY order_id ASC, name ASC");
@@ -61,11 +61,11 @@
     $category_link = process_link('categories', array('category' => $category_lang[$cats_header_details['category_id']], 'parent_id' => $cats_header_details['category_id']));
 
     $categories_browse_box .= '<option value="' . $cats_header_details['category_id'] . '" ' . (($cats_header_details['category_id'] == $_REQUEST['parent_id']) ? 'selected' : '') . '>' .
-        $category_lang[$cats_header_details['category_id']] . '</option> ';
+      $category_lang[$cats_header_details['category_id']] . '</option> ';
   }
 
   $categories_browse_box .= '<option value="">------------------------</option> ' .
-      '<option value="0">' . MSG_ALL_CATEGORIES . '</option></select>';
+    '<option value="0">' . MSG_ALL_CATEGORIES . '</option></select>';
 
   $template->set('categories_browse_box', $categories_browse_box);
 
@@ -110,14 +110,14 @@
 
       while ($announcement_details = $db->fetch_array($sql_select_announcements)) {
         $announcement_content .= '<tr> ' .
-            '	<td class="c2"><img src="themes/' . $setts['default_theme'] . '/img/arrow.gif" width="8" height="8" hspace="4"></td> ' .
-            '	<td width="100%" class="c2 smallfont"><b>' . show_date($announcement_details['reg_date'], false) . '</b></td> ' .
-            '</tr> ' .
-            '<tr class="contentfont"> ' .
-            '	<td></td> ' .
-            '	<td><a href="' . process_link('content_pages', array('page' => 'announcements', 'topic_id' => $announcement_details['topic_id'])) . '"> ' .
-            '		' . $announcement_details['topic_name'] . '</a></td> ' .
-            '</tr>';
+          '	<td class="c2"><img src="themes/' . $setts['default_theme'] . '/img/arrow.gif" width="8" height="8" hspace="4"></td> ' .
+          '	<td width="100%" class="c2 smallfont"><b>' . show_date($announcement_details['reg_date'], false) . '</b></td> ' .
+          '</tr> ' .
+          '<tr class="contentfont"> ' .
+          '	<td></td> ' .
+          '	<td><a href="' . process_link('content_pages', array('page' => 'announcements', 'topic_id' => $announcement_details['topic_id'])) . '"> ' .
+          '		' . $announcement_details['topic_name'] . '</a></td> ' .
+          '</tr>';
       }
       $template->set('announcement_content', $announcement_content);
 
@@ -129,7 +129,7 @@
     $template->set('menu_box_content', $menu_box_content);
   }
 
-  if ($setts['enable_header_counter'] && stristr($_SERVER['PHP_SELF'], 'index.php')) {
+  if ($setts['enable_header_counter'] && eregi('index.php', $_SERVER['PHP_SELF'])) {
     $template->set('header_site_status', header5(MSG_SITE_STATUS));
 
     $template->set('nb_site_users', $db->count_rows('users', "WHERE active='1'"));

@@ -109,7 +109,7 @@
 
     function check_custom_fields($value_array) {
       foreach ($value_array as $key => $value) {
-        if (stristr($key, 'custom_box_')) {
+        if (eregi('custom_box_', $key)) {
           $custom_box_id = intval(str_replace('custom_box_', '', $key));
           $custom_box_id = intval(str_replace('[]', '', $custom_box_id));
 
@@ -309,7 +309,7 @@
     function field_js($value, $msg) {
       $value = $this->add_special_chars($value);
 
-      if (!stristr($value, '<script')) {
+      if (!eregi('<script', $value)) {
         return true;
       }
       else {
@@ -321,7 +321,7 @@
     function field_iframes($value, $msg) {
       $value = $this->add_special_chars($value);
 
-      if (!stristr($value, '<iframe')) {
+      if (!eregi('<iframe', $value)) {
         return true;
       }
       else {
@@ -432,9 +432,9 @@
       (string) $display_output = NULL;
 
       $display_output = '<blockquote> <p class="contentfont"> ' .
-          '<b>' . GMSG_FRMCHK_ERRORS . '</b> ' .
-          '<p class="contentfont">' . GMSG_RESUBMIT_FORM .
-          '<ul class=smallfont>';
+        '<b>' . GMSG_FRMCHK_ERRORS . '</b> ' .
+        '<p class="contentfont">' . GMSG_RESUBMIT_FORM .
+        '<ul class=smallfont>';
 
       foreach ($this->error_list as $error) {
         $display_output .= '<li>' . $error['msg'];

@@ -2,8 +2,8 @@
 // Database configuration
   $db_server = 'localhost';
   $db_name = 'adamo_store';
-  $db_username = 'root';
-  $db_password = '';
+  $db_username = 'adamo_store';
+  $db_password = 'adamo';
 
 // Other settings (optional)
   $filename = '';     // Specify the dump filename to suppress the file selection dialog

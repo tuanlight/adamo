@@ -10,8 +10,8 @@
     die("Access Denied");
   }
 ?>
-<SCRIPT type="text/javascript" SRC="<?php echo BASE_PATH ?>/includes/calendar.js"></SCRIPT>
-<SCRIPT type="text/javascript">document.write(getCalendarStyles());</SCRIPT>
+<SCRIPT LANGUAGE="JavaScript" SRC="includes/calendar.js"></SCRIPT>
+<SCRIPT LANGUAGE="JavaScript">document.write(getCalendarStyles());</SCRIPT>
 
 <br>
 <table width="100%" border="0" cellpadding="3" cellspacing="2" class="border">

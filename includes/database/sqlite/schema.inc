@@ -192,31 +192,31 @@
       // database types back into schema types.
       // $map does not use drupal_static as its value never changes.
       static $map = array(
-    'varchar:normal' => 'VARCHAR',
-    'char:normal' => 'CHAR',
-    'text:tiny' => 'TEXT',
-    'text:small' => 'TEXT',
-    'text:medium' => 'TEXT',
-    'text:big' => 'TEXT',
-    'text:normal' => 'TEXT',
-    'serial:tiny' => 'INTEGER',
-    'serial:small' => 'INTEGER',
-    'serial:medium' => 'INTEGER',
-    'serial:big' => 'INTEGER',
-    'serial:normal' => 'INTEGER',
-    'int:tiny' => 'INTEGER',
-    'int:small' => 'INTEGER',
-    'int:medium' => 'INTEGER',
-    'int:big' => 'INTEGER',
-    'int:normal' => 'INTEGER',
-    'float:tiny' => 'FLOAT',
-    'float:small' => 'FLOAT',
-    'float:medium' => 'FLOAT',
-    'float:big' => 'FLOAT',
-    'float:normal' => 'FLOAT',
-    'numeric:normal' => 'NUMERIC',
-    'blob:big' => 'BLOB',
-    'blob:normal' => 'BLOB',
+      'varchar:normal' => 'VARCHAR',
+      'char:normal' => 'CHAR',
+      'text:tiny' => 'TEXT',
+      'text:small' => 'TEXT',
+      'text:medium' => 'TEXT',
+      'text:big' => 'TEXT',
+      'text:normal' => 'TEXT',
+      'serial:tiny' => 'INTEGER',
+      'serial:small' => 'INTEGER',
+      'serial:medium' => 'INTEGER',
+      'serial:big' => 'INTEGER',
+      'serial:normal' => 'INTEGER',
+      'int:tiny' => 'INTEGER',
+      'int:small' => 'INTEGER',
+      'int:medium' => 'INTEGER',
+      'int:big' => 'INTEGER',
+      'int:normal' => 'INTEGER',
+      'float:tiny' => 'FLOAT',
+      'float:small' => 'FLOAT',
+      'float:medium' => 'FLOAT',
+      'float:big' => 'FLOAT',
+      'float:normal' => 'FLOAT',
+      'numeric:normal' => 'NUMERIC',
+      'blob:big' => 'BLOB',
+      'blob:normal' => 'BLOB',
       );
       return $map;
     }
@@ -287,8 +287,8 @@
         // Apply the initial value if set.
         if (isset($specification['initial'])) {
           $this->connection->update($table)
-              ->fields(array($field => $specification['initial']))
-              ->execute();
+            ->fields(array($field => $specification['initial']))
+            ->execute();
         }
       }
       else {
@@ -374,8 +374,8 @@
 
       // Execute the data migration query.
       $this->connection->insert($new_table)
-          ->from($select)
-          ->execute();
+        ->from($select)
+        ->execute();
 
       $old_count = $this->connection->query('SELECT COUNT(*) FROM {' . $table . '}')->fetchField();
       $new_count = $this->connection->query('SELECT COUNT(*) FROM {' . $new_table . '}')->fetchField();

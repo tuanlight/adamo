@@ -261,8 +261,8 @@
     public function mapConditionOperator($operator) {
       // We don't want to override any of the defaults.
       static $specials = array(
-    'LIKE' => array('postfix' => " ESCAPE '\\'"),
-    'NOT LIKE' => array('postfix' => " ESCAPE '\\'"),
+      'LIKE' => array('postfix' => " ESCAPE '\\'"),
+      'NOT LIKE' => array('postfix' => " ESCAPE '\\'"),
       );
       return isset($specials[$operator]) ? $specials[$operator] : NULL;
     }

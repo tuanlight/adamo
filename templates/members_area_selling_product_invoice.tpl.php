@@ -59,8 +59,7 @@
             </form>
           </table></td>
       </tr>
-    <?php
-    }
+    <?php }
     else {
       ?>
       <tr>

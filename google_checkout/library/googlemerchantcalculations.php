@@ -80,7 +80,7 @@
           $xml_data->Element('total-tax', $result->tax_amount, array('currency' => $this->currency));
 
         if ((count($result->coupon_arr) != 0) ||
-            (count($result->giftcert_arr) != 0)) {
+          (count($result->giftcert_arr) != 0)) {
           $xml_data->Push('merchant-code-results');
 
           foreach ($result->coupon_arr as $curr_coupon) {

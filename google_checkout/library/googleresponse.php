@@ -86,7 +86,7 @@
       }
       else {
         $this->SendFailAuthenticationStatus(
-            "Failed to Get Basic Authentication Headers", $die);
+          "Failed to Get Basic Authentication Headers", $die);
         return false;
       }
       if ($compare_mer_id != $this->merchant_id || $compare_mer_key != $this->merchant_key) {
@@ -194,8 +194,8 @@
     function SendAck($die = true) {
       $this->SendOKStatus();
       $acknowledgment = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>" .
-          "<notification-acknowledgment xmlns=\"" .
-          $this->schema_url . "\"/>";
+        "<notification-acknowledgment xmlns=\"" .
+        $this->schema_url . "\"/>";
       $this->log->LogResponse($acknowledgment);
       if ($die) {
         die($acknowledgment);

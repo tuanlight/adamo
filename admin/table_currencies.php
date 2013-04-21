@@ -71,13 +71,13 @@
       $default_currency_dropdown .= '<option value="' . $currency_details['symbol'] . '" ' . (($currency_details['symbol'] == $setts['currency']) ? 'selected' : '') . '>' . $currency_details['caption'] . '</option>';
 
       $currencies_page_content .= '<input type="hidden" name="currency_id[]" value="' . $currency_details['id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td><input name="symbol[]" type="text" value="' . $currency_details['symbol'] . '" size="8"></td> ' .
-          '	<td><input name="caption[]" type="text" value="' . $currency_details['caption'] . '" size="40"></td> ' .
-          '	<td align="center">1 ' . $setts['currency'] . ' = <input name="convert_rate[]" type="text" value="' . $currency_details['convert_rate'] . '" size="12" ' . $convert_readonly . '> ' . $currency_details['symbol'] . '</td> ' .
-          '	<td align="center">' . show_date($currency_details['convert_date']) . '</td> ' .
-          '	<td align="center"><input type="checkbox" name="delete[]" value="' . $currency_details['id'] . '"></td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td><input name="symbol[]" type="text" value="' . $currency_details['symbol'] . '" size="8"></td> ' .
+        '	<td><input name="caption[]" type="text" value="' . $currency_details['caption'] . '" size="40"></td> ' .
+        '	<td align="center">1 ' . $setts['currency'] . ' = <input name="convert_rate[]" type="text" value="' . $currency_details['convert_rate'] . '" size="12" ' . $convert_readonly . '> ' . $currency_details['symbol'] . '</td> ' .
+        '	<td align="center">' . show_date($currency_details['convert_date']) . '</td> ' .
+        '	<td align="center"><input type="checkbox" name="delete[]" value="' . $currency_details['id'] . '"></td> ' .
+        '</tr> ';
     }
 
     $default_currency_dropdown .= '</select>';

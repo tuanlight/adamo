@@ -36,11 +36,11 @@
   $custom_sections_table = $custom_fld->display_sections($user_details, $page_handle, true, $_REQUEST['reputation_id']);
 
   $message_content = '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="border"> ' .
-      '	<tr> ' .
-      '		<td class="c4" colspan="2"><strong>' . MSG_REPUTATION_DETAILS . '</strong></td> ' .
-      '	</tr> ' .
-      $custom_sections_table .
-      '</table>';
+    '	<tr> ' .
+    '		<td class="c4" colspan="2"><strong>' . MSG_REPUTATION_DETAILS . '</strong></td> ' .
+    '	</tr> ' .
+    $custom_sections_table .
+    '</table>';
 
   $template->set('message_content', $message_content);
 

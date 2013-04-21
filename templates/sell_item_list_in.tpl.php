@@ -11,7 +11,7 @@
   }
 ?>
 
-<table width="100%" border="0" cellpadding="3" cellspacing="2" class="border">
+<table width="100%" border="0" cellpadding="3" cellspacing="2">
   <tr class="c4">
     <td colspan="3"><?php echo MSG_LIST_IN; ?></td>
   </tr>

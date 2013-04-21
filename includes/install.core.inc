@@ -1508,10 +1508,10 @@
 
     // Installation profiles are always loaded last
     db_update('system')
-        ->fields(array('weight' => 1000))
-        ->condition('type', 'module')
-        ->condition('name', drupal_get_profile())
-        ->execute();
+      ->fields(array('weight' => 1000))
+      ->condition('type', 'module')
+      ->condition('name', drupal_get_profile())
+      ->execute();
 
     // Cache a fully-built schema.
     drupal_get_schema(NULL, TRUE);

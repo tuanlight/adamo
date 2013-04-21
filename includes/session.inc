@@ -93,7 +93,7 @@
         if (isset($_COOKIE[$insecure_session_name])) {
           $user = db_query("SELECT u.*, s.* FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid WHERE s.sid = :sid AND s.uid = 0", array(
             ':sid' => $_COOKIE[$insecure_session_name]))
-              ->fetchObject();
+            ->fetchObject();
         }
       }
     }
@@ -203,19 +203,19 @@
         }
 
         db_merge('sessions')
-            ->key($key)
-            ->fields($fields)
-            ->execute();
+          ->key($key)
+          ->fields($fields)
+          ->execute();
       }
 
       // Likewise, do not update access time more than once per 180 seconds.
       if ($user->uid && REQUEST_TIME - $user->access > variable_get('session_write_interval', 180)) {
         db_update('users')
-            ->fields(array(
-              'access' => REQUEST_TIME
-            ))
-            ->condition('uid', $user->uid)
-            ->execute();
+          ->fields(array(
+            'access' => REQUEST_TIME
+          ))
+          ->condition('uid', $user->uid)
+          ->execute();
       }
 
       return TRUE;
@@ -386,18 +386,18 @@
         }
       }
       db_update('sessions')
-          ->fields($fields)
-          ->condition($is_https ? 'ssid' : 'sid', $old_session_id)
-          ->execute();
+        ->fields($fields)
+        ->condition($is_https ? 'ssid' : 'sid', $old_session_id)
+        ->execute();
     }
     elseif (isset($old_insecure_session_id)) {
       // If logging in to the secure site, and there was no active session on the
       // secure site but a session was active on the insecure site, update the
       // insecure session with the new session identifiers.
       db_update('sessions')
-          ->fields(array('sid' => $session_id, 'ssid' => session_id()))
-          ->condition('sid', $old_insecure_session_id)
-          ->execute();
+        ->fields(array('sid' => $session_id, 'ssid' => session_id()))
+        ->condition('sid', $old_insecure_session_id)
+        ->execute();
     }
     else {
       // Start the session when it doesn't exist yet.
@@ -428,8 +428,8 @@
 
     // Delete session data.
     db_delete('sessions')
-        ->condition($is_https ? 'ssid' : 'sid', $sid)
-        ->execute();
+      ->condition($is_https ? 'ssid' : 'sid', $sid)
+      ->execute();
 
     // Reset $_SESSION and $user to prevent a new session from being started
     // in drupal_session_commit().
@@ -479,8 +479,8 @@
     }
 
     db_delete('sessions')
-        ->condition('uid', $uid)
-        ->execute();
+      ->condition('uid', $uid)
+      ->execute();
   }
 
   /**
@@ -499,8 +499,8 @@
     // to '1814400'. At that value, only after a user doesn't log in after
     // three weeks (1814400 seconds) will his/her session be removed.
     db_delete('sessions')
-        ->condition('timestamp', REQUEST_TIME - $lifetime, '<')
-        ->execute();
+      ->condition('timestamp', REQUEST_TIME - $lifetime, '<')
+      ->execute();
     return TRUE;
   }
 

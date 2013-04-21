@@ -155,16 +155,16 @@
       $background = ($user_account['active']) ? (($counter++ % 2) ? 'c1' : 'c2') : 'grey';
 
       $user_accounts_content .= '<input type="hidden" name="account_id[]" value="' . $user_account['account_id'] . '"> ' .
-          '<tr class="' . $background . '"> ' .
-          '	<td>' . $user_account['name'] . '</td> ' .
-          '	<td>' . user_account_details($user_account['account_id']) . '</td> ' .
-          '	<td align="center">' . $fees->display_amount($user_account['price']) . '</td> ' .
-          '	<td align="center">' . display_recurring($user_account['recurring_days']) . '</td> ' .
-          '	<td align="center"><input type="checkbox" name="active[' . $user_account['account_id'] . ']" value="1" ' . (($user_account['active']) ? 'checked' : '') . ' /></td> ' .
-          '	<td align="center"> ' .
-          '		[ <a href="table_user_accounts.php?do=edit_account&account_id=' . $user_account['account_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
-          '		[ <a href="table_user_accounts.php?do=delete_account&account_id=' . $user_account['account_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-          '</tr> ';
+        '<tr class="' . $background . '"> ' .
+        '	<td>' . $user_account['name'] . '</td> ' .
+        '	<td>' . user_account_details($user_account['account_id']) . '</td> ' .
+        '	<td align="center">' . $fees->display_amount($user_account['price']) . '</td> ' .
+        '	<td align="center">' . display_recurring($user_account['recurring_days']) . '</td> ' .
+        '	<td align="center"><input type="checkbox" name="active[' . $user_account['account_id'] . ']" value="1" ' . (($user_account['active']) ? 'checked' : '') . ' /></td> ' .
+        '	<td align="center"> ' .
+        '		[ <a href="table_user_accounts.php?do=edit_account&account_id=' . $user_account['account_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
+        '		[ <a href="table_user_accounts.php?do=delete_account&account_id=' . $user_account['account_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+        '</tr> ';
     }
 
     $template->set('user_accounts_content', $user_accounts_content);

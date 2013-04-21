@@ -36,8 +36,7 @@
         <?php if ($auction_id) { ?>
             <?php echo $item_details['username']; ?>
             <input type="hidden" name="abuser_username" value="<?php echo $item_details['username']; ?>" />         	
-          <?php
-          }
+          <?php }
           else {
             ?>
             <input type="text" name="abuser_username" value="<?php echo $post_details['abuser_username']; ?>" />

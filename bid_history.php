@@ -64,13 +64,13 @@
       $background .= (!$bid_details['bid_out']) ? ' bold_item hl_item' : '';
 
       $bid_history_content .= '<tr class="' . $background . '"> ' .
-          '	<td> ' .
-          (($item_details['hidden_bidding'] && !$show_hidden_bid) ? MSG_BIDDER_ID_HIDDEN : $bid_details['username'] . user_pics($bid_details['user_id'])) /* add feedback */ .
-          (($bid_details['rp_winner'] && !$bid_details['bid_out']) ? '[ <span class="greenfont">' . MSG_RP_WINNER . '</span> ]' : '') .
-          '	</td>' .
-          '	<td align="center">' . $fees->display_amount($bid_details['bid_amount'], $item_details['currency']) . '</td>' .
-          (($session->value('adminarea') == 'Active') ? '<td align="center">' . $fees->display_amount($bid_details['bid_proxy'], $item_details['currency']) . '</td>' : '') .
-          '	<td align="center">' . show_date($bid_details['bid_date']) . '</td>';
+        '	<td> ' .
+        (($item_details['hidden_bidding'] && !$show_hidden_bid) ? MSG_BIDDER_ID_HIDDEN : $bid_details['username'] . user_pics($bid_details['user_id'])) /* add feedback */ .
+        (($bid_details['rp_winner'] && !$bid_details['bid_out']) ? '[ <span class="greenfont">' . MSG_RP_WINNER . '</span> ]' : '') .
+        '	</td>' .
+        '	<td align="center">' . $fees->display_amount($bid_details['bid_amount'], $item_details['currency']) . '</td>' .
+        (($session->value('adminarea') == 'Active') ? '<td align="center">' . $fees->display_amount($bid_details['bid_proxy'], $item_details['currency']) . '</td>' : '') .
+        '	<td align="center">' . show_date($bid_details['bid_date']) . '</td>';
 
       if ($item_details['quantity'] > 1) {
         $bid_history_content .= '<td align="center" class="contentfont">' . $bid_details['quantity'];
@@ -88,7 +88,7 @@
       if ($item_details['owner_id'] == $session->value('user_id') && $setts['enable_bid_retraction']) {
         if ($item_details['closed'] == 0 && $item_details['deleted'] == 0) {
           $bid_history_content .= '<td align="center" class="contentfont"> ' .
-              '	[ <a href="' . process_link('bid_history', array('option' => 'retract_bid', 'bidder_id' => $bid_details['bidder_id'], 'auction_id' => $item_details['auction_id'])) . '">' . MSG_RETRACT_BID . '</a> ]</td>';
+            '	[ <a href="' . process_link('bid_history', array('option' => 'retract_bid', 'bidder_id' => $bid_details['bidder_id'], 'auction_id' => $item_details['auction_id'])) . '">' . MSG_RETRACT_BID . '</a> ]</td>';
         }
         else {
           $bid_history_content .= '<td align=center>' . MSG_REMOVAL_IMPOSSIBLE . '</td>';

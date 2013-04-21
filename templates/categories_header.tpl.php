@@ -56,31 +56,31 @@
                 $counter++;
               }
               ?></td>
-          <?php } ?>
+        <?php } ?>
         </tr>
-      <?php } ?>
+    <?php } ?>
     </table>
   <?php } ?>
 <table width="100%" border="0" cellspacing="0" cellpadding="0" class="border">
   <tr>
-    <?php if ($is_subcategories || $is_shop_stores) { ?>
+<?php if ($is_subcategories || $is_shop_stores) { ?>
         <!-- add stores as well -->
         <td width="170" valign="top"><?php if ($is_shop_stores) { ?>
             <table width="100%" border="0" cellpadding="3" cellspacing="2" class="contentfont">
               <tr>
                 <td class="c3"><?php echo MSG_SHOP_IN_STORES; ?></td>
               </tr>
-              <?php echo $shop_stores_content; ?>
+            <?php echo $shop_stores_content; ?>
             </table>
           <?php } ?>
-          <?php if ($is_subcategories) { ?>
+    <?php if ($is_subcategories) { ?>
             <table width="100%" border="0" cellpadding="3" cellspacing="2" class="contentfont">
               <tr>
                 <td class="c3"><?php echo MSG_SUBCATEGORIES; ?></td>
               </tr>
-              <?php echo $subcategories_content; ?>
+            <?php echo $subcategories_content; ?>
             </table>
-          <?php } ?>
+        <?php } ?>
         </td>
-      <?php } ?>
+  <?php } ?>
     <td valign="top">

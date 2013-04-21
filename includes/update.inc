@@ -29,9 +29,9 @@
     }
     if (!empty($incompatible)) {
       db_update('system')
-          ->fields(array('status' => 0))
-          ->condition('name', $incompatible, 'IN')
-          ->execute();
+        ->fields(array('status' => 0))
+        ->condition('name', $incompatible, 'IN')
+        ->execute();
     }
   }
 
@@ -359,20 +359,20 @@
             $block_exists = db_query("SELECT COUNT(*) FROM {" . $table . "} WHERE module = :module AND delta = :delta", array(
               ':module' => $module,
               ':delta' => $old_delta,
-                ))
-                ->fetchField();
+              ))
+              ->fetchField();
             if ($block_exists) {
               // Delete any existing blocks with the new module+delta.
               db_delete($table)
-                  ->condition('module', $module)
-                  ->condition('delta', $new_delta)
-                  ->execute();
+                ->condition('module', $module)
+                ->condition('delta', $new_delta)
+                ->execute();
               // Rename the old block to the new module+delta.
               db_update($table)
-                  ->fields(array('delta' => $new_delta))
-                  ->condition('module', $module)
-                  ->condition('delta', $old_delta)
-                  ->execute();
+                ->fields(array('delta' => $new_delta))
+                ->condition('module', $module)
+                ->condition('delta', $old_delta)
+                ->execute();
             }
           }
         }
@@ -382,20 +382,20 @@
             $block_exists = db_query("SELECT COUNT(*) FROM {" . $table . "} WHERE module = :module AND delta = :delta", array(
               ':module' => $old_module,
               ':delta' => $delta,
-                ))
-                ->fetchField();
+              ))
+              ->fetchField();
             if ($block_exists) {
               // Delete any existing blocks with the new module+delta.
               db_delete($table)
-                  ->condition('module', $new_module)
-                  ->condition('delta', $delta)
-                  ->execute();
+                ->condition('module', $new_module)
+                ->condition('delta', $delta)
+                ->execute();
               // Rename the old block to the new module+delta.
               db_update($table)
-                  ->fields(array('module' => $new_module))
-                  ->condition('module', $old_module)
-                  ->condition('delta', $delta)
-                  ->execute();
+                ->fields(array('module' => $new_module))
+                ->condition('module', $old_module)
+                ->condition('delta', $delta)
+                ->execute();
             }
           }
         }
@@ -406,18 +406,18 @@
       $sandbox['last_user_processed'] = -1;
       $sandbox['max'] = db_query("SELECT COUNT(*) FROM {users} WHERE data LIKE :block", array(
         ':block' => '%' . db_like(serialize('block')) . '%',
-          ))
-          ->fetchField();
+        ))
+        ->fetchField();
     }
     // Now do the batch update of the user-specific block visibility settings.
     $limit = 100;
     $result = db_select('users', 'u')
-        ->fields('u', array('uid', 'data'))
-        ->condition('uid', $sandbox['last_user_processed'], '>')
-        ->condition('data', '%' . db_like(serialize('block')) . '%', 'LIKE')
-        ->orderBy('uid', 'ASC')
-        ->range(0, $limit)
-        ->execute();
+      ->fields('u', array('uid', 'data'))
+      ->condition('uid', $sandbox['last_user_processed'], '>')
+      ->condition('data', '%' . db_like(serialize('block')) . '%', 'LIKE')
+      ->orderBy('uid', 'ASC')
+      ->range(0, $limit)
+      ->execute();
     foreach ($result as $row) {
       $data = unserialize($row->data);
       $user_needs_update = FALSE;
@@ -446,9 +446,9 @@
       // Update the current user.
       if ($user_needs_update) {
         db_update('users')
-            ->fields(array('data' => serialize($data)))
-            ->condition('uid', $row->uid)
-            ->execute();
+          ->fields(array('data' => serialize($data)))
+          ->condition('uid', $row->uid)
+          ->execute();
       }
       // Update our progress information for the batch update.
       $sandbox['progress']++;
@@ -790,11 +790,11 @@
     $profile = drupal_get_profile();
 
     $results = db_select('system', 's')
-        ->fields('s', array('name', 'schema_version'))
-        ->condition('name', $profile)
-        ->condition('type', 'module')
-        ->execute()
-        ->fetchAll();
+      ->fields('s', array('name', 'schema_version'))
+      ->condition('name', $profile)
+      ->condition('type', 'module')
+      ->execute()
+      ->fetchAll();
 
     if (empty($results)) {
       $filename = 'profiles/' . $profile . '/' . $profile . '.profile';
@@ -827,9 +827,9 @@
 
       // Initializing the system table entry for the installation profile
       db_insert('system')
-          ->fields(array_keys($values))
-          ->values($values)
-          ->execute();
+        ->fields(array_keys($values))
+        ->values($values)
+        ->execute();
 
       // Reset the cached schema version.
       drupal_get_installed_schema_version($profile, TRUE);

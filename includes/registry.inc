@@ -70,11 +70,11 @@
           // Flush the registry of resources in files that are no longer on disc
           // or are in files that no installed modules require to be parsed.
           db_delete('registry')
-              ->condition('filename', $filename)
-              ->execute();
+            ->condition('filename', $filename)
+            ->execute();
           db_delete('registry_file')
-              ->condition('filename', $filename)
-              ->execute();
+            ->condition('filename', $filename)
+            ->execute();
         }
       }
       $parsed_files = _registry_parse_files($files);
@@ -136,11 +136,11 @@
     foreach ($parsed_files as $filename => $file) {
       _registry_parse_file($filename, file_get_contents($filename), $file['module'], $file['weight']);
       db_merge('registry_file')
-          ->key(array('filename' => $filename))
-          ->fields(array(
-            'hash' => $file['hash'],
-          ))
-          ->execute();
+        ->key(array('filename' => $filename))
+        ->fields(array(
+          'hash' => $file['hash'],
+        ))
+        ->execute();
     }
     return array_keys($parsed_files);
   }
@@ -161,23 +161,23 @@
     if (preg_match_all('/^\s*(?:abstract|final)?\s*(class|interface)\s+([a-zA-Z0-9_]+)/m', $contents, $matches)) {
       foreach ($matches[2] as $key => $name) {
         db_merge('registry')
-            ->key(array(
-              'name' => $name,
-              'type' => $matches[1][$key],
-            ))
-            ->fields(array(
-              'filename' => $filename,
-              'module' => $module,
-              'weight' => $weight,
-            ))
-            ->execute();
+          ->key(array(
+            'name' => $name,
+            'type' => $matches[1][$key],
+          ))
+          ->fields(array(
+            'filename' => $filename,
+            'module' => $module,
+            'weight' => $weight,
+          ))
+          ->execute();
       }
       // Delete any resources for this file where the name is not in the list
       // we just merged in.
       db_delete('registry')
-          ->condition('filename', $filename)
-          ->condition('name', $matches[2], 'NOT IN')
-          ->execute();
+        ->condition('filename', $filename)
+        ->condition('name', $matches[2], 'NOT IN')
+        ->execute();
     }
   }
 

@@ -33,7 +33,7 @@
 		LEFT JOIN " . DB_PREFIX . "countries c ON u.country=c.id WHERE u.user_id=" . $_REQUEST['user_id']);
 
     $user_details_print_link = ' &nbsp; [ <a href="javascript:window.print();">' . AMSG_PRINT_THIS_PAGE . '</a> ] ' .
-        '[ <a href="javascript:window.close();">' . AMSG_CLOSE_WINDOW . '</a> ]';
+      '[ <a href="javascript:window.close();">' . AMSG_CLOSE_WINDOW . '</a> ]';
     $template->set('user_details_print_link', $user_details_print_link);
 
     $user->save_edit_vars($_REQUEST['user_id'], $page_handle);

@@ -988,8 +988,8 @@
     global $conf;
 
     db_delete('variable')
-        ->condition('name', $name)
-        ->execute();
+      ->condition('name', $name)
+      ->execute();
     cache_clear_all('variables', 'cache_bootstrap');
 
     unset($conf[$name]);
@@ -1306,7 +1306,7 @@
     $if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? stripslashes($_SERVER['HTTP_IF_NONE_MATCH']) : FALSE;
 
     if ($if_modified_since && $if_none_match && $if_none_match == $etag // etag must match
-        && $if_modified_since == $cache->created) {  // if-modified-since must match
+      && $if_modified_since == $cache->created) {  // if-modified-since must match
       header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
       drupal_send_headers($default_headers);
       return;
@@ -2123,14 +2123,14 @@
   function drupal_bootstrap($phase = NULL, $new_phase = TRUE) {
     // Not drupal_static(), because does not depend on any run-time information.
     static $phases = array(
-  DRUPAL_BOOTSTRAP_CONFIGURATION,
-  DRUPAL_BOOTSTRAP_PAGE_CACHE,
-  DRUPAL_BOOTSTRAP_DATABASE,
-  DRUPAL_BOOTSTRAP_VARIABLES,
-  DRUPAL_BOOTSTRAP_SESSION,
-  DRUPAL_BOOTSTRAP_PAGE_HEADER,
-  DRUPAL_BOOTSTRAP_LANGUAGE,
-  DRUPAL_BOOTSTRAP_FULL,
+    DRUPAL_BOOTSTRAP_CONFIGURATION,
+    DRUPAL_BOOTSTRAP_PAGE_CACHE,
+    DRUPAL_BOOTSTRAP_DATABASE,
+    DRUPAL_BOOTSTRAP_VARIABLES,
+    DRUPAL_BOOTSTRAP_SESSION,
+    DRUPAL_BOOTSTRAP_PAGE_HEADER,
+    DRUPAL_BOOTSTRAP_LANGUAGE,
+    DRUPAL_BOOTSTRAP_FULL,
     );
     // Not drupal_static(), because the only legitimate API to control this is to
     // call drupal_bootstrap() with a new phase parameter.
@@ -3063,10 +3063,10 @@
     // there is no reason we'd ever want to not use the default database for
     // this query.
     $file = Database::getConnection('default', 'default')->query("SELECT filename FROM {registry} WHERE name = :name AND type = :type", array(
-          ':name' => $name,
-          ':type' => $type,
-        ))
-        ->fetchField();
+        ':name' => $name,
+        ':type' => $type,
+      ))
+      ->fetchField();
 
     // Flag that we've run a lookup query and need to update the cache.
     $cache_update_needed = TRUE;

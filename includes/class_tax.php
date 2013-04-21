@@ -126,7 +126,7 @@
             $output['amount'] = $this->round_number($fee_amount + ($fee_amount * $tax_row['amount'] / 100));
 
             $output['tax_details'] = GMSG_THE_PRICE_INCLUDES . ' ' . $tax_row['amount'] . '% ' . $tax_row['tax_name'] . ' ' .
-                '( ' . $this->display_amount($fee_amount, $currency) . ' + ' . $tax_row['amount'] . '% ' . $tax_row['tax_name'] . ' )';
+              '( ' . $this->display_amount($fee_amount, $currency) . ' + ' . $tax_row['amount'] . '% ' . $tax_row['tax_name'] . ' )';
           }
         }
       }
@@ -191,7 +191,7 @@
 				" . DB_PREFIX . "tax_settings WHERE tax_id=" . intval($can_add_tax['tax_id']));
 
         $output['display'] = '<strong>' . $tax_row['amount'] . '% ' . $tax_row['tax_name'] . ' ' . GMSG_APPLIED_TO_USRS_FROM . ':</strong><br>' .
-            $this->display_countries($tax_row['countries_id']);
+          $this->display_countries($tax_row['countries_id']);
 
         if ($buyer_id) {
           $buyer_row = $this->get_sql_row("SELECT tax_exempted, country, state FROM " . DB_PREFIX . "users WHERE
@@ -210,7 +210,7 @@
               }
 
               $output['display_buyer_purchase'] = $tax_row['amount'] . '% ' . $tax_row['tax_name'] . ' ' .
-                  MSG_TAX_WINNING_BID_EXPL;
+                MSG_TAX_WINNING_BID_EXPL;
             }
           }
           else {

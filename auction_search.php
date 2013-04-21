@@ -192,11 +192,11 @@
   }
 
   $additional_vars = '&option=' . $_REQUEST['option'] . '&src_auction_id=' . $_REQUEST['src_auction_id'] . '&keywords_search=' . $_REQUEST['keywords_search'] .
-      '&buyout_price=' . $_REQUEST['buyout_price'] . '&reserve_price=' . $_REQUEST['reserve_price'] .
-      '&quantity=' . $_REQUEST['quantity'] . '&enable_swap=' . $_REQUEST['enable_swap'] .
-      '&list_in=' . $_REQUEST['list_in'] . '&results_view=' . $_REQUEST['results_view'] .
-      '&country=' . $_REQUEST['country'] . '&zip_code=' . $_REQUEST['zip_code'] . '&username=' . $_REQUEST['username'] .
-      '&basic_search=' . $_REQUEST['basic_search'] . $custom_addl_vars;
+    '&buyout_price=' . $_REQUEST['buyout_price'] . '&reserve_price=' . $_REQUEST['reserve_price'] .
+    '&quantity=' . $_REQUEST['quantity'] . '&enable_swap=' . $_REQUEST['enable_swap'] .
+    '&list_in=' . $_REQUEST['list_in'] . '&results_view=' . $_REQUEST['results_view'] .
+    '&country=' . $_REQUEST['country'] . '&zip_code=' . $_REQUEST['zip_code'] . '&username=' . $_REQUEST['username'] .
+    '&basic_search=' . $_REQUEST['basic_search'] . $custom_addl_vars;
 
   include_once('includes/page_browse_auctions.php');
 

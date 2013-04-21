@@ -1,4 +1,4 @@
-/*  Prototype JavaScript framework, version 1.7
+﻿/*  Prototype JavaScript framework, version 1.7
  *  (c) 2005-2010 Sam Stephenson
  *
  *  Prototype is freely distributable under the terms of an MIT-style license.
@@ -6,7 +6,7 @@
  *
  *--------------------------------------------------------------------------*/
 
-var Prototype = {
+        var Prototype = {
     Version: '1.7',
     Browser: (function() {
         var ua = navigator.userAgent;

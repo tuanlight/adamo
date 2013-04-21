@@ -76,27 +76,25 @@
       $store_logo = (!empty($feat_stores_details[$i]['shop_logo_path'])) ? $feat_stores_details[$i]['shop_logo_path'] : 'images/noimg.gif';
 
       $featured_stores_table .= '<tr> ' .
-          '	<td class="c1"><a href="' . $store_link . '"><img src="thumbnail.php?pic=' . $store_logo . '&w=80&sq=Y&b=Y" border="0" alt="' . $feat_stores_details[$i]['shop_name'] . '"></a></td> ' .
-          '	<td valign="top" width="100%" class="c2"><table width="100%" border="0" cellspacing="0" cellpadding="3"> ' .
-          '		<tr> ' .
-          '			<td class="contentfont" width="100%"><a href="' . $store_link . '">' . $feat_stores_details[$i]['shop_name'] . '</a></td> ' .
-          '			<td nowrap>' . $feat_stores_details[$i]['shop_nb_items'] . ' ' . MSG_ITEMS . '</td> ' .
-          '		</tr> ' .
-          '		<tr class="c4"> ' .
-          '			<td colspan="2"></td> ' .
-          '		</tr> ' .
-          '		<tr> ' .
-          '			<td colspan="2">' . substr(strip_tags($db->add_special_chars($feat_stores_details[$i]['shop_mainpage']), '<br>'), 0, 300) . '...</td> ' .
-          '		</tr> ' .
-          '	</table></td> ' .
-          '</tr> ';
+        '	<td class="c1"><a href="' . $store_link . '"><img src="thumbnail.php?pic=' . $store_logo . '&w=80&sq=Y&b=Y" border="0" alt="' . $feat_stores_details[$i]['shop_name'] . '"></a></td> ' .
+        '	<td valign="top" width="100%" class="c2"><table width="100%" border="0" cellspacing="0" cellpadding="3"> ' .
+        '		<tr> ' .
+        '			<td class="contentfont" width="100%"><a href="' . $store_link . '">' . $feat_stores_details[$i]['shop_name'] . '</a></td> ' .
+        '			<td nowrap>' . $feat_stores_details[$i]['shop_nb_items'] . ' ' . MSG_ITEMS . '</td> ' .
+        '		</tr> ' .
+        '		<tr class="c4"> ' .
+        '			<td colspan="2"></td> ' .
+        '		</tr> ' .
+        '		<tr> ' .
+        '			<td colspan="2">' . substr(strip_tags($db->add_special_chars($feat_stores_details[$i]['shop_mainpage']), '<br>'), 0, 300) . '...</td> ' .
+        '		</tr> ' .
+        '	</table></td> ' .
+        '</tr> ';
     }
 
     $template->set('featured_stores_table', $featured_stores_table); ## MyPHPAuction 2009 all stores (show
     $order_field = 'shop_nb_items';
     $order_type = 'DESC';
-    if (!$start)
-      $start = 0;
     $limit = 20;
 
     $additional_vars = '&shop_name=' . $_REQUEST['shop_name'];
@@ -118,14 +116,14 @@
       $store_logo = (!empty($store_details['shop_logo_path'])) ? $store_details['shop_logo_path'] : 'images/noimg.gif';
 
       $store_browse_table .= '<tr valign="top" class="contentfont"> ' .
-          '	<td align="center" width="120"><a href="' . $store_link . '"><img src="thumbnail.php?pic=' . $store_logo . '&w=80&sq=Y" border="0" alt="' . $store_details['shop_name'] . '"></a></td> ' .
-          '	<td><b><a href="' . $store_link . '">' . $store_details['shop_name'] . '</a></b><br>' . substr(strip_tags($db->add_special_chars($store_details['shop_mainpage']), '<br>'), 0, 110) . '...<br> ' .
-          '		<b>' . MSG_OWNER . '</b>: <a href="' . $store_link . '">' . $store_details['username'] . '</a><br> ' .
-          '		<b>' . MSG_ITEMS_LISTED . '</b>: ' . $store_details['shop_nb_items'] . '</td> ' .
-          '</tr> ' .
-          '<tr> ' .
-          '	<td colspan="2" class="c4"><img src="themes/' . $setts['default_theme'] . '/img/pixel.gif" width="1" height="1"></td> ' .
-          '</tr> ';
+        '	<td align="center" width="120"><a href="' . $store_link . '"><img src="thumbnail.php?pic=' . $store_logo . '&w=80&sq=Y" border="0" alt="' . $store_details['shop_name'] . '"></a></td> ' .
+        '	<td><b><a href="' . $store_link . '">' . $store_details['shop_name'] . '</a></b><br>' . substr(strip_tags($db->add_special_chars($store_details['shop_mainpage']), '<br>'), 0, 110) . '...<br> ' .
+        '		<b>' . MSG_OWNER . '</b>: <a href="' . $store_link . '">' . $store_details['username'] . '</a><br> ' .
+        '		<b>' . MSG_ITEMS_LISTED . '</b>: ' . $store_details['shop_nb_items'] . '</td> ' .
+        '</tr> ' .
+        '<tr> ' .
+        '	<td colspan="2" class="c4"><img src="themes/' . $setts['default_theme'] . '/img/pixel.gif" width="1" height="1"></td> ' .
+        '</tr> ';
     }
 
     $template->set('store_browse_table', $store_browse_table);

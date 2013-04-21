@@ -1234,13 +1234,13 @@
       $identifier = ip_address();
     }
     db_insert('flood')
-        ->fields(array(
-          'event' => $name,
-          'identifier' => $identifier,
-          'timestamp' => REQUEST_TIME,
-          'expiration' => REQUEST_TIME + $window,
-        ))
-        ->execute();
+      ->fields(array(
+        'event' => $name,
+        'identifier' => $identifier,
+        'timestamp' => REQUEST_TIME,
+        'expiration' => REQUEST_TIME + $window,
+      ))
+      ->execute();
   }
 
   /**
@@ -1256,9 +1256,9 @@
       $identifier = ip_address();
     }
     db_delete('flood')
-        ->condition('event', $name)
-        ->condition('identifier', $identifier)
-        ->execute();
+      ->condition('event', $name)
+      ->condition('identifier', $identifier)
+      ->execute();
   }
 
   /**
@@ -1290,7 +1290,7 @@
       ':event' => $name,
       ':identifier' => $identifier,
       ':timestamp' => REQUEST_TIME - $window))
-        ->fetchField();
+      ->fetchField();
     return ($number < $threshold);
   }
 
@@ -2420,7 +2420,7 @@
 
     // Append active class.
     if (($path == $_GET['q'] || ($path == '<front>' && drupal_is_front_page())) &&
-        (empty($options['language']) || $options['language']->language == $language_url->language)) {
+      (empty($options['language']) || $options['language']->language == $language_url->language)) {
       $options['attributes']['class'][] = 'active';
     }
 
@@ -3690,7 +3690,7 @@
       $single_quot = "'[^'\\\\]*(?:\\\\.[^'\\\\]*)*'";
       // Strip all comment blocks, but keep double/single quoted strings.
       $contents = preg_replace(
-          "<($double_quot|$single_quot)|$comment>Ss", "$1", $contents
+        "<($double_quot|$single_quot)|$comment>Ss", "$1", $contents
       );
       // Remove certain whitespace.
       // There are different conditions for removing leading and trailing
@@ -3707,10 +3707,10 @@
       # - Colon: Retain :pseudo-selectors.
       | ([\(:])\s+
     >xS',
-          // Only one of the three capturing groups will match, so its reference
-          // will contain the wanted value and the references for the
-          // two non-matching groups will be replaced with empty strings.
-          '$1$2$3', $contents
+        // Only one of the three capturing groups will match, so its reference
+        // will contain the wanted value and the references for the
+        // two non-matching groups will be replaced with empty strings.
+        '$1$2$3', $contents
       );
       // End the file with a new line.
       $contents = trim($contents);
@@ -5132,15 +5132,15 @@
 
     if (drupal_page_is_cacheable()) {
       $cache = (object) array(
-            'cid' => $base_root . request_uri(),
-            'data' => array(
-              'path' => $_GET['q'],
-              'body' => ob_get_clean(),
-              'title' => drupal_get_title(),
-              'headers' => array(),
-            ),
-            'expire' => CACHE_TEMPORARY,
-            'created' => REQUEST_TIME,
+          'cid' => $base_root . request_uri(),
+          'data' => array(
+            'path' => $_GET['q'],
+            'body' => ob_get_clean(),
+            'title' => drupal_get_title(),
+            'headers' => array(),
+          ),
+          'expire' => CACHE_TEMPORARY,
+          'created' => REQUEST_TIME,
       );
 
       // Restore preferred header names based on the lower-case names returned

@@ -146,11 +146,11 @@
         if (!$added_menu) {
           $added_menu = true;
           $display_output .= '<tr class="c1"> ' .
-              '	<td align="right">' . MSG_CHOOSE_SUBSCRIPTION . '</td> ';
+            '	<td align="right">' . MSG_CHOOSE_SUBSCRIPTION . '</td> ';
         }
         else {
           $display_output .= '<tr> ' .
-              '	<td></td> ';
+            '	<td></td> ';
         }
         $display_output .= '	<td class="c1"><input type="radio" name="shop_account_id" value="' . $subscr_details['tier_id'] . '" ' . (($subscr_details['tier_id'] == $selected || !$default_check) ? 'checked' : '') . '> ' . $this->shop_description($subscr_details) . '</td></tr>';
 

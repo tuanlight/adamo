@@ -60,8 +60,7 @@
         <td></td>
         <td class="contentfont"><a href="content_pages.php?page=contact_us&topic_id=<?php echo $topic_id; ?>"><?php echo MSG_RESPOND_BY_EMAIL; ?></a></td>
       </tr>   
-    <?php
-    }
+    <?php }
     else if ($session->value('adminarea') != 'Active') {
       ?>
       <tr class="c4">
@@ -76,8 +75,7 @@
           <td colspan="2" align="center"><input type="submit" value="<?php echo MSG_ADD_MESSAGE; ?>" name="add_message" id="add_message" disabled></td>
         </tr>
       </form>
-    <?php
-    }
+    <?php }
     else {
       ?>
       <tr>

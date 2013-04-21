@@ -41,8 +41,7 @@
     $msg_changes_saved = '<p align="center" class="contentfont">' . AMSG_CHANGES_SAVED . '</p>';
 
     $form_submitted = false;
-    if (!$start)
-      $start = 0;
+
     $limit = 20;
 
     $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'w.wanted_ad_id';
@@ -144,28 +143,28 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $wanted_ads_content .= '<tr class="' . $background . '"> ' .
-          '	<td valign="top">' . $item_details['name'] . '<br>' .
-          '		[ <a href="../wanted_details.php?wanted_ad_id=' . $item_details['wanted_ad_id'] . '" target="_blank">' . GMSG_VIEW . '</a> ] ';
+        '	<td valign="top">' . $item_details['name'] . '<br>' .
+        '		[ <a href="../wanted_details.php?wanted_ad_id=' . $item_details['wanted_ad_id'] . '" target="_blank">' . GMSG_VIEW . '</a> ] ';
 
       $wanted_ads_content .= '</td> ' .
-          '	<td valign="top">' . AMSG_OWNER . ': <b>' . $item_details['username'] . '</b><br>' .
-          '		' . GMSG_START_TIME . ': <b>' . show_date($item_details['start_time']) . '</b><br>' .
-          '		' . GMSG_END_TIME . ': <b>' . show_date($item_details['end_time']) . '</b><br>' .
-          '		' . GMSG_CATEGORY . ': <b>' . $item_details['category_name'] . '</b></td> ';
+        '	<td valign="top">' . AMSG_OWNER . ': <b>' . $item_details['username'] . '</b><br>' .
+        '		' . GMSG_START_TIME . ': <b>' . show_date($item_details['start_time']) . '</b><br>' .
+        '		' . GMSG_END_TIME . ': <b>' . show_date($item_details['end_time']) . '</b><br>' .
+        '		' . GMSG_CATEGORY . ': <b>' . $item_details['category_name'] . '</b></td> ';
 
       $wanted_ads_content .= '<td align="center"><table border="0" cellspacing="1" cellpadding="1"> ' .
-          '	<tr> ' .
-          '		<td>' . GMSG_ACTIVE . '</td> ' .
-          '		<td><input name="activate[]" type="checkbox" id="activate[]" value="' . $item_details['wanted_ad_id'] . '" class="checkactivate" ' . (($item_details['active'] == 1) ? 'checked' : '') . '></td> ' .
-          '	</tr> ' .
-          '	<tr> ' .
-          '		<td>' . GMSG_SUSPENDED . '</td> ' .
-          '		<td><input name="inactivate[]" type="checkbox" id="inactivate[]" value="' . $item_details['wanted_ad_id'] . '" class="checkinactivate" ' . (($item_details['active'] == 0) ? 'checked' : '') . '></td> ' .
-          '	</tr> ' .
-          '</table></td> ';
+        '	<tr> ' .
+        '		<td>' . GMSG_ACTIVE . '</td> ' .
+        '		<td><input name="activate[]" type="checkbox" id="activate[]" value="' . $item_details['wanted_ad_id'] . '" class="checkactivate" ' . (($item_details['active'] == 1) ? 'checked' : '') . '></td> ' .
+        '	</tr> ' .
+        '	<tr> ' .
+        '		<td>' . GMSG_SUSPENDED . '</td> ' .
+        '		<td><input name="inactivate[]" type="checkbox" id="inactivate[]" value="' . $item_details['wanted_ad_id'] . '" class="checkinactivate" ' . (($item_details['active'] == 0) ? 'checked' : '') . '></td> ' .
+        '	</tr> ' .
+        '</table></td> ';
 
       $wanted_ads_content .= '<td align="center"><input name="delete[]" type="checkbox" id="delete[]" value="' . $item_details['wanted_ad_id'] . '" class="checkdelete"></td>' .
-          '</tr> ';
+        '</tr> ';
     }
 
     $template->set('wanted_ads_content', $wanted_ads_content);

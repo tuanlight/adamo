@@ -55,8 +55,7 @@
             <input type="radio" name="msg_method" value="1" <?php echo ($email_details['msg_method'] == 1) ? 'checked' : ''; ?>>
             <?php echo AMSG_INTERNAL_MESSAGING; ?></td>
         </tr>
-      <?php
-      }
+      <?php }
       else {
         ?>
         <tr class="c1">

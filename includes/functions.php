@@ -41,7 +41,7 @@
   function unlink_pin() {
     global $session;
 
-    $path = (@IN_ADMIN == 1) ? '../' : '';
+    $path = (IN_ADMIN == 1) ? '../' : '';
 
     if ($session->is_set('pin_value')) {
       @unlink($path . 'uplimg/site_pin_' . $session->value('pin_value') . '.jpg');
@@ -56,17 +56,12 @@
 
   function sanitize_var($value) {
     if (!is_numeric($value)) {
-      $value = preg_replace("#[^A-Za-z0-9_ ]#", "", $value);
-      //$value = ereg_replace("[^A-Za-z0-9_ ]", "", $value);
-      // $value = eregi_replace('amp','and',$value);
-      // $value = eregi_replace('quot','',$value);
-      // $value = eregi_replace('039','',$value);
-      // $value = eregi_replace(' ','-',$value);
+      $value = ereg_replace("[^A-Za-z0-9_ ]", "", $value);
 
-      $value = preg_replace('/amp/i', 'and', $value);
-      $value = preg_replace('/quot/i', '', $value);
-      $value = preg_replace('/039/i', '', $value);
-      $value = preg_replace('/ /i', '-', $value);
+      $value = eregi_replace('amp', 'and', $value);
+      $value = eregi_replace('quot', '', $value);
+      $value = eregi_replace('039', '', $value);
+      $value = eregi_replace(' ', '-', $value);
     }
 
     return $value;
@@ -156,8 +151,8 @@
     $urlencoded = substr($urlencoded, 0, -1);
 
     $headers = "POST " . $url . " HTTP/1.0\r\n" .
-        "Content-Type: application/x-www-form-urlencoded\r\n" .
-        "Content-Length: " . strlen($urlencoded) . "\r\n\r\n";
+      "Content-Type: application/x-www-form-urlencoded\r\n" .
+      "Content-Length: " . strlen($urlencoded) . "\r\n\r\n";
 
     $fp = fsockopen($server, $port, $errno, $errstr, 10);
     if ($log) {
@@ -213,12 +208,12 @@
 
     if ($current_page > 1) {
       $display_output = '[<a href="' . $file_path . '?start=0' . $other_params . '">&lt;&lt;</a>] ' .
-          '[<a href="' . $file_path . '?start=' . (($current_page - 2) * $limit) . $other_params . '">&lt;</a>] ' . $display_output;
+        '[<a href="' . $file_path . '?start=' . (($current_page - 2) * $limit) . $other_params . '">&lt;</a>] ' . $display_output;
     }
 
     if ($current_page < $all_pages) {
       $display_output .= ' [<a href="' . $file_path . '?start=' . ($current_page * $limit) . $other_params . '">&gt;</a>] ' .
-          '[<a href="' . $file_path . '?start=' . (($all_pages - 1) * $limit) . $other_params . '">&gt;&gt;</a>]';
+        '[<a href="' . $file_path . '?start=' . (($all_pages - 1) * $limit) . $other_params . '">&gt;&gt;</a>]';
     }
 
     return $display_output;
@@ -231,10 +226,10 @@
 
     $display_output = '<a href="' . $file_path . '?start=' . $start . '&limit=' . $limit . $other_params . '
 		&order_field=' . $order_field . '&order_type=ASC">' .
-        '<img src="' . $file_extension . 'images/s_asc.png" align="absmiddle" border="0" alt="' . $field_name . ' ' . GMSG_ASCENDING . '"></a>' .
-        '<a href="' . $file_path . '?start=' . $start . '&limit=' . $limit . $other_params . '
+      '<img src="' . $file_extension . 'images/s_asc.png" align="absmiddle" border="0" alt="' . $field_name . ' ' . GMSG_ASCENDING . '"></a>' .
+      '<a href="' . $file_path . '?start=' . $start . '&limit=' . $limit . $other_params . '
 		&order_field=' . $order_field . '&order_type=DESC">' .
-        '<img src="' . $file_extension . 'images/s_desc.png" align="absmiddle" border="0" alt="' . $field_name . ' ' . GMSG_DESCENDING . '"></a>';
+      '<img src="' . $file_extension . 'images/s_desc.png" align="absmiddle" border="0" alt="' . $field_name . ' ' . GMSG_DESCENDING . '"></a>';
 
     return $display_output;
   }
@@ -289,7 +284,7 @@
     $handle = opendir($relative_path . 'themes');
 
     while ($file = readdir($handle)) {
-      if (!strstr($file, '[.]')) {
+      if (!ereg('[.]', $file)) {
         $output[] = $file;
       }
     }
@@ -328,7 +323,7 @@
     $handle = opendir($relative_path . 'language');
 
     while ($file = readdir($handle)) {
-      if (!strstr($file, '[.]')) {
+      if (!ereg('[.]', $file)) {
         $output[] = $file;
       }
     }
@@ -425,7 +420,7 @@
     $nb_categories = $db->num_rows($sql_select_categories);
 
     $display_output = '<select name="category_id"> ' .
-        '<option value="0" selected>' . (($custom_fees) ? GMSG_DEFAULT : GMSG_ALL_CATEGORIES) . '</option> ';
+      '<option value="0" selected>' . (($custom_fees) ? GMSG_DEFAULT : GMSG_ALL_CATEGORIES) . '</option> ';
 
     $display_output .= ($nb_categories) ? '<option value="0">' . GMSG_LIST_SEPARATOR . '</option>' : '';
 
@@ -448,20 +443,20 @@
     if ($is_voucher) {
       $display_output = ($new_table) ? '<br><table width="100%" border="0" cellpadding="3" cellspacing="2" class="border">' : '';
       $display_output .= '	<tr> ' .
-          '		<td colspan="2" class="c3">' . GMSG_VOUCHER_SETTINGS . '</td> ' .
-          '	</tr> ' .
-          '	<tr class="c5"> ' .
-          '		<td><img src="themes/' . $db->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
-          '		<td><img src="themes/' . $db->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
-          '	</tr> ' .
-          '	<tr class="c1"> ' .
-          '		<td width="150" align="right" class="contentfont">' . GMSG_VOUCHER_CODE . '</td> ' .
-          '		<td><input name="voucher_value" type="text" class="contentfont" id="voucher_value" value="' . $voucher_value . '" size="40" /></td> ' .
-          '	</tr> ' .
-          '	<tr class="reguser"> ' .
-          '		<td align="right" class="contentfont">&nbsp;</td> ' .
-          '		<td>' . GMSG_VOUCHER_CODE_EXPL . '</td> ' .
-          '	</tr> ';
+        '		<td colspan="2" class="c3">' . GMSG_VOUCHER_SETTINGS . '</td> ' .
+        '	</tr> ' .
+        '	<tr class="c5"> ' .
+        '		<td><img src="themes/' . $db->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
+        '		<td><img src="themes/' . $db->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
+        '	</tr> ' .
+        '	<tr class="c1"> ' .
+        '		<td width="150" align="right" class="contentfont">' . GMSG_VOUCHER_CODE . '</td> ' .
+        '		<td><input name="voucher_value" type="text" class="contentfont" id="voucher_value" value="' . $voucher_value . '" size="40" /></td> ' .
+        '	</tr> ' .
+        '	<tr class="reguser"> ' .
+        '		<td align="right" class="contentfont">&nbsp;</td> ' .
+        '		<td>' . GMSG_VOUCHER_CODE_EXPL . '</td> ' .
+        '	</tr> ';
       $display_output .= ($new_table) ? '</table>' : '';
     }
 
@@ -490,7 +485,7 @@
         $display_output = '<br><table width="100%" border="0" cellpadding="3" cellspacing="2" class="border"> ';
       }
 
-      /*  $display_output .= '	<tr> ' .
+      $display_output .= '	<tr> ' .
         '		<td colspan="' . $colspan . '" class="c3">' . GMSG_TERMS_AND_CONDITIONS . '</td> ' .
         '	</tr> ' .
         '	<tr class="c5"> ' .
@@ -504,22 +499,7 @@
         '	<tr class="reguser"> ' .
         '		<td align="right" class="contentfont">&nbsp;</td> ' .
         '		<td colspan="' . ($colspan - 1) . '">' . $agreement_msg . '</td> ' .
-        '	</tr> '; */
-      $display_output .= '	<tr> ' .
-          '		<td colspan="' . $colspan . '" class="c3">' . GMSG_TERMS_AND_CONDITIONS . '</td> ' .
-          '	</tr> ' .
-          '	<tr class="c5"> ' .
-          '		<td><img src="themes/' . $db->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
-          '		<td colspan="' . ($colspan - 1) . '"><img src="themes/' . $db->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
-          '	</tr> ' .
-          '	<tr class="c1"> ' .
-          '		<td width="150" align="right" class="contentfont"></td> ' .
-          '		<td colspan="' . ($colspan - 1) . '"><textarea name="terms_content" cols="50" rows="8" readonly class="smallfont" style="width: 100%; height: 200px;" />' . preg_replace('/<br>/i', "\n", $terms['content']) . '</textarea></td> ' .
-          '	</tr> ' .
-          '	<tr class="reguser"> ' .
-          '		<td align="right" class="contentfont">&nbsp;</td> ' .
-          '		<td colspan="' . ($colspan - 1) . '">' . $agreement_msg . '</td> ' .
-          '	</tr> ';
+        '	</tr> ';
       if ($new_table) {
         $display_output .='</table>';
       }
@@ -631,7 +611,7 @@
 		b.user_id='" . $user_id . "' AND b.owner_id='" . $owner_id . "'");
 
     $block_message = '<p class="errormessage">' . MSG_BLOCKED_USER_MSG .
-        (($block_details['show_reason']) ? '<br><b>' . MSG_REASON . '</b>: ' . $block_details['block_reason'] : '') . '</p>';
+      (($block_details['show_reason']) ? '<br><b>' . MSG_REASON . '</b>: ' . $block_details['block_reason'] : '') . '</p>';
 
     return $block_message;
   }
@@ -646,7 +626,7 @@
       $output['result'] = true;
 
       $output['display'] = '<p class="errormessage" align="center">' . MSG_BANNED_EXPL_A . ' <b>' .
-          (($address_type == 1) ? MSG_IP_ADDRESS : MSG_EMAIL_ADDRESS) . '</b> ' . MSG_BANNED_EXPL_B . '</p>';
+        (($address_type == 1) ? MSG_IP_ADDRESS : MSG_EMAIL_ADDRESS) . '</b> ' . MSG_BANNED_EXPL_B . '</p>';
     }
 
     return $output;
@@ -657,13 +637,13 @@
     (array) $output = null;
     (array) $subcats_array = null;
 
-    if (stristr($base_url, 'auction_details.php')) {
+    if (eregi('auction_details.php', $base_url)) {
       $item_details = $db->get_sql_row("SELECT auction_id, name, end_time, category_id FROM " . DB_PREFIX . "auctions WHERE
 			auction_id='" . $auction_id . "'");
 
       $parent_id = $item_details['category_id'];
     }
-    else if (stristr($base_url, 'wanted_details.php')) {
+    else if (eregi('wanted_details.php', $base_url)) {
       $item_details = $db->get_sql_row("SELECT wanted_ad_id, name, end_time, category_id FROM " . DB_PREFIX . "wanted_ads WHERE
 			wanted_ad_id='" . $wanted_ad_id . "'");
 
@@ -683,25 +663,25 @@
     }
 
     /* now generate the title and meta tags */
-    if (stristr($base_url, 'auction_details.php')) {
+    if (eregi('auction_details.php', $base_url)) {
       $output['title'] = $db->add_special_chars($item_details['name']) . ' (' . MSG_AUCTION_ID . ': ' . $item_details['auction_id'] . ', ' .
-          GMSG_END_TIME . ': ' . show_date($item_details['end_time']) . ') - ' . $setts['sitename'];
+        GMSG_END_TIME . ': ' . show_date($item_details['end_time']) . ') - ' . $setts['sitename'];
 
       $output['meta_tags'] = '<meta name="description" content="' . MSG_MTT_FIND . ' ' . $db->add_special_chars($item_details['name']) . ' ' .
-          MSG_MTT_IN_THE . ' ' . $db->add_special_chars($db->implode_array($subcats_array, ' - ')) . ' ' . MSG_MTT_CATEGORY_ON . ' ' . $setts['sitename'] . '"> ' .
-          '<meta name="keywords" content="' . $db->add_special_chars($item_details['name']) . ', ' . $db->add_special_chars($db->implode_array($subcats_array, ', ')) . ', ' .
-          $setts['sitename'] . '"> ';
+        MSG_MTT_IN_THE . ' ' . $db->add_special_chars($db->implode_array($subcats_array, ' - ')) . ' ' . MSG_MTT_CATEGORY_ON . ' ' . $setts['sitename'] . '"> ' .
+        '<meta name="keywords" content="' . $db->add_special_chars($item_details['name']) . ', ' . $db->add_special_chars($db->implode_array($subcats_array, ', ')) . ', ' .
+        $setts['sitename'] . '"> ';
     }
-    else if (stristr($base_url, 'wanted_details.php')) {
+    else if (eregi('wanted_details.php', $base_url)) {
       $output['title'] = $db->add_special_chars($item_details['name']) . ' (' . MSG_WANTED_AD_ID . ': ' . $item_details['wanted_ad_id'] . ', ' .
-          GMSG_END_TIME . ': ' . show_date($item_details['end_time']) . ') - ' . $setts['sitename'];
+        GMSG_END_TIME . ': ' . show_date($item_details['end_time']) . ') - ' . $setts['sitename'];
 
       $output['meta_tags'] = '<meta name="description" content="' . MSG_MTT_FIND . ' ' . $db->add_special_chars($item_details['name']) . ' ' .
-          MSG_MTT_IN_THE . ' ' . $db->add_special_chars($db->implode_array($subcats_array, ' - ')) . ' ' . MSG_MTT_CATEGORY_ON . ' ' . $setts['sitename'] . '"> ' .
-          '<meta name="keywords" content="' . $db->add_special_chars($item_details['name']) . ', ' . $db->add_special_chars($db->implode_array($subcats_array, ', ')) . ', ' .
-          $setts['sitename'] . '"> ';
+        MSG_MTT_IN_THE . ' ' . $db->add_special_chars($db->implode_array($subcats_array, ' - ')) . ' ' . MSG_MTT_CATEGORY_ON . ' ' . $setts['sitename'] . '"> ' .
+        '<meta name="keywords" content="' . $db->add_special_chars($item_details['name']) . ', ' . $db->add_special_chars($db->implode_array($subcats_array, ', ')) . ', ' .
+        $setts['sitename'] . '"> ';
     }
-    else if (stristr($base_url, 'categories.php')) {
+    else if (eregi('categories.php', $base_url)) {
       $output['title'] = ((is_array($subcats_array)) ? $db->add_special_chars($db->implode_array($subcats_array, ' - ')) . ' - ' : '') . $setts['sitename'];
 
       $main_category_id = $db->main_category($parent_id);
@@ -710,7 +690,7 @@
 
       if (!empty($category_details['meta_description']) && !empty($category_details['meta_keywords'])) {
         $output['meta_tags'] = '<meta name="description" content="' . $db->add_special_chars($category_details['meta_description']) . '"> ' .
-            '<meta name="keywords" content="' . $db->add_special_chars($category_details['meta_keywords']) . '"> ';
+          '<meta name="keywords" content="' . $db->add_special_chars($category_details['meta_keywords']) . '"> ';
       }
       else {
         $output['meta_tags'] = $db->add_special_chars($setts['metatags']);
@@ -895,26 +875,26 @@
       $html_message = ($html_message) ? $html_message : $text_message;
 
       $html_msg = "<!--\n" . $text_message . "\n-->\n" .
-          "<html><body><img src=\"" . SITE_PATH . "images/myphpauction.gif\"><p>" . EMAIL_FONT . $html_message . "</body></html>";
+        "<html><body><img src=\"" . SITE_PATH . "images/myphpauction.gif\"><p>" . EMAIL_FONT . $html_message . "</body></html>";
 
       $from_name = ($from_name) ? $from_name : $from_email;
       switch ($setts['mailer']) {
         case 'sendmail': ## send through the UNIX Sendmail function
           ## create header
           $header = "Date: " . $mail_date . "\n" .
-              "Return-Path: " . $from_email . "\n" .
-              "To: " . $to . "\n" .
-              "From: " . $from_name . " <" . $from_email . ">\n" .
-              (($setts['enable_bcc']) ? "Bcc: " . $setts['admin_email'] . "\n" : "") .
-              "Reply-to: " . $from_email . "\n" .
-              "Subject: " . $subject . "\n" .
-              sprintf("Message-ID: <%s@%s>%s", $uniq_id, $_SERVER['SERVER_NAME'], "\n") .
-              "X-Priority: 3\n" .
-              "X-Mailer: MyPHPAuction/Sendmail [version " . $current_version . "]\n" .
-              "MIME-Version: 1.0\n" .
-              "Content-Transfer-Encoding: 7bit\n" .
-              sprintf("Content-Type: %s; charset=\"%s\"", "text/html", "utf-8") .
-              "\n\n";
+            "Return-Path: " . $from_email . "\n" .
+            "To: " . $to . "\n" .
+            "From: " . $from_name . " <" . $from_email . ">\n" .
+            (($setts['enable_bcc']) ? "Bcc: " . $setts['admin_email'] . "\n" : "") .
+            "Reply-to: " . $from_email . "\n" .
+            "Subject: " . $subject . "\n" .
+            sprintf("Message-ID: <%s@%s>%s", $uniq_id, $_SERVER['SERVER_NAME'], "\n") .
+            "X-Priority: 3\n" .
+            "X-Mailer: MyPHPAuction/Sendmail [version " . $current_version . "]\n" .
+            "MIME-Version: 1.0\n" .
+            "Content-Transfer-Encoding: 7bit\n" .
+            sprintf("Content-Type: %s; charset=\"%s\"", "text/html", "utf-8") .
+            "\n\n";
 
           if ($from_email) {
             $output = sprintf("%s -oi -f %s -t", $setts['sendmail_path'], $from_email);
@@ -944,17 +924,17 @@
           $boundary[2] = "b2_" . $uniq_id;
 
           $header = "Date: " . $mail_date . "\n" .
-              "Return-Path: " . $from_email . "\n" .
-              "From: " . $from_name . " <" . $from_email . ">\n" .
-              (($setts['enable_bcc']) ? "Bcc: " . $setts['admin_email'] . "\n" : "") .
-              "Reply-to: " . $from_email . "\n" .
-              sprintf("Message-ID: <%s@%s>%s", $uniq_id, $_SERVER['SERVER_NAME'], "\n") .
-              "X-Priority: 3\n" .
-              "X-Mailer: MyPHPAuction/Sendmail [version " . $current_version . "]\n" .
-              "MIME-Version: 1.0\n" .
-              "Content-Transfer-Encoding: 7bit\n" .
-              sprintf("Content-Type: %s; charset=\"%s\"", "text/html", "utf-8") .
-              $params = sprintf("-oi -f %s", $from_email);
+            "Return-Path: " . $from_email . "\n" .
+            "From: " . $from_name . " <" . $from_email . ">\n" .
+            (($setts['enable_bcc']) ? "Bcc: " . $setts['admin_email'] . "\n" : "") .
+            "Reply-to: " . $from_email . "\n" .
+            sprintf("Message-ID: <%s@%s>%s", $uniq_id, $_SERVER['SERVER_NAME'], "\n") .
+            "X-Priority: 3\n" .
+            "X-Mailer: MyPHPAuction/Sendmail [version " . $current_version . "]\n" .
+            "MIME-Version: 1.0\n" .
+            "Content-Transfer-Encoding: 7bit\n" .
+            sprintf("Content-Type: %s; charset=\"%s\"", "text/html", "utf-8") .
+            $params = sprintf("-oi -f %s", $from_email);
 
           if (strlen(ini_get('safe_mode')) < 1) {
             $old_from = ini_get('sendmail_from');
@@ -1289,8 +1269,7 @@
   }
 
   function optimize_search_string($keywords) {
-    //$output = eregi_replace(' ', ' +', $keywords);
-    $output = preg_replace('/ /i', ' +', $keywords);
+    $output = eregi_replace(' ', ' +', $keywords);
 
     return $output;
   }
@@ -1313,5 +1292,167 @@
     }
 
     return ($output > 0) ? $output : GMSG_NA;
+  }
+
+  function get_slide_url() {
+    $dir = '/home/adamo/public_html/themes/red/nivo_slider/images';
+    $allFiles = scandir($dir);
+    $files = array_diff($allFiles, array('.', '..'));
+    return $files;
+  }
+
+  function get_home_cat() {
+    global $db;
+    $sql = "SELECT category_id, name FROM " . DB_PREFIX . "categories WHERE parent_id=0 ORDER BY order_id ASC, name ASC LIMIT 10";
+    $sql_select_home_cats = $db->query($sql);
+    $x = 0;
+    $home_cats_list = array();
+    while ($result = $db->fetch_array($sql_select_home_cats)) {
+      $home_cats_list[$x]['cat_id'] = $result['category_id'];
+      $home_cats_list[$x]['name'] = $result['name'];
+      $x++;
+    };
+    return $home_cats_list;
+  }
+
+// lay cat ra menu trai
+  function get_home_sub_cat($parent_id) {
+    global $db;
+    $sql = "SELECT category_id, name FROM " . DB_PREFIX . "categories WHERE parent_id=" . $parent_id . " ORDER BY order_id ASC, name ASC";
+    $sql_select_home_sub_cats = $db->query($sql);
+    $x = 0;
+    $home_sub_cats_list = array();
+    while ($result = $db->fetch_array($sql_select_home_sub_cats)) {
+      $home_sub_cats_list[$x]['cat_id'] = $result['category_id'];
+      $home_sub_cats_list[$x]['name'] = $result['name'];
+      $x++;
+    };
+    return $home_sub_cats_list;
+  }
+
+  function get_tab_sub_cats($cats) {
+    global $db;
+    $cats2 = array();
+    for ($i = 0; $i < count($cats); $i++) {
+      $subcat = $db->query("SELECT category_id FROM " . DB_PREFIX . "categories WHERE parent_id=" . $cats[$i] . " ORDER BY order_id ASC, name ASC");
+      $x = 0;
+      $key = $cats[$i];
+      while ($result = $db->fetch_array($subcat)) {
+        $cats2[$key][$x] = $result['category_id'];
+        $x++;
+      }
+    }
+    return $cats2;
+  }
+
+  function get_tab_sub_cats2($cats) {
+    global $db;
+    $cats3 = array();
+    foreach ($cats as $key => $value) {
+      for ($i = 0; $i < count($cats[$key]); $i++) {
+        $id = intval($cats[$key][$i]);
+        $subcat = $db->query("SELECT category_id FROM " . DB_PREFIX . "categories WHERE parent_id=" . $id . " ORDER BY name ASC");
+        $x = 0;
+        $key2 = $cats[$key][$i];
+        $cats3[$key][$key2] = array(0);
+        while ($result = $db->fetch_array($subcat)) {
+          $key3 = $result['category_id'];
+          $cats3[$key][$key2][$key3] = 0;
+          $x++;
+        }
+      }
+    }
+    return $cats3;
+  }
+
+  function array_keys_multi(array $array) {
+    $keys = array();
+
+    foreach ($array as $key => $value) {
+      $keys[] = $key;
+
+      if (is_array($array[$key])) {
+        $keys = array_merge($keys, array_keys_multi($array[$key]));
+      }
+    }
+
+    return $keys;
+  }
+
+  function remove_zero(array $array) {
+    foreach ($array as $array_key => $array_item) {
+      if ($array[$array_key] == 0) {
+        unset($array[$array_key]);
+      }
+    }
+    return $array;
+  }
+
+  function get_all_subcats(array $cat) {
+    $cats2 = get_tab_sub_cats($cat);
+    $cats3 = get_tab_sub_cats2($cats2);
+    $x = 0;
+    foreach ($cat as $k => $v) {
+      $keys[$v] = array($v);
+      $subkeys = array_keys_multi($cats3[$v]);
+      $cat_tabs = remove_zero(array_merge($keys[$v], $subkeys));
+      $x++;
+    }
+    return $cat_tabs;
+  }
+
+  function get_cat_name(array $cats) {
+    $cats_list = implode(',', $cats);
+    global $db;
+    $sql = "SELECT category_id, name FROM " . DB_PREFIX . "categories WHERE category_id in (" . $cats_list . ") ORDER BY order_id ASC, name ASC";
+    $rows = $db->query($sql);
+    $categories = array();
+    while ($result = $db->fetch_array($rows)) {
+      $key = $result['category_id'];
+      $categories[$key] = $result['name'];
+    }
+    return $categories;
+  }
+
+  function get_total_pages(array $sub_cats) {
+    $sub_cats_list = implode(',', $sub_cats);
+    global $db;
+    $sql = "SELECT " . DB_PREFIX . "auctions.name, " . DB_PREFIX . "auctions.auction_id, start_price, buyout_price, max_bid, listing_type, owner_id, media_url, " . DB_PREFIX . "users.username 
+	FROM " . DB_PREFIX . "auctions 
+	INNER JOIN " . DB_PREFIX . "auction_media ON " . DB_PREFIX . "auctions.auction_id = " . DB_PREFIX . "auction_media.auction_id 
+	INNER JOIN " . DB_PREFIX . "users ON " . DB_PREFIX . "users.user_id = " . DB_PREFIX . "auctions.owner_id
+	WHERE category_id in (" . $sub_cats_list . ") AND hpfeat=1 AND " . DB_PREFIX . "auctions.approved=1 AND closed=0 group by auction_id ORDER BY auction_id DESC";
+    $rows = $db->query($sql);
+    $total_pages = 0;
+    while ($result = $db->fetch_array($rows)) {
+      $total_pages++;
+    }
+    return $total_pages;
+  }
+
+  function get_tab_products(array $sub_cats, $start, $limit) {
+    $sub_cats_list = implode(',', $sub_cats);
+    global $db;
+    $sql = "SELECT " . DB_PREFIX . "auctions.name, " . DB_PREFIX . "auctions.auction_id, start_price, buyout_price, max_bid, listing_type, owner_id, media_url, " . DB_PREFIX . "users.username 
+	FROM " . DB_PREFIX . "auctions 
+	INNER JOIN " . DB_PREFIX . "auction_media ON " . DB_PREFIX . "auctions.auction_id = " . DB_PREFIX . "auction_media.auction_id 
+	INNER JOIN " . DB_PREFIX . "users ON " . DB_PREFIX . "users.user_id = " . DB_PREFIX . "auctions.owner_id
+	WHERE category_id in (" . $sub_cats_list . ") AND hpfeat=1 AND " . DB_PREFIX . "auctions.approved=1 AND closed=0 group by auction_id ORDER BY auction_id DESC LIMIT " . $start . "," . $limit . "";
+    $rows = $db->query($sql);
+    $i = 0;
+    while ($result = $db->fetch_array($rows)) {
+      $products[$i]['name'] = $result['name'];
+      $products[$i]['auction_id'] = $result['auction_id'];
+      $products[$i]['start_price'] = $result['start_price'];
+      $products[$i]['buyout_price'] = $result['buyout_price'];
+      $products[$i]['max_bid'] = $result['max_bid'];
+      $products[$i]['listing_type'] = $result['listing_type'];
+      $products[$i]['media_url'] = $result['media_url'];
+      $products[$i]['username'] = $result['username'];
+      $products[$i]['owner_id'] = $result['owner_id'];
+      $i++;
+    }
+
+    return $products;
   }
 ?>

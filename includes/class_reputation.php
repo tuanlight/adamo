@@ -66,38 +66,38 @@
       $rep_output = $this->calc_reputation($user_id);
 
       $display_output = '<table width="100%" cellpadding="3" cellspacing="2" border="0" class="userrep"> ' .
-          '	<tr> ' .
-          '		<td nowrap class="c4"><b>' . MSG_REPUTATION_RATING . '</b></td> ' .
-          '		<td width="100%" class="c4">' . $rep_output['percentage'] . '</td> ' .
-          '	</tr> ' .
-          '	<tr class="c1 positive"> ' .
-          '		<td nowrap><img src="themes/' . $this->setts['default_theme'] . '/img/system/5stars.gif"></td> ' .
-          '		<td>' . $this->count_rows('reputation', "WHERE user_id='" . $user_id . "' AND submitted=1 AND reputation_rate=5") . '</td> ' .
-          '	</tr> ' .
-          '	<tr class="c1 positive"> ' .
-          '		<td nowrap><img src="themes/' . $this->setts['default_theme'] . '/img/system/4stars.gif"></td> ' .
-          '		<td>' . $this->count_rows('reputation', "WHERE user_id='" . $user_id . "' AND submitted=1 AND reputation_rate=4") . '</td> ' .
-          '	</tr> ' .
-          '	<tr class="c1 neutral"> ' .
-          '		<td nowrap><img src="themes/' . $this->setts['default_theme'] . '/img/system/3stars.gif"></td> ' .
-          '		<td>' . $this->count_rows('reputation', "WHERE user_id='" . $user_id . "' AND submitted=1 AND reputation_rate=3") . '</td> ' .
-          '	</tr> ' .
-          '	<tr class="c1 negative"> ' .
-          '		<td nowrap><img src="themes/' . $this->setts['default_theme'] . '/img/system/2stars.gif"></td> ' .
-          '		<td>' . $this->count_rows('reputation', "WHERE user_id='" . $user_id . "' AND submitted=1 AND reputation_rate=2") . '</td> ' .
-          '	</tr> ' .
-          '	<tr class="c1 negative"> ' .
-          '		<td nowrap><img src="themes/' . $this->setts['default_theme'] . '/img/system/1stars.gif"></td> ' .
-          '		<td>' . $this->count_rows('reputation', "WHERE user_id='" . $user_id . "' AND submitted=1 AND reputation_rate=1") . '</td> ' .
-          '	</tr> ' .
-          '	<tr> ' .
-          '		<td colspan="2" align="center" class="contentfont"> ' .
-          '			<a href="' . process_link('user_reputation', array('user_id' => $user_id, 'auction_id' => $auction_id)) . '">' . MSG_VIEW_REPUTATION . '</a></td> ' .
-          '	</tr> ' .
-          '	<tr class="c5"> ' .
-          '		<td colspan="2"><img src="themes/' . $this->setts['default_theme'] . '/img/system/pixel.gif" width="1" height="1"></td> ' .
-          '	</tr> ' .
-          '</table> ';
+        '	<tr> ' .
+        '		<td nowrap class="c4"><b>' . MSG_REPUTATION_RATING . '</b></td> ' .
+        '		<td width="100%" class="c4">' . $rep_output['percentage'] . '</td> ' .
+        '	</tr> ' .
+        '	<tr class="c1 positive"> ' .
+        '		<td nowrap><img src="themes/' . $this->setts['default_theme'] . '/img/system/5stars.gif"></td> ' .
+        '		<td>' . $this->count_rows('reputation', "WHERE user_id='" . $user_id . "' AND submitted=1 AND reputation_rate=5") . '</td> ' .
+        '	</tr> ' .
+        '	<tr class="c1 positive"> ' .
+        '		<td nowrap><img src="themes/' . $this->setts['default_theme'] . '/img/system/4stars.gif"></td> ' .
+        '		<td>' . $this->count_rows('reputation', "WHERE user_id='" . $user_id . "' AND submitted=1 AND reputation_rate=4") . '</td> ' .
+        '	</tr> ' .
+        '	<tr class="c1 neutral"> ' .
+        '		<td nowrap><img src="themes/' . $this->setts['default_theme'] . '/img/system/3stars.gif"></td> ' .
+        '		<td>' . $this->count_rows('reputation', "WHERE user_id='" . $user_id . "' AND submitted=1 AND reputation_rate=3") . '</td> ' .
+        '	</tr> ' .
+        '	<tr class="c1 negative"> ' .
+        '		<td nowrap><img src="themes/' . $this->setts['default_theme'] . '/img/system/2stars.gif"></td> ' .
+        '		<td>' . $this->count_rows('reputation', "WHERE user_id='" . $user_id . "' AND submitted=1 AND reputation_rate=2") . '</td> ' .
+        '	</tr> ' .
+        '	<tr class="c1 negative"> ' .
+        '		<td nowrap><img src="themes/' . $this->setts['default_theme'] . '/img/system/1stars.gif"></td> ' .
+        '		<td>' . $this->count_rows('reputation', "WHERE user_id='" . $user_id . "' AND submitted=1 AND reputation_rate=1") . '</td> ' .
+        '	</tr> ' .
+        '	<tr> ' .
+        '		<td colspan="2" align="center" class="contentfont"> ' .
+        '			<a href="' . process_link('user_reputation', array('user_id' => $user_id, 'auction_id' => $auction_id)) . '">' . MSG_VIEW_REPUTATION . '</a></td> ' .
+        '	</tr> ' .
+        '	<tr class="c5"> ' .
+        '		<td colspan="2"><img src="themes/' . $this->setts['default_theme'] . '/img/system/pixel.gif" width="1" height="1"></td> ' .
+        '	</tr> ' .
+        '</table> ';
 
       return $display_output;
     }

@@ -1603,8 +1603,8 @@
           throw new InvalidMergeQueryException(t('Invalid merge query: no conditions'));
         }
         $select = $this->connection->select($this->conditionTable)
-            ->condition($this->condition)
-            ->forUpdate();
+          ->condition($this->condition)
+          ->forUpdate();
         $select->addExpression('1');
         if (!$select->execute()->fetchField()) {
           try {
@@ -1626,8 +1626,8 @@
         }
         if ($this->needsUpdate) {
           $update = $this->connection->update($this->table)
-              ->fields($this->updateFields)
-              ->condition($this->condition);
+            ->fields($this->updateFields)
+            ->condition($this->condition);
           if ($this->expressionFields) {
             foreach ($this->expressionFields as $field => $data) {
               $update->expression($field, $data['expression'], $data['arguments']);
@@ -1920,22 +1920,22 @@
     protected function mapConditionOperator($operator) {
       // $specials does not use drupal_static as its value never changes.
       static $specials = array(
-    'BETWEEN' => array('delimiter' => ' AND '),
-    'IN' => array('delimiter' => ', ', 'prefix' => ' (', 'postfix' => ')'),
-    'NOT IN' => array('delimiter' => ', ', 'prefix' => ' (', 'postfix' => ')'),
-    'EXISTS' => array('prefix' => ' (', 'postfix' => ')'),
-    'NOT EXISTS' => array('prefix' => ' (', 'postfix' => ')'),
-    'IS NULL' => array('use_value' => FALSE),
-    'IS NOT NULL' => array('use_value' => FALSE),
-    // Use backslash for escaping wildcard characters.
-    'LIKE' => array('postfix' => " ESCAPE '\\\\'"),
-    'NOT LIKE' => array('postfix' => " ESCAPE '\\\\'"),
-    // These ones are here for performance reasons.
-    '=' => array(),
-    '<' => array(),
-    '>' => array(),
-    '>=' => array(),
-    '<=' => array(),
+      'BETWEEN' => array('delimiter' => ' AND '),
+      'IN' => array('delimiter' => ', ', 'prefix' => ' (', 'postfix' => ')'),
+      'NOT IN' => array('delimiter' => ', ', 'prefix' => ' (', 'postfix' => ')'),
+      'EXISTS' => array('prefix' => ' (', 'postfix' => ')'),
+      'NOT EXISTS' => array('prefix' => ' (', 'postfix' => ')'),
+      'IS NULL' => array('use_value' => FALSE),
+      'IS NOT NULL' => array('use_value' => FALSE),
+      // Use backslash for escaping wildcard characters.
+      'LIKE' => array('postfix' => " ESCAPE '\\\\'"),
+      'NOT LIKE' => array('postfix' => " ESCAPE '\\\\'"),
+      // These ones are here for performance reasons.
+      '=' => array(),
+      '<' => array(),
+      '>' => array(),
+      '>=' => array(),
+      '<=' => array(),
       );
       if (isset($specials[$operator])) {
         $return = $specials[$operator];

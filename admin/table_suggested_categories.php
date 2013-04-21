@@ -42,11 +42,11 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $suggested_categories_page_content .= '<tr class="' . $background . '"> ' .
-          '	<td>' . $cat_details['username'] . '</td> ' .
-          '	<td>' . $cat_details['content'] . '</td> ' .
-          '	<td align="center">' . show_date($cat_details['regdate']) . '</td> ' .
-          '	<td align="center"><input type="checkbox" name="delete[]" value="' . $cat_details['id'] . '"></td> ' .
-          '</tr> ';
+        '	<td>' . $cat_details['username'] . '</td> ' .
+        '	<td>' . $cat_details['content'] . '</td> ' .
+        '	<td align="center">' . show_date($cat_details['regdate']) . '</td> ' .
+        '	<td align="center"><input type="checkbox" name="delete[]" value="' . $cat_details['id'] . '"></td> ' .
+        '</tr> ';
     }
 
     $template->set('header_section', AMSG_CATEGORIES);

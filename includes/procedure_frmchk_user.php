@@ -18,12 +18,10 @@
   $fv->check_box($frmchk_details['name'], MSG_FULL_NAME, array('field_empty', 'field_html'));
   $fv->check_box($frmchk_details['address'], MSG_ADDRESS, array('field_empty', 'field_html'));
   $fv->check_box($frmchk_details['city'], MSG_CITY, array('field_empty', 'field_html'));
-  $fv->check_box($frmchk_details['country'], MSG_COUNTRY, array('field_empty'));
-  $fv->check_box($frmchk_details['state'], MSG_STATE, array('field_empty', 'field_html'));
-  $fv->check_box($frmchk_details['zip_code'], MSG_ZIP_CODE, array('field_empty', 'field_html'));
+
 
   if (!$frmchk_user_edit) {
-    $fv->check_box($frmchk_details['phone_a'], MSG_PHONE_A, array('field_empty', 'field_html'));
+
     $fv->check_box($frmchk_details['phone_b'], MSG_PHONE_B, array('field_empty', 'field_html'));
   }
   else {

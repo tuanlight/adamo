@@ -160,12 +160,12 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $banners_management_content .= '<tr class="' . $background . '"> ' .
-          '	<td>' . $advert->display_banner($banner_details, true) . '</td> ' .
-          '	<td>' . $advert->banner_details($banner_details) . '</td> ' .
-          '	<td align="center"> ' .
-          '		[ <a href="content_banners_management.php?do=edit_banner&advert_id=' . $banner_details['advert_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
-          '		[ <a href="content_banners_management.php?do=delete_banner&advert_id=' . $banner_details['advert_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
-          '</tr> ';
+        '	<td>' . $advert->display_banner($banner_details, true) . '</td> ' .
+        '	<td>' . $advert->banner_details($banner_details) . '</td> ' .
+        '	<td align="center"> ' .
+        '		[ <a href="content_banners_management.php?do=edit_banner&advert_id=' . $banner_details['advert_id'] . '">' . AMSG_EDIT . '</a> ] &nbsp;' .
+        '		[ <a href="content_banners_management.php?do=delete_banner&advert_id=' . $banner_details['advert_id'] . '" onclick="return confirm(\'' . AMSG_DELETE_CONFIRM . '\');">' . AMSG_DELETE . '</a> ]</td> ' .
+        '</tr> ';
     }
 
     $template->set('banners_management_content', $banners_management_content);

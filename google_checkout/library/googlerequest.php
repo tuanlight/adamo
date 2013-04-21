@@ -130,7 +130,7 @@
         $data = $xml_parser->GetData();
 
         $this->log->logRequest("Redirecting to: " .
-            $data[$root]['redirect-url']['VALUE']);
+          $data[$root]['redirect-url']['VALUE']);
         header('Location: ' . $data[$root]['redirect-url']['VALUE']);
         if ($die) {
           die($data[$root]['redirect-url']['VALUE']);
@@ -155,10 +155,10 @@
     function SendChargeOrder($google_order, $amount = '') {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <charge-order xmlns=\"" . $this->schema_url .
-          "\" google-order-number=\"" . $google_order . "\">";
+        "\" google-order-number=\"" . $google_order . "\">";
       if ($amount != '') {
         $postargs .= "<amount currency=\"" . $this->currency . "\">" .
-            $amount . "</amount>";
+          $amount . "</amount>";
       }
       $postargs .= "</charge-order>";
       return $this->SendReq($this->request_url, $this->GetAuthenticationHeaders(), $postargs);
@@ -180,11 +180,11 @@
     function SendRefundOrder($google_order, $amount, $reason, $comment = '') {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <refund-order xmlns=\"" . $this->schema_url .
-          "\" google-order-number=\"" . $google_order . "\">" .
-          "<reason>" . $reason . "</reason>";
+        "\" google-order-number=\"" . $google_order . "\">" .
+        "<reason>" . $reason . "</reason>";
       if ($amount != 0) {
         $postargs .= "<amount currency=\"" . $this->currency . "\">" .
-            htmlentities($amount) . "</amount>";
+          htmlentities($amount) . "</amount>";
       }
       $postargs .= "<comment>" . htmlentities($comment) . "</comment>
                   </refund-order>";
@@ -205,13 +205,13 @@
     function SendCancelOrder($google_order, $reason, $comment) {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <cancel-order xmlns=\"" . $this->schema_url .
-          "\" google-order-number=\"" . $google_order . "\">
+        "\" google-order-number=\"" . $google_order . "\">
                   <reason>" .
-          (substr(htmlentities(strip_tags($reason)), 0, GOOGLE_REASON_LENGTH)) .
-          "</reason>
+        (substr(htmlentities(strip_tags($reason)), 0, GOOGLE_REASON_LENGTH)) .
+        "</reason>
                   <comment>" .
-          (substr(htmlentities(strip_tags($comment)), 0, GOOGLE_REASON_LENGTH)) .
-          "</comment>
+        (substr(htmlentities(strip_tags($comment)), 0, GOOGLE_REASON_LENGTH)) .
+        "</comment>
                   </cancel-order>";
       return $this->SendReq($this->request_url, $this->GetAuthenticationHeaders(), $postargs);
     }
@@ -232,7 +232,7 @@
     function SendTrackingData($google_order, $carrier, $tracking_no) {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <add-tracking-data xmlns=\"" . $this->schema_url .
-          "\" google-order-number=\"" . $google_order . "\">
+        "\" google-order-number=\"" . $google_order . "\">
                   <tracking-data>
                   <carrier>" . htmlentities($carrier) . "</carrier>
                   <tracking-number>" . $tracking_no . "</tracking-number>
@@ -255,9 +255,9 @@
     function SendMerchantOrderNumber($google_order, $merchant_order, $timeout = false) {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <add-merchant-order-number xmlns=\"" . $this->schema_url .
-          "\" google-order-number=\"" . $google_order . "\">
+        "\" google-order-number=\"" . $google_order . "\">
                   <merchant-order-number>" . $merchant_order .
-          "</merchant-order-number>
+        "</merchant-order-number>
                   </add-merchant-order-number>";
       return $this->SendReq($this->request_url, $this->GetAuthenticationHeaders(), $postargs, $timeout);
     }
@@ -280,10 +280,10 @@
     function SendBuyerMessage($google_order, $message, $send_mail = "true", $timeout = false) {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <send-buyer-message xmlns=\"" . $this->schema_url .
-          "\" google-order-number=\"" . $google_order . "\">
+        "\" google-order-number=\"" . $google_order . "\">
                   <message>" .
-          (substr(htmlentities(strip_tags($message)), 0, GOOGLE_MESSAGE_LENGTH))
-          . "</message>
+        (substr(htmlentities(strip_tags($message)), 0, GOOGLE_MESSAGE_LENGTH))
+        . "</message>
                   <send-email>" . strtolower($send_mail) . "</send-email>
                   </send-buyer-message>";
       return $this->SendReq($this->request_url, $this->GetAuthenticationHeaders(), $postargs, $timeout);
@@ -303,7 +303,7 @@
     function SendProcessOrder($google_order) {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <process-order xmlns=\"" . $this->schema_url .
-          "\" google-order-number=\"" . $google_order . "\"/> ";
+        "\" google-order-number=\"" . $google_order . "\"/> ";
       return $this->SendReq($this->request_url, $this->GetAuthenticationHeaders(), $postargs);
     }
 
@@ -327,7 +327,7 @@
     function SendDeliverOrder($google_order, $carrier = "", $tracking_no = "", $send_mail = "true") {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <deliver-order xmlns=\"" . $this->schema_url .
-          "\" google-order-number=\"" . $google_order . "\">";
+        "\" google-order-number=\"" . $google_order . "\">";
       if ($carrier != "" && $tracking_no != "") {
         $postargs .= "<tracking-data>
                   <carrier>" . htmlentities($carrier) . "</carrier>
@@ -352,7 +352,7 @@
     function SendArchiveOrder($google_order) {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <archive-order xmlns=\"" . $this->schema_url .
-          "\" google-order-number=\"" . $google_order . "\"/>";
+        "\" google-order-number=\"" . $google_order . "\"/>";
       return $this->SendReq($this->request_url, $this->GetAuthenticationHeaders(), $postargs);
     }
 
@@ -370,8 +370,8 @@
     function SendUnarchiveOrder($google_order) {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <unarchive-order xmlns=\"" .
-          $this->schema_url . "\" google-order-number=\"" .
-          $google_order . "\"/>";
+        $this->schema_url . "\" google-order-number=\"" .
+        $google_order . "\"/>";
       return $this->SendReq($this->request_url, $this->GetAuthenticationHeaders(), $postargs);
     }
 
@@ -399,8 +399,8 @@
     function SendShipItems($google_order, $items_list = array(), $send_mail = "true") {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <ship-items xmlns=\"" . $this->schema_url .
-          "\" google-order-number=\"" . $google_order . "\">" .
-          "<item-shipping-information-list>\n";
+        "\" google-order-number=\"" . $google_order . "\">" .
+        "<item-shipping-information-list>\n";
       foreach ($items_list as $item) {
         $postargs .= "<item-shipping-information>
                       <item-id>
@@ -420,7 +420,7 @@
         $postargs .= "</item-shipping-information>\n";
       }
       $postargs .= "</item-shipping-information-list>\n" .
-          "<send-email>" . strtolower($send_mail) . "</send-email>
+        "<send-email>" . strtolower($send_mail) . "</send-email>
                   </ship-items>";
       return $this->SendReq($this->request_url, $this->GetAuthenticationHeaders(), $postargs);
     }
@@ -441,8 +441,8 @@
     function SendBackorderItems($google_order, $items_list = array(), $send_mail = "true") {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <backorder-items xmlns=\"" .
-          $this->schema_url . "\" google-order-number=\"" .
-          $google_order . "\">";
+        $this->schema_url . "\" google-order-number=\"" .
+        $google_order . "\">";
       $postargs .= "<item-ids>";
       foreach ($items_list as $item) {
         $postargs .= "<item-id>
@@ -473,8 +473,8 @@
     function SendCancelItems($google_order, $items_list = array(), $reason, $comment = '', $send_mail = "true") {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <cancel-items xmlns=\"" .
-          $this->schema_url . "\" google-order-number=\"" .
-          $google_order . "\">";
+        $this->schema_url . "\" google-order-number=\"" .
+        $google_order . "\">";
       $postargs .= "<item-ids>";
       foreach ($items_list as $item) {
         $postargs .= "<item-id>
@@ -484,11 +484,11 @@
       $postargs .= "</item-ids>";
       $postargs .= "<send-email>" . strtolower($send_mail) . "</send-email>
                   <reason>" .
-          (substr(htmlentities(strip_tags($reason)), 0, GOOGLE_REASON_LENGTH)) .
-          "</reason>
+        (substr(htmlentities(strip_tags($reason)), 0, GOOGLE_REASON_LENGTH)) .
+        "</reason>
                   <comment>" .
-          (substr(htmlentities(strip_tags($comment)), 0, GOOGLE_REASON_LENGTH)) .
-          "</comment>
+        (substr(htmlentities(strip_tags($comment)), 0, GOOGLE_REASON_LENGTH)) .
+        "</comment>
                   </cancel-items>";
       return $this->SendReq($this->request_url, $this->GetAuthenticationHeaders(), $postargs);
     }
@@ -509,8 +509,8 @@
     function SendReturnItems($google_order, $items_list = array(), $send_mail = "true") {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <return-items xmlns=\"" .
-          $this->schema_url . "\" google-order-number=\"" .
-          $google_order . "\">";
+        $this->schema_url . "\" google-order-number=\"" .
+        $google_order . "\">";
       $postargs .= "<item-ids>";
       foreach ($items_list as $item) {
         $postargs .= "<item-id>
@@ -539,8 +539,8 @@
     function SendResetItemsShippingInformation($google_order, $items_list = array(), $send_mail = "true") {
       $postargs = "<?phpxml version=\"1.0\" encoding=\"UTF-8\"?>
                   <reset-items-shipping-information xmlns=\"" .
-          $this->schema_url . "\" google-order-number=\"" .
-          $google_order . "\">";
+        $this->schema_url . "\" google-order-number=\"" .
+        $google_order . "\">";
       $postargs .= "<item-ids>";
       foreach ($items_list as $item) {
         $postargs .= "<item-id>
@@ -559,7 +559,7 @@
     function GetAuthenticationHeaders() {
       $headers = array();
       $headers[] = "Authorization: Basic " . base64_encode(
-              $this->merchant_id . ':' . $this->merchant_key);
+          $this->merchant_id . ':' . $this->merchant_key);
       $headers[] = "Content-Type: application/xml; charset=UTF-8";
       $headers[] = "Accept: application/xml; charset=UTF-8";
       $headers[] = "User-Agent: GC-PHP-Sample_code (" . PHP_SAMPLE_CODE_VERSION . "/ropu)";

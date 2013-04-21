@@ -111,8 +111,7 @@
 			SELECT logo_url AS imgremoval_url FROM " . DB_PREFIX . "payment_options WHERE logo_url!='' ");
 
       while ($img_removal = $db->fetch_array($sql_select_media)) {
-        //$db_media[] = eregi_replace('uplimg/', '', $img_removal['imgremoval_url']);
-        $db_media[] = preg_replace('#uplimg/#', '', $img_removal['imgremoval_url']);
+        $db_media[] = eregi_replace('uplimg/', '', $img_removal['imgremoval_url']);
       }
 
       natcasesort($files);
@@ -151,14 +150,14 @@
       }
 
       $msg_changes_saved .= '<tr class="c1"> ' .
-          '	<td>' .
-          '		<strong>Total Files</strong>: ' . count($files) . '. ' .
-          '		<strong>Total Size</strong>: ' . number_format($total_files_size / 1024, 2, '.', ',') . ' KB.' .
-          '		<br><strong>Total Media in Database</strong>: ' . count($db_media) .
-          '		<br><strong>Total Obsolete Files</strong>: ' . count($obsolete_files) .
-          '		<br><strong>Obsolete Files Erased in this Session</strong>: ' . $counter .
-          '	</td> ' .
-          '</tr></table><br>';
+        '	<td>' .
+        '		<strong>Total Files</strong>: ' . count($files) . '. ' .
+        '		<strong>Total Size</strong>: ' . number_format($total_files_size / 1024, 2, '.', ',') . ' KB.' .
+        '		<br><strong>Total Media in Database</strong>: ' . count($db_media) .
+        '		<br><strong>Total Obsolete Files</strong>: ' . count($obsolete_files) .
+        '		<br><strong>Obsolete Files Erased in this Session</strong>: ' . $counter .
+        '	</td> ' .
+        '</tr></table><br>';
 
       closedir($rep);
       clearstatcache();
@@ -169,10 +168,10 @@
 
     if ($deletion) {
       $management_box = '<table width="100%" border="0" cellspacing="3" cellpadding="3" class="border"> ' .
-          '	<tr class="c2"> ' .
-          '		<td><b>' . AMSG_CLEANUP_SUCCESS . '</b>.<br> <strong>' . $counter . '</strong> ' . AMSG_IMGS_HAVE_BEEN_DELETED_TOTALING .
-          '			<strong>' . number_format($deleted_files_size / 1024, 2, '.', ',') . '</strong> KB. ' .
-          AMSG_OPERATION_LASTED . ' <strong>' . number_format($time_passed, 4) . '</strong> ' . GMSG_SECONDS;
+        '	<tr class="c2"> ' .
+        '		<td><b>' . AMSG_CLEANUP_SUCCESS . '</b>.<br> <strong>' . $counter . '</strong> ' . AMSG_IMGS_HAVE_BEEN_DELETED_TOTALING .
+        '			<strong>' . number_format($deleted_files_size / 1024, 2, '.', ',') . '</strong> KB. ' .
+        AMSG_OPERATION_LASTED . ' <strong>' . number_format($time_passed, 4) . '</strong> ' . GMSG_SECONDS;
 
       if ($exit_loop) {
         $management_box .= '<br><strong>' . AMSG_IMPORTANT . ':</strong> ' . AMSG_IMAGES_STALL_NOTICE;

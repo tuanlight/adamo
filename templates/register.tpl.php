@@ -109,24 +109,6 @@
   </table>
   <br />
   <table width="100%" border="0" cellpadding="3" cellspacing="2" class="border">
-    <tr class="c5">
-      <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1" /></td>
-      <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1" /></td>
-      <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1" /></td>
-    </tr>
-    <tr class="c1">
-      <td width="35%" class="contentfont"><?php echo MSG_COUNTRY; ?></td>
-      <td width="30%" class="contentfont"><?php echo MSG_STATE; ?></td>
-      <td class="contentfont"><?php echo MSG_ZIP_CODE; ?></td>
-    </tr>
-    <tr class="c1">
-      <td><?php echo $country_dropdown; ?></td>
-      <td><?php echo $state_box; ?></td>
-      <td><input name="zip_code" type="text" id="zip_code" value="<?php echo $user_details['zip_code']; ?>" size="15" /></td>
-    </tr>
-  </table>
-  <br />
-  <table width="100%" border="0" cellpadding="3" cellspacing="2" class="border">
 
     <tr class="c5">
       <td><img src="themes/<?php echo $setts['default_theme']; ?>/img/pixel.gif" width="1" height="1" /></td>
@@ -138,11 +120,9 @@
       <td class="contentfont">
         <?php if ($edit_user == 1) { ?>
             <input name="phone" type="text" id="phone" value="<?php echo $user_details['phone']; ?>" size="25" />
-          <?php
-          }
+          <?php }
           else {
             ?>
-            ( <input name="phone_a" type="text" id="phone_a" value="<?php echo $user_details['phone_a']; ?>" size="5" /> )
             <input name="phone_b" type="text" id="phone_b" value="<?php echo $user_details['phone_b']; ?>" size="25" />
   <?php } ?></td>
     </tr>

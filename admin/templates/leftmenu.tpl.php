@@ -82,26 +82,26 @@
       </div>
       <?php
         if (
-            $_REQUEST['page'] == 'signup_settings' ||
-            $_REQUEST['page'] == 'closed_auctions_deletion' ||
-            $_REQUEST['page'] == 'hpfeat_items' ||
-            $_REQUEST['page'] == 'catfeat_items' ||
-            $_REQUEST['page'] == 'recently_listed_auctions' ||
-            $_REQUEST['page'] == 'popular_auctions' ||
-            $_REQUEST['page'] == 'ending_soon_auctions' ||
-            $_REQUEST['page'] == 'auction_images' ||
-            $_REQUEST['page'] == 'currency_setts' ||
-            $_REQUEST['page'] == 'time_date_setts' ||
-            $_REQUEST['page'] == 'ssl_support' ||
-            $_REQUEST['page'] == 'meta_tags' ||
-            $_REQUEST['page'] == 'cron_jobs' ||
-            $_REQUEST['page'] == 'min_reg_age' ||
-            $_REQUEST['page'] == 'recent_wanted_ads' ||
-            $_REQUEST['page'] == 'auction_media' ||
-            $_REQUEST['page'] == 'buy_out_method' ||
-            $_REQUEST['page'] == 'sellitem_buttons' ||
-            $_REQUEST['page'] == 'nb_autorelists' ||
-            $_REQUEST['page'] == 'invoices_settings') {
+          $_REQUEST['page'] == 'signup_settings' ||
+          $_REQUEST['page'] == 'closed_auctions_deletion' ||
+          $_REQUEST['page'] == 'hpfeat_items' ||
+          $_REQUEST['page'] == 'catfeat_items' ||
+          $_REQUEST['page'] == 'recently_listed_auctions' ||
+          $_REQUEST['page'] == 'popular_auctions' ||
+          $_REQUEST['page'] == 'ending_soon_auctions' ||
+          $_REQUEST['page'] == 'auction_images' ||
+          $_REQUEST['page'] == 'currency_setts' ||
+          $_REQUEST['page'] == 'time_date_setts' ||
+          $_REQUEST['page'] == 'ssl_support' ||
+          $_REQUEST['page'] == 'meta_tags' ||
+          $_REQUEST['page'] == 'cron_jobs' ||
+          $_REQUEST['page'] == 'min_reg_age' ||
+          $_REQUEST['page'] == 'recent_wanted_ads' ||
+          $_REQUEST['page'] == 'auction_media' ||
+          $_REQUEST['page'] == 'buy_out_method' ||
+          $_REQUEST['page'] == 'sellitem_buttons' ||
+          $_REQUEST['page'] == 'nb_autorelists' ||
+          $_REQUEST['page'] == 'invoices_settings') {
           
         }
         else {
@@ -151,35 +151,35 @@
       </div>
       <?php
         if (
-            $_REQUEST['page'] == 'shipping_costs' ||
-            $_REQUEST['page'] == 'hp_login_box' ||
-            $_REQUEST['page'] == 'hp_news_box' ||
-            $_REQUEST['page'] == 'buy_out_method' ||
-            $_REQUEST['page'] == 'registration_terms' ||
-            $_REQUEST['page'] == 'sellitem_terms' ||
-            $_REQUEST['page'] == 'swapping' ||
-            $_REQUEST['page'] == 'hp_counter' ||
-            $_REQUEST['page'] == 'addl_category_listing' ||
-            $_REQUEST['page'] == 'user_languages' ||
-            $_REQUEST['page'] == 'auction_sniping' ||
-            $_REQUEST['page'] == 'private_site' ||
-            $_REQUEST['page'] == 'preferred_sellers' ||
-            $_REQUEST['page'] == 'bcc_emails' ||
-            $_REQUEST['page'] == 'seller_questions' ||
-            $_REQUEST['page'] == 'wanted_ads' ||
-            $_REQUEST['page'] == 'bid_retraction' ||
-            $_REQUEST['page'] == 'seller_other_items' ||
-            $_REQUEST['page'] == 'bulk_lister' ||
-            $_REQUEST['page'] == 'category_counters' ||
-            $_REQUEST['page'] == 'phone_nb_sale' ||
-            $_REQUEST['page'] == 'mod_rewrite' ||
-            $_REQUEST['page'] == 'auction_approval' ||
-            $_REQUEST['page'] == 'change_duration' ||
-            $_REQUEST['page'] == 'seller_verification' ||
-            $_REQUEST['page'] == 'profile_page' ||
-            $_REQUEST['page'] == 'store_only_mode' ||
-            $_REQUEST['page'] == 'skin_change' ||
-            $_REQUEST['page'] == 'second_chance') {
+          $_REQUEST['page'] == 'shipping_costs' ||
+          $_REQUEST['page'] == 'hp_login_box' ||
+          $_REQUEST['page'] == 'hp_news_box' ||
+          $_REQUEST['page'] == 'buy_out_method' ||
+          $_REQUEST['page'] == 'registration_terms' ||
+          $_REQUEST['page'] == 'sellitem_terms' ||
+          $_REQUEST['page'] == 'swapping' ||
+          $_REQUEST['page'] == 'hp_counter' ||
+          $_REQUEST['page'] == 'addl_category_listing' ||
+          $_REQUEST['page'] == 'user_languages' ||
+          $_REQUEST['page'] == 'auction_sniping' ||
+          $_REQUEST['page'] == 'private_site' ||
+          $_REQUEST['page'] == 'preferred_sellers' ||
+          $_REQUEST['page'] == 'bcc_emails' ||
+          $_REQUEST['page'] == 'seller_questions' ||
+          $_REQUEST['page'] == 'wanted_ads' ||
+          $_REQUEST['page'] == 'bid_retraction' ||
+          $_REQUEST['page'] == 'seller_other_items' ||
+          $_REQUEST['page'] == 'bulk_lister' ||
+          $_REQUEST['page'] == 'category_counters' ||
+          $_REQUEST['page'] == 'phone_nb_sale' ||
+          $_REQUEST['page'] == 'mod_rewrite' ||
+          $_REQUEST['page'] == 'auction_approval' ||
+          $_REQUEST['page'] == 'change_duration' ||
+          $_REQUEST['page'] == 'seller_verification' ||
+          $_REQUEST['page'] == 'profile_page' ||
+          $_REQUEST['page'] == 'store_only_mode' ||
+          $_REQUEST['page'] == 'skin_change' ||
+          $_REQUEST['page'] == 'second_chance') {
           
         }
         else {
@@ -207,11 +207,11 @@
 
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "table_countries.php") ||
-            stristr($_SERVER['PHP_SELF'], "table_item_durations.php") ||
-            stristr($_SERVER['PHP_SELF'], "table_payment_options.php") ||
-            stristr($_SERVER['PHP_SELF'], "table_shipping_options.php") ||
-            stristr($_SERVER['PHP_SELF'], "table_bid_increments.php")) {
+          eregi("table_countries.php", $_SERVER['PHP_SELF']) ||
+          eregi("table_item_durations.php", $_SERVER['PHP_SELF']) ||
+          eregi("table_payment_options.php", $_SERVER['PHP_SELF']) ||
+          eregi("table_shipping_options.php", $_SERVER['PHP_SELF']) ||
+          eregi("table_bid_increments.php", $_SERVER['PHP_SELF'])) {
           
         }
         else {
@@ -246,12 +246,12 @@
       </div>
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "vouchers_management.php") ||
-            stristr($_SERVER['PHP_SELF'], "content_section.php") ||
-            stristr($_SERVER['PHP_SELF'], "content_pages.php") ||
-            stristr($_SERVER['PHP_SELF'], "content_system_emails.php") ||
-            stristr($_SERVER['PHP_SELF'], "content_banners_management.php") ||
-            stristr($_SERVER['PHP_SELF'], "content_language_files.php")) {
+          eregi("vouchers_management.php", $_SERVER['PHP_SELF']) ||
+          eregi("content_section.php", $_SERVER['PHP_SELF']) ||
+          eregi("content_pages.php", $_SERVER['PHP_SELF']) ||
+          eregi("content_system_emails.php", $_SERVER['PHP_SELF']) ||
+          eregi("content_banners_management.php", $_SERVER['PHP_SELF']) ||
+          eregi("content_language_files.php", $_SERVER['PHP_SELF'])) {
           
         }
         else {
@@ -285,19 +285,19 @@
       </div>
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "list_admin_users.php") ||
-            stristr($_SERVER['PHP_SELF'], "list_user_bids.php") ||
-            stristr($_SERVER['PHP_SELF'], "list_site_users.php") ||
-            stristr($_SERVER['PHP_SELF'], "list_users_reputations.php") ||
-            stristr($_SERVER['PHP_SELF'], "user_login.php") ||
-            stristr($_SERVER['PHP_SELF'], "send_activation_emails.php") ||
-            stristr($_SERVER['PHP_SELF'], "user_newsletter.php") ||
-            stristr($_SERVER['PHP_SELF'], "abuse_reports.php") ||
-            stristr($_SERVER['PHP_SELF'], "ban_users.php") ||
-            stristr($_SERVER['PHP_SELF'], "blocked_users.php") ||
-            $_REQUEST['page'] == 'register' ||
-            $_REQUEST['page'] == 'reputation_sale' ||
-            $_REQUEST['page'] == 'reputation_purchase') {
+          eregi("list_admin_users.php", $_SERVER['PHP_SELF']) ||
+          eregi("list_user_bids.php", $_SERVER['PHP_SELF']) ||
+          eregi("list_site_users.php", $_SERVER['PHP_SELF']) ||
+          eregi("list_users_reputations.php", $_SERVER['PHP_SELF']) ||
+          eregi("user_login.php", $_SERVER['PHP_SELF']) ||
+          eregi("send_activation_emails.php", $_SERVER['PHP_SELF']) ||
+          eregi("user_newsletter.php", $_SERVER['PHP_SELF']) ||
+          eregi("abuse_reports.php", $_SERVER['PHP_SELF']) ||
+          eregi("ban_users.php", $_SERVER['PHP_SELF']) ||
+          eregi("blocked_users.php", $_SERVER['PHP_SELF']) ||
+          $_REQUEST['page'] == 'register' ||
+          $_REQUEST['page'] == 'reputation_sale' ||
+          $_REQUEST['page'] == 'reputation_purchase') {
           
         }
         else {
@@ -330,13 +330,13 @@
       </div>
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "list_auctions.php") ||
-            stristr($_SERVER['PHP_SELF'], "list_sold_items.php") ||
-            stristr($_SERVER['PHP_SELF'], "list_wanted_ads.php") ||
-            stristr($_SERVER['PHP_SELF'], "list_messaging.php") ||
-            stristr($_SERVER['PHP_SELF'], "images_removal_tool.php") ||
-            $_REQUEST['page'] == 'auction' ||
-            $_REQUEST['page'] == 'wanted_ad') {
+          eregi("list_auctions.php", $_SERVER['PHP_SELF']) ||
+          eregi("list_sold_items.php", $_SERVER['PHP_SELF']) ||
+          eregi("list_wanted_ads.php", $_SERVER['PHP_SELF']) ||
+          eregi("list_messaging.php", $_SERVER['PHP_SELF']) ||
+          eregi("images_removal_tool.php", $_SERVER['PHP_SELF']) ||
+          $_REQUEST['page'] == 'auction' ||
+          $_REQUEST['page'] == 'wanted_ad') {
           
         }
         else {
@@ -361,9 +361,9 @@
       </div>
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "stores_subscriptions.php") ||
-            stristr($_SERVER['PHP_SELF'], "stores_management.php") ||
-            $_REQUEST['page'] == 'enable_stores') {
+          eregi("stores_subscriptions.php", $_SERVER['PHP_SELF']) ||
+          eregi("stores_management.php", $_SERVER['PHP_SELF']) ||
+          $_REQUEST['page'] == 'enable_stores') {
           
         }
         else {
@@ -386,7 +386,7 @@
       </div>
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "custom_fields_types.php")) {
+          eregi("custom_fields_types.php", $_SERVER['PHP_SELF'])) {
           
         }
         else {
@@ -411,9 +411,9 @@
       </div>
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "table_categories.php") ||
-            stristr($_SERVER['PHP_SELF'], "categories_lang.php") ||
-            stristr($_SERVER['PHP_SELF'], "table_suggested_categories.php")) {
+          eregi("table_categories.php", $_SERVER['PHP_SELF']) ||
+          eregi("categories_lang.php", $_SERVER['PHP_SELF']) ||
+          eregi("table_suggested_categories.php", $_SERVER['PHP_SELF'])) {
           
         }
         else {
@@ -440,11 +440,11 @@
       </div>
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "fees_settings.php") ||
-            stristr($_SERVER['PHP_SELF'], "fees_payment_gateways.php") ||
-            stristr($_SERVER['PHP_SELF'], "fees_management.php") ||
-            stristr($_SERVER['PHP_SELF'], "table_currencies.php") ||
-            $_REQUEST['page'] == 'mcrypt') {
+          eregi("fees_settings.php", $_SERVER['PHP_SELF']) ||
+          eregi("fees_payment_gateways.php", $_SERVER['PHP_SELF']) ||
+          eregi("fees_management.php", $_SERVER['PHP_SELF']) ||
+          eregi("table_currencies.php", $_SERVER['PHP_SELF']) ||
+          $_REQUEST['page'] == 'mcrypt') {
           
         }
         else {
@@ -468,8 +468,8 @@
       </div>
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "accounting.php") ||
-            $_REQUEST['show'] == 'accounting_overdue') {
+          eregi("accounting.php", $_SERVER['PHP_SELF']) ||
+          $_REQUEST['show'] == 'accounting_overdue') {
           
         }
         else {
@@ -493,8 +493,8 @@
       </div>
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "tax_settings.php") ||
-            $_REQUEST['page'] == 'enable_tax') {
+          eregi("tax_settings.php", $_SERVER['PHP_SELF']) ||
+          $_REQUEST['page'] == 'enable_tax') {
           
         }
         else {
@@ -519,8 +519,8 @@
       </div>
       <?php
         if (
-            stristr($_SERVER['PHP_SELF'], "word_filter.php") ||
-            stristr($_SERVER['PHP_SELF'], "block_free_emails.php")) {
+          eregi("word_filter.php", $_SERVER['PHP_SELF']) ||
+          eregi("block_free_emails.php", $_SERVER['PHP_SELF'])) {
           
         }
         else {

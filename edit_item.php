@@ -45,7 +45,7 @@
     $item->edit_auction = true;
 
     $sell_item_header = '<table width="100%" border="0" cellpadding="3" cellspacing="2" class="border"> ' .
-        '<tr><td class="c3"><b>' . MSG_EDIT_AUCTION . '</b></td></tr></table>';
+      '<tr><td class="c3"><b>' . MSG_EDIT_AUCTION . '</b></td></tr></table>';
 
     /**
      * We create a temporary row in the items table for every ad that is made. If the ad is placed, this temporary row
@@ -179,8 +179,8 @@
 
           $edit_success_message = $setup_result['display'];
           $edit_success_message .= '<p align="center" class="contentfont">' .
-              '[ <a href="auction_details.php?auction_id=' . $item_details['auction_id'] . '">' . MSG_VIEW_AUCTION . '</a> ] ' .
-              '[ <a href="members_area.php?page=selling&section=open">' . MSG_EDIT_MORE_AUCTIONS . '</a> ]</p>';
+            '[ <a href="auction_details.php?auction_id=' . $item_details['auction_id'] . '">' . MSG_VIEW_AUCTION . '</a> ] ' .
+            '[ <a href="members_area.php?page=selling&section=open">' . MSG_EDIT_MORE_AUCTIONS . '</a> ]</p>';
 
           $template->set('message_content', $edit_success_message);
         }

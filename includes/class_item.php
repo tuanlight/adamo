@@ -609,46 +609,46 @@
 
         if ($box_title) {
           $display_output .= '<tr class="c4"> ' .
-              '	<td colspan="3">' . $msg_upload_box_title . '</td> ' .
-              '</tr> ' .
-              '<tr class="c5"> ' .
-              '	<td><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="150" height="1"></td> ' .
-              '	<td colspan="2"><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="1" height="1"></td> ' .
-              '</tr> ';
+            '	<td colspan="3">' . $msg_upload_box_title . '</td> ' .
+            '</tr> ' .
+            '<tr class="c5"> ' .
+            '	<td><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="150" height="1"></td> ' .
+            '	<td colspan="2"><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="1" height="1"></td> ' .
+            '</tr> ';
         }
 
         $display_output .= '<tr class="c1"> ' .
-            '	<td align="right" nowrap>' . MSG_UPLOAD_FILE . '</td> ' .
-            '	<td><input type="file" name="item_file_upload_' . $media_type . '" style="width: 250px;" /></td> ' .
-            '	<td ' . (($this->upload_url) ? 'rowspan="2"' : '') . ' width="100%"><input type="button" name="btn_upload_file" value="' . GMSG_UPLOAD_IMAGE . '" onclick="submit_form(' . $form_name . ', ' . $media_type . ');" ' . $submit_btn_status . ' /></td> ' .
-            '</tr> ';
+          '	<td align="right" nowrap>' . MSG_UPLOAD_FILE . '</td> ' .
+          '	<td><input type="file" name="item_file_upload_' . $media_type . '" style="width: 250px;" /></td> ' .
+          '	<td ' . (($this->upload_url) ? 'rowspan="2"' : '') . ' width="100%"><input type="button" name="btn_upload_file" value="' . GMSG_UPLOAD_IMAGE . '" onclick="submit_form(' . $form_name . ', ' . $media_type . ');" ' . $submit_btn_status . ' /></td> ' .
+          '</tr> ';
 
         if ($this->upload_url) {
           $display_output .= '<tr class="c2"> ' .
-              '	<td align="right" nowrap>' . MSG_ENTER_FILE_URL . '</td> ' .
-              '	<td><input type="text" name="item_file_url_' . $media_type . '" style="width: 180px;" /></td> ' .
-              '</tr> ';
+            '	<td align="right" nowrap>' . MSG_ENTER_FILE_URL . '</td> ' .
+            '	<td><input type="text" name="item_file_url_' . $media_type . '" style="width: 180px;" /></td> ' .
+            '</tr> ';
         }
 
         $display_output .= '<tr class="reguser"> ' .
-            '	<td class="contentfont" align="right">' . $display_fee . '</td> ' .
-            '	<td colspan="2">' . MSG_YOU_CAN_UPL_UP_TO . ' ' . $max_media . ' ' . $msg_media . '. ' . $fee_message . '</td> ' .
-            '</tr> ';
+          '	<td class="contentfont" align="right">' . $display_fee . '</td> ' .
+          '	<td colspan="2">' . MSG_YOU_CAN_UPL_UP_TO . ' ' . $max_media . ' ' . $msg_media . '. ' . $fee_message . '</td> ' .
+          '</tr> ';
 
         if ($nb_uploads) {
           $display_output .= '<tr> ' .
-              '	<td align="right">&nbsp;</td> ' .
-              '	<td colspan="2" class="border"><strong>' . $msg_uploaded_media . '</strong></td> ' .
-              '</tr> ' .
-              '<tr> ' .
-              '	<td width="150" align="right">&nbsp;</td> ' .
-              '	<td colspan="2" class="c1"> ' .
-              '		<table border="0" cellspacing="0" cellpadding="0"> ' .
-              '			<tr> ';
+            '	<td align="right">&nbsp;</td> ' .
+            '	<td colspan="2" class="border"><strong>' . $msg_uploaded_media . '</strong></td> ' .
+            '</tr> ' .
+            '<tr> ' .
+            '	<td width="150" align="right">&nbsp;</td> ' .
+            '	<td colspan="2" class="c1"> ' .
+            '		<table border="0" cellspacing="0" cellpadding="0"> ' .
+            '			<tr> ';
           for ($i = 0; $i < $nb_uploads; $i++) {
             $display_output .= '<td style="padding-right: 4px; padding-bottom: 4px;"><table border="0" cellspacing="1" cellpadding="2" class="border c2"> ' .
-                '	<tr> ' .
-                '		<td align="center"> ';
+              '	<tr> ' .
+              '		<td align="center"> ';
 
             if ($media_type == 1) /* image thumbnail */ {
               $display_output .= '<img src="' . SITE_PATH . 'thumbnail.php?pic=' . $variables_array[$media_name][$i] . '&w=80&sq=Y&b=Y" border="0" alt="' . $variables_array[$media_name][$i] . '"> ';
@@ -658,28 +658,28 @@
             }
 
             $display_output .= '</td> ' .
-                '	</tr> ' .
-                '	<tr> ' .
-                '		<td align="center"><table border="0" cellspacing="1" cellpadding="1"> ' .
-                '			<tr> ' .
-                '				<td>' . GMSG_DELETE . '</td> ' .
-                '				<td><input type="checkbox" name="delete_media[]" value="1" onclick="delete_media(' . $form_name . ', ' . $media_type . ', ' . $i . ');" /></td> ' .
-                '			</tr> ' .
-                '		</table></td> ' .
-                '	</tr> ' .
-                '</table></td> ';
+              '	</tr> ' .
+              '	<tr> ' .
+              '		<td align="center"><table border="0" cellspacing="1" cellpadding="1"> ' .
+              '			<tr> ' .
+              '				<td>' . GMSG_DELETE . '</td> ' .
+              '				<td><input type="checkbox" name="delete_media[]" value="1" onclick="delete_media(' . $form_name . ', ' . $media_type . ', ' . $i . ');" /></td> ' .
+              '			</tr> ' .
+              '		</table></td> ' .
+              '	</tr> ' .
+              '</table></td> ';
           }
 
           $display_output .= '	</tr> ' .
-              '		</table>' .
-              '	</td> ' .
-              '</tr> ';
+            '		</table>' .
+            '	</td> ' .
+            '</tr> ';
 
           if ($box_title) {
             $display_output .= '<tr class="reguser"> ' .
-                '	<td>&nbsp;</td> ' .
-                '	<td colspan="2">' . $msg_uploaded_media_expl . '</td> ' .
-                '</tr> ';
+              '	<td>&nbsp;</td> ' .
+              '	<td colspan="2">' . $msg_uploaded_media_expl . '</td> ' .
+              '</tr> ';
           }
         }
 
@@ -904,12 +904,12 @@
           $logo_url = SITE_PATH . (($payment_gateway['logo_url']) ? $payment_gateway['logo_url'] : 'images/noimg.gif');
 
           $field_output = '<table cellpadding="0" cellspacing="0" border="0"> ' .
-              '	<tr> ';
+            '	<tr> ';
 
           $field_output .= '<td><img src="' . $logo_url . '" border="0" alt="' . $payment_gateway['name'] . '"></td> ' .
-              '	</tr> ' .
-              '	<tr> ' .
-              '		<td>';
+            '	</tr> ' .
+            '	<tr> ' .
+            '		<td>';
 
           if (!$show_only) {
             $user_details = $this->get_sql_row("SELECT * FROM " . DB_PREFIX . "users WHERE user_id=" . intval($user_id));
@@ -953,8 +953,8 @@
           }
 
           $field_output .= $payment_gateway['name'] . '</td> ' .
-              '	</tr> ' .
-              '</table>';
+            '	</tr> ' .
+            '</table>';
 
           $output[] = $field_output;
         }
@@ -985,20 +985,20 @@
             $logo_url = (($payment_option['logo_url']) ? $payment_option['logo_url'] : 'images/noimg.gif');
 
             $field_output = '<table cellpadding="0" cellspacing="0" border="0"> ' .
-                '	<tr> ';
+              '	<tr> ';
 
             $field_output .= '<td><img src="' . SITE_PATH . 'thumbnail.php?pic=' . $logo_url . '&w=80&sq=Y&b=Y" border="0" alt="' . $payment_option['name'] . '"></td> ' .
-                '	</tr> ' .
-                '	<tr> ' .
-                '		<td>';
+              '	</tr> ' .
+              '	<tr> ' .
+              '		<td>';
 
             if (!$show_only) {
               $field_output .= '<input type="checkbox" name="payment_option[]" value="' . $payment_option['id'] . '" ' . ((in_array($payment_option['id'], $selected_value)) ? 'checked' : '') . '> ';
             }
 
             $field_output .= $payment_option['name'] . '</td> ' .
-                '	</tr> ' .
-                '</table>';
+              '	</tr> ' .
+              '</table>';
 
             $output[] = $field_output;
           }
@@ -1247,9 +1247,9 @@
       $time_left = $item_details['end_time'] - ($this->min_hours_close * 60 * 60);
 
       return ($time_left > CURRENT_TIME && $item_details['active'] == 1 && $item_details['approved'] == 1 &&
-          $item_details['payment_status'] == 'confirmed' && $item_details['closed'] == 0 &&
-          $item_details['owner_id'] == $user_id &&
-          ($item_details['nb_bids'] <= 0 || $item_details['max_bid'] < $item_details['reserve_price'])) ? true : false;
+        $item_details['payment_status'] == 'confirmed' && $item_details['closed'] == 0 &&
+        $item_details['owner_id'] == $user_id &&
+        ($item_details['nb_bids'] <= 0 || $item_details['max_bid'] < $item_details['reserve_price'])) ? true : false;
     }
 
     function update_prefilled($prefilled_fields, $user_id) {
@@ -1300,7 +1300,7 @@
 
       if (!$user_id) {
         $output['display'] = '<p align="center" class="contentfont" style="color: red; font-weight: bold;">' . MSG_CANTBID_LOGIN . '</p>' .
-            '<div align="center" class="contentfont"><a href="login.php?redirect=auction_details.php?auction_id=' . $item_details['auction_id'] . '">' . MSG_LOGIN_TO_MEMBERS_AREA . '</a></div>';
+          '<div align="center" class="contentfont"><a href="login.php?redirect=auction_details.php?auction_id=' . $item_details['auction_id'] . '">' . MSG_LOGIN_TO_MEMBERS_AREA . '</a></div>';
       }
       else if ($item_details['start_price'] == $item_details['buyout_price']) {
         $output['display'] = MSG_CANTBID_BUYOUT_ONLY;
@@ -2495,9 +2495,9 @@
 
           while ($winner_details = $this->fetch_array($sql_select_winners)) {
             $display_output_tmp[] = (($winner_details['quantity_offered'] > 1) ? $winner_details['quantity_offered'] . ' x ' : '') .
-                '<span class="greenfont"><b>' . $this->fees->display_amount($winner_details['bid_amount'], $item_details['currency']) . '</b></span> - ' .
-                (($item_details['hidden_bidding'] && !$this->show_hidden_bid) ? MSG_BIDDER_ID_HIDDEN : $winner_details['username'] . user_pics($winner_details['user_id'])) .
-                (($winner_details['buyout_purchase']) ? ' [ ' . MSG_PURCHASED_WITH_BUY_OUT . ' ] ' : '');
+              '<span class="greenfont"><b>' . $this->fees->display_amount($winner_details['bid_amount'], $item_details['currency']) . '</b></span> - ' .
+              (($item_details['hidden_bidding'] && !$this->show_hidden_bid) ? MSG_BIDDER_ID_HIDDEN : $winner_details['username'] . user_pics($winner_details['user_id'])) .
+              (($winner_details['buyout_purchase']) ? ' [ ' . MSG_PURCHASED_WITH_BUY_OUT . ' ] ' : '');
           }
           $display_output = $this->implode_array($display_output_tmp, '<br>');
         }
@@ -2516,7 +2516,7 @@
 
           while ($bid_details = $this->fetch_array($sql_select_bids)) {
             $display_output_tmp[] = '<span class="greenfont"><b>' . $this->fees->display_amount($bid_details['bid_amount'], $item_details['currency']) . '</b></span> - ' .
-                (($item_details['hidden_bidding'] && !$this->show_hidden_bid) ? MSG_BIDDER_ID_HIDDEN : $bid_details['username'] . user_pics($bid_details['user_id']));
+              (($item_details['hidden_bidding'] && !$this->show_hidden_bid) ? MSG_BIDDER_ID_HIDDEN : $bid_details['username'] . user_pics($bid_details['user_id']));
           }
 
           $display_output = $this->implode_array($display_output_tmp, '<br>');
@@ -2547,16 +2547,16 @@
 
         while ($winning_bid_details = $this->fetch_array($sql_select_wins)) {
           $display_output .= '<tr class="c2 contentfont"><td>' .
-              (($seller_logged) ? MSG_WINNER . ': <b>' . $winning_bid_details['buyer_username'] . '</b>' : MSG_SELLER . ': <b>' . $winning_bid_details['seller_username'] . '</b>') .
-              '	</td><td>' .
-              ' 	[ <a href="' . process_link('message_board', array('message_handle' => '3', 'winner_id' => $winning_bid_details['winner_id'])) . '"><b class="greenfont">' . MSG_GO_TO_MSG_BOARD . '</b></a> ]' .
-              '	</td></tr>';
+            (($seller_logged) ? MSG_WINNER . ': <b>' . $winning_bid_details['buyer_username'] . '</b>' : MSG_SELLER . ': <b>' . $winning_bid_details['seller_username'] . '</b>') .
+            '	</td><td>' .
+            ' 	[ <a href="' . process_link('message_board', array('message_handle' => '3', 'winner_id' => $winning_bid_details['winner_id'])) . '"><b class="greenfont">' . MSG_GO_TO_MSG_BOARD . '</b></a> ]' .
+            '	</td></tr>';
         }
 
         if (!empty($display_output)) {
           $display_output .= '<tr class="c5"> ' .
-              '	<td colspan="2"><img src="themes/' . $setts['default_theme'] . '/img/pixel.gif" width="1" height="1"></td> ' .
-              '</tr> ';
+            '	<td colspan="2"><img src="themes/' . $setts['default_theme'] . '/img/pixel.gif" width="1" height="1"></td> ' .
+            '</tr> ';
         }
       }
 
@@ -2580,7 +2580,7 @@
 
     function edit_description($item_details, $description_edit) {
       $description = $item_details['description'] . '<br><hr>' .
-          MSG_ON . ' ' . show_date(CURRENT_TIME) . ', ' . MSG_DESC_HAS_BEEN_ADDED . ':<br><br>' . $description_edit;
+        MSG_ON . ' ' . show_date(CURRENT_TIME) . ', ' . MSG_DESC_HAS_BEEN_ADDED . ':<br><br>' . $description_edit;
 
       $this->query("UPDATE " . DB_PREFIX . "auctions SET
 			description='" . $this->rem_special_chars($description) . "' WHERE
@@ -2637,7 +2637,7 @@
             }
 
             $display_output = '<p align="center"><br>' . MSG_CONGRATS_YOU_WON . ' <b>' . $item_details['name'] . '</b> (' . MSG_TRANSACTION_ID . ': ' . $winner_details['winner_id'] . ').</p> ' .
-                '<p align="center">' . MSG_PROCEED_TO_PG_DP_MSG . ' <b>' . $this->fees->display_amount($payment_amount, $item_details['currency']) . '</b>.<br> ';
+              '<p align="center">' . MSG_PROCEED_TO_PG_DP_MSG . ' <b>' . $this->fees->display_amount($payment_amount, $item_details['currency']) . '</b>.<br> ';
 
             if ($tax_details['apply']) {
               $display_output .= '(' . $tax_details['tax_rate'] . ' ' . $tax_details['tax_name'] . ' ' . MSG_INCLUDED_IN_PRICE . ')';
@@ -2746,7 +2746,7 @@
         $transaction_id = $this->implode_array($transaction_ids) . 'TBL' . $fee_table;
 
         $display_output = '<p align="center" class="errormessage"><b>' . MSG_INVOICE_PAYMENT . ' [ ' . MSG_INVOICE_ID . ': ' . $invoice_id . ' ]</b><br><br> ' .
-            MSG_PROCEED_TO_PG_DP_MSG . ' <b>' . $this->fees->display_amount($payment_amount, $invoice_currency) . '</b>.</p><br>';
+          MSG_PROCEED_TO_PG_DP_MSG . ' <b>' . $this->fees->display_amount($payment_amount, $invoice_currency) . '</b>.</p><br>';
 
         $this->fees->user_id = $buyer_id;
         $this->fees->seller_id = $invoice_seller;
@@ -2901,7 +2901,7 @@
       $output = false;
 
       if ($item_details['active'] == 1 && $item_details['deleted'] == 0 && $item_details['closed'] == 1 &&
-          $item_details['nb_bids'] > 0 && $item_details['max_bid'] < $item_details['reserve_price']) {
+        $item_details['nb_bids'] > 0 && $item_details['max_bid'] < $item_details['reserve_price']) {
         $output = true;
       }
 
@@ -2938,12 +2938,12 @@
 
       if ($can_make_offer && !$offer_accepted) {
         $display_output .= '[ <a href="members_area.php?page=selling&section=view_offers&do=accept_offer&offer_id=' . $offer_id .
-            '&offer_type=' . $offer_type . '&auction_id=' . $auction_id . '" onclick="return confirm(\'' . MSG_ACCEPT_OFFER_CONFIRM . '\');">' . MSG_ACCEPT_OFFER . '</a> ] ';
+          '&offer_type=' . $offer_type . '&auction_id=' . $auction_id . '" onclick="return confirm(\'' . MSG_ACCEPT_OFFER_CONFIRM . '\');">' . MSG_ACCEPT_OFFER . '</a> ] ';
       }
 
       if ($offer_type != 'bids') {
         $display_output .= '[ <a href="members_area.php?page=selling&section=view_offers&do=delete_offer&offer_id=' . $offer_id .
-            '&offer_type=' . $offer_type . '&auction_id=' . $auction_id . '" onclick="return confirm(\'' . MSG_DELETE_CONFIRM . '\');">' . GMSG_DELETE . '</a> ] ';
+          '&offer_type=' . $offer_type . '&auction_id=' . $auction_id . '" onclick="return confirm(\'' . MSG_DELETE_CONFIRM . '\');">' . GMSG_DELETE . '</a> ] ';
       }
 
       return $display_output;
@@ -3125,7 +3125,7 @@
       $minimum_timeframe = $win_details['purchase_date'] + ($this->setts['second_chance_days'] * 24 * 60 * 60);
 
       if ($this->setts['enable_second_chance'] && $win_details['auction_type'] == 'standard' &&
-          (CURRENT_TIME >= $minimum_timeframe && $win_details['seller_id'] == $user_id && !$win_details['flag_paid'])) {
+        (CURRENT_TIME >= $minimum_timeframe && $win_details['seller_id'] == $user_id && !$win_details['flag_paid'])) {
         $result = true;
       }
 

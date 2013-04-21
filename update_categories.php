@@ -22,7 +22,7 @@
 
     if (@!$open_file = fopen('language/' . $setts['site_lang'] . '/categories_array.php', 'w')) {
       $template_output .= 'Sorry I cannot open the file language/' . $setts['site_lang'] . '/categories_array.php, ' .
-          'please inform the administrator of this problem';
+        'please inform the administrator of this problem';
     }
 
     (array) $categories_array = null;
@@ -82,7 +82,7 @@
 
     if (@!$open_file = fopen('language/' . $setts['site_lang'] . '/category.lang.php', 'w')) {
       $template_output .= 'Sorry I cannot open the file language/' . $setts['site_lang'] . '/category.lang.php, ' .
-          'please inform the administrator of this problem';
+        'please inform the administrator of this problem';
     }
 
     (string) $category_lang = null;
@@ -108,10 +108,10 @@
     include_once ('global_header.php');
 
     $template_output .= '<table width="100%" border="0" cellspacing="2" cellpadding="3" class="border"> ' .
-        '<tr><td>The categories array file has been saved, redirecting, please wait...<br><br>Please click ' .
-        '<a href=' . $link . '>here</a><br>if the page does not refresh automatically.' .
-        '<script>window.setTimeout(\'changeurl();\',2500); function changeurl(){window.location=\'' . $link . '\'}</script>' .
-        '</td></tr></table>';
+      '<tr><td>The categories array file has been saved, redirecting, please wait...<br><br>Please click ' .
+      '<a href=' . $link . '>here</a><br>if the page does not refresh automatically.' .
+      '<script>window.setTimeout(\'changeurl();\',2500); function changeurl(){window.location=\'' . $link . '\'}</script>' .
+      '</td></tr></table>';
 
     include_once ('global_footer.php');
 

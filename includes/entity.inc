@@ -193,8 +193,8 @@
         // Build the query.
         $query = $this->buildQuery($ids, $conditions, $revision_id);
         $queried_entities = $query
-            ->execute()
-            ->fetchAllAssoc($this->idKey);
+          ->execute()
+          ->fetchAllAssoc($this->idKey);
       }
 
       // Pass all entities loaded from the database through $this->attachLoad(),

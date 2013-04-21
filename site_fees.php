@@ -2,7 +2,7 @@
 #################################################################
 ## MyPHPAuction v6.04															##
 ##-------------------------------------------------------------##
-## Copyright Â©2009 MyPHPAuction. All rights reserved.	##
+## Copyright ©2009 MyPHPAuction. All rights reserved.	##
 ##-------------------------------------------------------------##
 #################################################################
 
@@ -26,12 +26,12 @@
 	parent_id=0 AND custom_fees=1 ORDER BY order_id ASC, name ASC");
 
   $fees_categories_box = '<select name="fees_category_id"> ' .
-      '	<option value="0" selected>' . GMSG_GENERAL . '</option> ' .
-      '	<option value="0">------------------------</option> ';
+    '	<option value="0" selected>' . GMSG_GENERAL . '</option> ' .
+    '	<option value="0">------------------------</option> ';
 
   while ($cat_details = $db->fetch_array($sql_select_categories)) {
     $fees_categories_box .= '<option value="' . $cat_details['category_id'] . '" ' .
-        (($cat_details['category_id'] == $category_id) ? 'selected' : '') . '>' . $cat_details['name'] . '</option> ';
+      (($cat_details['category_id'] == $category_id) ? 'selected' : '') . '>' . $cat_details['name'] . '</option> ';
   }
 
   $fees_categories_box .= '</select> ';
@@ -49,9 +49,9 @@
     $background = ($counter++ % 2) ? 'c1' : 'c2';
 
     $listing_fees_table .= '<tr class="' . $background . '"> ' .
-        '	<td width="100%">' . MSG_FROM . ' <b>' . $fees->display_amount($tier_details['fee_from']) . '</b> ' . MSG_TO . ' <b>' . $fees->display_amount($tier_details['fee_to']) . '</b></td> ' .
-        '	<td nowrap>' . (($tier_details['calc_type'] == 'flat') ? $fees->display_amount($tier_details['fee_amount']) : $tier_details['fee_amount'] . '%') . '</td> ' .
-        '</tr> ';
+      '	<td width="100%">' . MSG_FROM . ' <b>' . $fees->display_amount($tier_details['fee_from']) . '</b> ' . MSG_TO . ' <b>' . $fees->display_amount($tier_details['fee_to']) . '</b></td> ' .
+      '	<td nowrap>' . (($tier_details['calc_type'] == 'flat') ? $fees->display_amount($tier_details['fee_amount']) : $tier_details['fee_amount'] . '%') . '</td> ' .
+      '</tr> ';
   }
 
   $template->set('listing_fees_table', $listing_fees_table);
@@ -72,9 +72,9 @@
     $background = ($counter++ % 2) ? 'c1' : 'c2';
 
     $store_subscriptions_table .= '<tr class="' . $background . '"> ' .
-        '	<td class="contentfont"><strong>' . $store_details['store_name'] . '</strong></td> ' .
-        '	<td class="contentfont">' . $shop->shop_description($store_details, false) . '</td> ' .
-        '</tr> ';
+      '	<td class="contentfont"><strong>' . $store_details['store_name'] . '</strong></td> ' .
+      '	<td class="contentfont">' . $shop->shop_description($store_details, false) . '</td> ' .
+      '</tr> ';
   }
 
   $template->set('store_subscriptions_table', $store_subscriptions_table);
@@ -90,9 +90,9 @@
     $background = ($counter++ % 2) ? 'c1' : 'c2';
 
     $sale_fees_table .= '<tr class="' . $background . '"> ' .
-        '	<td width="100%">' . MSG_FROM . ' <b>' . $fees->display_amount($tier_details['fee_from']) . '</b> ' . MSG_TO . ' <b>' . $fees->display_amount($tier_details['fee_to']) . '</b></td> ' .
-        '	<td nowrap>' . (($tier_details['calc_type'] == 'flat') ? $fees->display_amount($tier_details['fee_amount']) : $tier_details['fee_amount'] . '%') . '</td> ' .
-        '</tr> ';
+      '	<td width="100%">' . MSG_FROM . ' <b>' . $fees->display_amount($tier_details['fee_from']) . '</b> ' . MSG_TO . ' <b>' . $fees->display_amount($tier_details['fee_to']) . '</b></td> ' .
+      '	<td nowrap>' . (($tier_details['calc_type'] == 'flat') ? $fees->display_amount($tier_details['fee_amount']) : $tier_details['fee_amount'] . '%') . '</td> ' .
+      '</tr> ';
   }
 
   $template->set('sale_fees_table', $sale_fees_table);

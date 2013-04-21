@@ -1,5 +1,4 @@
-<?php
-
+﻿<?php
   /*   * ***********************************
    *  Auction details 
    * 
@@ -322,8 +321,8 @@
       $smarty->assign('search_url', $search_url);
     }
 
-    $smarty->assign('theme_path',THEME_PATH . $setts['default_theme'] . '/');
-  
+    $smarty->assign('theme_path', THEME_PATH . $setts['default_theme'] . '/');
+
     $smarty->display('auction_details.tpl');
 
 //    $template->change_path('themes/' . $setts['default_theme'] . '/templates/');

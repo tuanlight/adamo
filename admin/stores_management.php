@@ -51,8 +51,7 @@
       $db->query("UPDATE " . DB_PREFIX . "users SET
 			shop_active='" . $_REQUEST['value'] . "' WHERE user_id=" . $_REQUEST['user_id']);
     }
-    if (!$start)
-      $start = 0;
+
     $limit = 20;
 
     $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'u.user_id';
@@ -114,14 +113,14 @@
       }
 
       $stores_details_content .= '<tr class="' . $background . '"> ' .
-          '	<td valign="top"><a href="list_site_users.php?do=user_details&user_id=' . $user_details['user_id'] . '">' . $user_details['username'] . '</a></td> ' .
-          '	<td valign="top"><b>' . AMSG_ACCOUNT_TYPE . '</b>: [ ' . $shop_status['account_type'] . ' ] ' . $shop_status['shop_description'] . '<br>' .
-          '		<b>' . MSG_LAST_SUBSCR_PAYMENT . '</b>: ' . show_date($user_details['shop_last_payment']) . '<br>' .
-          '		<b>' . MSG_NEXT_SUBSCR_PAYMENT . '</b>: ' . show_date($user_details['shop_next_payment']) . '<br>' .
-          '		<b>' . MSG_TOTAL_ITEMS . '</b>: ' . $shop_status['total_items'] . ' ' .
-          '		' . (($user_details['shop_account_id']) ? '<br><b>' . MSG_REMAINING_ITEMS . '</b>: ' . $shop_status['remaining_items'] : '') . '</td> ' .
-          '	<td align="center">' . $site_user_options . '	</td>' .
-          '</tr> ';
+        '	<td valign="top"><a href="list_site_users.php?do=user_details&user_id=' . $user_details['user_id'] . '">' . $user_details['username'] . '</a></td> ' .
+        '	<td valign="top"><b>' . AMSG_ACCOUNT_TYPE . '</b>: [ ' . $shop_status['account_type'] . ' ] ' . $shop_status['shop_description'] . '<br>' .
+        '		<b>' . MSG_LAST_SUBSCR_PAYMENT . '</b>: ' . show_date($user_details['shop_last_payment']) . '<br>' .
+        '		<b>' . MSG_NEXT_SUBSCR_PAYMENT . '</b>: ' . show_date($user_details['shop_next_payment']) . '<br>' .
+        '		<b>' . MSG_TOTAL_ITEMS . '</b>: ' . $shop_status['total_items'] . ' ' .
+        '		' . (($user_details['shop_account_id']) ? '<br><b>' . MSG_REMAINING_ITEMS . '</b>: ' . $shop_status['remaining_items'] : '') . '</td> ' .
+        '	<td align="center">' . $site_user_options . '	</td>' .
+        '</tr> ';
     }
 
     $template->set('stores_details_content', $stores_details_content);

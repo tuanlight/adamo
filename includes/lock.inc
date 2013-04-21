@@ -106,10 +106,10 @@
     if (isset($locks[$name])) {
       // Try to extend the expiration of a lock we already acquired.
       $success = (bool) db_update('semaphore')
-              ->fields(array('expire' => $expire))
-              ->condition('name', $name)
-              ->condition('value', _lock_id())
-              ->execute();
+          ->fields(array('expire' => $expire))
+          ->condition('name', $name)
+          ->condition('value', _lock_id())
+          ->execute();
       if (!$success) {
         // The lock was broken.
         unset($locks[$name]);
@@ -124,12 +124,12 @@
       do {
         try {
           db_insert('semaphore')
-              ->fields(array(
-                'name' => $name,
-                'value' => _lock_id(),
-                'expire' => $expire,
-              ))
-              ->execute();
+            ->fields(array(
+              'name' => $name,
+              'value' => _lock_id(),
+              'expire' => $expire,
+            ))
+            ->execute();
           // We track all acquired locks in the global variable.
           $locks[$name] = TRUE;
           // We never need to try again.
@@ -172,10 +172,10 @@
       // request acquired the lock and set a new expire time. We add a small
       // number to $expire to avoid errors with float to string conversion.
       return (bool) db_delete('semaphore')
-              ->condition('name', $name)
-              ->condition('value', $lock['value'])
-              ->condition('expire', 0.0001 + $expire, '<=')
-              ->execute();
+          ->condition('name', $name)
+          ->condition('value', $lock['value'])
+          ->condition('expire', 0.0001 + $expire, '<=')
+          ->execute();
     }
     return FALSE;
   }
@@ -245,9 +245,9 @@
 
     unset($locks[$name]);
     db_delete('semaphore')
-        ->condition('name', $name)
-        ->condition('value', _lock_id())
-        ->execute();
+      ->condition('name', $name)
+      ->condition('value', _lock_id())
+      ->execute();
   }
 
   /**
@@ -261,8 +261,8 @@
       $lock_id = _lock_id();
     }
     db_delete('semaphore')
-        ->condition('value', $lock_id)
-        ->execute();
+      ->condition('value', $lock_id)
+      ->execute();
   }
 
   /**

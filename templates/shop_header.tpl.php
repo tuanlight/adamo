@@ -83,8 +83,7 @@
                 </tr>
               </table> 
             </td> 
-          <?php
-          }
+          <?php }
           else {
             ?> 
             <td width="<?php echo $width; ?>"></td>
