@@ -35,10 +35,10 @@
     if ($user_details['enable_aboutme_page']) {
       $message_header = MSG_MM_ABOUT_ME . ' - ' . $user_details['username'];
       $message_content = '<table width="100%" border="0" cellpadding="3" cellspacing="2"> ' .
-          '	<tr class="contentfont"> ' .
-          '		<td>' . $db->add_special_chars($user_details['aboutme_page_content']) . '</td> ' .
-          '	</tr> ' .
-          '</table>';
+        '	<tr class="contentfont"> ' .
+        '		<td>' . $db->add_special_chars($user_details['aboutme_page_content']) . '</td> ' .
+        '	</tr> ' .
+        '</table>';
     }
     else if ($shop_status['enabled']) {
       header_redirect('shop.php?user_id=' . $_REQUEST['user_id']);

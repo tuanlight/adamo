@@ -1,4 +1,4 @@
-{include file="header.tpl"}
+﻿{include file="header.tpl"}
 
 {block name=main}
     <div class="container">

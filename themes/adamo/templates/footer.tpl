@@ -1,9 +1,9 @@
-{block name=footer}
-            <footer>
+﻿{block name=footer}
+<footer>
 
-                <p>&copy; Company 2012</p>
+    <p>&copy; Company 2012</p>
 
-            </footer>
-        {/block}
-    </body>
+</footer>
+{/block}
+</body>
 </html>

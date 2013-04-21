@@ -62,7 +62,7 @@
             <?php echo MSG_MM_RECEIVED; ?></a></td>
         <td nowrap <?php echo (($section == 'sent') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'messaging', 'section' => 'sent')); ?>">
             <?php echo MSG_MM_SENT; ?></a></td>
-      <?php
+        <?php
       }
       else if ($page == 'bidding') {
         ?>
@@ -75,9 +75,9 @@
         <td nowrap <?php echo (($section == 'item_watch') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'bidding', 'section' => 'item_watch')); ?>">
             <?php echo MSG_MM_WATCHED_ITEMS; ?></a></td>
         <td nowrap <?php echo (($section == 'favorite_stores') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'bidding', 'section' => 'favorite_stores')); ?>">
-        <?php echo MSG_MM_FAVORITE_STORES; ?></a></td>
+            <?php echo MSG_MM_FAVORITE_STORES; ?></a></td>
 
-      <?php
+        <?php
       }
       else if ($page == 'selling') {
         ?>
@@ -102,74 +102,74 @@
         <td nowrap <?php echo (($section == 'block_users') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'selling', 'section' => 'block_users')); ?>">
             <?php echo MSG_MM_BLOCK_USERS; ?></a></td>
         <td nowrap <?php echo (($section == 'suggest_category') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'selling', 'section' => 'suggest_category')); ?>">
-        <?php echo MSG_MM_SUGGEST_CATEGORY; ?></a></td>
+            <?php echo MSG_MM_SUGGEST_CATEGORY; ?></a></td>
 
-      <?php
+        <?php
       }
       else if ($page == 'reputation') {
         ?>
         <td nowrap <?php echo (($section == 'received') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'reputation', 'section' => 'received')); ?>">
-        <?php echo MSG_MM_MY_REPUTATION; ?></a></td>
+            <?php echo MSG_MM_MY_REPUTATION; ?></a></td>
         <td nowrap <?php echo (($section == 'sent') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'reputation', 'section' => 'sent')); ?>">
-        <?php echo MSG_MM_LEAVE_COMMENTS; ?></a></td>
+            <?php echo MSG_MM_LEAVE_COMMENTS; ?></a></td>
 
-          <?php
-          }
-          else if ($page == 'bulk') {
-            ?>
+        <?php
+      }
+      else if ($page == 'bulk') {
+        ?>
         <td nowrap <?php echo (($section == 'details') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'bulk', 'section' => 'details')); ?>">
-        <?php echo MSG_MM_DETAILS; ?></a></td>
+            <?php echo MSG_MM_DETAILS; ?></a></td>
 
-          <?php
+        <?php
       }
       else if ($page == 'about_me') {
         ?>
         <td nowrap <?php echo (($section == 'view') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'about_me', 'section' => 'view')); ?>">
-        <?php echo MSG_MM_VIEW; ?></a></td>
+            <?php echo MSG_MM_VIEW; ?></a></td>
         <?php if ($setts['enable_profile_page']) { ?>
           <td nowrap <?php echo (($section == 'profile') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'about_me', 'section' => 'profile')); ?>">
-          <?php echo MSG_PROFILE_PAGE; ?></a></td>
-            <?php } ?>
+              <?php echo MSG_PROFILE_PAGE; ?></a></td>
+        <?php } ?>
 
-          <?php
-          }
-          else if ($page == 'store') {
-            ?>
+        <?php
+      }
+      else if ($page == 'store') {
+        ?>
         <td nowrap <?php echo (($section == 'subscription') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'store', 'section' => 'subscription')); ?>">
             <?php echo MSG_MM_SUBSCRIPTION_SETUP; ?></a></td>
         <td nowrap <?php echo (($section == 'setup') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'store', 'section' => 'setup')); ?>">
-        <?php echo MSG_MM_MAIN_SETTINGS; ?></a></td>
+            <?php echo MSG_MM_MAIN_SETTINGS; ?></a></td>
         <td nowrap <?php echo (($section == 'store_pages') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'store', 'section' => 'store_pages')); ?>">
-        <?php echo MSG_MM_STORE_PAGES; ?></a></td>
+            <?php echo MSG_MM_STORE_PAGES; ?></a></td>
         <td nowrap <?php echo (($section == 'categories') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'store', 'section' => 'categories')); ?>">
             <?php echo MSG_MM_CUSTOM_CATS; ?></a></td>
 
-          <?php
-          }
-          else if ($page == 'wanted_ads') {
-            ?>
+        <?php
+      }
+      else if ($page == 'wanted_ads') {
+        ?>
         <td nowrap <?php echo (($section == 'new') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'wanted_ads', 'section' => 'new')); ?>">
-        <?php echo MSG_MM_ADD_NEW; ?></a></td>
+            <?php echo MSG_MM_ADD_NEW; ?></a></td>
         <td nowrap <?php echo (($section == 'open') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'wanted_ads', 'section' => 'open')); ?>">
             <?php echo MSG_MM_OPEN; ?></a></td>
         <td nowrap <?php echo (($section == 'closed') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'wanted_ads', 'section' => 'closed')); ?>">
             <?php echo MSG_MM_CLOSED; ?></a></td>
 
-          <?php
-          }
-          else if ($page == 'account') {
-            ?>
+        <?php
+      }
+      else if ($page == 'account') {
+        ?>
         <td nowrap <?php echo (($section == 'editinfo') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'account', 'section' => 'editinfo')); ?>">
             <?php echo MSG_MM_PERSONAL_INFO; ?></a></td>
         <td nowrap <?php echo (($section == 'management') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'account', 'section' => 'management')); ?>">
-    <?php echo MSG_MM_MANAGE_ACCOUNT; ?></a></td>
+            <?php echo MSG_MM_MANAGE_ACCOUNT; ?></a></td>
         <td nowrap <?php echo (($section == 'history') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'account', 'section' => 'history')); ?>">
-    <?php echo MSG_MM_ACCOUNT_HISTORY; ?></a></td>
+            <?php echo MSG_MM_ACCOUNT_HISTORY; ?></a></td>
         <td nowrap <?php echo (($section == 'mailprefs') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'account', 'section' => 'mailprefs')); ?>">
-    <?php echo MSG_MM_MAIL_PREFS; ?></a></td>
+            <?php echo MSG_MM_MAIL_PREFS; ?></a></td>
         <td nowrap <?php echo (($section == 'abuse_report') ? 'class="subcell_a"' : 'class="subcell_u"'); ?>><a href="<?php echo process_link('members_area', array('page' => 'account', 'section' => 'abuse_report')); ?>">
-    <?php echo MSG_MM_ABUSE_REPORT; ?></a></td>
-  <?php } ?>
+            <?php echo MSG_MM_ABUSE_REPORT; ?></a></td>
+      <?php } ?>
    	<td width="100%"></td>
   </tr>
 </table>

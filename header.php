@@ -14,7 +14,7 @@
   $currentTime = time();
   $header_info = array();
   include ('themes/' . $setts['default_theme'] . '/title.php');
- 
+
   $meta_tags_details = meta_tags($_SERVER['PHP_SELF'], intval($_REQUEST['parent_id']), intval($_REQUEST['auction_id']), intval($_REQUEST['wanted_ad_id']));
   $header_info['page_title'] = $meta_tags_details['title'];
 
@@ -30,7 +30,7 @@
 
   $header_info['page_meta_tags'] = $page_meta_tags;
 
-  $current_date = date(DATE_FORMAT, time() + (TIME_OFFSET * 3600)); 
+  $current_date = date(DATE_FORMAT, time() + (TIME_OFFSET * 3600));
   $header_info['current_date'] = $current_date;
 
   $current_time_display = date("F d, Y H:i:s", time() + (TIME_OFFSET * 3600));
@@ -43,41 +43,41 @@
   $header_info['menu_box_header'] = $menu_box_header;
 
   $category_box_header = headercat(MSG_CATEGORIES . ' [<a title="show/hide" class="hidelayer" id="exp1102170166_link" href="javascript: void(0);" onclick="toggle(this, \'exp1102170166\');">&#8211;</a>]');
-  $header_info['category_box_header'] = $category_box_header;  
+  $header_info['category_box_header'] = $category_box_header;
 
   (string) $category_box_content = null;
 
   reset($categories_array);
 
   $categories_browse_box = '<select name="parent_id" id="parent_id" class="contentfont" onChange="javascript:cat_browse_form.submit()"> ' .
-      '<option value="" selected>' . MSG_CHOOSE_CATEGORY . '</option>';
+    '<option value="" selected>' . MSG_CHOOSE_CATEGORY . '</option>';
 
   $sql_select_cats_header = $db->query("SELECT category_id, items_counter, hover_title FROM
 	" . DB_PREFIX . "categories WHERE parent_id=0 AND hidden=0 AND user_id=0 ORDER BY order_id ASC, name ASC");
   $header_info['category_lang'] = $category_lang;
-  
+
 
   while ($cats_header_details = $db->fetch_array($sql_select_cats_header)) {
     $category_link = process_link('categories', array('category' => $category_lang[$cats_header_details['category_id']], 'parent_id' => $cats_header_details['category_id']));
 
     $categories_browse_box .= '<option value="' . $cats_header_details['category_id'] . '" ' . (($cats_header_details['category_id'] == $_REQUEST['parent_id']) ? 'selected' : '') . '>' .
-        $category_lang[$cats_header_details['category_id']] . '</option> ';
+      $category_lang[$cats_header_details['category_id']] . '</option> ';
   }
 
   $categories_browse_box .= '<option value="">------------------------</option> ' .
-      '<option value="0">' . MSG_ALL_CATEGORIES . '</option></select>';
+    '<option value="0">' . MSG_ALL_CATEGORIES . '</option></select>';
   $header_info['categories_browse_box'] = $categories_browse_box;
-  
+
 
   $sql_select_cats_list = $db->query("SELECT category_id, items_counter, hover_title FROM
 	" . DB_PREFIX . "categories WHERE parent_id=0 AND hidden=0 AND user_id=0 ORDER BY order_id ASC, name ASC");
   $header_info['sql_select_cats_list'] = $sql_select_cats_list;
-  
-  
+
+
 
   $category_box_content = $template->process('header_categories_box.tpl.php');
   $header_info['category_box_content'] = $category_box_content;
-  
+
 
   (string) $menu_box_content = NULL;
 
@@ -86,7 +86,7 @@
     $template->set('redirect', $db->rem_special_chars($_SERVER['PHP_SELF'] . '?' . $_SERVER['QUERY_STRING']));
 
     $menu_box_content = $template->process('header_login_box.tpl.php');
-    $header_info['menu_box_content'] = $menu_box_content;    
+    $header_info['menu_box_content'] = $menu_box_content;
   }
   else if (!$session->value('user_id') && $layout['d_login_box'] && $setts['is_ssl'] == 1) {
     $menu_box_content = '<p align="center" class="contentfont">[ <a href="' . process_link('login') . '"><strong>' . MSG_LOGIN_SECURELY . '</strong></a> ]</p>';
@@ -113,14 +113,14 @@
 
       while ($announcement_details = $db->fetch_array($sql_select_announcements)) {
         $announcement_content .= '<tr> ' .
-            '	<td class="c2"><img src="themes/' . $setts['default_theme'] . '/img/arrow.gif" width="8" height="8" hspace="4"></td> ' .
-            '	<td width="100%" class="c2 smallfont"><b>' . show_date($announcement_details['reg_date'], false) . '</b></td> ' .
-            '</tr> ' .
-            '<tr class="contentfont"> ' .
-            '	<td></td> ' .
-            '	<td><a href="' . process_link('content_pages', array('page' => 'announcements', 'topic_id' => $announcement_details['topic_id'])) . '"> ' .
-            '		' . $announcement_details['topic_name'] . '</a></td> ' .
-            '</tr>';
+          '	<td class="c2"><img src="themes/' . $setts['default_theme'] . '/img/arrow.gif" width="8" height="8" hspace="4"></td> ' .
+          '	<td width="100%" class="c2 smallfont"><b>' . show_date($announcement_details['reg_date'], false) . '</b></td> ' .
+          '</tr> ' .
+          '<tr class="contentfont"> ' .
+          '	<td></td> ' .
+          '	<td><a href="' . process_link('content_pages', array('page' => 'announcements', 'topic_id' => $announcement_details['topic_id'])) . '"> ' .
+          '		' . $announcement_details['topic_name'] . '</a></td> ' .
+          '</tr>';
       }
       $header_info['announcement_content'] = $announcement_content;
 
@@ -168,7 +168,6 @@
   if ($setts['enable_skin_change']) {
     $header_info['site_skins_dropdown'] = list_skins('site', true, $session->value('site_theme'));
   }
-  
+
   $smarty->assign('header_info', $header_info);
-  
 ?>

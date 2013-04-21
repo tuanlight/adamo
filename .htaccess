@@ -1,4 +1,4 @@
-# Denying direct access to the templates
+﻿# Denying direct access to the templates
 <FilesMatch "(.tpl|config.php)$">
     Order allow,deny
     Deny from all

@@ -1,13 +1,13 @@
-PHP file test
-$foo is <?=$foo?>
+﻿PHP file test
+$foo is <?= $foo ?>
 <br> Test functions
-<? echo trim($foo,"'");?>
+<? echo trim($foo, "'"); ?>
 <br>Test objects
-<?=$person->setName('Paul')->setAge(39)->introduce()?>
+<?= $person->setName('Paul')->setAge(39)->introduce() ?>
 <br>Test Arrays
-<?=$array['a']['aa']?> <?=$array['b']?>
+<?= $array['a']['aa'] ?> <?= $array['b'] ?>
 <br>function time 
-<? echo time();?>
+<? echo time(); ?>
 <br>nocache function time 
-<? echo '<? echo time();?>';?>
+<? echo '<? echo time();?>'; ?>
 <br>DONE

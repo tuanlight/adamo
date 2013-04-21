@@ -111,9 +111,9 @@
 
   unlink_pin();
 
-  /*****************************************************
+  /*   * ***************************************************
    * Template
-   * **************************************************/
+   * ************************************************* */
   include_once ($fileExtension . 'includes/class_template.php');
   require_once('../libs/Smarty/Smarty.class.php');
 
@@ -133,7 +133,7 @@
     echo $template_output;
     die();
   }
-/************************************************************/
+  /*   * ********************************************************* */
   include_once ($fileExtension . 'includes/class_voucher.php');
   include_once ($fileExtension . 'includes/class_fees_main.php');
   include_once ($fileExtension . 'includes/class_tax.php');

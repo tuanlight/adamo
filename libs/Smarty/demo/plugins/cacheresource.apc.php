@@ -1,22 +1,21 @@
-<?php
+﻿<?php
 
-/**
- * APC CacheResource
- *
- * CacheResource Implementation based on the KeyValueStore API to use
- * memcache as the storage resource for Smarty's output caching.
- * *
- * @package CacheResource-examples
- * @author Uwe Tews
- */
-class Smarty_CacheResource_Apc extends Smarty_CacheResource_KeyValueStore {
+  /**
+   * APC CacheResource
+   *
+   * CacheResource Implementation based on the KeyValueStore API to use
+   * memcache as the storage resource for Smarty's output caching.
+   * *
+   * @package CacheResource-examples
+   * @author Uwe Tews
+   */
+  class Smarty_CacheResource_Apc extends Smarty_CacheResource_KeyValueStore {
 
-    public function __construct()
-    {
-        // test if APC is present
-        if(!function_exists('apc_cache_info')) {
-            throw new Exception('APC Template Caching Error: APC is not installed');
-        }
+    public function __construct() {
+      // test if APC is present
+      if (!function_exists('apc_cache_info')) {
+        throw new Exception('APC Template Caching Error: APC is not installed');
+      }
     }
 
     /**
@@ -26,14 +25,13 @@ class Smarty_CacheResource_Apc extends Smarty_CacheResource_KeyValueStore {
      * @return array list of values with the given keys used as indexes
      * @return boolean true on success, false on failure
      */
-    protected function read(array $keys)
-    {
-        $_res = array();
-        $res = apc_fetch($keys);
-        foreach ($res as $k => $v) {
-            $_res[$k] = $v;
-        }
-        return $_res;
+    protected function read(array $keys) {
+      $_res = array();
+      $res = apc_fetch($keys);
+      foreach ($res as $k => $v) {
+        $_res[$k] = $v;
+      }
+      return $_res;
     }
 
     /**
@@ -43,12 +41,11 @@ class Smarty_CacheResource_Apc extends Smarty_CacheResource_KeyValueStore {
      * @param int $expire expiration time
      * @return boolean true on success, false on failure
      */
-    protected function write(array $keys, $expire=null)
-    {
-        foreach ($keys as $k => $v) {
-            apc_store($k, $v, $expire);
-        }
-        return true;
+    protected function write(array $keys, $expire = null) {
+      foreach ($keys as $k => $v) {
+        apc_store($k, $v, $expire);
+      }
+      return true;
     }
 
     /**
@@ -57,12 +54,11 @@ class Smarty_CacheResource_Apc extends Smarty_CacheResource_KeyValueStore {
      * @param array $keys list of keys to delete
      * @return boolean true on success, false on failure
      */
-    protected function delete(array $keys)
-    {
-        foreach ($keys as $k) {
-            apc_delete($k);
-        }
-        return true;
+    protected function delete(array $keys) {
+      foreach ($keys as $k) {
+        apc_delete($k);
+      }
+      return true;
     }
 
     /**
@@ -70,8 +66,10 @@ class Smarty_CacheResource_Apc extends Smarty_CacheResource_KeyValueStore {
      *
      * @return boolean true on success, false on failure
      */
-    protected function purge()
-    {
-        return apc_clear_cache('user');
+    protected function purge() {
+      return apc_clear_cache('user');
     }
-}
+
+  }
+
+  

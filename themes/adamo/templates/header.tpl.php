@@ -185,8 +185,8 @@
                                                   </form>
                                                   <td nowrap align="right" class="search" width="200">&nbsp;&nbsp;&nbsp;<?php echo $current_date; ?> <span id="servertime"></span>&nbsp;&nbsp;&nbsp;</td>
                                                   <!--<?php if ($setts['user_lang']) { ?>
-                                                              <td nowrap align="center">&nbsp;&nbsp;<?php echo $languages_list; ?>&nbsp;&nbsp;</td>
-  <?php } ?>-->
+                                                                      <td nowrap align="center">&nbsp;&nbsp;<?php echo $languages_list; ?>&nbsp;&nbsp;</td>
+                                                    <?php } ?>-->
                                                 </tr>
                                               </table>
                                             </div></div></div>
@@ -225,7 +225,7 @@
                                                 <tr align="center">
                                                   <?php if (stristr($_SERVER['PHP_SELF'], "index.php")) { ?>
                                                       <td nowrap class="mainmenu">&nbsp;<a href="<?php echo $index_link; ?>"><?php echo MSG_BTN_HOME; ?></a>&nbsp;</td>
-                                                    <?php
+                                                      <?php
                                                     }
                                                     else {
                                                       ?>
@@ -236,7 +236,7 @@
                                                       if (stristr($_SERVER['PHP_SELF'], "sell_item.php")) {
                                                         ?>
                                                         <td nowrap class="mainmenu"style="display:none">&nbsp;<a href="<?php echo $place_ad_link; ?>"><?php echo $place_ad_btn_msg; ?></a>&nbsp;</td>
-                                                      <?php
+                                                        <?php
                                                       }
                                                       else {
                                                         ?>
@@ -247,14 +247,14 @@
                                                     if (stristr($_SERVER['PHP_SELF'], "members_area.php") || stristr($_SERVER['PHP_SELF'], "register.php")) {
                                                       ?>
                                                       <td nowrap class="mainmenu">&nbsp;<a href="<?php echo $register_link; ?>"><?php echo $register_btn_msg; ?></a>&nbsp;</td>
-                                                    <?php
+                                                      <?php
                                                     }
                                                     else {
                                                       ?>
                                                       <td nowrap class="mainmenu" style="display:none">&nbsp;<a href="<?php echo $register_link; ?>"><?php echo $register_btn_msg; ?></a>&nbsp;</td>
                                                     <?php } if (stristr($_SERVER['PHP_SELF'], "login.php")) { ?>
                                                       <td nowrap class="mainmenu"style="display:none">&nbsp;<a href="<?php echo $login_link; ?>"><?php echo $login_btn_msg; ?></a>&nbsp;</td>
-                                                    <?php
+                                                      <?php
                                                     }
                                                     else {
                                                       ?>
@@ -264,7 +264,7 @@
                                                       if (stristr($_SERVER['PHP_SELF'], "stores.php")) {
                                                         ?>
                                                         <td nowrap class="mainmenu">&nbsp;<a href="<?php echo process_link('stores'); ?>"><?php echo MSG_BTN_STORES; ?></a>&nbsp;</td>
-                                                      <?php
+                                                        <?php
                                                       }
                                                       else {
                                                         ?>
@@ -276,7 +276,7 @@
                                                       if (stristr($_SERVER['PHP_SELF'], "wanted_ads.php")) {
                                                         ?>
                                                         <td nowrap class="mainmenu">&nbsp;<a href="<?php echo process_link('wanted_ads'); ?>"><?php echo MSG_BTN_WANTED_ADS; ?></a>&nbsp;</td>
-                                                      <?php
+                                                        <?php
                                                       }
                                                       else {
                                                         ?>
@@ -287,7 +287,7 @@
                                                     if ($_REQUEST['page'] == 'help') {
                                                       ?>
                                                       <td nowrap class="mainmenu" style="display:none">&nbsp;<a href="<?php echo process_link('content_pages', array('page' => 'help')); ?>"><?php echo MSG_BTN_HELP; ?></a>&nbsp;</td>
-                                                    <?php
+                                                      <?php
                                                     }
                                                     else {
                                                       ?>
@@ -297,12 +297,12 @@
                                                     if (stristr($_SERVER['PHP_SELF'], "site_fees.php")) {
                                                       ?>
                                                       <td nowrap class="mainmenu">&nbsp;<a href="<?php echo process_link('site_fees'); ?>"><?php echo MSG_BTN_SITE_FEES; ?></a>&nbsp;</td>
-  <?php
-  }
-  else {
-    ?>
+                                                      <?php
+                                                    }
+                                                    else {
+                                                      ?>
                                                       <td nowrap class="mainmenu">&nbsp;<a href="<?php echo process_link('site_fees'); ?>"><?php echo MSG_BTN_SITE_FEES; ?></a>&nbsp;</td>
-  <?php } ?>
+                                                    <?php } ?>
                                                 </tr>
                                               </table>
                                             </div>
@@ -353,13 +353,13 @@
                                                   }
                                                 </script>
                                                 <?php if ($is_announcements && $member_active == 'Active') { ?>
-                                                      <?php echo $announcements_box_header; ?>
+                                                    <?php echo $announcements_box_header; ?>
                                                     <div id="exp1102170555">
-    <?php echo $announcements_box_content; ?>
+                                                      <?php echo $announcements_box_content; ?>
                                                     </div>
 
                                                     <div><img src="themes/<?php echo $setts['default_theme']; ?>/images/pixel.gif" width="1" height="5"></div>
-                                                    <?php } ?>
+                                                  <?php } ?>
 
                                                 <?php echo $menu_box_header; ?>
                                                 <div id="exp1102170142">
@@ -370,14 +370,14 @@
                                                 <noscript>
                                                   <?php echo MSG_JS_NOT_SUPPORTED; ?>
                                                 </noscript>
-<?php echo $category_box_header; ?>
+                                                <?php echo $category_box_header; ?>
                                                 <div id="exp1102170166">
-<?php echo $category_box_content; ?>
+                                                  <?php echo $category_box_content; ?>
                                                 </div>
                                                 <div><img src="themes/<?php echo $setts['default_theme']; ?>/images/pixel.gif" width="180" height="1"></div>
                                                 <br>
-<?php if ($setts['enable_header_counter']) { ?>
-                                                        <?php echo $header_site_status; ?>
+                                                  <?php if ($setts['enable_header_counter']) { ?>
+                                                      <?php echo $header_site_status; ?>
                                                       <table width='100%' border='0' cellpadding='2' cellspacing='1' class='border no_b stat'>
                                                         <tr class='c1'>
                                                           <td width='20%' align='center'><b><?php echo $nb_site_users; ?></b></td>
@@ -387,12 +387,12 @@
                                                           <td width='20%' align='center'><b><?php echo $nb_live_auctions; ?></b></td>
                                                           <td width='80%'>&nbsp;<?php echo MSG_LIVE_AUCTIONS; ?></td>
                                                         </tr>
-    <?php if ($setts['enable_wanted_ads']) { ?>
+                                                        <?php if ($setts['enable_wanted_ads']) { ?>
                                                           <tr class='c1'>
                                                             <td width='20%' align='center'><b><?php echo $nb_live_wanted_ads; ?></b></td>
                                                             <td width='80%'>&nbsp;<?php echo MSG_LIVE_WANT_ADS; ?></td>
                                                           </tr>
-    <?php } ?>
+                                                        <?php } ?>
                                                         <tr class='c2'>
                                                           <td width='20%' align='center'><b><?php echo $nb_online_users; ?></b></td>
                                                           <td width='80%'>&nbsp;<?php echo MSG_ONLINE_USERS; ?></td>
@@ -459,17 +459,17 @@
 
                                                   <?php if ($layout['bw_hp_topsellers']) { ?>
                                                     <div><img src='themes/<?php echo $setts['default_theme']; ?>/images/pixel.gif' width='1' height='5'></div>
-      <?php echo $hp_top_sellers_header; ?>
-      <?php echo $hp_top_sellers_content; ?>
+                                                    <?php echo $hp_top_sellers_header; ?>
+                                                    <?php echo $hp_top_sellers_content; ?>
                                                   <?php } ?>
 
                                                   <?php if ($layout['bw_hp_lastsold']) { ?>
                                                     <div><img src='themes/<?php echo $setts['default_theme']; ?>/images/pixel.gif' width='1' height='5'></div>
-      <?php echo $hp_last_sold_header; ?>
-      <?php echo $hp_last_sold_content; ?>
-    <?php } ?>
+                                                    <?php echo $hp_last_sold_header; ?>
+                                                    <?php echo $hp_last_sold_content; ?>
+                                                  <?php } ?>
                                                   <div><img src="themes/<?php echo $setts['default_theme']; ?>/images/pixel.gif" width="171" height="1"></div>
 
 
-  <?php }
-?>
+                                                <?php }
+                                              ?>
