@@ -1,4 +1,4 @@
-﻿<?php
+﻿﻿<?php
 #################################################################
 ## MyPHPAuction v6.05															##
 ##-------------------------------------------------------------##
@@ -41,7 +41,7 @@
   function unlink_pin() {
     global $session;
 
-    $path = (IN_ADMIN == 1) ? '../' : '';
+    $path = (@IN_ADMIN == 1) ? '../' : '';
 
     if ($session->is_set('pin_value')) {
       @unlink($path . 'uplimg/site_pin_' . $session->value('pin_value') . '.jpg');
@@ -56,12 +56,17 @@
 
   function sanitize_var($value) {
     if (!is_numeric($value)) {
-      $value = ereg_replace("[^A-Za-z0-9_ ]", "", $value);
+      $value = preg_replace("#[^A-Za-z0-9_ ]#", "", $value);
+      //$value = ereg_replace("[^A-Za-z0-9_ ]", "", $value);
+      // $value = eregi_replace('amp','and',$value);
+      // $value = eregi_replace('quot','',$value);
+      // $value = eregi_replace('039','',$value);
+      // $value = eregi_replace(' ','-',$value);
 
-      $value = eregi_replace('amp', 'and', $value);
-      $value = eregi_replace('quot', '', $value);
-      $value = eregi_replace('039', '', $value);
-      $value = eregi_replace(' ', '-', $value);
+      $value = preg_replace('/amp/i', 'and', $value);
+      $value = preg_replace('/quot/i', '', $value);
+      $value = preg_replace('/039/i', '', $value);
+      $value = preg_replace('/ /i', '-', $value);
     }
 
     return $value;
@@ -284,7 +289,7 @@
     $handle = opendir($relative_path . 'themes');
 
     while ($file = readdir($handle)) {
-      if (!ereg('[.]', $file)) {
+      if (!strstr($file, '[.]')) {
         $output[] = $file;
       }
     }
@@ -323,7 +328,7 @@
     $handle = opendir($relative_path . 'language');
 
     while ($file = readdir($handle)) {
-      if (!ereg('[.]', $file)) {
+      if (!strstr($file, '[.]')) {
         $output[] = $file;
       }
     }
@@ -485,7 +490,7 @@
         $display_output = '<br><table width="100%" border="0" cellpadding="3" cellspacing="2" class="border"> ';
       }
 
-      $display_output .= '	<tr> ' .
+      /*  $display_output .= '	<tr> ' .
         '		<td colspan="' . $colspan . '" class="c3">' . GMSG_TERMS_AND_CONDITIONS . '</td> ' .
         '	</tr> ' .
         '	<tr class="c5"> ' .
@@ -495,6 +500,21 @@
         '	<tr class="c1"> ' .
         '		<td width="150" align="right" class="contentfont"></td> ' .
         '		<td colspan="' . ($colspan - 1) . '"><textarea name="terms_content" cols="50" rows="8" readonly class="smallfont" style="width: 100%; height: 200px;" />' . eregi_replace('<br>', "\n", $terms['content']) . '</textarea></td> ' .
+        '	</tr> ' .
+        '	<tr class="reguser"> ' .
+        '		<td align="right" class="contentfont">&nbsp;</td> ' .
+        '		<td colspan="' . ($colspan - 1) . '">' . $agreement_msg . '</td> ' .
+        '	</tr> '; */
+      $display_output .= '	<tr> ' .
+        '		<td colspan="' . $colspan . '" class="c3">' . GMSG_TERMS_AND_CONDITIONS . '</td> ' .
+        '	</tr> ' .
+        '	<tr class="c5"> ' .
+        '		<td><img src="themes/' . $db->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
+        '		<td colspan="' . ($colspan - 1) . '"><img src="themes/' . $db->setts['default_theme'] . '/img/pixel.gif" width="1" height="1" /></td> ' .
+        '	</tr> ' .
+        '	<tr class="c1"> ' .
+        '		<td width="150" align="right" class="contentfont"></td> ' .
+        '		<td colspan="' . ($colspan - 1) . '"><textarea name="terms_content" cols="50" rows="8" readonly class="smallfont" style="width: 100%; height: 200px;" />' . str_replace('/<br>/i', "\n", $terms['content']) . '</textarea></td> ' .
         '	</tr> ' .
         '	<tr class="reguser"> ' .
         '		<td align="right" class="contentfont">&nbsp;</td> ' .
@@ -1269,7 +1289,8 @@
   }
 
   function optimize_search_string($keywords) {
-    $output = eregi_replace(' ', ' +', $keywords);
+    //$output = eregi_replace(' ', ' +', $keywords);
+    $output = preg_replace('/ /i', ' +', $keywords);
 
     return $output;
   }
