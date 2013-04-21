@@ -109,7 +109,7 @@
 
     function check_custom_fields($value_array) {
       foreach ($value_array as $key => $value) {
-        if (eregi('custom_box_', $key)) {
+        if (stristr($key, 'custom_box_')) {
           $custom_box_id = intval(str_replace('custom_box_', '', $key));
           $custom_box_id = intval(str_replace('[]', '', $custom_box_id));
 
@@ -309,7 +309,7 @@
     function field_js($value, $msg) {
       $value = $this->add_special_chars($value);
 
-      if (!eregi('<script', $value)) {
+      if (!stristr($value, '<script')) {
         return true;
       }
       else {
@@ -321,7 +321,7 @@
     function field_iframes($value, $msg) {
       $value = $this->add_special_chars($value);
 
-      if (!eregi('<iframe', $value)) {
+      if (!stristr($value, '<iframe')) {
         return true;
       }
       else {

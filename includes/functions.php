@@ -637,13 +637,13 @@
     (array) $output = null;
     (array) $subcats_array = null;
 
-    if (eregi('auction_details.php', $base_url)) {
+    if (stristr($base_url, 'auction_details.php')) {
       $item_details = $db->get_sql_row("SELECT auction_id, name, end_time, category_id FROM " . DB_PREFIX . "auctions WHERE
 			auction_id='" . $auction_id . "'");
 
       $parent_id = $item_details['category_id'];
     }
-    else if (eregi('wanted_details.php', $base_url)) {
+    else if (stristr($base_url, 'wanted_details.php')) {
       $item_details = $db->get_sql_row("SELECT wanted_ad_id, name, end_time, category_id FROM " . DB_PREFIX . "wanted_ads WHERE
 			wanted_ad_id='" . $wanted_ad_id . "'");
 
@@ -663,7 +663,7 @@
     }
 
     /* now generate the title and meta tags */
-    if (eregi('auction_details.php', $base_url)) {
+    if (stristr($base_url, 'auction_details.php')) {
       $output['title'] = $db->add_special_chars($item_details['name']) . ' (' . MSG_AUCTION_ID . ': ' . $item_details['auction_id'] . ', ' .
         GMSG_END_TIME . ': ' . show_date($item_details['end_time']) . ') - ' . $setts['sitename'];
 
@@ -672,7 +672,7 @@
         '<meta name="keywords" content="' . $db->add_special_chars($item_details['name']) . ', ' . $db->add_special_chars($db->implode_array($subcats_array, ', ')) . ', ' .
         $setts['sitename'] . '"> ';
     }
-    else if (eregi('wanted_details.php', $base_url)) {
+    else if (stristr($base_url, 'wanted_details.php')) {
       $output['title'] = $db->add_special_chars($item_details['name']) . ' (' . MSG_WANTED_AD_ID . ': ' . $item_details['wanted_ad_id'] . ', ' .
         GMSG_END_TIME . ': ' . show_date($item_details['end_time']) . ') - ' . $setts['sitename'];
 
@@ -681,7 +681,7 @@
         '<meta name="keywords" content="' . $db->add_special_chars($item_details['name']) . ', ' . $db->add_special_chars($db->implode_array($subcats_array, ', ')) . ', ' .
         $setts['sitename'] . '"> ';
     }
-    else if (eregi('categories.php', $base_url)) {
+    else if (stristr($base_url, 'categories.php')) {
       $output['title'] = ((is_array($subcats_array)) ? $db->add_special_chars($db->implode_array($subcats_array, ' - ')) . ' - ' : '') . $setts['sitename'];
 
       $main_category_id = $db->main_category($parent_id);

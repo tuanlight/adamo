@@ -31,7 +31,7 @@
 
   include_once ('includes/functions_item.php');
 
-  if (eregi('logout', $_GET['option'])) {
+  if (stristr($_GET['option'], 'logout')) {
 
     logout();
   }

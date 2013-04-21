@@ -24,7 +24,7 @@
 
 
 
-  if (eregi('logout', $_GET['option'])) {
+  if (stristr($_GET['option'], 'logout')) {
 
     logout(true);
   }

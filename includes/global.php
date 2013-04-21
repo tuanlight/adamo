@@ -48,7 +48,7 @@
 
   include_once ($fileExtension . 'includes/class_database.php');
 
-  $db = new database;
+  $db = new database();
 
   $db->connect($db_host, $db_username, $db_password);
   $db->select_db($db_name);
@@ -67,7 +67,8 @@
   /**
    * sanitize order_type and order_field variables
    */
-  $_REQUEST['order_type'] = (in_array($_REQUEST['order_type'], array('ASC', 'DESC'))) ? $_REQUEST['order_type'] : 'DESC';
+  if (isset($_REQUEST['order_type']))
+    $_REQUEST['order_type'] = (in_array($_REQUEST['order_type'], array('ASC', 'DESC'))) ? $_REQUEST['order_type'] : 'DESC';
 
 
   if (!empty($_REQUEST['order_field'])) {
@@ -83,12 +84,13 @@
   @include_once ($fileExtension . 'includes/functions_integration.php'); ## PPB & PPA Integration
 ## now do the theme alterations in case of categories and auction_details
   $is_custom_skin = 0;
-  if (eregi('categories.php', $_SERVER['PHP_SELF'])) {
+
+  if (stristr($_SERVER['PHP_SELF'], "categories.php")) {
     $category_id = $db->main_category(intval($_GET['parent_id']));
 
     $is_custom_skin = 1;
   }
-  else if (eregi('auction_details.php', $_SERVER['PHP_SELF'])) {
+  else if (stristr($_SERVER['PHP_SELF'], "auction_details.php")) {
     $category_id = $db->get_sql_field("SELECT category_id FROM " . DB_PREFIX . "auctions WHERE 
 		auction_id='" . intval($_GET['auction_id']) . "'", 'category_id');
 
@@ -109,7 +111,25 @@
 
   unlink_pin();
 
+  /*   * ***************************************************
+   * Template
+   * ************************************************* */
   include_once ($fileExtension . 'includes/class_template.php');
+
+  require_once('/../libs/Smarty/Smarty.class.php');
+
+  $smarty = new Smarty();
+
+  $smarty->setTemplateDir(BASE_DIR. '/templates/');
+  $smarty->setCompileDir(BASE_DIR. '/templates_compiled/');
+  $smarty->setConfigDir(BASE_DIR. '/configs/');
+  $smarty->setCacheDir(BASE_DIR. '/cache/');
+    
+  if ($setts['default_theme']) {
+    $smarty->addTemplateDir (THEME_DIR. "{$setts['default_theme']}/templates/");    
+  }
+    
+
 
 ## initialize the template for the output that will be generated
   $template = new template('templates/');
@@ -127,7 +147,7 @@
     echo $template_output;
     die();
   }
-
+  /*   * ********************************************************* */
   include_once ($fileExtension . 'includes/class_voucher.php');
   include_once ($fileExtension . 'includes/class_fees_main.php');
   include_once ($fileExtension . 'includes/class_tax.php');
@@ -157,7 +177,7 @@
   $linkable_tables = array('countries');
 
 ## load the cron if it is run from the site.
-  if ($setts['cron_job_type'] == 2 && IN_ADMIN != 1) {
+  if ($setts['cron_job_type'] == 2 && @IN_ADMIN != 1) {
     $manual_cron = true;
     include_once ($fileExtension . 'cron_jobs/main_cron.php');
   }
