@@ -37,7 +37,8 @@
     $msg_changes_saved = '<p align="center" class="contentfont">' . AMSG_CHANGES_SAVED . '</p>';
 
     $form_submitted = false;
-
+    if (!$start)
+      $start = 0;
     $limit = 20;
 
     $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'a.auction_id';
@@ -102,42 +103,42 @@
       $background = ($counter++ % 2) ? 'c1' : 'c2';
 
       $auctions_content .= '<tr class="' . $background . '"> ' .
-        '	<td valign="top">' . $item_details['auction_name'] . '<br>' .
-        '		[ <a href="../auction_details.php?auction_id=' . $item_details['auction_id'] . '" target="_blank">' . GMSG_VIEW . '</a> ]</td> ' .
-        '	<td>' . MSG_WINNING_BID . ': <b>' . $fees->display_amount($item_details['bid_amount'], $item_details['currency']) . '</b><br>' .
-        '		' . MSG_QUANTITY_PURCHASED . ': <b>' . $item_details['quantity_offered'] . '</b></td> ' .
-        '	<td align="center"><table width="100%" border="0" cellpadding="3" cellspacing="2" class="border smallfont"> ' .
-        '		<tr bgcolor="#FFFFF"> ' .
-        '			<td>' . MSG_USERNAME . '</td> ' .
-        '			<td>' . $item_details['buyer_username'] . '</td> ' .
-        '		</tr> ' .
-        '		<tr bgcolor="#FFFFF"> ' .
-        '			<td>' . MSG_FULL_NAME . '</td> ' .
-        '			<td>' . $item_details['buyer_name'] . '</td> ' .
-        '		</tr> ' .
-        '	</table></td> ' .
-        '	<td align="center"><table width="100%" border="0" cellpadding="3" cellspacing="2" class="border smallfont"> ' .
-        '		<tr bgcolor="#FFFFF"> ' .
-        '			<td>' . MSG_USERNAME . '</td> ' .
-        '			<td>' . $item_details['seller_username'] . '</td> ' .
-        '		</tr> ' .
-        '		<tr bgcolor="#FFFFF"> ' .
-        '			<td>' . MSG_FULL_NAME . '</td> ' .
-        '			<td>' . $item_details['seller_name'] . '</td> ' .
-        '		</tr> ' .
-        '	</table></td> ' .
-        '	<td align="center"><table width="100%" border="0" cellpadding="3" cellspacing="2" class="border smallfont"> ' .
-        '		<tr bgcolor="#FFFFF"> ' .
-        '			<td align="center">' . show_date($item_details['purchase_date']) . '</td> ' .
-        '		</tr> ' .
-        '		<tr bgcolor="#FFFFF"> ' .
-        '			<td align="center">' . $item->flag_paid($item_details['flag_paid'], $item_details['direct_payment_paid']) . '</td> ' .
-        '		</tr> ' .
-        '		<tr bgcolor="#FFFFF"> ' .
-        '			<td align="center">' . $item->flag_status($item_details['flag_status']) . '</td> ' .
-        '		</tr> ' .
-        '	</table></td>' . '<td align="center"><input name="delete[]" type="checkbox" id="delete[]" value="' . $item_details['winner_id'] . '" class="checkdelete"></td>' .
-        '</tr> ';
+          '	<td valign="top">' . $item_details['auction_name'] . '<br>' .
+          '		[ <a href="../auction_details.php?auction_id=' . $item_details['auction_id'] . '" target="_blank">' . GMSG_VIEW . '</a> ]</td> ' .
+          '	<td>' . MSG_WINNING_BID . ': <b>' . $fees->display_amount($item_details['bid_amount'], $item_details['currency']) . '</b><br>' .
+          '		' . MSG_QUANTITY_PURCHASED . ': <b>' . $item_details['quantity_offered'] . '</b></td> ' .
+          '	<td align="center"><table width="100%" border="0" cellpadding="3" cellspacing="2" class="border smallfont"> ' .
+          '		<tr bgcolor="#FFFFF"> ' .
+          '			<td>' . MSG_USERNAME . '</td> ' .
+          '			<td>' . $item_details['buyer_username'] . '</td> ' .
+          '		</tr> ' .
+          '		<tr bgcolor="#FFFFF"> ' .
+          '			<td>' . MSG_FULL_NAME . '</td> ' .
+          '			<td>' . $item_details['buyer_name'] . '</td> ' .
+          '		</tr> ' .
+          '	</table></td> ' .
+          '	<td align="center"><table width="100%" border="0" cellpadding="3" cellspacing="2" class="border smallfont"> ' .
+          '		<tr bgcolor="#FFFFF"> ' .
+          '			<td>' . MSG_USERNAME . '</td> ' .
+          '			<td>' . $item_details['seller_username'] . '</td> ' .
+          '		</tr> ' .
+          '		<tr bgcolor="#FFFFF"> ' .
+          '			<td>' . MSG_FULL_NAME . '</td> ' .
+          '			<td>' . $item_details['seller_name'] . '</td> ' .
+          '		</tr> ' .
+          '	</table></td> ' .
+          '	<td align="center"><table width="100%" border="0" cellpadding="3" cellspacing="2" class="border smallfont"> ' .
+          '		<tr bgcolor="#FFFFF"> ' .
+          '			<td align="center">' . show_date($item_details['purchase_date']) . '</td> ' .
+          '		</tr> ' .
+          '		<tr bgcolor="#FFFFF"> ' .
+          '			<td align="center">' . $item->flag_paid($item_details['flag_paid'], $item_details['direct_payment_paid']) . '</td> ' .
+          '		</tr> ' .
+          '		<tr bgcolor="#FFFFF"> ' .
+          '			<td align="center">' . $item->flag_status($item_details['flag_status']) . '</td> ' .
+          '		</tr> ' .
+          '	</table></td>' . '<td align="center"><input name="delete[]" type="checkbox" id="delete[]" value="' . $item_details['winner_id'] . '" class="checkdelete"></td>' .
+          '</tr> ';
     }
 
     $template->set('auctions_content', $auctions_content);

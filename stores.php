@@ -95,6 +95,8 @@
     $template->set('featured_stores_table', $featured_stores_table); ## MyPHPAuction 2009 all stores (show
     $order_field = 'shop_nb_items';
     $order_type = 'DESC';
+     if (!$start)
+      $start = 0;
     $limit = 20;
 
     $additional_vars = '&shop_name=' . $_REQUEST['shop_name'];

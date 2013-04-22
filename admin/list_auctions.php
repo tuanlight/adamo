@@ -43,7 +43,8 @@
       $msg_changes_saved = '<p align="center" class="contentfont">' . AMSG_CHANGES_SAVED . '</p>';
 
       $form_submitted = false;
-
+      if (!$start)
+        $start = 0;
       $limit = 20;
 
       $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'a.auction_id';
@@ -78,7 +79,8 @@
 
         $start_time = $item_details['start_time']; ## MyPHPAuction 2009 set here the checkboxes
         $item_details = $item->edit_set_checkboxes($item_details);
-
+        
+        
         if ($_REQUEST['box_submit'] == 1 || isset($_REQUEST['form_edit_proceed'])) {
           $item_details = $_POST;
           $item_details['description'] = $db->rem_special_chars((($_POST['description_main']) ? $_POST['description_main'] : $item_details['description']));
@@ -144,7 +146,7 @@
           $template->set('user_details', $user_details);
 
           $sell_item_header = '<table width="100%" border="0" cellpadding="3" cellspacing="3" class="border"> ' .
-            '<tr><td class="c3"><b>' . MSG_EDIT_AUCTION . '</b></td></tr></table>';
+              '<tr><td class="c3"><b>' . MSG_EDIT_AUCTION . '</b></td></tr></table>';
 
           $template->set('sell_item_header', $sell_item_header);
 
@@ -289,36 +291,36 @@
         $background = ($counter++ % 2) ? 'c1' : 'c2';
 
         $auctions_content .= '<tr class="' . $background . '"> ' .
-          '	<td valign="top">' . $item_details['name'] . '<br>' .
-          '		[ <a href="../auction_details.php?auction_id=' . $item_details['auction_id'] . '" target="_blank">' . GMSG_VIEW . '</a> ] ' .
-          '		[ <a href="list_auctions.php?do=edit_auction&auction_id=' . $item_details['auction_id'] . $additional_vars . $order_link . $limit_link . $show_link . '">' . AMSG_EDIT . '</a> ]' .
-          (($item_details['deleted'] == 1) ? '<br>[ <b>' . AMSG_AUCT_MARKED_DELETED . '</b> ]' : '');
+            '	<td valign="top">' . $item_details['name'] . '<br>' .
+            '		[ <a href="../auction_details.php?auction_id=' . $item_details['auction_id'] . '" target="_blank">' . GMSG_VIEW . '</a> ] ' .
+            '		[ <a href="list_auctions.php?do=edit_auction&auction_id=' . $item_details['auction_id'] . $additional_vars . $order_link . $limit_link . $show_link . '">' . AMSG_EDIT . '</a> ]' .
+            (($item_details['deleted'] == 1) ? '<br>[ <b>' . AMSG_AUCT_MARKED_DELETED . '</b> ]' : '');
 
 
         $auctions_content .= '</td> ' .
-          '	<td valign="top">' . AMSG_OWNER . ': <b>' . $item_details['username'] . '</b><br>' .
-          '		' . GMSG_START_TIME . ': <b>' . show_date($item_details['start_time']) . '</b><br>' .
-          '		' . GMSG_END_TIME . ': <b>' . show_date($item_details['end_time']) . '</b><br>' .
-          '		' . GMSG_CATEGORY . ': <b>' . $item_details['category_name'] . '</b></td> ';
+            '	<td valign="top">' . AMSG_OWNER . ': <b>' . $item_details['username'] . '</b><br>' .
+            '		' . GMSG_START_TIME . ': <b>' . show_date($item_details['start_time']) . '</b><br>' .
+            '		' . GMSG_END_TIME . ': <b>' . show_date($item_details['end_time']) . '</b><br>' .
+            '		' . GMSG_CATEGORY . ': <b>' . $item_details['category_name'] . '</b></td> ';
 
         if ($_REQUEST['status'] == 'approval') {
           $auctions_content .= '<td align="center"><input name="approve[]" type="checkbox" id="approve[]" value="' . $item_details['auction_id'] . '" class="checkapprove"></td>';
         }
         else {
           $auctions_content .= '<td align="center"><table border="0" cellspacing="1" cellpadding="1"> ' .
-            '	<tr> ' .
-            '		<td>' . GMSG_ACTIVE . '</td> ' .
-            '		<td><input name="activate[]" type="checkbox" id="activate[]" value="' . $item_details['auction_id'] . '" class="checkactivate" ' . (($item_details['active'] == 1) ? 'checked' : '') . '></td> ' .
-            '	</tr> ' .
-            '	<tr> ' .
-            '		<td>' . GMSG_SUSPENDED . '</td> ' .
-            '		<td><input name="inactivate[]" type="checkbox" id="inactivate[]" value="' . $item_details['auction_id'] . '" class="checkinactivate" ' . (($item_details['active'] == 0) ? 'checked' : '') . '></td> ' .
-            '	</tr> ' .
-            '</table></td> ';
+              '	<tr> ' .
+              '		<td>' . GMSG_ACTIVE . '</td> ' .
+              '		<td><input name="activate[]" type="checkbox" id="activate[]" value="' . $item_details['auction_id'] . '" class="checkactivate" ' . (($item_details['active'] == 1) ? 'checked' : '') . '></td> ' .
+              '	</tr> ' .
+              '	<tr> ' .
+              '		<td>' . GMSG_SUSPENDED . '</td> ' .
+              '		<td><input name="inactivate[]" type="checkbox" id="inactivate[]" value="' . $item_details['auction_id'] . '" class="checkinactivate" ' . (($item_details['active'] == 0) ? 'checked' : '') . '></td> ' .
+              '	</tr> ' .
+              '</table></td> ';
         }
 
         $auctions_content .= '<td align="center"><input name="delete[]" type="checkbox" id="delete[]" value="' . $item_details['auction_id'] . '" class="checkdelete"></td>' .
-          '</tr> ';
+            '</tr> ';
       }
 
       $template->set('auctions_content', $auctions_content);

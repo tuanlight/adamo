@@ -39,6 +39,8 @@
       $template->set('msg_changes_saved', '<p align="center">' . AMSG_RECORD_DELETED . '</p>');
     }
 
+    if (!$start)
+      $start = 0;
     $limit = 20;
 
     $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'b.block_id';

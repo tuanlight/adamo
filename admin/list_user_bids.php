@@ -37,7 +37,9 @@
 
       $template->set('msg_changes_saved', '<p align="center">' . $retract_output['display'] . '</p>');
     }
-
+    
+     if (!$start)
+      $start = 0;
     $limit = 20;
 
     $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'a.auction_id';

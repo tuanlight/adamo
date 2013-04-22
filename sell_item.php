@@ -776,7 +776,5 @@
 
     echo $template_output;
   }
-  echo "<pre>";
-  var_dump(get_included_files());
-  echo "</pre>";
+
 ?>

@@ -16,7 +16,9 @@
   include_once ('includes/functions_item.php');
 
   $template->set('header_browse_auctions', $header_browse_auctions);
-
+  
+   if (!$start)
+      $start = 0;
   $limit = 20;
 
   $order_link = '&order_field=' . $order_field . '&order_type=' . $order_type;

@@ -30,7 +30,9 @@
       $db->query("DELETE FROM " . DB_PREFIX . "messaging WHERE topic_id='" . intval($_REQUEST['topic_id']) . "'");
       $template->set('msg_changes_saved', '<p align="center">' . AMSG_TOPIC_DELETED . '</p>');
     }
-
+    
+    if (!$start)
+        $start = 0;
     $limit = 20;
 
     $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'm.topic_id';

@@ -352,7 +352,9 @@
     }
 
     $template->set('management_box', $management_box);
-
+    
+    if (!$start)
+        $start = 0;
     $limit = 20;
 
     $order_field = ($_REQUEST['order_field']) ? $_REQUEST['order_field'] : 'u.reg_date';

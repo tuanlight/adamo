@@ -551,7 +551,7 @@
 
       $sql_select_gateways = $this->query($gateways_query);
 
-      $payment_description = substr(ereg_replace("&#039;", '', $payment_description), 0, 120);
+      $payment_description = substr(str_replace("&#039;", '', $payment_description), 0, 120);
       while ($gateway_details = $this->fetch_array($sql_select_gateways)) {
         if ($gateway_details['name'] == 'PayPal' && (!$user_id || $pg_details['pg_paypal_email'])) {
           $paypal_email = ($user_id) ? $pg_details['pg_paypal_email'] : $this->setts['pg_paypal_email'];
@@ -1090,15 +1090,7 @@
       $can_rollback = ($this->edit_auction_id) ? 1 : 0;
 
       $output = array('display' => null, 'amount' => 0);
-
-      $output['display'] = '<tr class="c4"> ' .
-        '	<td colspan="3">' . GMSG_AUCTION_FEES . '</td> ' .
-        '</tr> ' .
-        '<tr class="c5"> ' .
-        '	<td><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="150" height="1"></td> ' .
-        '	<td colspan="2"><img src="themes/' . $this->setts['default_theme'] . '/img/pixel.gif" width="1" height="1"></td> ' .
-        '</tr> ';
-
+      
       $fees_no_tier = $this->fees_no_tier_array($item_details);
 
       // we start with the setup fee
@@ -1108,42 +1100,47 @@
         $this->set_fees($user_details['user_id'], $item_details['category_id']);
       }
 
+      $charged_fee_tier = array();
+
       if (is_array($setup_fee)) {
         foreach ($setup_fee as $key => $value) {
-          if ($value['amount']) {
-            if ($value['calc_type'] == 'flat') {
-              $output['amount'] += $value['amount'];
-              $fee_display = $this->display_amount($value['amount'], $this->setts['currency']);
-            }
-            else if ($value['calc_type'] == 'percent') {
-              $output['amount'] += $this->round_number($item_details['start_price'] * $value['amount'] / 100);
-              $fee_display = $value['amount'] . '%';
-            }
+          if (!$value['amount']) {
+            continue;
+          }
+          if ($value['calc_type'] == 'flat') {
+            $output['amount'] += $value['amount'];
+            $fee_display = $this->display_amount($value['amount'], $this->setts['currency']);
+          }
+          elseif ($value['calc_type'] == 'percent') {
+            $output['amount'] += $this->round_number($item_details['start_price'] * $value['amount'] / 100);
+            $fee_display = $value['amount'] . '%';
+          }
 
-            if ($item_relist) {
-              $output['amount'] = $this->round_number($output['amount'] - $output['amount'] * $this->fee['relist_fee_reduction'] / 100);
-            }
+          if ($item_relist) {
+            $output['amount'] = $this->round_number($output['amount'] - $output['amount'] * $this->fee['relist_fee_reduction'] / 100);
+          }
 
-            $output['display'] .= '<tr class="c1"> ' .
-              '	<td align="right">' . GMSG_SETUP_FEE . '</td> ' .
-              '	<td nowrap colspan="2">' . $fee_display . $value['display'] . '</td> ' .
-              '</tr> ';
+          $charged_fee_tier[$key] = array(
+            'value' => $fee_display,
+            'display' => $value['display'],
+          );
 
-            ## now add the row on the invoices table
-            if ($user_payment_mode == 2 && $add_invoices) {
-              $account_balance += $output['amount'];
+          ## now add the row on the invoices table
+          if ($user_payment_mode == 2 && $add_invoices) {
+            $account_balance += $output['amount'];
 
-              $sql_insert_invoice = $this->query("INSERT INTO " . DB_PREFIX . "invoices
+            $sql_insert_invoice = $this->query("INSERT INTO " . DB_PREFIX . "invoices
 							(user_id, item_id, name, amount, invoice_date, current_balance, can_rollback) VALUES
 							('" . $user_details['user_id'] . "', '" . $item_details['auction_id'] . "', '" . GMSG_SETUP_FEE . "',
 							'" . $output['amount'] . "', '" . CURRENT_TIME . "', '" . $account_balance . "', " . $can_rollback . ")");
 
-              $sql_update_user_balance = $this->query("UPDATE " . DB_PREFIX . "users SET
+            $sql_update_user_balance = $this->query("UPDATE " . DB_PREFIX . "users SET
 							balance='" . $account_balance . "' WHERE user_id='" . $user_details['user_id'] . "'");
-            }
           }
         }
       }
+
+      $charged_fee_no_tier = array();
 
       foreach ($fees_no_tier as $key => $value) {
         if ($value[1]) {
@@ -1156,11 +1153,10 @@
           $output['amount'] += $fee_details['amount'];
 
           if ($fee_details['amount']) { ## only do this if there is a fee
-            $output['display'] .= '<tr class="c1"> ' .
-              '	<td align="right">' . $value[0] . '</td> ' .
-              '	<td nowrap colspan="2">' . $fee_details['display'] . '</td> ' .
-              '</tr> ';
-
+            $charged_fee_no_tier[$key] = array(
+              'value' => $value[0],
+              'display' => $fee_details['display'],
+            );
 
             ## now add the row on the invoices table
             if ($user_payment_mode == 2 && $add_invoices) {
@@ -1178,10 +1174,13 @@
         }
       }
 
-      $output['display'] .= '<tr class="c3"> ' .
-        '	<td align="right">' . GMSG_TOTAL . '</td> ' .
-        '	<td nowrap colspan="2">' . $this->display_amount($output['amount'], $this->setts['currency']) . '</td> ' .
-        '</tr> ';
+      $display_amount = $this->display_amount($output['amount'], $this->setts['currency']);
+
+      $output['display'] = array(
+        'charged_fee_tier' => $charged_fee_tier,
+        'charged_fee_no_tier' => $charged_fee_no_tier,
+        'display_amount' => $display_amount,
+      );
 
       return $output;
     }

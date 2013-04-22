@@ -102,7 +102,9 @@
     $order_type = ($_REQUEST['order_type']) ? $_REQUEST['order_type'] : 'ASC';
 
     $additional_vars = '&parent_id=' . $parent_id . '&keywords_search=' . $keywords_search;
-
+    
+     if (!$start)
+      $start = 0;
     $limit = 20;
 
     $order_link = '&order_field=' . $order_field . '&order_type=' . $order_type;
