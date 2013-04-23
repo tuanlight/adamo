@@ -12,3 +12,4 @@ The final step will ask you to complete the site setup details (name, url and ad
 Once complete, set /includes back to CHMOD 755 and delete the /install directory
 The cache directory needs to CHMOD 777 for picture uploads to work correctly
 ================================================== =
+vai drtgdfgfdkgdfgl; dfgdfklgjdfkg dfgdfgmkdfl;. dfgdfgd.l,
